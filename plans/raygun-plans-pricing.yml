@@ -1,0 +1,317 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Raygun
+providerId: raygun
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - Observability
+  - Crash Reporting
+  - Real User Monitoring
+  - Application Performance Monitoring
+description: 'Reconciled plans and per-event pricing for Raygun Crash Reporting, Real User Monitoring,
+  and Application Performance Monitoring. Source: raygun.com/pricing.'
+sources:
+  - https://raygun.com/pricing
+plans:
+  - id: raygun-crash-reporting-basic
+    name: Crash Reporting Basic
+    type: tiered
+    description: Crash Reporting starter tier with unlimited apps, members, AI error resolution, spike protection,
+      and deployment tracking.
+    entries:
+      - label: Annual
+        name: annual
+        type: subscription
+        metric: errors
+        limit: 100000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '40.00'
+        userMultiplied: false
+      - label: Monthly
+        name: monthly
+        type: subscription
+        metric: errors
+        limit: 100000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '60.00'
+        userMultiplied: false
+  - id: raygun-crash-reporting-team
+    name: Crash Reporting Team
+    type: tiered
+    description: Crash Reporting team tier — adds inbound filters, third-party integrations, unlimited dashboards,
+      and role-based permissions.
+    entries:
+      - label: Annual
+        name: annual
+        type: subscription
+        metric: errors
+        limit: 200000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '80.00'
+      - label: Monthly
+        name: monthly
+        type: subscription
+        metric: errors
+        limit: 200000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '120.00'
+  - id: raygun-crash-reporting-business
+    name: Crash Reporting Business
+    type: tiered
+    description: Crash Reporting business tier — adds SAML SSO, dedicated account manager, priority support,
+      quarterly reviews.
+    entries:
+      - label: Annual
+        name: annual
+        type: subscription
+        metric: errors
+        limit: 1000000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '400.00'
+      - label: Monthly
+        name: monthly
+        type: subscription
+        metric: errors
+        limit: 1000000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '600.00'
+  - id: raygun-crash-reporting-enterprise
+    name: Crash Reporting Enterprise
+    type: enterprise
+    description: Crash Reporting enterprise tier — custom compliance terms, data volume discounts, custom SLAs,
+      private Slack support, custom data retention, carryover events, invoiced billing.
+    entries:
+      - label: Custom
+        name: custom
+        type: subscription
+        metric: errors
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: Call
+  - id: raygun-rum-basic
+    name: Real User Monitoring Basic
+    type: tiered
+    description: RUM starter tier — Core Web Vitals tracking, root cause analysis, page-level insights, custom alerts.
+    entries:
+      - label: Annual
+        name: annual
+        type: subscription
+        metric: sessions
+        limit: 100000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '80.00'
+      - label: Monthly
+        name: monthly
+        type: subscription
+        metric: sessions
+        limit: 100000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '120.00'
+  - id: raygun-rum-team
+    name: Real User Monitoring Team
+    type: tiered
+    description: RUM team tier — Core Web Vitals alerts, third-party integrations, unlimited dashboards, custom
+      timings, user roles.
+    entries:
+      - label: Annual
+        name: annual
+        type: subscription
+        metric: sessions
+        limit: 200000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '160.00'
+      - label: Monthly
+        name: monthly
+        type: subscription
+        metric: sessions
+        limit: 200000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '240.00'
+  - id: raygun-rum-business
+    name: Real User Monitoring Business
+    type: tiered
+    description: RUM business tier — SAML SSO, dedicated account manager, multi-year discounts, priority support.
+    entries:
+      - label: Annual
+        name: annual
+        type: subscription
+        metric: sessions
+        limit: 1000000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '800.00'
+      - label: Monthly
+        name: monthly
+        type: subscription
+        metric: sessions
+        limit: 1000000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '1200.00'
+  - id: raygun-rum-enterprise
+    name: Real User Monitoring Enterprise
+    type: enterprise
+    description: RUM enterprise tier — custom SLAs and data policies, complete feature set.
+    entries:
+      - label: Custom
+        name: custom
+        type: subscription
+        metric: sessions
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: Call
+  - id: raygun-apm-basic
+    name: Application Performance Monitoring Basic
+    type: tiered
+    description: APM starter tier — Apdex metrics, sampling, flamechart diagnostics, proactive notifications.
+    entries:
+      - label: Annual
+        name: annual
+        type: subscription
+        metric: traces
+        limit: 100000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '80.00'
+      - label: Monthly
+        name: monthly
+        type: subscription
+        metric: traces
+        limit: 100000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '120.00'
+  - id: raygun-apm-team
+    name: Application Performance Monitoring Team
+    type: tiered
+    description: APM team tier — inbound filters, integrations, unlimited dashboards, source code integration.
+    entries:
+      - label: Annual
+        name: annual
+        type: subscription
+        metric: traces
+        limit: 200000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '160.00'
+      - label: Monthly
+        name: monthly
+        type: subscription
+        metric: traces
+        limit: 200000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '240.00'
+  - id: raygun-apm-business
+    name: Application Performance Monitoring Business
+    type: tiered
+    description: APM business tier — enterprise features and dedicated support options.
+    entries:
+      - label: Annual
+        name: annual
+        type: subscription
+        metric: traces
+        limit: 1000000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '800.00'
+      - label: Monthly
+        name: monthly
+        type: subscription
+        metric: traces
+        limit: 1000000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '1200.00'
+  - id: raygun-apm-enterprise
+    name: Application Performance Monitoring Enterprise
+    type: enterprise
+    description: APM enterprise tier — full customization with custom SLAs.
+    entries:
+      - label: Custom
+        name: custom
+        type: subscription
+        metric: traces
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: Call
+  - id: raygun-on-demand
+    name: On-Demand Overages
+    type: usage-based
+    description: Pay-as-you-go pricing once plan event allotment is consumed.
+    entries:
+      - label: Per error
+        name: per_error
+        type: metered
+        metric: errors
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.001'
+      - label: Per session
+        name: per_session
+        type: metered
+        metric: sessions
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.002'
+      - label: Per trace
+        name: per_trace
+        type: metered
+        metric: traces
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.002'
+trial:
+  available: true
+  length: 14
+  unit: days
+  description: 14-day free trial with unlimited monitoring; no credit card required.
+retention:
+  errors: 180 days
+  sessions: 60 days
+  enterprise: custom
+discounts:
+  - description: Annual billing saves approximately 33% versus monthly.

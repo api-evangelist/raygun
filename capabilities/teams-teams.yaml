@@ -1,0 +1,126 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Raygun Public API \u2014 Teams"
+  description: "Raygun Public API \u2014 Teams business capability. 2 operations against the Raygun v3 REST API."
+  tags:
+  - Raygun
+  - Teams
+  - Observability
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    RAYGUN_PERSONAL_ACCESS_TOKEN: RAYGUN_PERSONAL_ACCESS_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: teams-teams
+    baseUri: https://api.raygun.com/v3
+    description: "Raygun Public API \u2014 Teams. Self-contained Naftiko capability."
+    resources:
+    - name: teams
+      path: /teams
+      operations:
+      - name: list-teams
+        method: GET
+        description: List Teams
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: null
+          in: query
+          type: string
+          description: ''
+          required: false
+        - name: null
+          in: query
+          type: string
+          description: ''
+          required: false
+        - name: orderby
+          in: query
+          type: array
+          description: Order items by property values
+          required: false
+    - name: teams-team-identifier
+      path: /teams/{team-identifier}
+      operations:
+      - name: get-team-by-identifier
+        method: GET
+        description: Get Team by Identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters: []
+    authentication:
+      type: bearer
+      value: '{{env.RAYGUN_PERSONAL_ACCESS_TOKEN}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: teams-teams-rest
+    port: 8080
+    description: REST adapter for Raygun Teams.
+    resources:
+    - path: /v3/teams
+      name: teams
+      description: REST surface for teams.
+      operations:
+      - method: GET
+        name: list-teams
+        description: List Teams
+        call: teams-teams.list-teams
+        with:
+          null: rest.query.None
+          orderby: rest.query.orderby
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v3/teams/{team-identifier}
+      name: teams-team-identifier
+      description: REST surface for teams-team-identifier.
+      operations:
+      - method: GET
+        name: get-team-by-identifier
+        description: Get Team by Identifier
+        call: teams-teams.get-team-by-identifier
+        with: {}
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: teams-teams-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Raygun Teams.
+    tools:
+    - name: raygun-list-teams
+      description: List Teams
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: teams-teams.list-teams
+      with:
+        null: tools.None
+        orderby: tools.orderby
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: raygun-get-team-by-identifier
+      description: Get Team by Identifier
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: teams-teams.get-team-by-identifier
+      with: {}
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,1183 @@
+openapi: 3.0.3
+info:
+  title: Raygun Customers API
+  version: '3.0'
+  description: This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to
+    get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.
+  contact:
+    name: Raygun Support
+    email: support@raygun.com
+servers:
+- url: https://api.raygun.com/v3
+  description: ''
+components:
+  schemas:
+    application:
+      type: object
+      properties:
+        identifier:
+          type: string
+        planIdentifier:
+          type: string
+        name:
+          type: string
+        apiKey:
+          type: string
+        hasSentCrashData:
+          type: boolean
+        hasSentApmData:
+          type: boolean
+        hasSentRumData:
+          type: boolean
+        rumDataType:
+          type: string
+          enum:
+          - notSet
+          - mobile
+          - web
+          description: The type of RUM data this application is set up to handle
+      required:
+      - identifier
+      - planIdentifier
+      - name
+      - apiKey
+      - hasSentCrashData
+      - hasSentApmData
+      - hasSentRumData
+    plan:
+      title: plan
+      type: object
+      properties:
+        identifier:
+          type: string
+      required:
+      - identifier
+    team:
+      title: team
+      type: object
+      properties:
+        identifier:
+          type: string
+        name:
+          type: string
+        planIdentifier:
+          type: string
+        isSystemManaged:
+          type: boolean
+          description: System teams are Owners and Users, and cannot be deleted
+      required:
+      - identifier
+      - name
+      - planIdentifier
+      - isSystemManaged
+    invitation:
+      type: object
+      properties:
+        identifier:
+          type: string
+        teamIdentifier:
+          type: string
+        emailAddress:
+          type: string
+          format: email
+        status:
+          type: string
+          enum:
+          - sent
+          - accepted
+          - revoked
+        createdAt:
+          type: string
+          format: date-time
+        createdByUserIdentifier:
+          type: string
+        acceptedByUserIdentifier:
+          type: string
+      required:
+      - identifier
+      - emailAddress
+      - status
+      - createdAt
+      - createdByUserIdentifier
+    deployment:
+      type: object
+      properties:
+        identifier:
+          type: string
+        applicationIdentifier:
+          type: string
+        version:
+          type: string
+        emailAddress:
+          type: string
+          format: email
+        ownerName:
+          type: string
+        comment:
+          type: string
+        scmIdentifier:
+          type: string
+        scmType:
+          type: string
+          enum:
+          - gitHub
+          - bitbucket
+          - gitLab
+          - azureDevOps
+        deployedAt:
+          type: string
+          format: date-time
+        applicationUrl:
+          type: string
+          format: uri
+          readOnly: true
+      required:
+      - identifier
+      - applicationIdentifier
+      - version
+    error-group:
+      type: object
+      properties:
+        identifier:
+          type: string
+        applicationIdentifier:
+          type: string
+        message:
+          type: string
+        status:
+          type: string
+          enum:
+          - active
+          - resolved
+          - ignored
+          - permanentlyIgnored
+        lastOccurredAt:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        resolvedIn:
+          type: object
+          properties:
+            version:
+              type: string
+            discardFromPreviousVersions:
+              type: boolean
+        discardNewOccurrences:
+          type: boolean
+          description: True if the error is permanently ignored and has been set to discard any new occurrences.
+        applicationUrl:
+          type: string
+          format: uri
+          description: URL to view the error group in Raygun.
+      required:
+      - identifier
+      - applicationIdentifier
+      - message
+      - status
+      - lastOccurredAt
+      - createdAt
+    error-instance:
+      type: object
+      properties:
+        identifier:
+          type: string
+          description: Identifier of the error instance
+        applicationIdentifier:
+          type: string
+          description: Identifier of the application the error instance belongs to
+        errorGroupIdentifier:
+          type: string
+          description: Identifier of the error group this instance belongs to
+        occurredOn:
+          type: string
+          format: date-time
+          description: When this error instance occurred
+        error:
+          $ref: '#/components/schemas/error-detail'
+          description: The error details including stack trace and exception information
+        tags:
+          type: array
+          items:
+            type: string
+          description: Tags associated with this error instance
+        userCustomData:
+          type: object
+          additionalProperties: true
+          description: Custom data provided by the user/application
+        client:
+          $ref: '#/components/schemas/client-detail'
+          description: Client information (library/SDK details)
+        request:
+          $ref: '#/components/schemas/request-detail'
+          description: Request information if this error occurred during an HTTP request
+        user:
+          $ref: '#/components/schemas/user-detail'
+          description: User information associated with this error instance
+        breadcrumbs:
+          type: array
+          items:
+            $ref: '#/components/schemas/breadcrumb-detail'
+          description: Breadcrumbs leading up to the error
+        environment:
+          $ref: '#/components/schemas/environment-detail'
+          description: Environment information when the error occurred
+        version:
+          type: string
+          description: Version of the application when the error occurred
+        machineName:
+          type: string
+          description: Name of the machine where the error occurred
+        applicationUrl:
+          type: string
+          format: uri
+          description: URL to view this error instance in the Raygun application
+      required:
+      - identifier
+      - applicationIdentifier
+      - errorGroupIdentifier
+      - occurredOn
+      - error
+      - applicationUrl
+    comment:
+      title: comment
+      type: object
+      properties:
+        applicationIdentifier:
+          type: string
+        errorGroupIdentifier:
+          type: string
+        comment:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+      required:
+      - identifier
+      - applicationIdentifier
+      - errorGroupIdentifier
+      - comment
+      - createdAt
+    error-instance-summary:
+      type: object
+      properties:
+        identifier:
+          type: string
+          description: Identifier of the error instance
+        occurredOn:
+          type: string
+          format: date-time
+          description: When this error instance occurred
+      required:
+      - identifier
+      - occurredOn
+    error-detail:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+        className:
+          type: string
+          description: The exception class name
+        innerError:
+          $ref: '#/components/schemas/error-detail'
+          description: Inner exception details
+        innerErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/error-detail'
+          description: Multiple inner exceptions (for AggregateException scenarios)
+        stackTrace:
+          type: array
+          items:
+            $ref: '#/components/schemas/stack-frame-detail'
+          description: Stack trace frames
+    stack-frame-detail:
+      type: object
+      properties:
+        lineNumber:
+          type: integer
+          description: Line number in the source file
+        columnNumber:
+          type: integer
+          description: Column number in the source file
+        className:
+          type: string
+          description: Class name containing the method
+        fileName:
+          type: string
+          description: File name of the source code
+        methodName:
+          type: string
+          description: Method name
+        raw:
+          type: string
+          description: Raw stack frame string
+    client-detail:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the client SDK
+        version:
+          type: string
+          description: Version of the client SDK
+        clientUrl:
+          type: string
+          format: uri
+          description: URL of the client SDK
+    request-detail:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          description: HTTP URL that was being requested
+        httpMethod:
+          type: string
+          description: HTTP method (GET, POST, etc.)
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+          description: Request headers
+        queryString:
+          type: object
+          additionalProperties:
+            type: string
+          description: Query string parameters
+        form:
+          type: object
+          additionalProperties:
+            type: string
+          description: Form data if applicable
+        rawData:
+          type: string
+          description: Raw request data
+        ipAddress:
+          type: string
+          description: IP address of the client
+        hostName:
+          type: string
+          description: Host header value
+    user-detail:
+      type: object
+      properties:
+        identifier:
+          type: string
+          description: User identifier
+        isAnonymous:
+          type: boolean
+          description: Whether the user is anonymous
+        email:
+          type: string
+          format: email
+          description: User's email address
+        fullName:
+          type: string
+          description: User's full name
+        firstName:
+          type: string
+          description: User's first name
+        uuid:
+          type: string
+          format: uuid
+          description: UUID for this user
+    breadcrumb-detail:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message describing the breadcrumb
+        category:
+          type: string
+          description: Category of the breadcrumb
+        level:
+          type: string
+          description: Level of the breadcrumb (info, warning, error, etc.)
+        timestamp:
+          type: string
+          format: date-time
+          description: When this breadcrumb was recorded
+        type:
+          type: string
+          description: Type of breadcrumb
+        customData:
+          type: object
+          additionalProperties: true
+          description: Custom data associated with the breadcrumb
+    environment-detail:
+      type: object
+      properties:
+        processorCount:
+          type: integer
+          description: Processor count
+        osVersion:
+          type: string
+          description: Operating system version
+        windowBoundsWidth:
+          type: string
+          description: Window bounds width if applicable
+        windowBoundsHeight:
+          type: string
+          description: Window bounds height if applicable
+        browser:
+          type: string
+          description: Browser name if this is a web application
+        browserVersion:
+          type: string
+          description: Browser version
+        colorDepth:
+          type: integer
+          description: Color depth of the display
+        resolutionWidth:
+          type: integer
+          description: Screen resolution width
+        resolutionHeight:
+          type: integer
+          description: Screen resolution height
+        currentCulture:
+          type: string
+          description: Current culture
+        totalPhysicalMemory:
+          type: integer
+          format: int64
+          description: Total physical memory
+        availablePhysicalMemory:
+          type: integer
+          format: int64
+          description: Available physical memory
+        totalVirtualMemory:
+          type: integer
+          format: int64
+          description: Total virtual memory
+        availableVirtualMemory:
+          type: integer
+          format: int64
+          description: Available virtual memory
+        diskSpaceFree:
+          type: string
+          description: Disk space information
+        architecture:
+          type: string
+          description: Architecture (x86, x64, etc.)
+    source-map:
+      title: source-map
+      type: object
+      properties:
+        identifier:
+          type: string
+        applicationIdentifier:
+          type: string
+        uri:
+          type: string
+          format: uri
+        fileName:
+          type: string
+        fileSizeBytes:
+          type: number
+        uploadedAt:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        isMapFile:
+          type: boolean
+    web-page:
+      title: web-page
+      type: object
+      properties:
+        identifier:
+          type: string
+        applicationIdentifier:
+          type: string
+        uri:
+          type: string
+          format: uri
+        type:
+          type: string
+        lastSeenAt:
+          type: string
+          format: date-time
+    mobile-page:
+      title: mobile-page
+      type: object
+      properties:
+        identifier:
+          type: string
+        applicationIdentifier:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        lastSeenAt:
+          type: string
+          format: date-time
+    customer:
+      title: customer
+      type: object
+      properties:
+        identifier:
+          type: string
+        applicationIdentifier:
+          type: string
+        externalIdentifier:
+          type: string
+          description: Unique value that identifies the customer in your system.
+        emailAddress:
+          type: string
+          format: email
+        firstName:
+          type: string
+        fullName:
+          type: string
+        isAnonymous:
+          type: boolean
+        firstSeenAt:
+          type: string
+          format: date-time
+        lastSeenAt:
+          type: string
+          format: date-time
+    session:
+      title: session
+      type: object
+      properties:
+        identifier:
+          type: string
+        applicationIdentifier:
+          type: string
+        customerIdentifier:
+          type: string
+        isActive:
+          type: boolean
+        startedAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        endedAt:
+          type: string
+          format: date-time
+          nullable: true
+        ipAddress:
+          type: string
+          oneOf:
+          - format: ipv4
+          - format: ipv6
+        countryCode:
+          type: string
+          pattern: ^[A-Z]{2}$
+          example: US
+          description: ISO 3166-1 alpha-2 country code
+          nullable: true
+        platformName:
+          type: string
+        operatingSystemName:
+          type: string
+        operatingSystemVersion:
+          type: string
+          nullable: true
+        browserName:
+          type: string
+        browserVersion:
+          type: string
+          nullable: true
+        viewportWidth:
+          type: integer
+        viewportHeight:
+          type: integer
+        deploymentVersion:
+          type: string
+          nullable: true
+        applicationUrl:
+          type: string
+          format: uri
+          description: URL to view the session in Raygun
+      required:
+      - identifier
+      - applicationIdentifier
+      - customerIdentifier
+      - isActive
+      - startedAt
+      - updatedAt
+      - endedAt
+      - ipAddress
+      - countryCode
+      - platformName
+      - operatingSystemName
+      - operatingSystemVersion
+      - browserName
+      - browserVersion
+      - viewportWidth
+      - viewportHeight
+      - deploymentVersion
+      - applicationUrl
+    sessionPageView:
+      title: page-view
+      type: object
+      properties:
+        pageIdentifier:
+          type: string
+        viewedAt:
+          type: string
+          format: date-time
+        applicationUrl:
+          type: string
+          format: uri
+          description: URL to view the session page view in Raygun
+      required:
+      - pageIdentifier
+      - viewedAt
+      - applicationUrl
+    sessionError:
+      title: session-error
+      type: object
+      properties:
+        errorGroupIdentifier:
+          type: string
+        occurredAt:
+          type: string
+          format: date-time
+        applicationUrl:
+          type: string
+          format: uri
+          description: URL to view the error instance in Raygun
+      required:
+      - errorGroupIdentifier
+      - occurredAt
+      - applicationUrl
+    flutter-symbol:
+      title: flutter-symbol
+      type: object
+      properties:
+        identifier:
+          type: string
+        applicationIdentifier:
+          type: string
+        name:
+          type: string
+        version:
+          type: string
+        updatedAt:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+  securitySchemes:
+    personal_access_token:
+      type: http
+      scheme: bearer
+      description: 'Personal Access Token authorization using the Bearer scheme. Example: `Authorization: Bearer {token}`'
+  requestBodies:
+    send-invitation:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              emailAddress:
+                type: string
+                format: email
+            required:
+            - emailAddress
+    upload-source-map:
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              file:
+                type: string
+                format: binary
+              uri:
+                type: string
+                format: uri
+            required:
+            - file
+            - uri
+      required: true
+    update-source-map:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              uri:
+                type: string
+                format: uri
+            required:
+            - uri
+      required: true
+    create-deployment:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              version:
+                type: string
+                minLength: 1
+                maxLength: 128
+              ownerName:
+                type: string
+                minLength: 0
+                maxLength: 128
+              emailAddress:
+                type: string
+                minLength: 0
+                maxLength: 128
+                format: email
+              comment:
+                type: string
+              scmIdentifier:
+                type: string
+                minLength: 0
+                maxLength: 256
+              scmType:
+                type: string
+                enum:
+                - gitHub
+                - gitLab
+                - azureDevOps
+                - bitbucket
+              createdAt:
+                type: string
+                format: date-time
+                description: 'Prefer `deployedAt`. This field is for backwards compatibility.
+
+
+                  Specifying both `createdAt` and `deployedAt` will prioritize the use of `deployedAt`'
+                deprecated: true
+              deployedAt:
+                type: string
+                format: date-time
+            required:
+            - version
+    update-deployment:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              version:
+                type: string
+                minLength: 1
+                maxLength: 128
+              ownerName:
+                type: string
+                minLength: 0
+                maxLength: 128
+              emailAddress:
+                type: string
+                minLength: 0
+                maxLength: 128
+                format: email
+              comment:
+                type: string
+              scmIdentifier:
+                type: string
+                minLength: 0
+                maxLength: 256
+              scmType:
+                type: string
+                enum:
+                - gitHub
+                - gitLab
+                - azureDevOps
+                - bitbucket
+              deployedAt:
+                type: string
+                format: date-time
+    error-group-resolve:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              version:
+                type: string
+                description: The version that this error was resolved in
+              discardFromPreviousVersions:
+                default: true
+                type: boolean
+                description: When true, occurrences from previous versions will be discarded.
+            required:
+            - version
+            - discardFromPreviousVersions
+    error-group-permanently-ignore:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              discardNewOccurrences:
+                type: boolean
+                description: When true, new occurrences of this error will not be stored or count towards your error quota
+            required:
+            - discardNewOccurrences
+      required: true
+    create-comment:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              comment:
+                type: string
+                description: The comment to add to the error group
+      required: true
+    upload-flutter-symbol:
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              file:
+                type: string
+                format: binary
+              version:
+                type: string
+            required:
+            - file
+            - version
+      required: true
+  parameters:
+    team-identifier:
+      name: team-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Team identifier
+    application-identifier:
+      name: application-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Application identifier
+    invitation-identifier:
+      name: invitation-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Invitation identifier
+    api-key:
+      name: api-key
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Application api key
+    deployment-identifier:
+      name: deployment-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Deployment identifier
+    count:
+      name: count
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+        maximum: 500
+      description: Limits the number of items in the response
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 2147483647
+      description: Number of items to skip before returning results
+    error-group-identifier:
+      name: error-group-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Error group identifier
+    source-map-identifier:
+      name: source-map-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Source map identifier
+    page-identifier:
+      name: page-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Page identifier
+    customer-identifier:
+      name: customer-identifier
+      in: path
+      schema:
+        type: string
+      required: true
+      description: Customer identifier
+    session-identifier:
+      name: session-identifier
+      in: path
+      schema:
+        type: string
+      required: true
+      description: Session identifier
+    flutter-symbol-identifier:
+      name: flutter-symbol-identifier
+      in: path
+      schema:
+        type: string
+      required: true
+      description: Flutter symbol identifier
+    error-instance-identifier:
+      name: error-instance-identifier
+      in: path
+      schema:
+        type: string
+      required: true
+      description: Error instance identifier (accepts both Base36 and numeric formats)
+  responses:
+    problem-details:
+      description: Problem Details
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              title:
+                type: string
+              detail:
+                type: string
+              status:
+                type: integer
+              traceId:
+                type: string
+            required:
+            - type
+            - title
+            - status
+            - traceId
+      headers:
+        X-Raygun-RequestId:
+          schema:
+            type: string
+          description: The id associated with this request
+    validation-problem-details:
+      description: Validation problem details
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              title:
+                type: string
+              detail:
+                type: string
+              status:
+                type: integer
+              traceId:
+                type: string
+              errors:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    type: string
+            required:
+            - type
+            - title
+            - status
+            - traceId
+            - errors
+      headers:
+        X-Raygun-RequestId:
+          schema:
+            type: string
+          description: The id associated with this request
+    metrics-time-series:
+      description: Time-series metrics
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                aggregation:
+                  type: string
+                metric:
+                  type: string
+                series:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      time:
+                        type: string
+                        format: date-time
+                      value:
+                        type: number
+                        format: double
+    metrics-histogram:
+      description: Histogram metrics
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                metric:
+                  type: string
+                buckets:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      key:
+                        type: number
+                        description: Lower bound of the bucket.
+                      range:
+                        type: string
+                        description: 'Inclusive lower bound and exclusive upperbound of the bucket. Format: {lower-bound}
+                          - {upper-bound}.'
+                      count:
+                        type: integer
+                        description: Number of events that fall in the bucket.
+                    required:
+                    - key
+                    - range
+                    - count
+              required:
+              - metric
+              - buckets
+          examples:
+            Single-metric example:
+              value:
+              - metric: loadTime
+                buckets:
+                - key: 100
+                  range: 100 - 200
+                  count: 4000
+                - key: 200
+                  range: 200 - 300
+                  count: 5000
+            Multi-metric example:
+              value:
+              - metric: loadTime
+                buckets:
+                - key: 100
+                  range: 100 - 200
+                  count: 4000
+              - metric: firstPaint
+                buckets:
+                - key: 80.5
+                  range: 80.5 - 120.5
+                  count: 300
+tags:
+- name: applications
+- name: customers
+- name: deployments
+- name: errors
+- name: invitations
+- name: metrics
+- name: pages
+- name: plans
+- name: sessions
+- name: source-maps
+- name: teams
+- name: flutter-symbols
+security:
+- personal_access_token: []
+paths:
+  /applications/{application-identifier}/customers:
+    get:
+      summary: List Customers for an Application
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/customer'
+        '401':
+          $ref: '#/components/responses/problem-details'
+        '403':
+          $ref: '#/components/responses/problem-details'
+        '404':
+          $ref: '#/components/responses/problem-details'
+        '429':
+          description: Too Many Requests
+      operationId: list-customers
+      description: Returns a list of customers for the specified application
+      security:
+      - personal_access_token:
+        - customers:read
+      parameters:
+      - $ref: '#/components/parameters/count'
+      - $ref: '#/components/parameters/offset'
+      - in: query
+        name: orderby
+        description: Order items by property values
+        schema:
+          type: array
+          uniqueItems: true
+          items:
+            type: string
+            enum:
+            - isAnonymous
+            - isAnonymous desc
+            - firstSeenAt
+            - firstSeenAt desc
+            - lastSeenAt
+            - lastSeenAt desc
+      tags:
+      - customers
+  /applications/{application-identifier}/customers/{customer-identifier}:
+    get:
+      summary: Get Customer by Identifier
+      tags:
+      - customers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/customer'
+        '401':
+          $ref: '#/components/responses/problem-details'
+        '403':
+          $ref: '#/components/responses/problem-details'
+        '404':
+          $ref: '#/components/responses/problem-details'
+        '429':
+          description: Too Many Requests
+      operationId: get-customer-by-identifier
+      description: Returns a single customer by identifier
+      security:
+      - personal_access_token:
+        - customers:read

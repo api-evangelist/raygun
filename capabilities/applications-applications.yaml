@@ -1,0 +1,196 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Raygun Public API \u2014 Applications"
+  description: "Raygun Public API \u2014 Applications business capability. 4 operations against the Raygun v3 REST API."
+  tags:
+  - Raygun
+  - Applications
+  - Observability
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    RAYGUN_PERSONAL_ACCESS_TOKEN: RAYGUN_PERSONAL_ACCESS_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: applications-applications
+    baseUri: https://api.raygun.com/v3
+    description: "Raygun Public API \u2014 Applications. Self-contained Naftiko capability."
+    resources:
+    - name: applications
+      path: /applications
+      operations:
+      - name: list-applications
+        method: GET
+        description: List Applications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: null
+          in: query
+          type: string
+          description: ''
+          required: false
+        - name: null
+          in: query
+          type: string
+          description: ''
+          required: false
+        - name: orderby
+          in: query
+          type: array
+          description: Order items by property values
+          required: false
+    - name: applications-application-identifier
+      path: /applications/{application-identifier}
+      operations:
+      - name: get-application-by-identifier
+        method: GET
+        description: Get Application by Identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters: []
+    - name: applications-api-key-api-key
+      path: /applications/api-key/{api-key}
+      operations:
+      - name: get-application-by-apikey
+        method: GET
+        description: Get Application by Api Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters: []
+    - name: applications-application-identifier-regenerate-api-key
+      path: /applications/{application-identifier}/regenerate-api-key
+      operations:
+      - name: regenerate-application-api-key
+        method: POST
+        description: Regenerate Application Api Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters: []
+    authentication:
+      type: bearer
+      value: '{{env.RAYGUN_PERSONAL_ACCESS_TOKEN}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: applications-applications-rest
+    port: 8080
+    description: REST adapter for Raygun Applications.
+    resources:
+    - path: /v3/applications
+      name: applications
+      description: REST surface for applications.
+      operations:
+      - method: GET
+        name: list-applications
+        description: List Applications
+        call: applications-applications.list-applications
+        with:
+          null: rest.query.None
+          orderby: rest.query.orderby
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v3/applications/{application-identifier}
+      name: applications-application-identifier
+      description: REST surface for applications-application-identifier.
+      operations:
+      - method: GET
+        name: get-application-by-identifier
+        description: Get Application by Identifier
+        call: applications-applications.get-application-by-identifier
+        with: {}
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v3/applications/api-key/{api-key}
+      name: applications-api-key-api-key
+      description: REST surface for applications-api-key-api-key.
+      operations:
+      - method: GET
+        name: get-application-by-apikey
+        description: Get Application by Api Key
+        call: applications-applications.get-application-by-apikey
+        with: {}
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v3/applications/{application-identifier}/regenerate-api-key
+      name: applications-application-identifier-regenerate-api-key
+      description: REST surface for applications-application-identifier-regenerate-api-key.
+      operations:
+      - method: POST
+        name: regenerate-application-api-key
+        description: Regenerate Application Api Key
+        call: applications-applications.regenerate-application-api-key
+        with: {}
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: applications-applications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Raygun Applications.
+    tools:
+    - name: raygun-list-applications
+      description: List Applications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: applications-applications.list-applications
+      with:
+        null: tools.None
+        orderby: tools.orderby
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: raygun-get-application-by-identifier
+      description: Get Application by Identifier
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: applications-applications.get-application-by-identifier
+      with: {}
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: raygun-get-application-by-apikey
+      description: Get Application by Api Key
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: applications-applications.get-application-by-apikey
+      with: {}
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: raygun-regenerate-application-api-key
+      description: Regenerate Application Api Key
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: applications-applications.regenerate-application-api-key
+      with: {}
+      outputParameters:
+      - type: object
+        mapping: $.

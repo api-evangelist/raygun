@@ -1,0 +1,272 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Raygun Public API \u2014 Flutter Symbols"
+  description: "Raygun Public API \u2014 Flutter Symbols business capability. 5 operations against the Raygun v3 REST API."
+  tags:
+  - Raygun
+  - Flutter Symbols
+  - Observability
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    RAYGUN_PERSONAL_ACCESS_TOKEN: RAYGUN_PERSONAL_ACCESS_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: flutter-symbols-flutter-symbols
+    baseUri: https://api.raygun.com/v3
+    description: "Raygun Public API \u2014 Flutter Symbols. Self-contained Naftiko capability."
+    resources:
+    - name: applications-application-identifier-flutter-symbols
+      path: /applications/{application-identifier}/flutter-symbols
+      operations:
+      - name: list-flutter-symbols
+        method: GET
+        description: List Flutter Symbols for an Application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: null
+          in: query
+          type: string
+          description: ''
+          required: false
+        - name: null
+          in: query
+          type: string
+          description: ''
+          required: false
+        - name: null
+          in: query
+          type: string
+          description: ''
+          required: false
+        - name: orderby
+          in: query
+          type: array
+          description: Order items by property values
+          required: false
+      - name: upload-flutter-symbol
+        method: POST
+        description: Upload a Flutter Symbol
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: null
+          in: query
+          type: string
+          description: ''
+          required: false
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: applications-application-identifier-flutter-symbols-flutter-symbol-identifier
+      path: /applications/{application-identifier}/flutter-symbols/{flutter-symbol-identifier}
+      operations:
+      - name: get-flutter-symbol
+        method: GET
+        description: Get Flutter Symbol by Identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: null
+          in: query
+          type: string
+          description: ''
+          required: false
+        - name: null
+          in: query
+          type: string
+          description: ''
+          required: false
+      - name: delete-flutter-symbol
+        method: DELETE
+        description: Delete Flutter Symbol by Identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: null
+          in: query
+          type: string
+          description: ''
+          required: false
+        - name: null
+          in: query
+          type: string
+          description: ''
+          required: false
+    - name: applications-application-identifier-flutter-symbols-flutter-symbol-identifier-content
+      path: /applications/{application-identifier}/flutter-symbols/{flutter-symbol-identifier}/content
+      operations:
+      - name: get-flutter-symbol-content
+        method: GET
+        description: Get Flutter Symbol Content by Identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: null
+          in: query
+          type: string
+          description: ''
+          required: false
+        - name: null
+          in: query
+          type: string
+          description: ''
+          required: false
+    authentication:
+      type: bearer
+      value: '{{env.RAYGUN_PERSONAL_ACCESS_TOKEN}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: flutter-symbols-flutter-symbols-rest
+    port: 8080
+    description: REST adapter for Raygun Flutter-Symbols.
+    resources:
+    - path: /v3/applications/{application-identifier}/flutter-symbols
+      name: applications-application-identifier-flutter-symbols
+      description: REST surface for applications-application-identifier-flutter-symbols.
+      operations:
+      - method: GET
+        name: list-flutter-symbols
+        description: List Flutter Symbols for an Application
+        call: flutter-symbols-flutter-symbols.list-flutter-symbols
+        with:
+          null: rest.query.None
+          orderby: rest.query.orderby
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: upload-flutter-symbol
+        description: Upload a Flutter Symbol
+        call: flutter-symbols-flutter-symbols.upload-flutter-symbol
+        with:
+          null: rest.query.None
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v3/applications/{application-identifier}/flutter-symbols/{flutter-symbol-identifier}
+      name: applications-application-identifier-flutter-symbols-flutter-symbol-identifier
+      description: REST surface for applications-application-identifier-flutter-symbols-flutter-symbol-identifier.
+      operations:
+      - method: GET
+        name: get-flutter-symbol
+        description: Get Flutter Symbol by Identifier
+        call: flutter-symbols-flutter-symbols.get-flutter-symbol
+        with:
+          null: rest.query.None
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete-flutter-symbol
+        description: Delete Flutter Symbol by Identifier
+        call: flutter-symbols-flutter-symbols.delete-flutter-symbol
+        with:
+          null: rest.query.None
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v3/applications/{application-identifier}/flutter-symbols/{flutter-symbol-identifier}/content
+      name: applications-application-identifier-flutter-symbols-flutter-symbol-identifier-content
+      description: REST surface for applications-application-identifier-flutter-symbols-flutter-symbol-identifier-content.
+      operations:
+      - method: GET
+        name: get-flutter-symbol-content
+        description: Get Flutter Symbol Content by Identifier
+        call: flutter-symbols-flutter-symbols.get-flutter-symbol-content
+        with:
+          null: rest.query.None
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: flutter-symbols-flutter-symbols-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Raygun Flutter-Symbols.
+    tools:
+    - name: raygun-list-flutter-symbols
+      description: List Flutter Symbols for an Application
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: flutter-symbols-flutter-symbols.list-flutter-symbols
+      with:
+        null: tools.None
+        orderby: tools.orderby
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: raygun-upload-flutter-symbol
+      description: Upload a Flutter Symbol
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: flutter-symbols-flutter-symbols.upload-flutter-symbol
+      with:
+        null: tools.None
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: raygun-get-flutter-symbol
+      description: Get Flutter Symbol by Identifier
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: flutter-symbols-flutter-symbols.get-flutter-symbol
+      with:
+        null: tools.None
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: raygun-delete-flutter-symbol
+      description: Delete Flutter Symbol by Identifier
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: flutter-symbols-flutter-symbols.delete-flutter-symbol
+      with:
+        null: tools.None
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: raygun-get-flutter-symbol-content
+      description: Get Flutter Symbol Content by Identifier
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: flutter-symbols-flutter-symbols.get-flutter-symbol-content
+      with:
+        null: tools.None
+      outputParameters:
+      - type: object
+        mapping: $.

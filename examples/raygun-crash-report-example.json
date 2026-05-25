@@ -1,0 +1,74 @@
+{
+  "occurredOn": "2026-05-25T14:18:02Z",
+  "details": {
+    "machineName": "web-prod-03",
+    "version": "2.4.0",
+    "client": {
+      "name": "raygun4node",
+      "version": "1.0.0",
+      "clientUrl": "https://github.com/MindscapeHQ/raygun4node"
+    },
+    "error": {
+      "className": "TypeError",
+      "message": "Cannot read properties of undefined (reading 'id')",
+      "stackTrace": [
+        {
+          "lineNumber": 42,
+          "className": "CheckoutController",
+          "fileName": "/app/src/checkout.js",
+          "methodName": "submit"
+        },
+        {
+          "lineNumber": 118,
+          "className": "Router",
+          "fileName": "/app/node_modules/express/lib/router/index.js",
+          "methodName": "handle"
+        }
+      ],
+      "data": {}
+    },
+    "environment": {
+      "processorCount": 8,
+      "osVersion": "Linux 6.1.0",
+      "platform": "linux",
+      "browser": "node",
+      "browserVersion": "20.11.0"
+    },
+    "request": {
+      "hostName": "shop.example.com",
+      "url": "/api/checkout",
+      "httpMethod": "POST",
+      "ipAddress": "203.0.113.42"
+    },
+    "response": {
+      "statusCode": 500
+    },
+    "user": {
+      "identifier": "user-9912",
+      "isAnonymous": false,
+      "email": "buyer@example.com",
+      "fullName": "Alex Buyer"
+    },
+    "tags": ["production", "checkout", "p1"],
+    "userCustomData": {
+      "cartId": "cart-882a1",
+      "experiment": "checkout-v3"
+    },
+    "breadcrumbs": [
+      {
+        "timestamp": 1748185080000,
+        "message": "Loaded checkout page",
+        "category": "navigation",
+        "level": "info",
+        "type": "manual"
+      },
+      {
+        "timestamp": 1748185081500,
+        "message": "Clicked Pay Now",
+        "category": "ui.click",
+        "level": "info",
+        "type": "manual"
+      }
+    ]
+  }
+}

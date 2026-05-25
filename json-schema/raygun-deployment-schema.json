@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/raygun/raygun-deployment-schema.json",
+  "title": "Raygun Deployment",
+  "description": "Schema for a Raygun deployment resource — the release marker correlated with error groups via the Raygun Public v3 API.",
+  "type": "object",
+  "required": ["version"],
+  "properties": {
+    "identifier": {
+      "type": "string",
+      "description": "Server-assigned deployment identifier."
+    },
+    "version": {
+      "type": "string",
+      "description": "Release version string (e.g. semver or build number)."
+    },
+    "ownerName": {
+      "type": "string",
+      "description": "Name of the person or system that pushed the deploy."
+    },
+    "emailAddress": {
+      "type": "string",
+      "format": "email"
+    },
+    "comment": {
+      "type": "string",
+      "description": "Free-form release notes."
+    },
+    "scmIdentifier": {
+      "type": "string",
+      "description": "Source-control commit SHA the deployment was built from."
+    },
+    "scmType": {
+      "type": "string",
+      "enum": ["GitHub", "GitHubEnterprise", "Bitbucket", "BitbucketServer", "GitLab", "Azure", "VSO"],
+      "description": "Source-control provider used for the source link integration."
+    },
+    "scmAccountIdentifier": {
+      "type": "string",
+      "description": "Account or organization slug in the configured SCM."
+    },
+    "deployedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "applicationIdentifier": {
+      "type": "string"
+    }
+  }
+}

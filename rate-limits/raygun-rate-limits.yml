@@ -1,0 +1,94 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Raygun
+providerId: raygun
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - Observability
+  - Rate Limiting
+  - Quotas
+description: Reconciled rate limits and quota policies for the Raygun Public v3 API, crash-reporting
+  ingestion endpoint, and legacy RUM Pulse API.
+sources:
+  - https://api.raygun.io/v3/swagger/index.html
+  - https://raygun.com/documentation/product-guides/crash-reporting/api/
+  - https://raygun.com/documentation/product-guides/real-user-monitoring/api/
+  - https://raygun.com/pricing
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+  payloadTooLarge: 413
+algorithm: monthly-quota
+endpoints:
+  - name: Public v3 API
+    baseUri: https://api.raygun.com/v3
+    auth: Bearer Personal Access Token
+    limits:
+      - description: Rate limited per token; HTTP 429 indicates limit exceeded.
+        scope: token
+        responseCode: 429
+  - name: Crash Reporting Ingestion
+    baseUri: https://api.raygun.com/entries
+    auth: X-ApiKey header (application API key)
+    limits:
+      - description: Plan-based monthly event quota. 429 returned when monthly limit is reached or plan expired.
+        scope: application
+        responseCode: 429
+      - description: Maximum payload size 128 KB; larger payloads rejected with 413.
+        scope: request
+        maxBytes: 131072
+        responseCode: 413
+  - name: Real User Monitoring (Pulse) — Legacy
+    baseUri: https://api.raygun.com/api/v1/pulse
+    auth: X-SessionKey (15-minute TTL) + X-ApiKey
+    limits:
+      - description: Default 50 calls per day per application; enterprise-only access.
+        scope: application
+        limit: 50
+        timeFrame: day
+      - description: 30-second request timeout.
+        scope: request
+        timeoutSeconds: 30
+quotas:
+  - tier: Crash Reporting Basic
+    monthlyEvents: 100000
+    eventType: errors
+  - tier: Crash Reporting Team
+    monthlyEvents: 200000
+    eventType: errors
+  - tier: Crash Reporting Business
+    monthlyEvents: 1000000
+    eventType: errors
+  - tier: Crash Reporting Enterprise
+    monthlyEvents: custom
+    eventType: errors
+  - tier: RUM Basic
+    monthlyEvents: 100000
+    eventType: sessions
+  - tier: RUM Team
+    monthlyEvents: 200000
+    eventType: sessions
+  - tier: RUM Business
+    monthlyEvents: 1000000
+    eventType: sessions
+  - tier: APM Basic
+    monthlyEvents: 100000
+    eventType: traces
+  - tier: APM Team
+    monthlyEvents: 200000
+    eventType: traces
+  - tier: APM Business
+    monthlyEvents: 1000000
+    eventType: traces
+spikeProtection:
+  available: true
+  description: Built-in spike protection prevents runaway billing when applications generate error storms.
+onDemand:
+  description: Overages beyond plan allotment billed on-demand at posted per-event prices.
+  prices:
+    error: '0.001'
+    session: '0.002'
+    trace: '0.002'

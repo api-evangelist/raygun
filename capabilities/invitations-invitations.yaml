@@ -1,0 +1,196 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Raygun Public API \u2014 Invitations"
+  description: "Raygun Public API \u2014 Invitations business capability. 4 operations against the Raygun v3 REST API."
+  tags:
+  - Raygun
+  - Invitations
+  - Observability
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    RAYGUN_PERSONAL_ACCESS_TOKEN: RAYGUN_PERSONAL_ACCESS_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: invitations-invitations
+    baseUri: https://api.raygun.com/v3
+    description: "Raygun Public API \u2014 Invitations. Self-contained Naftiko capability."
+    resources:
+    - name: invitations
+      path: /invitations
+      operations:
+      - name: list-invitations
+        method: GET
+        description: List Invitations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: null
+          in: query
+          type: string
+          description: ''
+          required: false
+        - name: null
+          in: query
+          type: string
+          description: ''
+          required: false
+        - name: orderby
+          in: query
+          type: array
+          description: Order items by property values
+          required: false
+      - name: send-invitation
+        method: POST
+        description: Send an Invitation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: invitations-invitation-identifier
+      path: /invitations/{invitation-identifier}
+      operations:
+      - name: get-invitation-by-identifier
+        method: GET
+        description: Get Invitation by Identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters: []
+    - name: invitations-invitation-identifier-revoke
+      path: /invitations/{invitation-identifier}/revoke
+      operations:
+      - name: revoke-invitation
+        method: POST
+        description: Revoke Invitation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters: []
+    authentication:
+      type: bearer
+      value: '{{env.RAYGUN_PERSONAL_ACCESS_TOKEN}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: invitations-invitations-rest
+    port: 8080
+    description: REST adapter for Raygun Invitations.
+    resources:
+    - path: /v3/invitations
+      name: invitations
+      description: REST surface for invitations.
+      operations:
+      - method: GET
+        name: list-invitations
+        description: List Invitations
+        call: invitations-invitations.list-invitations
+        with:
+          null: rest.query.None
+          orderby: rest.query.orderby
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: send-invitation
+        description: Send an Invitation
+        call: invitations-invitations.send-invitation
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v3/invitations/{invitation-identifier}
+      name: invitations-invitation-identifier
+      description: REST surface for invitations-invitation-identifier.
+      operations:
+      - method: GET
+        name: get-invitation-by-identifier
+        description: Get Invitation by Identifier
+        call: invitations-invitations.get-invitation-by-identifier
+        with: {}
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v3/invitations/{invitation-identifier}/revoke
+      name: invitations-invitation-identifier-revoke
+      description: REST surface for invitations-invitation-identifier-revoke.
+      operations:
+      - method: POST
+        name: revoke-invitation
+        description: Revoke Invitation
+        call: invitations-invitations.revoke-invitation
+        with: {}
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: invitations-invitations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Raygun Invitations.
+    tools:
+    - name: raygun-list-invitations
+      description: List Invitations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: invitations-invitations.list-invitations
+      with:
+        null: tools.None
+        orderby: tools.orderby
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: raygun-send-invitation
+      description: Send an Invitation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: invitations-invitations.send-invitation
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: raygun-get-invitation-by-identifier
+      description: Get Invitation by Identifier
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: invitations-invitations.get-invitation-by-identifier
+      with: {}
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: raygun-revoke-invitation
+      description: Revoke Invitation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: invitations-invitations.revoke-invitation
+      with: {}
+      outputParameters:
+      - type: object
+        mapping: $.

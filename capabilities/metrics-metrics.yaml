@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Raygun Public API \u2014 Metrics"
+  description: "Raygun Public API \u2014 Metrics business capability. 3 operations against the Raygun v3 REST API."
+  tags:
+  - Raygun
+  - Metrics
+  - Observability
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    RAYGUN_PERSONAL_ACCESS_TOKEN: RAYGUN_PERSONAL_ACCESS_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: metrics-metrics
+    baseUri: https://api.raygun.com/v3
+    description: "Raygun Public API \u2014 Metrics. Self-contained Naftiko capability."
+    resources:
+    - name: metrics-application-identifier-pages-time-series
+      path: /metrics/{application-identifier}/pages/time-series
+      operations:
+      - name: metrics-pages-time-series
+        method: POST
+        description: Time-series Page Metrics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: metrics-application-identifier-pages-histogram
+      path: /metrics/{application-identifier}/pages/histogram
+      operations:
+      - name: metrics-pages-histogram
+        method: POST
+        description: Histogram Page Metrics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: metrics-application-identifier-errors-time-series
+      path: /metrics/{application-identifier}/errors/time-series
+      operations:
+      - name: metrics-errors-time-series
+        method: POST
+        description: Time-series Error Metrics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      value: '{{env.RAYGUN_PERSONAL_ACCESS_TOKEN}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: metrics-metrics-rest
+    port: 8080
+    description: REST adapter for Raygun Metrics.
+    resources:
+    - path: /v3/metrics/{application-identifier}/pages/time-series
+      name: metrics-application-identifier-pages-time-series
+      description: REST surface for metrics-application-identifier-pages-time-series.
+      operations:
+      - method: POST
+        name: metrics-pages-time-series
+        description: Time-series Page Metrics
+        call: metrics-metrics.metrics-pages-time-series
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v3/metrics/{application-identifier}/pages/histogram
+      name: metrics-application-identifier-pages-histogram
+      description: REST surface for metrics-application-identifier-pages-histogram.
+      operations:
+      - method: POST
+        name: metrics-pages-histogram
+        description: Histogram Page Metrics
+        call: metrics-metrics.metrics-pages-histogram
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v3/metrics/{application-identifier}/errors/time-series
+      name: metrics-application-identifier-errors-time-series
+      description: REST surface for metrics-application-identifier-errors-time-series.
+      operations:
+      - method: POST
+        name: metrics-errors-time-series
+        description: Time-series Error Metrics
+        call: metrics-metrics.metrics-errors-time-series
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: metrics-metrics-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Raygun Metrics.
+    tools:
+    - name: raygun-metrics-pages-time-series
+      description: Time-series Page Metrics
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: metrics-metrics.metrics-pages-time-series
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: raygun-metrics-pages-histogram
+      description: Histogram Page Metrics
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: metrics-metrics.metrics-pages-histogram
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: raygun-metrics-errors-time-series
+      description: Time-series Error Metrics
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: metrics-metrics.metrics-errors-time-series
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

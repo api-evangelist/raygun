@@ -1,0 +1,88 @@
+name: Raygun Vocabulary
+provider: Raygun
+providerId: raygun
+created: '2026-05-25'
+modified: '2026-05-25'
+description: Operational vocabulary for the Raygun observability platform — Crash Reporting,
+  Real User Monitoring, and Application Performance Monitoring — covering the public v3 API
+  surface, ingestion endpoints, and FinOps surface.
+tags:
+  - Observability
+  - Crash Reporting
+  - Real User Monitoring
+  - Application Performance Monitoring
+  - Error Tracking
+  - Source Maps
+  - Deployments
+concepts:
+  - term: Application
+    description: A monitored software project identified by an API key. Owns error groups, deployments,
+      source maps, sessions, pages, customers, and Flutter symbols.
+  - term: Error Group
+    description: A deduplicated grouping of error instances sharing a stack-trace fingerprint. The
+      primary triage object — has status (active, resolved, ignored, permanently-ignored).
+  - term: Error Instance
+    description: A single occurrence of an error within an error group, with full payload, breadcrumbs,
+      and environmental context.
+  - term: Crash Report
+    description: The payload format submitted to POST /entries (api.raygun.com) by SDKs and providers.
+      Max 128KB, X-ApiKey authenticated.
+  - term: Deployment
+    description: A release marker correlating new versions to subsequent error groups. Supports
+      SCM integration (GitHub, GitLab, Bitbucket, Azure DevOps) for commit-level diagnostics.
+  - term: Source Map
+    description: A JavaScript source map uploaded to symbolicate minified front-end stack traces.
+  - term: Flutter Symbol
+    description: A debug-symbols artifact uploaded for Flutter mobile crash symbolication.
+  - term: Session
+    description: A bounded period of user interaction captured by RUM, containing page views and errors.
+  - term: Page
+    description: A monitored URL or route tracked by RUM with Core Web Vitals and timing data.
+  - term: Customer
+    description: An end-user identity associated with sessions and error instances. May be anonymous.
+  - term: Team
+    description: A group of organization members granted shared access to a set of applications.
+  - term: Plan
+    description: The subscription tier (Basic, Team, Business, Enterprise) controlling event quota,
+      features, and support level.
+  - term: Invitation
+    description: A pending or accepted offer for a user to join the organization.
+  - term: Personal Access Token
+    description: Bearer credential used to authenticate against the Public v3 API at api.raygun.com/v3.
+  - term: Application API Key
+    description: Per-application credential used in the X-ApiKey header for crash-reporting ingestion.
+  - term: Apdex
+    description: Application Performance Index — a normalized 0-to-1 score combining satisfied,
+      tolerating, and frustrated request counts. Reported per APM trace.
+  - term: Core Web Vitals
+    description: Google's user-experience metrics (LCP, INP, CLS) captured by Raygun RUM.
+  - term: Breadcrumb
+    description: A captured event preceding an error (UI click, navigation, log message) attached
+      to the error payload for diagnostic context.
+  - term: Spike Protection
+    description: Plan-level guardrail that caps runaway ingestion volume to prevent overage surprises.
+  - term: Inbound Filter
+    description: A rule applied at ingestion that drops unwanted events before they count toward
+      quota.
+  - term: AI Error Resolution
+    description: LLM-powered analysis of stack traces and surrounding context to suggest fixes for
+      error groups.
+events:
+  - error
+  - session
+  - trace
+products:
+  - Crash Reporting
+  - Real User Monitoring (RUM)
+  - Application Performance Monitoring (APM)
+  - AI Error Resolution
+  - Deployment Tracking
+integrations:
+  - Slack
+  - GitHub
+  - GitHub Enterprise
+  - Bitbucket
+  - Bitbucket Server
+  - GitLab
+  - Azure DevOps
+  - Jira

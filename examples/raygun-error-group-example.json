@@ -1,0 +1,12 @@
+{
+  "identifier": "5fA2c91e",
+  "applicationIdentifier": "abc123",
+  "message": "Cannot read properties of undefined (reading 'id')",
+  "className": "TypeError",
+  "status": "active",
+  "firstOccurredOn": "2026-05-23T08:11:00Z",
+  "lastOccurredOn": "2026-05-25T14:18:02Z",
+  "occurrenceCount": 142,
+  "userCount": 89,
+  "tags": ["production", "checkout", "p1"]
+}

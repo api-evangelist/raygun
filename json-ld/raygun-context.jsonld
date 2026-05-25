@@ -1,0 +1,302 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "raygun": "https://api.raygun.com/v3/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Application": {
+      "@id": "raygun:Application",
+      "@context": {
+        "identifier": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "apiKey": {
+          "@id": "raygun:Application/apiKey",
+          "@type": "xsd:string"
+        },
+        "type": {
+          "@id": "raygun:Application/type",
+          "@type": "xsd:string"
+        },
+        "createdAt": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "ErrorGroup": {
+      "@id": "raygun:ErrorGroup",
+      "@context": {
+        "identifier": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "message": {
+          "@id": "raygun:ErrorGroup/message",
+          "@type": "xsd:string"
+        },
+        "className": {
+          "@id": "raygun:ErrorGroup/className",
+          "@type": "xsd:string"
+        },
+        "status": {
+          "@id": "raygun:ErrorGroup/status",
+          "@type": "xsd:string"
+        },
+        "firstOccurredOn": {
+          "@id": "raygun:ErrorGroup/firstOccurredOn",
+          "@type": "xsd:dateTime"
+        },
+        "lastOccurredOn": {
+          "@id": "raygun:ErrorGroup/lastOccurredOn",
+          "@type": "xsd:dateTime"
+        },
+        "occurrenceCount": {
+          "@id": "raygun:ErrorGroup/occurrenceCount",
+          "@type": "xsd:integer"
+        }
+      }
+    },
+
+    "ErrorInstance": {
+      "@id": "raygun:ErrorInstance",
+      "@context": {
+        "identifier": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "occurredOn": {
+          "@id": "raygun:ErrorInstance/occurredOn",
+          "@type": "xsd:dateTime"
+        },
+        "machineName": {
+          "@id": "raygun:ErrorInstance/machineName",
+          "@type": "xsd:string"
+        },
+        "version": {
+          "@id": "raygun:ErrorInstance/version",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Deployment": {
+      "@id": "raygun:Deployment",
+      "@context": {
+        "identifier": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "version": {
+          "@id": "raygun:Deployment/version",
+          "@type": "xsd:string"
+        },
+        "ownerName": {
+          "@id": "raygun:Deployment/ownerName",
+          "@type": "xsd:string"
+        },
+        "emailAddress": {
+          "@id": "schema:email",
+          "@type": "xsd:string"
+        },
+        "comment": {
+          "@id": "raygun:Deployment/comment",
+          "@type": "xsd:string"
+        },
+        "scmIdentifier": {
+          "@id": "raygun:Deployment/scmIdentifier",
+          "@type": "xsd:string"
+        },
+        "scmType": {
+          "@id": "raygun:Deployment/scmType",
+          "@type": "xsd:string"
+        },
+        "deployedAt": {
+          "@id": "raygun:Deployment/deployedAt",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "SourceMap": {
+      "@id": "raygun:SourceMap",
+      "@context": {
+        "identifier": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "uri": {
+          "@id": "schema:url",
+          "@type": "xsd:string"
+        },
+        "fileName": {
+          "@id": "raygun:SourceMap/fileName",
+          "@type": "xsd:string"
+        },
+        "uploadedAt": {
+          "@id": "raygun:SourceMap/uploadedAt",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Session": {
+      "@id": "raygun:Session",
+      "@context": {
+        "identifier": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "startedAt": {
+          "@id": "raygun:Session/startedAt",
+          "@type": "xsd:dateTime"
+        },
+        "endedAt": {
+          "@id": "raygun:Session/endedAt",
+          "@type": "xsd:dateTime"
+        },
+        "country": {
+          "@id": "raygun:Session/country",
+          "@type": "xsd:string"
+        },
+        "userIdentifier": {
+          "@id": "raygun:Session/userIdentifier",
+          "@type": "xsd:string"
+        },
+        "platform": {
+          "@id": "raygun:Session/platform",
+          "@type": "xsd:string"
+        },
+        "browser": {
+          "@id": "raygun:Session/browser",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Customer": {
+      "@id": "raygun:Customer",
+      "@context": {
+        "identifier": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "fullName": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "email": {
+          "@id": "schema:email",
+          "@type": "xsd:string"
+        },
+        "isAnonymous": {
+          "@id": "raygun:Customer/isAnonymous",
+          "@type": "xsd:boolean"
+        }
+      }
+    },
+
+    "Page": {
+      "@id": "raygun:Page",
+      "@context": {
+        "identifier": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "url": {
+          "@id": "schema:url",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Team": {
+      "@id": "raygun:Team",
+      "@context": {
+        "identifier": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Plan": {
+      "@id": "raygun:Plan",
+      "@context": {
+        "identifier": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "price": {
+          "@id": "schema:price",
+          "@type": "xsd:decimal"
+        }
+      }
+    },
+
+    "Invitation": {
+      "@id": "raygun:Invitation",
+      "@context": {
+        "identifier": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "email": {
+          "@id": "schema:email",
+          "@type": "xsd:string"
+        },
+        "status": {
+          "@id": "raygun:Invitation/status",
+          "@type": "xsd:string"
+        },
+        "invitedAt": {
+          "@id": "raygun:Invitation/invitedAt",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "FlutterSymbol": {
+      "@id": "raygun:FlutterSymbol",
+      "@context": {
+        "identifier": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "platform": {
+          "@id": "raygun:FlutterSymbol/platform",
+          "@type": "xsd:string"
+        },
+        "version": {
+          "@id": "raygun:FlutterSymbol/version",
+          "@type": "xsd:string"
+        },
+        "uploadedAt": {
+          "@id": "raygun:FlutterSymbol/uploadedAt",
+          "@type": "xsd:dateTime"
+        }
+      }
+    }
+  }
+}

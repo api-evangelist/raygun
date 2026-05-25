@@ -1,0 +1,104 @@
+extends:
+  - "spectral:oas"
+rules:
+  raygun-info-title-required:
+    description: API title must reference Raygun.
+    severity: warn
+    given: "$.info"
+    then:
+      field: title
+      function: pattern
+      functionOptions:
+        match: "(?i)raygun"
+
+  raygun-server-base-uri:
+    description: Raygun Public API server must point at https://api.raygun.com/v3.
+    severity: error
+    given: "$.servers[*]"
+    then:
+      field: url
+      function: pattern
+      functionOptions:
+        match: "^https://api\\.raygun\\.com/v3"
+
+  raygun-summary-title-case:
+    description: Every operation summary should use Title Case.
+    severity: warn
+    given: "$.paths.*[get,put,post,delete,patch].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][A-Za-z0-9]*|\\d+)([\\s\\-/].+)?$"
+
+  raygun-operation-id-kebab:
+    description: operationId must be kebab-case.
+    severity: warn
+    given: "$.paths.*[get,put,post,delete,patch].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-z0-9-]*$"
+
+  raygun-resources-kebab-case:
+    description: Path segments must use kebab-case (Raygun convention — e.g. /error-groups, /source-maps).
+    severity: warn
+    given: "$.paths"
+    then:
+      field: "@key"
+      function: pattern
+      functionOptions:
+        match: "^/[a-z0-9{}/_-]+$"
+
+  raygun-identifier-path-style:
+    description: Resource identifiers must be referenced as {resource-identifier} (kebab-case curly placeholders).
+    severity: warn
+    given: "$.paths"
+    then:
+      field: "@key"
+      function: pattern
+      functionOptions:
+        match: "^[^{}]*(\\{[a-z][a-z0-9-]*\\}[^{}]*)*$"
+
+  raygun-security-bearer-required:
+    description: Every protected operation must inherit the personal_access_token bearer scheme.
+    severity: warn
+    given: "$.components.securitySchemes"
+    then:
+      field: personal_access_token
+      function: truthy
+
+  raygun-problem-details-error-response:
+    description: 4xx responses should use the shared problem-details response component.
+    severity: info
+    given: "$.paths.*[get,put,post,delete,patch].responses.['400','401','403','404','409','422']"
+    then:
+      field: "$ref"
+      function: pattern
+      functionOptions:
+        match: "problem-details"
+
+  raygun-429-too-many-requests:
+    description: Operations should document a 429 Too Many Requests response.
+    severity: info
+    given: "$.paths.*[get,put,post,delete,patch].responses"
+    then:
+      field: "429"
+      function: truthy
+
+  raygun-no-trailing-slash:
+    description: Paths must not end with a trailing slash.
+    severity: warn
+    given: "$.paths"
+    then:
+      field: "@key"
+      function: pattern
+      functionOptions:
+        notMatch: ".+/$"
+
+  raygun-tag-defined:
+    description: Operations must declare at least one tag for organization.
+    severity: warn
+    given: "$.paths.*[get,put,post,delete,patch]"
+    then:
+      field: tags
+      function: truthy

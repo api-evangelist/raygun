@@ -1,0 +1,72 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Raygun Public API \u2014 Plans"
+  description: "Raygun Public API \u2014 Plans business capability. 1 operations against the Raygun v3 REST API."
+  tags:
+  - Raygun
+  - Plans
+  - Observability
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    RAYGUN_PERSONAL_ACCESS_TOKEN: RAYGUN_PERSONAL_ACCESS_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: plans-plans
+    baseUri: https://api.raygun.com/v3
+    description: "Raygun Public API \u2014 Plans. Self-contained Naftiko capability."
+    resources:
+    - name: plans
+      path: /plans
+      operations:
+      - name: list-plans
+        method: GET
+        description: List Plans
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters: []
+    authentication:
+      type: bearer
+      value: '{{env.RAYGUN_PERSONAL_ACCESS_TOKEN}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: plans-plans-rest
+    port: 8080
+    description: REST adapter for Raygun Plans.
+    resources:
+    - path: /v3/plans
+      name: plans
+      description: REST surface for plans.
+      operations:
+      - method: GET
+        name: list-plans
+        description: List Plans
+        call: plans-plans.list-plans
+        with: {}
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: plans-plans-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Raygun Plans.
+    tools:
+    - name: raygun-list-plans
+      description: List Plans
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: plans-plans.list-plans
+      with: {}
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,126 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Raygun Public API \u2014 Customers"
+  description: "Raygun Public API \u2014 Customers business capability. 2 operations against the Raygun v3 REST API."
+  tags:
+  - Raygun
+  - Customers
+  - Observability
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    RAYGUN_PERSONAL_ACCESS_TOKEN: RAYGUN_PERSONAL_ACCESS_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: customers-customers
+    baseUri: https://api.raygun.com/v3
+    description: "Raygun Public API \u2014 Customers. Self-contained Naftiko capability."
+    resources:
+    - name: applications-application-identifier-customers
+      path: /applications/{application-identifier}/customers
+      operations:
+      - name: list-customers
+        method: GET
+        description: List Customers for an Application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: null
+          in: query
+          type: string
+          description: ''
+          required: false
+        - name: null
+          in: query
+          type: string
+          description: ''
+          required: false
+        - name: orderby
+          in: query
+          type: array
+          description: Order items by property values
+          required: false
+    - name: applications-application-identifier-customers-customer-identifier
+      path: /applications/{application-identifier}/customers/{customer-identifier}
+      operations:
+      - name: get-customer-by-identifier
+        method: GET
+        description: Get Customer by Identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters: []
+    authentication:
+      type: bearer
+      value: '{{env.RAYGUN_PERSONAL_ACCESS_TOKEN}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: customers-customers-rest
+    port: 8080
+    description: REST adapter for Raygun Customers.
+    resources:
+    - path: /v3/applications/{application-identifier}/customers
+      name: applications-application-identifier-customers
+      description: REST surface for applications-application-identifier-customers.
+      operations:
+      - method: GET
+        name: list-customers
+        description: List Customers for an Application
+        call: customers-customers.list-customers
+        with:
+          null: rest.query.None
+          orderby: rest.query.orderby
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v3/applications/{application-identifier}/customers/{customer-identifier}
+      name: applications-application-identifier-customers-customer-identifier
+      description: REST surface for applications-application-identifier-customers-customer-identifier.
+      operations:
+      - method: GET
+        name: get-customer-by-identifier
+        description: Get Customer by Identifier
+        call: customers-customers.get-customer-by-identifier
+        with: {}
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: customers-customers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Raygun Customers.
+    tools:
+    - name: raygun-list-customers
+      description: List Customers for an Application
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: customers-customers.list-customers
+      with:
+        null: tools.None
+        orderby: tools.orderby
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: raygun-get-customer-by-identifier
+      description: Get Customer by Identifier
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: customers-customers.get-customer-by-identifier
+      with: {}
+      outputParameters:
+      - type: object
+        mapping: $.

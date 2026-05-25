@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/raygun/raygun-error-group-schema.json",
+  "title": "Raygun Error Group",
+  "description": "Schema for a Raygun error-group resource, the deduplicated grouping of error instances returned by the Raygun Public v3 API and the legacy crash-reporting payload structure for inbound ingestion at POST /entries.",
+  "type": "object",
+  "definitions": {
+    "ErrorGroup": {
+      "type": "object",
+      "description": "A deduplicated group of error instances sharing the same root cause.",
+      "required": ["identifier", "message"],
+      "properties": {
+        "identifier": {
+          "type": "string",
+          "description": "Unique error-group identifier."
+        },
+        "applicationIdentifier": {
+          "type": "string",
+          "description": "Application identifier the group belongs to."
+        },
+        "message": {
+          "type": "string",
+          "description": "Top-level error message."
+        },
+        "className": {
+          "type": "string",
+          "description": "Exception class / type name."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "resolved", "ignored", "permanently-ignored"],
+          "description": "Lifecycle status."
+        },
+        "firstOccurredOn": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastOccurredOn": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "occurrenceCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "userCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Distinct affected users."
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "CrashReportingPayload": {
+      "type": "object",
+      "description": "Payload format accepted by POST https://api.raygun.com/entries (Crash Reporting ingestion). Max 128KB.",
+      "required": ["occurredOn", "details"],
+      "properties": {
+        "occurredOn": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 UTC timestamp when the error occurred."
+        },
+        "details": {
+          "type": "object",
+          "required": ["error"],
+          "properties": {
+            "machineName": { "type": "string" },
+            "groupingKey": { "type": "string" },
+            "version": { "type": "string" },
+            "client": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "version": { "type": "string" },
+                "clientUrl": { "type": "string" }
+              }
+            },
+            "error": {
+              "type": "object",
+              "required": ["className"],
+              "properties": {
+                "className": { "type": "string" },
+                "message": { "type": "string" },
+                "stackTrace": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "lineNumber": { "type": "integer" },
+                      "className": { "type": "string" },
+                      "fileName": { "type": "string" },
+                      "methodName": { "type": "string" },
+                      "columnNumber": { "type": "integer" }
+                    }
+                  }
+                },
+                "data": { "type": "object" },
+                "innerError": { "type": "object" }
+              }
+            },
+            "environment": {
+              "type": "object",
+              "properties": {
+                "processorCount": { "type": "integer" },
+                "osVersion": { "type": "string" },
+                "windowBoundsWidth": { "type": "number" },
+                "windowBoundsHeight": { "type": "number" },
+                "browser": { "type": "string" },
+                "browserVersion": { "type": "string" },
+                "platform": { "type": "string" },
+                "deviceName": { "type": "string" }
+              }
+            },
+            "request": {
+              "type": "object",
+              "properties": {
+                "hostName": { "type": "string" },
+                "url": { "type": "string" },
+                "httpMethod": { "type": "string" },
+                "ipAddress": { "type": "string" },
+                "queryString": { "type": "object" },
+                "form": { "type": "object" },
+                "headers": { "type": "object" },
+                "rawData": { "type": "string", "maxLength": 4096 }
+              }
+            },
+            "response": {
+              "type": "object",
+              "properties": {
+                "statusCode": { "type": "integer" }
+              }
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "identifier": { "type": "string" },
+                "isAnonymous": { "type": "boolean" },
+                "email": { "type": "string", "format": "email" },
+                "fullName": { "type": "string" },
+                "firstName": { "type": "string" },
+                "uuid": { "type": "string" }
+              }
+            },
+            "tags": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "userCustomData": { "type": "object" },
+            "breadcrumbs": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "timestamp": { "type": "integer" },
+                  "message": { "type": "string" },
+                  "category": { "type": "string" },
+                  "level": { "type": "string" },
+                  "type": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

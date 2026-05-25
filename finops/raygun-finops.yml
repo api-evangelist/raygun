@@ -1,0 +1,121 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Raygun
+providerId: raygun
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - FinOps
+  - Cost Management
+  - FOCUS
+  - Observability
+  - Events
+description: FOCUS-aligned FinOps definition for Raygun's observability platform — Crash Reporting,
+  Real User Monitoring, and Application Performance Monitoring. Event-based metering with monthly tiered
+  plans plus on-demand overages.
+sources:
+  - https://raygun.com/pricing
+  - https://api.raygun.io/v3/swagger/index.html
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Raygun
+serviceCategory: Observability
+billingModel:
+  pricingCategory: Subscription-Tiered with Usage Overages
+  billingFrequency: Monthly or Annual
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Tax
+    - Credit
+    - Adjustment
+  primaryUnit: event
+  secondaryUnits:
+    - error
+    - session
+    - trace
+focusColumns:
+  ServiceName: Raygun
+  ServiceCategory: Observability
+  ProviderName: Raygun
+  PublisherName: Raygun
+  InvoiceIssuerName: Raygun
+  PricingCategory: Subscription-Tiered with Usage Overages
+  PricingUnit: event
+  BillingCurrency: USD
+meters:
+  - name: errors
+    unit: error
+    aggregation: sum
+    dimensions:
+      - application
+      - plan
+      - error_group
+  - name: sessions
+    unit: session
+    aggregation: sum
+    dimensions:
+      - application
+      - plan
+      - country
+      - user_type
+  - name: traces
+    unit: trace
+    aggregation: sum
+    dimensions:
+      - application
+      - plan
+      - service
+products:
+  - id: crash-reporting
+    name: Crash Reporting
+    description: Error detection, diagnosis, and resolution across server, web, and mobile applications.
+    meter: errors
+  - id: real-user-monitoring
+    name: Real User Monitoring (RUM)
+    description: Front-end performance monitoring with Core Web Vitals, page-level insights, and session tracking.
+    meter: sessions
+  - id: apm
+    name: Application Performance Monitoring (APM)
+    description: Server-side performance visibility with Apdex metrics, flamecharts, and trace sampling.
+    meter: traces
+costAllocation:
+  - dimension: application
+    description: Allocate cost by application identifier.
+  - dimension: plan
+    description: Allocate cost by subscription tier (Basic, Team, Business, Enterprise).
+  - dimension: product
+    description: Separate Crash Reporting, RUM, and APM line items.
+overageModel:
+  description: On-demand per-event pricing once plan allotment is consumed.
+  rates:
+    - event: error
+      unit: 1
+      price: '0.001'
+    - event: session
+      unit: 1
+      price: '0.002'
+    - event: trace
+      unit: 1
+      price: '0.002'
+discounts:
+  - name: Annual Commitment
+    description: Annual billing saves ~33% versus monthly.
+  - name: Enterprise Volume
+    description: Custom data volume discounts and multi-year terms for Enterprise plans.
+guardrails:
+  - name: Spike Protection
+    description: Built-in spike protection caps runaway error ingestion to prevent surprise overages.
+  - name: Inbound Filters
+    description: Team plans and above can drop unwanted events before they are counted.
+retentionPolicy:
+  errors: 180 days
+  sessions: 60 days
+  enterprise: custom

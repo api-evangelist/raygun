@@ -1,0 +1,10 @@
+{
+  "version": "2.4.1",
+  "ownerName": "CI Pipeline",
+  "emailAddress": "ci@example.com",
+  "comment": "Hotfix for checkout 5xx spikes (RG-1042).",
+  "scmIdentifier": "8f3a9c2b1d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a",
+  "scmType": "GitHub",
+  "scmAccountIdentifier": "example-org",
+  "deployedAt": "2026-05-25T15:42:11Z"
+}
