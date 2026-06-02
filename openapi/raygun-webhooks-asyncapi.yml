@@ -1,0 +1,283 @@
+asyncapi: 2.6.0
+info:
+  title: Raygun Outbound Webhooks
+  version: '1.0'
+  description: >
+    AsyncAPI description of Raygun's outbound webhook surface for Crash
+    Reporting. Raygun POSTs JSON payloads to a customer-configured HTTPS
+    endpoint when error notification events fire on an application
+    (new errors, regressions / reoccurrences, time-based follow-ups) and
+    when activity events occur on an error group (status changes,
+    assignments, comments). Webhooks are configured per-application via
+    Integrations > Webhook in the Raygun dashboard and require a Team
+    plan or higher.
+
+    This spec models only the outbound webhook channel that is publicly
+    documented. The Slack and Microsoft Teams integrations are managed
+    surfaces — they are driven by the same Raygun event vocabulary but
+    do not expose customer-receivable payloads to model. They are
+    captured here as informational tags only.
+  contact:
+    name: Raygun Support
+    email: support@raygun.com
+    url: https://raygun.com/contact
+  externalDocs:
+    description: Raygun Webhook Integration Documentation
+    url: https://raygun.com/documentation/product-guides/crash-reporting/integrations/webhooks/
+defaultContentType: application/json
+tags:
+- name: Crash Reporting
+- name: Webhooks
+- name: Error Notifications
+- name: Regression Detection
+- name: Activity
+- name: Slack
+  description: >
+    Slack integration is event-driven by the same error notification and
+    activity vocabulary modeled here but is delivered through Raygun's
+    managed Slack app, not a customer-receivable JSON payload. See
+    https://raygun.com/documentation/product-guides/crash-reporting/integrations/slack/.
+- name: Microsoft Teams
+  description: >
+    Microsoft Teams integration is a plan-level managed alert channel
+    rather than a customer-receivable webhook payload. See
+    https://raygun.com/documentation/product-guides/integrations/microsoft-teams-plan-integration/.
+servers:
+  subscriber:
+    url: '{webhookEndpoint}'
+    protocol: https
+    description: >
+      Customer-hosted HTTPS endpoint configured under Application >
+      Integrations > Webhook. Raygun POSTs JSON event payloads to this
+      URL.
+    variables:
+      webhookEndpoint:
+        description: Fully-qualified HTTPS URL of the subscriber endpoint.
+        default: https://example.com/raygun/webhook
+channels:
+  raygun/crash-reporting/webhook:
+    description: >
+      Single outbound webhook channel. Raygun POSTs one JSON document
+      per event. The eventType field discriminates between the seven
+      error notification triggers and the three activity triggers.
+    publish:
+      operationId: receiveRaygunWebhook
+      summary: Receive a Raygun Crash Reporting webhook event.
+      description: >
+        Subscriber receives an HTTP POST with a JSON body. The body is
+        one of ErrorNotificationEvent or ErrorActivityEvent, discriminated
+        by the top-level event field.
+      bindings:
+        http:
+          type: request
+          method: POST
+          bindingVersion: 0.3.0
+      message:
+        oneOf:
+        - $ref: '#/components/messages/ErrorNotificationEvent'
+        - $ref: '#/components/messages/ErrorActivityEvent'
+components:
+  messages:
+    ErrorNotificationEvent:
+      name: ErrorNotificationEvent
+      title: Error Notification Event
+      summary: >
+        Fired when a new error arrives, when a previously resolved or
+        ignored error reoccurs (regression), or on the time-based
+        follow-up cadence (1, 5, 10, 30, 60 minutes) while an error
+        continues to occur.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ErrorNotificationPayload'
+    ErrorActivityEvent:
+      name: ErrorActivityEvent
+      title: Error Activity Event
+      summary: >
+        Fired when a team member changes the status of an error group,
+        assigns the error group to a user, or adds a comment.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ErrorActivityPayload'
+  schemas:
+    ErrorNotificationPayload:
+      type: object
+      description: >
+        Top-level error notification document. Sent for NewErrorOccurred,
+        ErrorReoccurred (regression), and the five follow-up triggers.
+      required:
+      - event
+      - eventType
+      - error
+      - application
+      properties:
+        event:
+          type: string
+          description: Event category discriminator.
+          enum:
+          - error_notification
+        eventType:
+          type: string
+          description: Specific trigger that produced the event.
+          enum:
+          - NewErrorOccurred
+          - ErrorReoccurred
+          - OneMinuteFollowUp
+          - FiveMinuteFollowUp
+          - TenMinuteFollowUp
+          - ThirtyMinuteFollowUp
+          - HourlyFollowUp
+        error:
+          $ref: '#/components/schemas/ErrorNotificationDetails'
+        application:
+          $ref: '#/components/schemas/Application'
+    ErrorActivityPayload:
+      type: object
+      description: >
+        Top-level error activity document. Sent for StatusChanged,
+        AssignedToUser, and CommentAdded.
+      required:
+      - event
+      - eventType
+      - error
+      - application
+      properties:
+        event:
+          type: string
+          enum:
+          - error_activity
+        eventType:
+          type: string
+          enum:
+          - StatusChanged
+          - AssignedToUser
+          - CommentAdded
+        error:
+          oneOf:
+          - $ref: '#/components/schemas/StatusChangeDetails'
+          - $ref: '#/components/schemas/AssignmentDetails'
+          - $ref: '#/components/schemas/CommentDetails'
+        application:
+          $ref: '#/components/schemas/Application'
+    ErrorNotificationDetails:
+      type: object
+      description: Error group + latest instance context for a notification event.
+      properties:
+        url:
+          type: string
+          format: uri
+          description: Link to the error group in the Raygun dashboard.
+        message:
+          type: string
+          description: Error message text.
+        firstOccurredOn:
+          type: string
+          format: date-time
+          description: ISO 8601 timestamp of the first occurrence of this error group.
+        lastOccurredOn:
+          type: string
+          format: date-time
+          description: ISO 8601 timestamp of the most recent occurrence.
+        usersAffected:
+          type: integer
+          description: Distinct users affected by this error group.
+        totalOccurrences:
+          type: integer
+          description: Total number of recorded occurrences in this error group.
+        instance:
+          $ref: '#/components/schemas/ErrorInstance'
+    ErrorInstance:
+      type: object
+      description: Per-occurrence context attached to the triggering instance.
+      properties:
+        tags:
+          type: array
+          items:
+            type: string
+        affectedUser:
+          $ref: '#/components/schemas/AffectedUser'
+        customData:
+          type: object
+          additionalProperties: true
+          description: Arbitrary key/value pairs supplied by the SDK at capture time.
+    AffectedUser:
+      type: object
+      properties:
+        Identifier:
+          type: string
+        IsAnonymous:
+          type: boolean
+        UUID:
+          type: string
+    StatusChangeDetails:
+      type: object
+      description: Payload for StatusChanged activity events.
+      properties:
+        url:
+          type: string
+          format: uri
+        description:
+          type: string
+          description: Human-readable narrative of the status change.
+        activityDate:
+          type: string
+          format: date-time
+        message:
+          type: string
+          description: Error group name.
+        status:
+          type: string
+          description: New status value (e.g. Resolved, Active, Ignored, PermanentlyIgnored).
+        user:
+          type: string
+          description: Name of the user who changed the status.
+    AssignmentDetails:
+      type: object
+      description: Payload for AssignedToUser activity events.
+      properties:
+        url:
+          type: string
+          format: uri
+        description:
+          type: string
+        activityDate:
+          type: string
+          format: date-time
+        message:
+          type: string
+        assignedTo:
+          type: string
+          description: Name of the user the error group was assigned to.
+        user:
+          type: string
+          description: Name of the user who performed the assignment.
+    CommentDetails:
+      type: object
+      description: Payload for CommentAdded activity events.
+      properties:
+        url:
+          type: string
+          format: uri
+        description:
+          type: string
+        activityDate:
+          type: string
+          format: date-time
+        message:
+          type: string
+        comment:
+          type: string
+          description: Comment body text.
+        user:
+          type: string
+          description: Name of the commenter.
+    Application:
+      type: object
+      description: Application metadata block included on every event.
+      properties:
+        name:
+          type: string
+          description: Application display name.
+        url:
+          type: string
+          format: uri
+          description: Link to the application in the Raygun dashboard.

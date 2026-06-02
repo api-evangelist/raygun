@@ -231,6 +231,32 @@ apis:
   description: 'POST /entries ingestion endpoint at api.raygun.com used by all language SDKs and providers to
     submit crash payloads. X-ApiKey authenticated; 128 KB payload ceiling; 202 on accept, 400/403/413/429 on
     error.'
+- aid: raygun:raygun-webhooks-api
+  name: Raygun Outbound Webhooks
+  tags:
+  - Observability
+  - Crash Reporting
+  - Webhooks
+  - Event-Driven
+  - Regression Detection
+  - Slack
+  - Microsoft Teams
+  humanURL: https://raygun.com/documentation/product-guides/crash-reporting/integrations/webhooks/
+  properties:
+  - url: https://raygun.com/documentation/product-guides/crash-reporting/integrations/webhooks/
+    type: Documentation
+  - url: https://raygun.com/documentation/product-guides/crash-reporting/integrations/slack/
+    type: Documentation
+    name: Slack Integration
+  - url: https://raygun.com/documentation/product-guides/integrations/microsoft-teams-plan-integration/
+    type: Documentation
+    name: Microsoft Teams Integration
+  - url: openapi/raygun-webhooks-asyncapi.yml
+    type: AsyncAPI
+  description: Outbound webhook surface that POSTs JSON events to a customer-configured HTTPS endpoint when
+    error notifications fire (NewErrorOccurred, ErrorReoccurred for regression detection, and the 1/5/10/30/60-minute
+    follow-up cadence) and when error-group activity occurs (StatusChanged, AssignedToUser, CommentAdded). The
+    same event vocabulary drives the managed Slack and Microsoft Teams integrations. Requires Team plan or higher.
 - aid: raygun:raygun-pulse-rum-api
   name: Raygun Pulse RUM API (Legacy)
   tags:
@@ -393,7 +419,7 @@ common:
   - https://github.com/MindscapeHQ
   updated: '2026-05-25'
 created: '2026-05-25T00:00:00.000Z'
-modified: '2026-05-25'
+modified: '2026-05-30'
 position: Consuming
 description: Raygun is an application monitoring platform that combines Crash Reporting, Real User Monitoring
   (RUM), and Application Performance Monitoring (APM) into a single observability product for web, mobile, and
