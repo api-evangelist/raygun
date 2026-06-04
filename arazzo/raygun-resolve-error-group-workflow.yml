@@ -1,0 +1,138 @@
+arazzo: 1.0.1
+info:
+  title: Raygun Resolve Error Group
+  summary: Find an active error group in an application and mark it as resolved.
+  description: >-
+    A core Crash Reporting triage flow. The workflow selects an application,
+    lists its error groups, inspects a single error group to confirm its current
+    status, and then branches: when the error group is still active it is
+    resolved against the fixing version, and when it is already resolved the flow
+    ends without making a change. Every step spells out its request inline so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: applicationsApi
+  url: ../openapi/raygun-applications-api-openapi.yml
+  type: openapi
+- name: errorsApi
+  url: ../openapi/raygun-errors-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: resolve-error-group
+  summary: Resolve the first matching active error group in an application.
+  description: >-
+    Confirms the target application exists, lists its error groups, reads the
+    selected error group to check its status, and resolves it against the
+    supplied fixing version when it is still active.
+  inputs:
+    type: object
+    required:
+    - applicationIdentifier
+    - errorGroupIdentifier
+    - version
+    properties:
+      applicationIdentifier:
+        type: string
+        description: The Raygun application identifier that owns the error group.
+      errorGroupIdentifier:
+        type: string
+        description: The identifier of the error group to inspect and resolve.
+      version:
+        type: string
+        description: The application version the error was resolved in.
+      discardFromPreviousVersions:
+        type: boolean
+        description: When true, occurrences from previous versions are discarded.
+        default: true
+  steps:
+  - stepId: getApplication
+    description: >-
+      Read the application by identifier to confirm it exists and that the token
+      owner has access before reading error groups.
+    operationId: get-application-by-identifier
+    parameters:
+    - name: application-identifier
+      in: path
+      value: $inputs.applicationIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      applicationName: $response.body#/name
+  - stepId: listErrorGroups
+    description: >-
+      List the error groups for the application, ordered so the most recently
+      occurring errors surface first for triage.
+    operationId: list-error-groups
+    parameters:
+    - name: application-identifier
+      in: path
+      value: $inputs.applicationIdentifier
+    - name: orderby
+      in: query
+      value:
+      - lastOccurredAt desc
+    - name: count
+      in: query
+      value: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      errorGroups: $response.body
+  - stepId: getErrorGroup
+    description: >-
+      Read the selected error group to inspect its current status before
+      deciding whether a resolve is required.
+    operationId: get-error-group
+    parameters:
+    - name: application-identifier
+      in: path
+      value: $inputs.applicationIdentifier
+    - name: error-group-identifier
+      in: path
+      value: $inputs.errorGroupIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/status
+      message: $response.body#/message
+    onSuccess:
+    - name: stillActive
+      type: goto
+      stepId: resolveErrorGroup
+      criteria:
+      - context: $response.body
+        condition: $.status == 'active'
+        type: jsonpath
+    - name: alreadyResolved
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.status != 'active'
+        type: jsonpath
+  - stepId: resolveErrorGroup
+    description: >-
+      Set the status of the error group to resolved against the fixing version,
+      optionally discarding occurrences from previous versions.
+    operationId: error-group-resolve
+    parameters:
+    - name: application-identifier
+      in: path
+      value: $inputs.applicationIdentifier
+    - name: error-group-identifier
+      in: path
+      value: $inputs.errorGroupIdentifier
+    requestBody:
+      contentType: application/json
+      payload:
+        version: $inputs.version
+        discardFromPreviousVersions: $inputs.discardFromPreviousVersions
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      resolvedStatus: $response.body#/status
+      resolvedIdentifier: $response.body#/identifier
+  outputs:
+    applicationName: $steps.getApplication.outputs.applicationName
+    resolvedStatus: $steps.resolveErrorGroup.outputs.resolvedStatus
+    resolvedIdentifier: $steps.resolveErrorGroup.outputs.resolvedIdentifier

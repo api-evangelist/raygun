@@ -1,0 +1,91 @@
+arazzo: 1.0.1
+info:
+  title: Raygun Look Up Affected Customer
+  summary: Resolve an application and look up a single affected customer by identifier.
+  description: >-
+    A Real User Monitoring support flow. The workflow confirms the target
+    application, lists its known customers to establish context, and reads a
+    single customer by identifier to retrieve the full profile of an affected
+    user during a support investigation. Every step spells out its request inline
+    so the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: applicationsApi
+  url: ../openapi/raygun-applications-api-openapi.yml
+  type: openapi
+- name: customersApi
+  url: ../openapi/raygun-customers-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: lookup-customer
+  summary: Confirm an application, list its customers, and read one by identifier.
+  description: >-
+    Reads the application by identifier, lists its customers, and reads a single
+    customer to retrieve the affected user's full profile.
+  inputs:
+    type: object
+    required:
+    - applicationIdentifier
+    - customerIdentifier
+    properties:
+      applicationIdentifier:
+        type: string
+        description: The Raygun application identifier that owns the customer.
+      customerIdentifier:
+        type: string
+        description: The identifier of the customer to look up.
+  steps:
+  - stepId: getApplication
+    description: >-
+      Read the application by identifier to confirm it exists and that the token
+      owner has access before reading customers.
+    operationId: get-application-by-identifier
+    parameters:
+    - name: application-identifier
+      in: path
+      value: $inputs.applicationIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      applicationName: $response.body#/name
+  - stepId: listCustomers
+    description: >-
+      List the customers known to the application to establish context for the
+      support investigation.
+    operationId: list-customers
+    parameters:
+    - name: application-identifier
+      in: path
+      value: $inputs.applicationIdentifier
+    - name: count
+      in: query
+      value: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      customers: $response.body
+  - stepId: getCustomer
+    description: >-
+      Read a single customer by identifier to retrieve the affected user's full
+      profile.
+    operationId: get-customer-by-identifier
+    parameters:
+    - name: application-identifier
+      in: path
+      value: $inputs.applicationIdentifier
+    - name: customer-identifier
+      in: path
+      value: $inputs.customerIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      customerIdentifier: $response.body#/identifier
+      emailAddress: $response.body#/emailAddress
+      fullName: $response.body#/fullName
+      lastSeenAt: $response.body#/lastSeenAt
+  outputs:
+    applicationName: $steps.getApplication.outputs.applicationName
+    customerIdentifier: $steps.getCustomer.outputs.customerIdentifier
+    emailAddress: $steps.getCustomer.outputs.emailAddress
+    fullName: $steps.getCustomer.outputs.fullName

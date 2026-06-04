@@ -287,6 +287,30 @@ kind: contract
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
+- type: ArazzoWorkflows
+  url: arazzo/
+  workflows:
+  - url: arazzo/raygun-create-and-verify-deployment-workflow.yml
+    name: Raygun Create and Verify Deployment
+    summary: Record a deployment for an application and confirm it was created.
+  - url: arazzo/raygun-inspect-application-page-workflow.yml
+    name: Raygun Inspect Application Page
+    summary: List the monitored pages for an application and read one in detail.
+  - url: arazzo/raygun-inspect-latest-deployment-errors-workflow.yml
+    name: Raygun Inspect Latest Deployment Errors
+    summary: Read the latest deployment and drill into an error group it introduced.
+  - url: arazzo/raygun-lookup-customer-workflow.yml
+    name: Raygun Look Up Affected Customer
+    summary: Resolve an application and look up a single affected customer by identifier.
+  - url: arazzo/raygun-publish-source-map-workflow.yml
+    name: Raygun Publish and Verify Source Map
+    summary: Upload a source map for an application and confirm it is registered.
+  - url: arazzo/raygun-resolve-error-group-workflow.yml
+    name: Raygun Resolve Error Group
+    summary: Find an active error group in an application and mark it as resolved.
+  - url: arazzo/raygun-triage-error-group-comment-workflow.yml
+    name: Raygun Triage Error Group and Add Comment
+    summary: Inspect an error group and its latest occurrence, then record a triage comment.
 - type: Portal
   url: https://raygun.com
 - type: Documentation

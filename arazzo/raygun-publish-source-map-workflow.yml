@@ -1,0 +1,98 @@
+arazzo: 1.0.1
+info:
+  title: Raygun Publish and Verify Source Map
+  summary: Upload a source map for an application and confirm it is registered.
+  description: >-
+    A deobfuscation setup flow. The workflow uploads a source map for an
+    application against the JavaScript URI it maps, reads the uploaded source map
+    back by the identifier returned on upload to confirm it persisted, and lists
+    the application's source maps so the new entry can be seen in context. The
+    upload uses a multipart form body carrying the map file and its target URI.
+    Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: sourceMapsApi
+  url: ../openapi/raygun-source-maps-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: publish-source-map
+  summary: Upload a source map, read it back, and list the application's source maps.
+  description: >-
+    Uploads a source map for the application against its target URI, confirms it
+    by reading the uploaded source map, and lists the application's source maps to
+    show the new entry in context.
+  inputs:
+    type: object
+    required:
+    - applicationIdentifier
+    - file
+    - uri
+    properties:
+      applicationIdentifier:
+        type: string
+        description: The Raygun application identifier to upload the source map to.
+      file:
+        type: string
+        description: The source map file content to upload.
+      uri:
+        type: string
+        description: The URI of the JavaScript file the source map applies to.
+  steps:
+  - stepId: uploadSourceMap
+    description: >-
+      Upload the source map to the application using a multipart form body
+      carrying the map file and the URI of the JavaScript file it maps.
+    operationId: upload-source-map
+    parameters:
+    - name: application-identifier
+      in: path
+      value: $inputs.applicationIdentifier
+    requestBody:
+      contentType: multipart/form-data
+      payload:
+        file: $inputs.file
+        uri: $inputs.uri
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      sourceMapIdentifier: $response.body#/identifier
+      fileName: $response.body#/fileName
+  - stepId: getSourceMap
+    description: >-
+      Read the uploaded source map back by identifier to confirm it persisted and
+      capture its stored metadata.
+    operationId: source-map
+    parameters:
+    - name: application-identifier
+      in: path
+      value: $inputs.applicationIdentifier
+    - name: source-map-identifier
+      in: path
+      value: $steps.uploadSourceMap.outputs.sourceMapIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      uri: $response.body#/uri
+      fileSizeBytes: $response.body#/fileSizeBytes
+  - stepId: listSourceMaps
+    description: >-
+      List the application's source maps so the newly uploaded entry can be seen
+      in context alongside the others.
+    operationId: list-source-maps
+    parameters:
+    - name: application-identifier
+      in: path
+      value: $inputs.applicationIdentifier
+    - name: orderby
+      in: query
+      value:
+      - updatedAt desc
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      sourceMaps: $response.body
+  outputs:
+    sourceMapIdentifier: $steps.uploadSourceMap.outputs.sourceMapIdentifier
+    uri: $steps.getSourceMap.outputs.uri
+    sourceMaps: $steps.listSourceMaps.outputs.sourceMaps

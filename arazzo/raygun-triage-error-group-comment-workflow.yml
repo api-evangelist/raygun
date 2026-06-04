@@ -1,0 +1,113 @@
+arazzo: 1.0.1
+info:
+  title: Raygun Triage Error Group and Add Comment
+  summary: Inspect an error group and its latest occurrence, then record a triage comment.
+  description: >-
+    A Crash Reporting collaboration flow. The workflow lists the error groups for
+    an application, reads the selected error group, fetches its most recent error
+    instance to capture diagnostic context, and posts a triage comment back onto
+    the error group so teammates can see the investigation notes. Every step
+    spells out its request inline so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: errorsApi
+  url: ../openapi/raygun-errors-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: triage-error-group-comment
+  summary: Read an error group and its latest instance, then add a triage comment.
+  description: >-
+    Lists error groups for the application, reads the target error group, pulls
+    its latest error instance for context, and records a comment documenting the
+    triage decision.
+  inputs:
+    type: object
+    required:
+    - applicationIdentifier
+    - errorGroupIdentifier
+    - comment
+    properties:
+      applicationIdentifier:
+        type: string
+        description: The Raygun application identifier that owns the error group.
+      errorGroupIdentifier:
+        type: string
+        description: The identifier of the error group to triage.
+      comment:
+        type: string
+        description: The triage comment to add to the error group.
+  steps:
+  - stepId: listErrorGroups
+    description: >-
+      List the error groups for the application so the caller can confirm the
+      target error group is present before reading it.
+    operationId: list-error-groups
+    parameters:
+    - name: application-identifier
+      in: path
+      value: $inputs.applicationIdentifier
+    - name: orderby
+      in: query
+      value:
+      - lastOccurredAt desc
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      errorGroups: $response.body
+  - stepId: getErrorGroup
+    description: >-
+      Read the target error group to capture its message and status for the
+      triage note.
+    operationId: get-error-group
+    parameters:
+    - name: application-identifier
+      in: path
+      value: $inputs.applicationIdentifier
+    - name: error-group-identifier
+      in: path
+      value: $inputs.errorGroupIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      message: $response.body#/message
+      status: $response.body#/status
+  - stepId: getLatestInstance
+    description: >-
+      Fetch the most recent error instance for the error group to gather the
+      latest occurrence context before commenting.
+    operationId: get-latest-error-instance-by-error-group-id
+    parameters:
+    - name: application-identifier
+      in: path
+      value: $inputs.applicationIdentifier
+    - name: error-group-identifier
+      in: path
+      value: $inputs.errorGroupIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      instanceIdentifier: $response.body#/identifier
+      occurredOn: $response.body#/occurredOn
+  - stepId: createComment
+    description: >-
+      Add a triage comment to the error group documenting the investigation
+      notes and decision.
+    operationId: error-group-create-comment
+    parameters:
+    - name: application-identifier
+      in: path
+      value: $inputs.applicationIdentifier
+    - name: error-group-identifier
+      in: path
+      value: $inputs.errorGroupIdentifier
+    requestBody:
+      contentType: application/json
+      payload:
+        comment: $inputs.comment
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    message: $steps.getErrorGroup.outputs.message
+    status: $steps.getErrorGroup.outputs.status
+    instanceIdentifier: $steps.getLatestInstance.outputs.instanceIdentifier

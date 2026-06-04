@@ -1,0 +1,109 @@
+arazzo: 1.0.1
+info:
+  title: Raygun Create and Verify Deployment
+  summary: Record a deployment for an application and confirm it was created.
+  description: >-
+    A release tracking flow. The workflow records a new deployment against an
+    application, reads it back by the identifier returned on creation to confirm
+    it persisted, and then lists the error groups attributed to the latest
+    deployment so a release can immediately be checked for regressions. Every
+    step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: deploymentsApi
+  url: ../openapi/raygun-deployments-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-and-verify-deployment
+  summary: Create a deployment, read it back, and list its error groups.
+  description: >-
+    Creates a deployment for the application, confirms it by reading the created
+    deployment, and lists the error groups attributed to the latest deployment to
+    check the release for regressions.
+  inputs:
+    type: object
+    required:
+    - applicationIdentifier
+    - version
+    properties:
+      applicationIdentifier:
+        type: string
+        description: The Raygun application identifier to record the deployment against.
+      version:
+        type: string
+        description: The version string of the deployment (1-128 characters).
+      ownerName:
+        type: string
+        description: The name of the person who triggered the deployment.
+      emailAddress:
+        type: string
+        description: The email address of the person who triggered the deployment.
+      comment:
+        type: string
+        description: A free-text comment describing the deployment.
+      scmType:
+        type: string
+        description: The source control system for the deployment commit.
+      scmIdentifier:
+        type: string
+        description: The source control commit identifier for the deployment.
+  steps:
+  - stepId: createDeployment
+    description: >-
+      Record a new deployment for the application, capturing the supplied version
+      and optional ownership and source-control metadata.
+    operationId: create-deployment
+    parameters:
+    - name: application-identifier
+      in: path
+      value: $inputs.applicationIdentifier
+    requestBody:
+      contentType: application/json
+      payload:
+        version: $inputs.version
+        ownerName: $inputs.ownerName
+        emailAddress: $inputs.emailAddress
+        comment: $inputs.comment
+        scmType: $inputs.scmType
+        scmIdentifier: $inputs.scmIdentifier
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      deploymentIdentifier: $response.body#/identifier
+      deployedAt: $response.body#/deployedAt
+  - stepId: getDeployment
+    description: >-
+      Read the created deployment back by identifier to confirm it persisted and
+      to capture its stored details.
+    operationId: get-deployment
+    parameters:
+    - name: application-identifier
+      in: path
+      value: $inputs.applicationIdentifier
+    - name: deployment-identifier
+      in: path
+      value: $steps.createDeployment.outputs.deploymentIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      version: $response.body#/version
+      applicationUrl: $response.body#/applicationUrl
+  - stepId: listLatestDeploymentErrorGroups
+    description: >-
+      List the error groups attributed to the latest deployment so the release
+      can be checked for newly introduced or reactivated errors.
+    operationId: list-error-groups-from-latest-deployment
+    parameters:
+    - name: application-identifier
+      in: path
+      value: $inputs.applicationIdentifier
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      errorGroups: $response.body
+  outputs:
+    deploymentIdentifier: $steps.createDeployment.outputs.deploymentIdentifier
+    version: $steps.getDeployment.outputs.version
+    applicationUrl: $steps.getDeployment.outputs.applicationUrl
+    errorGroups: $steps.listLatestDeploymentErrorGroups.outputs.errorGroups
