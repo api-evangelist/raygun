@@ -1,0 +1,1737 @@
+{
+  "info": {
+    "_postman_id": "03ed4728-057d-48cc-b988-4a15f0eb1f50",
+    "name": "Raygun Metrics API",
+    "description": "This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.\n\nContact Support:\n Name: Raygun Support\n Email: support@raygun.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:15:07.000Z",
+    "updatedAt": "2026-06-05T15:15:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-03ed4728-057d-48cc-b988-4a15f0eb1f50"
+  },
+  "item": [
+    {
+      "name": "metrics",
+      "item": [
+        {
+          "name": "{application-identifier}",
+          "item": [
+            {
+              "name": "pages",
+              "item": [
+                {
+                  "name": "time-series",
+                  "item": [
+                    {
+                      "name": "Time-series Page Metrics",
+                      "id": "60bbc0d2-75d4-4582-a97b-120d4ba5635d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"granularity\": \"7030389262m\",\n  \"aggregation\": \"sum\",\n  \"metrics\": [\n    \"pageViews\",\n    \"firstInputDelay\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/metrics/:application-identifier/pages/time-series",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "metrics",
+                            ":application-identifier",
+                            "pages",
+                            "time-series"
+                          ],
+                          "variable": [
+                            {
+                              "id": "5a4df6c3-fb1f-4104-9352-ad96c225ff5c",
+                              "key": "application-identifier"
+                            }
+                          ]
+                        },
+                        "description": "Returns aggregated time-series metrics data for pages"
+                      },
+                      "response": [
+                        {
+                          "id": "47e6d7c8-a0bd-4ed1-b698-f7422c783ba3",
+                          "name": "Time-series metrics",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"granularity\": \"7030389262m\",\n  \"aggregation\": \"sum\",\n  \"metrics\": [\n    \"pageViews\",\n    \"firstInputDelay\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/pages/time-series",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "pages",
+                                "time-series"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"aggregation\": \"<string>\",\n    \"metric\": \"<string>\",\n    \"series\": [\n      {\n        \"time\": \"<dateTime>\",\n        \"value\": \"<double>\"\n      },\n      {\n        \"time\": \"<dateTime>\",\n        \"value\": \"<double>\"\n      }\n    ]\n  },\n  {\n    \"aggregation\": \"<string>\",\n    \"metric\": \"<string>\",\n    \"series\": [\n      {\n        \"time\": \"<dateTime>\",\n        \"value\": \"<double>\"\n      },\n      {\n        \"time\": \"<dateTime>\",\n        \"value\": \"<double>\"\n      }\n    ]\n  }\n]",
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-47e6d7c8-a0bd-4ed1-b698-f7422c783ba3"
+                        },
+                        {
+                          "id": "aeee8567-a611-48b7-afd3-226326bf7f21",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"granularity\": \"7030389262m\",\n  \"aggregation\": \"sum\",\n  \"metrics\": [\n    \"pageViews\",\n    \"firstInputDelay\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/pages/time-series",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "pages",
+                                "time-series"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-aeee8567-a611-48b7-afd3-226326bf7f21"
+                        },
+                        {
+                          "id": "2191c0e2-4ef2-4cb3-a64d-d401d7ce3324",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"granularity\": \"7030389262m\",\n  \"aggregation\": \"sum\",\n  \"metrics\": [\n    \"pageViews\",\n    \"firstInputDelay\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/pages/time-series",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "pages",
+                                "time-series"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-2191c0e2-4ef2-4cb3-a64d-d401d7ce3324"
+                        },
+                        {
+                          "id": "8169afb0-83cd-418a-b4ba-785457ba757e",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"granularity\": \"7030389262m\",\n  \"aggregation\": \"sum\",\n  \"metrics\": [\n    \"pageViews\",\n    \"firstInputDelay\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/pages/time-series",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "pages",
+                                "time-series"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-8169afb0-83cd-418a-b4ba-785457ba757e"
+                        },
+                        {
+                          "id": "6d4a5c46-4132-4c3c-bf06-1a605b5d11f1",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"granularity\": \"7030389262m\",\n  \"aggregation\": \"sum\",\n  \"metrics\": [\n    \"pageViews\",\n    \"firstInputDelay\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/pages/time-series",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "pages",
+                                "time-series"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-6d4a5c46-4132-4c3c-bf06-1a605b5d11f1"
+                        },
+                        {
+                          "id": "31dbf4b5-ce90-4d33-b9d5-709da06e19f4",
+                          "name": "Validation problem details",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"granularity\": \"7030389262m\",\n  \"aggregation\": \"sum\",\n  \"metrics\": [\n    \"pageViews\",\n    \"firstInputDelay\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/pages/time-series",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "pages",
+                                "time-series"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"errors\": {\n    \"pariatur_0\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-31dbf4b5-ce90-4d33-b9d5-709da06e19f4"
+                        },
+                        {
+                          "id": "8b4fc007-0d23-4828-b48f-1a4670dd23c5",
+                          "name": "Too Many Requests",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"granularity\": \"7030389262m\",\n  \"aggregation\": \"sum\",\n  \"metrics\": [\n    \"pageViews\",\n    \"firstInputDelay\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/pages/time-series",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "pages",
+                                "time-series"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-8b4fc007-0d23-4828-b48f-1a4670dd23c5"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:15:07.000Z",
+                      "updatedAt": "2026-06-05T15:15:07.000Z",
+                      "uid": "35240-60bbc0d2-75d4-4582-a97b-120d4ba5635d"
+                    }
+                  ],
+                  "id": "e8c75d80-5377-4586-8ac7-870bda722f82",
+                  "createdAt": "2026-06-05T15:15:07.000Z",
+                  "updatedAt": "2026-06-05T15:15:07.000Z",
+                  "uid": "35240-e8c75d80-5377-4586-8ac7-870bda722f82"
+                },
+                {
+                  "name": "histogram",
+                  "item": [
+                    {
+                      "name": "Histogram Page Metrics",
+                      "id": "84593447-d2b8-440a-9f52-dd2bcff8a949",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"metrics\": [\n    \"firstContentfulPaint\",\n    \"interactionToNextPaint\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/metrics/:application-identifier/pages/histogram",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "metrics",
+                            ":application-identifier",
+                            "pages",
+                            "histogram"
+                          ],
+                          "variable": [
+                            {
+                              "id": "39ed5745-a7c3-4cb3-9c3c-2e944aab422e",
+                              "key": "application-identifier"
+                            }
+                          ]
+                        },
+                        "description": "Returns pre-bucketed histogram metrics data for pages"
+                      },
+                      "response": [
+                        {
+                          "id": "a2347dd3-2850-4e29-b0ca-266b6965b5ad",
+                          "name": "Histogram metrics",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"metrics\": [\n    \"firstContentfulPaint\",\n    \"interactionToNextPaint\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/pages/histogram",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "pages",
+                                "histogram"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"metric\": \"<string>\",\n    \"buckets\": [\n      {\n        \"key\": \"<number>\",\n        \"range\": \"<string>\",\n        \"count\": \"<integer>\"\n      },\n      {\n        \"key\": \"<number>\",\n        \"range\": \"<string>\",\n        \"count\": \"<integer>\"\n      }\n    ]\n  },\n  {\n    \"metric\": \"<string>\",\n    \"buckets\": [\n      {\n        \"key\": \"<number>\",\n        \"range\": \"<string>\",\n        \"count\": \"<integer>\"\n      },\n      {\n        \"key\": \"<number>\",\n        \"range\": \"<string>\",\n        \"count\": \"<integer>\"\n      }\n    ]\n  }\n]",
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-a2347dd3-2850-4e29-b0ca-266b6965b5ad"
+                        },
+                        {
+                          "id": "1a0b1ecd-5484-41c6-a278-6cb8fd64e657",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"metrics\": [\n    \"firstContentfulPaint\",\n    \"interactionToNextPaint\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/pages/histogram",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "pages",
+                                "histogram"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-1a0b1ecd-5484-41c6-a278-6cb8fd64e657"
+                        },
+                        {
+                          "id": "2123c745-033c-4351-92e2-90e8c2de0180",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"metrics\": [\n    \"firstContentfulPaint\",\n    \"interactionToNextPaint\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/pages/histogram",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "pages",
+                                "histogram"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-2123c745-033c-4351-92e2-90e8c2de0180"
+                        },
+                        {
+                          "id": "14dc395c-64b6-467b-8af2-3b5f1a68b998",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"metrics\": [\n    \"firstContentfulPaint\",\n    \"interactionToNextPaint\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/pages/histogram",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "pages",
+                                "histogram"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-14dc395c-64b6-467b-8af2-3b5f1a68b998"
+                        },
+                        {
+                          "id": "d8e7f9cf-f915-44d8-b7d9-3e4bec597dd5",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"metrics\": [\n    \"firstContentfulPaint\",\n    \"interactionToNextPaint\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/pages/histogram",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "pages",
+                                "histogram"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-d8e7f9cf-f915-44d8-b7d9-3e4bec597dd5"
+                        },
+                        {
+                          "id": "35a62261-f56c-42e9-a20a-71377fe5c84f",
+                          "name": "Validation problem details",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"metrics\": [\n    \"firstContentfulPaint\",\n    \"interactionToNextPaint\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/pages/histogram",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "pages",
+                                "histogram"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"errors\": {\n    \"pariatur_0\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-35a62261-f56c-42e9-a20a-71377fe5c84f"
+                        },
+                        {
+                          "id": "e7fefb91-3d7a-4708-8fea-fa98776045c1",
+                          "name": "Too Many Requests",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"metrics\": [\n    \"firstContentfulPaint\",\n    \"interactionToNextPaint\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/pages/histogram",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "pages",
+                                "histogram"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-e7fefb91-3d7a-4708-8fea-fa98776045c1"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:15:07.000Z",
+                      "updatedAt": "2026-06-05T15:15:07.000Z",
+                      "uid": "35240-84593447-d2b8-440a-9f52-dd2bcff8a949"
+                    }
+                  ],
+                  "id": "75ddecb6-ad19-4c94-bfdc-7fbc3a2341b3",
+                  "createdAt": "2026-06-05T15:15:07.000Z",
+                  "updatedAt": "2026-06-05T15:15:07.000Z",
+                  "uid": "35240-75ddecb6-ad19-4c94-bfdc-7fbc3a2341b3"
+                }
+              ],
+              "id": "61d36210-1516-45d6-9c0d-659377abb13a",
+              "createdAt": "2026-06-05T15:15:07.000Z",
+              "updatedAt": "2026-06-05T15:15:07.000Z",
+              "uid": "35240-61d36210-1516-45d6-9c0d-659377abb13a"
+            },
+            {
+              "name": "errors",
+              "item": [
+                {
+                  "name": "time-series",
+                  "item": [
+                    {
+                      "name": "Time-series Error Metrics",
+                      "id": "26508b3f-ed46-41a2-b0b8-731de984f6df",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"granularity\": \"61015d\",\n  \"aggregation\": \"count\",\n  \"metrics\": [\n    \"errorInstances\",\n    \"errorInstances\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/metrics/:application-identifier/errors/time-series",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "metrics",
+                            ":application-identifier",
+                            "errors",
+                            "time-series"
+                          ],
+                          "variable": [
+                            {
+                              "id": "7c79bf45-efa3-4d27-abec-520d8127e248",
+                              "key": "application-identifier"
+                            }
+                          ]
+                        },
+                        "description": "Returns aggregated time-series metrics data for errors"
+                      },
+                      "response": [
+                        {
+                          "id": "da9f9da4-ba3e-44a5-b65e-58ec4194358f",
+                          "name": "Time-series metrics",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"granularity\": \"61015d\",\n  \"aggregation\": \"count\",\n  \"metrics\": [\n    \"errorInstances\",\n    \"errorInstances\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/errors/time-series",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "errors",
+                                "time-series"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"aggregation\": \"<string>\",\n    \"metric\": \"<string>\",\n    \"series\": [\n      {\n        \"time\": \"<dateTime>\",\n        \"value\": \"<double>\"\n      },\n      {\n        \"time\": \"<dateTime>\",\n        \"value\": \"<double>\"\n      }\n    ]\n  },\n  {\n    \"aggregation\": \"<string>\",\n    \"metric\": \"<string>\",\n    \"series\": [\n      {\n        \"time\": \"<dateTime>\",\n        \"value\": \"<double>\"\n      },\n      {\n        \"time\": \"<dateTime>\",\n        \"value\": \"<double>\"\n      }\n    ]\n  }\n]",
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-da9f9da4-ba3e-44a5-b65e-58ec4194358f"
+                        },
+                        {
+                          "id": "87a7de7b-f7fc-42b5-b4b5-de8d6ace6b55",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"granularity\": \"61015d\",\n  \"aggregation\": \"count\",\n  \"metrics\": [\n    \"errorInstances\",\n    \"errorInstances\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/errors/time-series",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "errors",
+                                "time-series"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-87a7de7b-f7fc-42b5-b4b5-de8d6ace6b55"
+                        },
+                        {
+                          "id": "6a2e43a2-5ff8-4541-9ebe-0ad639b6e77c",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"granularity\": \"61015d\",\n  \"aggregation\": \"count\",\n  \"metrics\": [\n    \"errorInstances\",\n    \"errorInstances\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/errors/time-series",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "errors",
+                                "time-series"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-6a2e43a2-5ff8-4541-9ebe-0ad639b6e77c"
+                        },
+                        {
+                          "id": "2b80bbcc-5aed-4fa6-a717-80e1bae67796",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"granularity\": \"61015d\",\n  \"aggregation\": \"count\",\n  \"metrics\": [\n    \"errorInstances\",\n    \"errorInstances\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/errors/time-series",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "errors",
+                                "time-series"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-2b80bbcc-5aed-4fa6-a717-80e1bae67796"
+                        },
+                        {
+                          "id": "ec0a51be-fbe5-4aa8-a387-94acc9fb1678",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"granularity\": \"61015d\",\n  \"aggregation\": \"count\",\n  \"metrics\": [\n    \"errorInstances\",\n    \"errorInstances\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/errors/time-series",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "errors",
+                                "time-series"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-ec0a51be-fbe5-4aa8-a387-94acc9fb1678"
+                        },
+                        {
+                          "id": "f0b11699-a452-4e22-898e-876de5f8f252",
+                          "name": "Validation problem details",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"granularity\": \"61015d\",\n  \"aggregation\": \"count\",\n  \"metrics\": [\n    \"errorInstances\",\n    \"errorInstances\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/errors/time-series",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "errors",
+                                "time-series"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"errors\": {\n    \"pariatur_0\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-f0b11699-a452-4e22-898e-876de5f8f252"
+                        },
+                        {
+                          "id": "cd589e2d-17a6-42f7-bc2a-a92dfc6db114",
+                          "name": "Too Many Requests",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"granularity\": \"61015d\",\n  \"aggregation\": \"count\",\n  \"metrics\": [\n    \"errorInstances\",\n    \"errorInstances\"\n  ],\n  \"filter\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/metrics/:application-identifier/errors/time-series",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "metrics",
+                                ":application-identifier",
+                                "errors",
+                                "time-series"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:15:07.000Z",
+                          "updatedAt": "2026-06-05T15:15:07.000Z",
+                          "uid": "35240-cd589e2d-17a6-42f7-bc2a-a92dfc6db114"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:15:07.000Z",
+                      "updatedAt": "2026-06-05T15:15:07.000Z",
+                      "uid": "35240-26508b3f-ed46-41a2-b0b8-731de984f6df"
+                    }
+                  ],
+                  "id": "5731268a-fb5b-4090-8ef6-c8ffc0422579",
+                  "createdAt": "2026-06-05T15:15:07.000Z",
+                  "updatedAt": "2026-06-05T15:15:07.000Z",
+                  "uid": "35240-5731268a-fb5b-4090-8ef6-c8ffc0422579"
+                }
+              ],
+              "id": "65215678-3149-4ac6-9320-4f086721466d",
+              "createdAt": "2026-06-05T15:15:07.000Z",
+              "updatedAt": "2026-06-05T15:15:07.000Z",
+              "uid": "35240-65215678-3149-4ac6-9320-4f086721466d"
+            }
+          ],
+          "id": "389715ec-b326-46b4-93a4-6255d5ba5c0c",
+          "createdAt": "2026-06-05T15:15:07.000Z",
+          "updatedAt": "2026-06-05T15:15:07.000Z",
+          "uid": "35240-389715ec-b326-46b4-93a4-6255d5ba5c0c"
+        }
+      ],
+      "id": "6b248a67-f475-4a17-93f8-4f00db22464f",
+      "createdAt": "2026-06-05T15:15:07.000Z",
+      "updatedAt": "2026-06-05T15:15:07.000Z",
+      "uid": "35240-6b248a67-f475-4a17-93f8-4f00db22464f"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.raygun.com/v3"
+    }
+  ]
+}

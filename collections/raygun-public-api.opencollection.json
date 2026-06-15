@@ -1,0 +1,1727 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Raygun API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of all applications that the token and token owner has access to"
+        },
+        {
+          "info": {
+            "name": "Get Application by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a single application by identifier"
+        },
+        {
+          "info": {
+            "name": "Get Application by Api Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/api-key/:api-key",
+            "params": [
+              {
+                "name": "api-key",
+                "value": "",
+                "type": "path",
+                "description": "Application api key"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a single application associated with the application api key"
+        },
+        {
+          "info": {
+            "name": "Regenerate Application Api Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/regenerate-api-key",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Regenerate the api key for the given application"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "deployments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Deployments for an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of deployments for the specified application"
+        },
+        {
+          "info": {
+            "name": "Create Deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a deployment for the specified application"
+        },
+        {
+          "info": {
+            "name": "Get the Latest Deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/latest",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the latest deployment"
+        },
+        {
+          "info": {
+            "name": "Get Deployment by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/:deployment-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "deployment-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Deployment identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a single deployment by identifier"
+        },
+        {
+          "info": {
+            "name": "Update Deployment Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/:deployment-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "deployment-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Deployment identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update the details of a deployment"
+        },
+        {
+          "info": {
+            "name": "Delete Deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/:deployment-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "deployment-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Deployment identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a deployment"
+        },
+        {
+          "info": {
+            "name": "List Error Groups From the Latest Deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/latest/error-groups",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "filter",
+                "value": "state eq regressed",
+                "type": "query",
+                "description": "Filter items by an expression. Currently supports filtering by the virtual property `state`, which can be `new`, `stillOccurring`, or `regressed`"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of error groups from the latest deployment"
+        },
+        {
+          "info": {
+            "name": "List Error Groups From a Deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/:deployment-identifier/error-groups",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "deployment-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Deployment identifier"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "filter",
+                "value": "state eq regressed",
+                "type": "query",
+                "description": "Filter items by an expression. Currently supports filtering by the virtual property `state`, which can be `new`, `stillOccurring`, or `regressed`"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of error groups from the specified deployment"
+        },
+        {
+          "info": {
+            "name": "Create Deployment With Api Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/api-key/:api-key/deployments",
+            "params": [
+              {
+                "name": "api-key",
+                "value": "",
+                "type": "path",
+                "description": "Application api key"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a deployment for an application with the specified api key"
+        },
+        {
+          "info": {
+            "name": "Reprocess Deployment Commits",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/:deployment-identifier/reprocess-commits",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "deployment-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Deployment identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Reprocess commits for a deployment"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "source-maps",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Source Map by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/source-maps/:source-map-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "source-map-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Source map identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a single source map by identifier"
+        },
+        {
+          "info": {
+            "name": "Update the URI for a Sourcemap",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/source-maps/:source-map-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "source-map-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Source map identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update the details of a source map"
+        },
+        {
+          "info": {
+            "name": "Deletes a Sourcemap by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/source-maps/:source-map-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "source-map-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Source map identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a source map"
+        },
+        {
+          "info": {
+            "name": "List Source Maps for an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/source-maps",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of source maps for the specified application"
+        },
+        {
+          "info": {
+            "name": "Upload a Source Map",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/source-maps",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "uri",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Uploads a source map to the specified application"
+        },
+        {
+          "info": {
+            "name": "Deletes All Source Maps for an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/source-maps",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes all source maps"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "errors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Error Groups for an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of error groups for the specified application"
+        },
+        {
+          "info": {
+            "name": "Get Error Group by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups/:error-group-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "error-group-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Error group identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a single error group by identifier"
+        },
+        {
+          "info": {
+            "name": "Resolve Error Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups/:error-group-identifier/resolve",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "error-group-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Error group identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Set the status of the error group to resolved"
+        },
+        {
+          "info": {
+            "name": "Activate Error Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups/:error-group-identifier/activate",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "error-group-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Error group identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Set the status of the error group to active"
+        },
+        {
+          "info": {
+            "name": "Ignore Error Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups/:error-group-identifier/ignore",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "error-group-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Error group identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Set the status of the error group to ignored"
+        },
+        {
+          "info": {
+            "name": "Permanently Ignore Error Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups/:error-group-identifier/permanently-ignore",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "error-group-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Error group identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Set the status of the error group to permanently ignored"
+        },
+        {
+          "info": {
+            "name": "Create Error Group Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups/:error-group-identifier/comment",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "error-group-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Error group identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a comment on an error group"
+        },
+        {
+          "info": {
+            "name": "List Error Instances for an Error Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups/:error-group-identifier/instances",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "error-group-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Error group identifier"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of error instance summaries for the specified error group, ordered by occurrence time (latest first)"
+        },
+        {
+          "info": {
+            "name": "Get Latest Error Instance for an Error Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups/:error-group-identifier/instance/latest",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "error-group-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Error group identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the latest (most recent) error instance for the specified error group"
+        },
+        {
+          "info": {
+            "name": "Get Error Instance by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups/:error-group-identifier/instance/:error-instance-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "error-group-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Error group identifier"
+              },
+              {
+                "name": "error-instance-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Error instance identifier (accepts both Base36 and numeric formats)"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a specific error instance by identifier for the specified error group. Accepts both Base36 and numeric identifiers."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "invitations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Invitations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/invitations",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list invitations that the token and token owner has access to"
+        },
+        {
+          "info": {
+            "name": "Send an Invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/invitations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Send an invitation to a user"
+        },
+        {
+          "info": {
+            "name": "Get Invitation by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/invitations/:invitation-identifier",
+            "params": [
+              {
+                "name": "invitation-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Invitation identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get an invitation by identifier"
+        },
+        {
+          "info": {
+            "name": "Revoke Invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/invitations/:invitation-identifier/revoke",
+            "params": [
+              {
+                "name": "invitation-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Invitation identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Revoke a sent invitation"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "plans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Plans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/plans",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of plans that this token can access"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "teams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Teams",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/teams",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the teams for a plan"
+        },
+        {
+          "info": {
+            "name": "Get Team by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/teams/:team-identifier",
+            "params": [
+              {
+                "name": "team-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Team identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a team with the given identifier"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "pages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Pages for an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/pages",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of pages for the specified application"
+        },
+        {
+          "info": {
+            "name": "Get Page by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/pages/:page-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "page-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Page identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a page by identifier"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "customers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Customers for an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/customers",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of customers for the specified application"
+        },
+        {
+          "info": {
+            "name": "Get Customer by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/customers/:customer-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "customer-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Customer identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a single customer by identifier"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "sessions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Sessions for an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/sessions",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "filter",
+                "value": "xhr.uri eq https://example.com",
+                "type": "query",
+                "description": "Filter items by an expression. Currently only supports filtering by `xhr.uri`. Note: This parameter cannot be used with `orderby`"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values. Note: This parameter cannot be used with `filter`"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of sessions for the specified application"
+        },
+        {
+          "info": {
+            "name": "Get Session by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/sessions/:session-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "session-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Session identifier"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Include additional information for the session"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a single session by identifier"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Time-series Page Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/metrics/:application-identifier/pages/time-series",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns aggregated time-series metrics data for pages"
+        },
+        {
+          "info": {
+            "name": "Histogram Page Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/metrics/:application-identifier/pages/histogram",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns pre-bucketed histogram metrics data for pages"
+        },
+        {
+          "info": {
+            "name": "Time-series Error Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/metrics/:application-identifier/errors/time-series",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns aggregated time-series metrics data for errors"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "flutter-symbols",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Flutter Symbols for an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/flutter-symbols",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of Flutter symbols for the specified application"
+        },
+        {
+          "info": {
+            "name": "Upload a Flutter Symbol",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/flutter-symbols",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "version",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Uploads a Flutter symbol to the specified application"
+        },
+        {
+          "info": {
+            "name": "Get Flutter Symbol by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "flutter-symbol-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Flutter symbol identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a Flutter symbol by identifier"
+        },
+        {
+          "info": {
+            "name": "Delete Flutter Symbol by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "flutter-symbol-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Flutter symbol identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a Flutter symbol"
+        },
+        {
+          "info": {
+            "name": "Get Flutter Symbol Content by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier/content",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "flutter-symbol-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Flutter symbol identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the content of a Flutter symbol"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

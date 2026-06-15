@@ -1,0 +1,2610 @@
+{
+  "info": {
+    "_postman_id": "e9467ff3-76af-43de-aedb-250de45bd08b",
+    "name": "Raygun Source Maps API",
+    "description": "This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.\n\nContact Support:\n Name: Raygun Support\n Email: support@raygun.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:58.000Z",
+    "updatedAt": "2026-06-05T15:14:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e9467ff3-76af-43de-aedb-250de45bd08b"
+  },
+  "item": [
+    {
+      "name": "applications",
+      "item": [
+        {
+          "name": "{application-identifier}",
+          "item": [
+            {
+              "name": "source-maps",
+              "item": [
+                {
+                  "name": "{source-map-identifier}",
+                  "item": [
+                    {
+                      "name": "Update the URI for a Sourcemap",
+                      "id": "a91383d1-f880-40e9-86f4-c10f2d63e209",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"uri\": \"<uri>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps",
+                            ":source-map-identifier"
+                          ],
+                          "variable": [
+                            {
+                              "id": "11b9be76-1310-42d5-beac-7b57f2cc053a",
+                              "key": "application-identifier"
+                            },
+                            {
+                              "id": "ae15c513-5454-4259-bf4a-5cceda52b39d",
+                              "key": "source-map-identifier"
+                            }
+                          ]
+                        },
+                        "description": "Update the details of a source map"
+                      },
+                      "response": [
+                        {
+                          "id": "861d8543-5396-4f62-8891-0f2ce0473a7d",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"uri\": \"<uri>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "source-maps",
+                                ":source-map-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "source-map-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"identifier\": \"<string>\",\n  \"applicationIdentifier\": \"<string>\",\n  \"uri\": \"<uri>\",\n  \"fileName\": \"<string>\",\n  \"fileSizeBytes\": \"<number>\",\n  \"uploadedAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"isMapFile\": \"<boolean>\"\n}",
+                          "createdAt": "2026-06-05T15:14:58.000Z",
+                          "updatedAt": "2026-06-05T15:14:58.000Z",
+                          "uid": "35240-861d8543-5396-4f62-8891-0f2ce0473a7d"
+                        },
+                        {
+                          "id": "c9667eaa-0e22-4d30-b0b4-9479e0594892",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"uri\": \"<uri>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "source-maps",
+                                ":source-map-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "source-map-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:14:58.000Z",
+                          "updatedAt": "2026-06-05T15:14:58.000Z",
+                          "uid": "35240-c9667eaa-0e22-4d30-b0b4-9479e0594892"
+                        },
+                        {
+                          "id": "ab1ab53e-58da-4ccb-90fa-a405b6bccbbb",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"uri\": \"<uri>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "source-maps",
+                                ":source-map-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "source-map-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:14:58.000Z",
+                          "updatedAt": "2026-06-05T15:14:58.000Z",
+                          "uid": "35240-ab1ab53e-58da-4ccb-90fa-a405b6bccbbb"
+                        },
+                        {
+                          "id": "b1256bce-371d-42e0-bf15-a8ea1f4749a1",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"uri\": \"<uri>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "source-maps",
+                                ":source-map-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "source-map-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:14:58.000Z",
+                          "updatedAt": "2026-06-05T15:14:58.000Z",
+                          "uid": "35240-b1256bce-371d-42e0-bf15-a8ea1f4749a1"
+                        },
+                        {
+                          "id": "f851a5e6-4b79-4937-b09e-54f4f298acd6",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"uri\": \"<uri>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "source-maps",
+                                ":source-map-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "source-map-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:14:58.000Z",
+                          "updatedAt": "2026-06-05T15:14:58.000Z",
+                          "uid": "35240-f851a5e6-4b79-4937-b09e-54f4f298acd6"
+                        },
+                        {
+                          "id": "be2aa0ad-9545-43c4-804d-07cba5ada18e",
+                          "name": "Validation problem details",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"uri\": \"<uri>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "source-maps",
+                                ":source-map-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "source-map-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"errors\": {\n    \"Duis_\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dolore5\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:14:58.000Z",
+                          "updatedAt": "2026-06-05T15:14:58.000Z",
+                          "uid": "35240-be2aa0ad-9545-43c4-804d-07cba5ada18e"
+                        },
+                        {
+                          "id": "191643e5-d7f0-44e0-a69e-61214381d1f0",
+                          "name": "Too many requests",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"uri\": \"<uri>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "source-maps",
+                                ":source-map-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "source-map-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:14:58.000Z",
+                          "updatedAt": "2026-06-05T15:14:58.000Z",
+                          "uid": "35240-191643e5-d7f0-44e0-a69e-61214381d1f0"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-a91383d1-f880-40e9-86f4-c10f2d63e209"
+                    },
+                    {
+                      "name": "Deletes a Sourcemap by Identifier",
+                      "id": "ff5b9744-b6e0-420e-a509-de4f40985346",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps",
+                            ":source-map-identifier"
+                          ],
+                          "variable": [
+                            {
+                              "id": "1fbd84e6-8a80-4891-a1ab-3bd20ce5ac29",
+                              "key": "application-identifier"
+                            },
+                            {
+                              "id": "bfb58f41-00ee-41fb-9928-db8cbb73cf7a",
+                              "key": "source-map-identifier"
+                            }
+                          ]
+                        },
+                        "description": "Delete a source map"
+                      },
+                      "response": [
+                        {
+                          "id": "58b131fd-88cf-49a5-b27c-3ce2ab14b48c",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "source-maps",
+                                ":source-map-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "source-map-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:14:58.000Z",
+                          "updatedAt": "2026-06-05T15:14:58.000Z",
+                          "uid": "35240-58b131fd-88cf-49a5-b27c-3ce2ab14b48c"
+                        },
+                        {
+                          "id": "c4c8f9cf-c5a3-49ab-a9e6-741a5fef091a",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "source-maps",
+                                ":source-map-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "source-map-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:14:58.000Z",
+                          "updatedAt": "2026-06-05T15:14:58.000Z",
+                          "uid": "35240-c4c8f9cf-c5a3-49ab-a9e6-741a5fef091a"
+                        },
+                        {
+                          "id": "d7025c6c-7441-47f7-8cd0-43186ae9ff0f",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "source-maps",
+                                ":source-map-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "source-map-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:14:58.000Z",
+                          "updatedAt": "2026-06-05T15:14:58.000Z",
+                          "uid": "35240-d7025c6c-7441-47f7-8cd0-43186ae9ff0f"
+                        },
+                        {
+                          "id": "cabe0fa0-5b64-4326-b25b-ec9d0220612b",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "source-maps",
+                                ":source-map-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "source-map-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:14:58.000Z",
+                          "updatedAt": "2026-06-05T15:14:58.000Z",
+                          "uid": "35240-cabe0fa0-5b64-4326-b25b-ec9d0220612b"
+                        },
+                        {
+                          "id": "d1f8bd6b-5b85-4213-b711-fd0c409f8be3",
+                          "name": "Too many requests",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "source-maps",
+                                ":source-map-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "source-map-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:14:58.000Z",
+                          "updatedAt": "2026-06-05T15:14:58.000Z",
+                          "uid": "35240-d1f8bd6b-5b85-4213-b711-fd0c409f8be3"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-ff5b9744-b6e0-420e-a509-de4f40985346"
+                    },
+                    {
+                      "name": "Get Source Map by Identifier",
+                      "id": "e02b0bc1-2b00-434d-868f-7018d88dee1e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps",
+                            ":source-map-identifier"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ad661225-c508-4039-af14-9f3092fff7fe",
+                              "key": "application-identifier"
+                            },
+                            {
+                              "id": "2d6a9a2b-ed8c-425f-9933-5ef2b4b93df9",
+                              "key": "source-map-identifier"
+                            }
+                          ]
+                        },
+                        "description": "Returns a single source map by identifier"
+                      },
+                      "response": [
+                        {
+                          "id": "02874cc2-712c-483b-a4ce-af84cbd53613",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "source-maps",
+                                ":source-map-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "source-map-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"identifier\": \"<string>\",\n  \"applicationIdentifier\": \"<string>\",\n  \"uri\": \"<uri>\",\n  \"fileName\": \"<string>\",\n  \"fileSizeBytes\": \"<number>\",\n  \"uploadedAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"isMapFile\": \"<boolean>\"\n}",
+                          "createdAt": "2026-06-05T15:14:58.000Z",
+                          "updatedAt": "2026-06-05T15:14:58.000Z",
+                          "uid": "35240-02874cc2-712c-483b-a4ce-af84cbd53613"
+                        },
+                        {
+                          "id": "8b145c97-7999-4620-936e-ee7af9ef5535",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "source-maps",
+                                ":source-map-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "source-map-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:14:58.000Z",
+                          "updatedAt": "2026-06-05T15:14:58.000Z",
+                          "uid": "35240-8b145c97-7999-4620-936e-ee7af9ef5535"
+                        },
+                        {
+                          "id": "de9d8627-55e9-40e1-91a3-e879cdf66f38",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "source-maps",
+                                ":source-map-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "source-map-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:14:58.000Z",
+                          "updatedAt": "2026-06-05T15:14:58.000Z",
+                          "uid": "35240-de9d8627-55e9-40e1-91a3-e879cdf66f38"
+                        },
+                        {
+                          "id": "69d48a89-63cc-480b-bcf7-b2c57aadee1f",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "source-maps",
+                                ":source-map-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "source-map-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:14:58.000Z",
+                          "updatedAt": "2026-06-05T15:14:58.000Z",
+                          "uid": "35240-69d48a89-63cc-480b-bcf7-b2c57aadee1f"
+                        },
+                        {
+                          "id": "322a04e4-9a01-4f8f-af52-f6991d9a6f81",
+                          "name": "Too many requests",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/source-maps/:source-map-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "source-maps",
+                                ":source-map-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "source-map-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:14:58.000Z",
+                          "updatedAt": "2026-06-05T15:14:58.000Z",
+                          "uid": "35240-322a04e4-9a01-4f8f-af52-f6991d9a6f81"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-e02b0bc1-2b00-434d-868f-7018d88dee1e"
+                    }
+                  ],
+                  "id": "12062cba-a213-4462-bb1a-c89bf50204ff",
+                  "createdAt": "2026-06-05T15:14:58.000Z",
+                  "updatedAt": "2026-06-05T15:14:58.000Z",
+                  "uid": "35240-12062cba-a213-4462-bb1a-c89bf50204ff"
+                },
+                {
+                  "name": "List Source Maps for an Application",
+                  "id": "ac072f6c-9b01-4ffb-be69-b328d3ae441b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:application-identifier/source-maps?count=100&offset=<integer>&orderby=createdAt desc,uri desc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":application-identifier",
+                        "source-maps"
+                      ],
+                      "query": [
+                        {
+                          "description": "Limits the number of items in the response",
+                          "key": "count",
+                          "value": "100"
+                        },
+                        {
+                          "description": "Number of items to skip before returning results",
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Order items by property values",
+                          "key": "orderby",
+                          "value": "createdAt desc,uri desc"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "d91f2cdd-e611-4e63-90ef-785c1f5717b7",
+                          "key": "application-identifier"
+                        }
+                      ]
+                    },
+                    "description": "Returns a list of source maps for the specified application"
+                  },
+                  "response": [
+                    {
+                      "id": "db59af06-16fa-43e4-8d82-ee484d30567c",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps?count=100&offset=<integer>&orderby=createdAt desc,uri desc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Order items by property values",
+                              "key": "orderby",
+                              "value": "createdAt desc,uri desc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"identifier\": \"<string>\",\n    \"applicationIdentifier\": \"<string>\",\n    \"uri\": \"<uri>\",\n    \"fileName\": \"<string>\",\n    \"fileSizeBytes\": \"<number>\",\n    \"uploadedAt\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"isMapFile\": \"<boolean>\"\n  },\n  {\n    \"identifier\": \"<string>\",\n    \"applicationIdentifier\": \"<string>\",\n    \"uri\": \"<uri>\",\n    \"fileName\": \"<string>\",\n    \"fileSizeBytes\": \"<number>\",\n    \"uploadedAt\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"isMapFile\": \"<boolean>\"\n  }\n]",
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-db59af06-16fa-43e4-8d82-ee484d30567c"
+                    },
+                    {
+                      "id": "4c71b43e-b53c-4f66-9c71-bbd622f02a0a",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps?count=100&offset=<integer>&orderby=createdAt desc,uri desc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Order items by property values",
+                              "key": "orderby",
+                              "value": "createdAt desc,uri desc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-4c71b43e-b53c-4f66-9c71-bbd622f02a0a"
+                    },
+                    {
+                      "id": "f1a27134-6808-46b1-b748-84450a6bb466",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps?count=100&offset=<integer>&orderby=createdAt desc,uri desc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Order items by property values",
+                              "key": "orderby",
+                              "value": "createdAt desc,uri desc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-f1a27134-6808-46b1-b748-84450a6bb466"
+                    },
+                    {
+                      "id": "d4ccbe8e-1c68-4fe4-b7e6-b2607b742aed",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps?count=100&offset=<integer>&orderby=createdAt desc,uri desc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Order items by property values",
+                              "key": "orderby",
+                              "value": "createdAt desc,uri desc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-d4ccbe8e-1c68-4fe4-b7e6-b2607b742aed"
+                    },
+                    {
+                      "id": "961e03e4-5339-4ad2-885a-f5d9a9c594a6",
+                      "name": "Too many requests",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps?count=100&offset=<integer>&orderby=createdAt desc,uri desc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Order items by property values",
+                              "key": "orderby",
+                              "value": "createdAt desc,uri desc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-961e03e4-5339-4ad2-885a-f5d9a9c594a6"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:14:58.000Z",
+                  "updatedAt": "2026-06-05T15:14:58.000Z",
+                  "uid": "35240-ac072f6c-9b01-4ffb-be69-b328d3ae441b"
+                },
+                {
+                  "name": "Upload a Source Map",
+                  "id": "2fe43621-bf48-4f65-aab5-110454b1a082",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "file",
+                          "type": "file",
+                          "value": null
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "uri",
+                          "value": "<uri>",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:application-identifier/source-maps",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":application-identifier",
+                        "source-maps"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e085f186-1ad5-4fae-8573-699849ba6e85",
+                          "key": "application-identifier"
+                        }
+                      ]
+                    },
+                    "description": "Uploads a source map to the specified application"
+                  },
+                  "response": [
+                    {
+                      "id": "c1e20c7e-1303-42d3-90d1-f0426500384d",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "uri",
+                              "value": "<uri>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps"
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"identifier\": \"<string>\",\n  \"applicationIdentifier\": \"<string>\",\n  \"uri\": \"<uri>\",\n  \"fileName\": \"<string>\",\n  \"fileSizeBytes\": \"<number>\",\n  \"uploadedAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"isMapFile\": \"<boolean>\"\n}",
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-c1e20c7e-1303-42d3-90d1-f0426500384d"
+                    },
+                    {
+                      "id": "258a9e1b-a907-4682-bcdb-a55b5f94580d",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "uri",
+                              "value": "<uri>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps"
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-258a9e1b-a907-4682-bcdb-a55b5f94580d"
+                    },
+                    {
+                      "id": "4f3d5a2d-6507-4301-925a-13073c5fb55f",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "uri",
+                              "value": "<uri>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps"
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-4f3d5a2d-6507-4301-925a-13073c5fb55f"
+                    },
+                    {
+                      "id": "ff8685d0-dcae-4e6b-be40-349a882b8ce1",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "uri",
+                              "value": "<uri>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps"
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-ff8685d0-dcae-4e6b-be40-349a882b8ce1"
+                    },
+                    {
+                      "id": "0262b923-884f-443a-a326-b255db655e9d",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "uri",
+                              "value": "<uri>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps"
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-0262b923-884f-443a-a326-b255db655e9d"
+                    },
+                    {
+                      "id": "1da68a57-40c0-45de-af9d-e46d399e368e",
+                      "name": "Validation problem details",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "uri",
+                              "value": "<uri>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps"
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"errors\": {\n    \"Duis_\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dolore5\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-1da68a57-40c0-45de-af9d-e46d399e368e"
+                    },
+                    {
+                      "id": "fc17db8f-7c18-4d5d-bfd3-fd7a1c737651",
+                      "name": "Too Many Requests",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "uri",
+                              "value": "<uri>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps"
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-fc17db8f-7c18-4d5d-bfd3-fd7a1c737651"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:14:58.000Z",
+                  "updatedAt": "2026-06-05T15:14:58.000Z",
+                  "uid": "35240-2fe43621-bf48-4f65-aab5-110454b1a082"
+                },
+                {
+                  "name": "Deletes All Source Maps for an Application",
+                  "id": "0d504257-7548-4aad-a27b-a718c6b6fba9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:application-identifier/source-maps",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":application-identifier",
+                        "source-maps"
+                      ],
+                      "variable": [
+                        {
+                          "id": "4625a86f-6bbc-4340-b10a-8d9ce800cfae",
+                          "key": "application-identifier"
+                        }
+                      ]
+                    },
+                    "description": "Deletes all source maps"
+                  },
+                  "response": [
+                    {
+                      "id": "b8e2587a-fb97-4016-813e-4e0aa930a726",
+                      "name": "No Content",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps"
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-b8e2587a-fb97-4016-813e-4e0aa930a726"
+                    },
+                    {
+                      "id": "fae52580-b243-4cee-b695-1d207f5c85ff",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps"
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-fae52580-b243-4cee-b695-1d207f5c85ff"
+                    },
+                    {
+                      "id": "bdc40fa3-c30d-4407-980d-a835580114a5",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps"
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-bdc40fa3-c30d-4407-980d-a835580114a5"
+                    },
+                    {
+                      "id": "38fb7719-eef4-4cf2-b332-3ffadf3d6c96",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps"
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-38fb7719-eef4-4cf2-b332-3ffadf3d6c96"
+                    },
+                    {
+                      "id": "08c9c579-7827-49fe-b780-48ef9b4a7185",
+                      "name": "Too many requests",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/source-maps",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "source-maps"
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:14:58.000Z",
+                      "updatedAt": "2026-06-05T15:14:58.000Z",
+                      "uid": "35240-08c9c579-7827-49fe-b780-48ef9b4a7185"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:14:58.000Z",
+                  "updatedAt": "2026-06-05T15:14:58.000Z",
+                  "uid": "35240-0d504257-7548-4aad-a27b-a718c6b6fba9"
+                }
+              ],
+              "id": "074d1c66-9fc4-4cf7-b826-c72b8e943701",
+              "createdAt": "2026-06-05T15:14:58.000Z",
+              "updatedAt": "2026-06-05T15:14:58.000Z",
+              "uid": "35240-074d1c66-9fc4-4cf7-b826-c72b8e943701"
+            }
+          ],
+          "id": "490ce33c-c10f-4dc7-88e0-b060c166d0c4",
+          "createdAt": "2026-06-05T15:14:58.000Z",
+          "updatedAt": "2026-06-05T15:14:58.000Z",
+          "uid": "35240-490ce33c-c10f-4dc7-88e0-b060c166d0c4"
+        }
+      ],
+      "id": "d1574941-f89a-4777-97d0-154b57e78a99",
+      "createdAt": "2026-06-05T15:14:58.000Z",
+      "updatedAt": "2026-06-05T15:14:58.000Z",
+      "uid": "35240-d1574941-f89a-4777-97d0-154b57e78a99"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.raygun.com/v3"
+    }
+  ]
+}

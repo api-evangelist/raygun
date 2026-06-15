@@ -1,0 +1,190 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Raygun Flutter Symbols API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "flutter-symbols",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Flutter Symbols for an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/flutter-symbols",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of Flutter symbols for the specified application"
+        },
+        {
+          "info": {
+            "name": "Upload a Flutter Symbol",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/flutter-symbols",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "version",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Uploads a Flutter symbol to the specified application"
+        },
+        {
+          "info": {
+            "name": "Get Flutter Symbol by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "flutter-symbol-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Flutter symbol identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a Flutter symbol by identifier"
+        },
+        {
+          "info": {
+            "name": "Delete Flutter Symbol by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "flutter-symbol-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Flutter symbol identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a Flutter symbol"
+        },
+        {
+          "info": {
+            "name": "Get Flutter Symbol Content by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier/content",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "flutter-symbol-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Flutter symbol identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the content of a Flutter symbol"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Raygun Plans API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "plans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Plans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/plans",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of plans that this token can access"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

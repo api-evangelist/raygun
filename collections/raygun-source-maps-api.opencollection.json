@@ -1,0 +1,153 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Raygun Source Maps API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "source-maps",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Source Map by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/source-maps/:source-map-identifier",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a single source map by identifier"
+        },
+        {
+          "info": {
+            "name": "Update the URI for a Sourcemap",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/source-maps/:source-map-identifier",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update the details of a source map"
+        },
+        {
+          "info": {
+            "name": "Deletes a Sourcemap by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/source-maps/:source-map-identifier",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a source map"
+        },
+        {
+          "info": {
+            "name": "List Source Maps for an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/source-maps",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of source maps for the specified application"
+        },
+        {
+          "info": {
+            "name": "Upload a Source Map",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/source-maps",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "uri",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Uploads a source map to the specified application"
+        },
+        {
+          "info": {
+            "name": "Deletes All Source Maps for an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/source-maps",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes all source maps"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

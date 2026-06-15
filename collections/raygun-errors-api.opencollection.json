@@ -1,0 +1,316 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Raygun Errors API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "errors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Error Groups for an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of error groups for the specified application"
+        },
+        {
+          "info": {
+            "name": "Get Error Group by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups/:error-group-identifier",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a single error group by identifier"
+        },
+        {
+          "info": {
+            "name": "Resolve Error Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups/:error-group-identifier/resolve",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Set the status of the error group to resolved"
+        },
+        {
+          "info": {
+            "name": "Activate Error Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups/:error-group-identifier/activate",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Set the status of the error group to active"
+        },
+        {
+          "info": {
+            "name": "Ignore Error Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups/:error-group-identifier/ignore",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Set the status of the error group to ignored"
+        },
+        {
+          "info": {
+            "name": "Permanently Ignore Error Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups/:error-group-identifier/permanently-ignore",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Set the status of the error group to permanently ignored"
+        },
+        {
+          "info": {
+            "name": "Create Error Group Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups/:error-group-identifier/comment",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a comment on an error group"
+        },
+        {
+          "info": {
+            "name": "List Error Instances for an Error Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups/:error-group-identifier/instances",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of error instance summaries for the specified error group, ordered by occurrence time (latest first)"
+        },
+        {
+          "info": {
+            "name": "Get Latest Error Instance for an Error Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups/:error-group-identifier/instance/latest",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the latest (most recent) error instance for the specified error group"
+        },
+        {
+          "info": {
+            "name": "Get Error Instance by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/error-groups/:error-group-identifier/instance/:error-instance-identifier",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a specific error instance by identifier for the specified error group. Accepts both Base36 and numeric identifiers."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "deployments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Error Groups From the Latest Deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/latest/error-groups",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "filter",
+                "value": "state eq regressed",
+                "type": "query",
+                "description": "Filter items by an expression. Currently supports filtering by the virtual property `state`, which can be `new`, `stillOccurring`, or `regressed`"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of error groups from the latest deployment"
+        },
+        {
+          "info": {
+            "name": "List Error Groups From a Deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/:deployment-identifier/error-groups",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "filter",
+                "value": "state eq regressed",
+                "type": "query",
+                "description": "Filter items by an expression. Currently supports filtering by the virtual property `state`, which can be `new`, `stillOccurring`, or `regressed`"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of error groups from the specified deployment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

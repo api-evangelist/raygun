@@ -1,0 +1,1980 @@
+{
+  "info": {
+    "_postman_id": "f687b4cc-aa47-49b6-8c7a-5ef1cccec7c4",
+    "name": "Raygun Flutter Symbols API",
+    "description": "This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.\n\nContact Support:\n Name: Raygun Support\n Email: support@raygun.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:15:09.000Z",
+    "updatedAt": "2026-06-05T15:15:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f687b4cc-aa47-49b6-8c7a-5ef1cccec7c4"
+  },
+  "item": [
+    {
+      "name": "applications",
+      "item": [
+        {
+          "name": "{application-identifier}",
+          "item": [
+            {
+              "name": "flutter-symbols",
+              "item": [
+                {
+                  "name": "{flutter-symbol-identifier}",
+                  "item": [
+                    {
+                      "name": "content",
+                      "item": [
+                        {
+                          "name": "Get Flutter Symbol Content by Identifier",
+                          "id": "8b382095-a60a-42e1-a8c4-1cb1ef76570e",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/octet-stream"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier/content",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "flutter-symbols",
+                                ":flutter-symbol-identifier",
+                                "content"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "521cbe30-e821-48f0-8817-f115f91006d5",
+                                  "key": "application-identifier",
+                                  "value": "<string>",
+                                  "description": "(Required) Application identifier"
+                                },
+                                {
+                                  "id": "c432a0b5-6f4d-4d30-9597-5baa525815bd",
+                                  "key": "flutter-symbol-identifier",
+                                  "value": "<string>",
+                                  "description": "(Required) Flutter symbol identifier"
+                                }
+                              ]
+                            },
+                            "description": "Returns the content of a Flutter symbol"
+                          },
+                          "response": [
+                            {
+                              "id": "4794e2a6-5238-46f5-aac0-4f33537f88e8",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/octet-stream"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier/content",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "applications",
+                                    ":application-identifier",
+                                    "flutter-symbols",
+                                    ":flutter-symbol-identifier",
+                                    "content"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "application-identifier"
+                                    },
+                                    {
+                                      "key": "flutter-symbol-identifier"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/octet-stream"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "<binary>",
+                              "createdAt": "2026-06-05T15:15:09.000Z",
+                              "updatedAt": "2026-06-05T15:15:09.000Z",
+                              "uid": "35240-4794e2a6-5238-46f5-aac0-4f33537f88e8"
+                            },
+                            {
+                              "id": "cecb7600-dee2-4a1a-82d9-7b581a22bf3c",
+                              "name": "Problem Details",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier/content",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "applications",
+                                    ":application-identifier",
+                                    "flutter-symbols",
+                                    ":flutter-symbol-identifier",
+                                    "content"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "application-identifier"
+                                    },
+                                    {
+                                      "key": "flutter-symbol-identifier"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The id associated with this request",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "X-Raygun-RequestId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                              "createdAt": "2026-06-05T15:15:09.000Z",
+                              "updatedAt": "2026-06-05T15:15:09.000Z",
+                              "uid": "35240-cecb7600-dee2-4a1a-82d9-7b581a22bf3c"
+                            },
+                            {
+                              "id": "af995e6a-5422-4220-9b27-f6c786f5ba9a",
+                              "name": "Problem Details",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier/content",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "applications",
+                                    ":application-identifier",
+                                    "flutter-symbols",
+                                    ":flutter-symbol-identifier",
+                                    "content"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "application-identifier"
+                                    },
+                                    {
+                                      "key": "flutter-symbol-identifier"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The id associated with this request",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "X-Raygun-RequestId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                              "createdAt": "2026-06-05T15:15:09.000Z",
+                              "updatedAt": "2026-06-05T15:15:09.000Z",
+                              "uid": "35240-af995e6a-5422-4220-9b27-f6c786f5ba9a"
+                            },
+                            {
+                              "id": "a29ce109-2468-4b88-a17b-01fe35e35bfc",
+                              "name": "Problem Details",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier/content",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "applications",
+                                    ":application-identifier",
+                                    "flutter-symbols",
+                                    ":flutter-symbol-identifier",
+                                    "content"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "application-identifier"
+                                    },
+                                    {
+                                      "key": "flutter-symbol-identifier"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The id associated with this request",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "X-Raygun-RequestId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                              "createdAt": "2026-06-05T15:15:09.000Z",
+                              "updatedAt": "2026-06-05T15:15:09.000Z",
+                              "uid": "35240-a29ce109-2468-4b88-a17b-01fe35e35bfc"
+                            },
+                            {
+                              "id": "d1785317-b250-46e3-a3ef-31cade726f74",
+                              "name": "Too many requests",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier/content",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "applications",
+                                    ":application-identifier",
+                                    "flutter-symbols",
+                                    ":flutter-symbol-identifier",
+                                    "content"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "application-identifier"
+                                    },
+                                    {
+                                      "key": "flutter-symbol-identifier"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Too Many Requests",
+                              "code": 429,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-06-05T15:15:09.000Z",
+                              "updatedAt": "2026-06-05T15:15:09.000Z",
+                              "uid": "35240-d1785317-b250-46e3-a3ef-31cade726f74"
+                            }
+                          ],
+                          "createdAt": "2026-06-05T15:15:09.000Z",
+                          "updatedAt": "2026-06-05T15:15:09.000Z",
+                          "uid": "35240-8b382095-a60a-42e1-a8c4-1cb1ef76570e"
+                        }
+                      ],
+                      "id": "525fd566-bec6-4237-add5-d5ed69c0cebb",
+                      "createdAt": "2026-06-05T15:15:09.000Z",
+                      "updatedAt": "2026-06-05T15:15:09.000Z",
+                      "uid": "35240-525fd566-bec6-4237-add5-d5ed69c0cebb"
+                    },
+                    {
+                      "name": "Get Flutter Symbol by Identifier",
+                      "id": "34d9efef-936b-48ad-8230-d3ead21901f9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "flutter-symbols",
+                            ":flutter-symbol-identifier"
+                          ],
+                          "variable": [
+                            {
+                              "id": "b18b670b-39d1-4c52-a39d-60210ae6dedc",
+                              "key": "application-identifier",
+                              "value": "<string>",
+                              "description": "(Required) Application identifier"
+                            },
+                            {
+                              "id": "458d98e4-ed8e-4a68-8afa-43ca765f0c11",
+                              "key": "flutter-symbol-identifier",
+                              "value": "<string>",
+                              "description": "(Required) Flutter symbol identifier"
+                            }
+                          ]
+                        },
+                        "description": "Get a Flutter symbol by identifier"
+                      },
+                      "response": [
+                        {
+                          "id": "04bddf67-5f0d-4829-b250-0d79489e0f7c",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "flutter-symbols",
+                                ":flutter-symbol-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "flutter-symbol-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"identifier\": \"<string>\",\n  \"applicationIdentifier\": \"<string>\",\n  \"name\": \"<string>\",\n  \"version\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-06-05T15:15:09.000Z",
+                          "updatedAt": "2026-06-05T15:15:09.000Z",
+                          "uid": "35240-04bddf67-5f0d-4829-b250-0d79489e0f7c"
+                        },
+                        {
+                          "id": "6f04e385-cb40-4a45-9e00-add7fb9b3d9c",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "flutter-symbols",
+                                ":flutter-symbol-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "flutter-symbol-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:09.000Z",
+                          "updatedAt": "2026-06-05T15:15:09.000Z",
+                          "uid": "35240-6f04e385-cb40-4a45-9e00-add7fb9b3d9c"
+                        },
+                        {
+                          "id": "92330418-f4e3-4cd3-ba44-4710048b8d8e",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "flutter-symbols",
+                                ":flutter-symbol-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "flutter-symbol-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:09.000Z",
+                          "updatedAt": "2026-06-05T15:15:09.000Z",
+                          "uid": "35240-92330418-f4e3-4cd3-ba44-4710048b8d8e"
+                        },
+                        {
+                          "id": "5b9f2e6c-83ec-4bed-9625-cb2c97bf6ba6",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "flutter-symbols",
+                                ":flutter-symbol-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "flutter-symbol-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:09.000Z",
+                          "updatedAt": "2026-06-05T15:15:09.000Z",
+                          "uid": "35240-5b9f2e6c-83ec-4bed-9625-cb2c97bf6ba6"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:15:09.000Z",
+                      "updatedAt": "2026-06-05T15:15:09.000Z",
+                      "uid": "35240-34d9efef-936b-48ad-8230-d3ead21901f9"
+                    },
+                    {
+                      "name": "Delete Flutter Symbol by Identifier",
+                      "id": "1ae1c5f1-3164-459a-821b-386db6871d06",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "flutter-symbols",
+                            ":flutter-symbol-identifier"
+                          ],
+                          "variable": [
+                            {
+                              "id": "6a081ec3-86ac-4cc3-99b9-6e2e9defbff2",
+                              "key": "application-identifier",
+                              "value": "<string>",
+                              "description": "(Required) Application identifier"
+                            },
+                            {
+                              "id": "e725c2f9-95dd-476f-8781-4f830b84027f",
+                              "key": "flutter-symbol-identifier",
+                              "value": "<string>",
+                              "description": "(Required) Flutter symbol identifier"
+                            }
+                          ]
+                        },
+                        "description": "Delete a Flutter symbol"
+                      },
+                      "response": [
+                        {
+                          "id": "7586ede4-f4ed-44d1-a876-8fd511fea710",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "flutter-symbols",
+                                ":flutter-symbol-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "flutter-symbol-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:15:09.000Z",
+                          "updatedAt": "2026-06-05T15:15:09.000Z",
+                          "uid": "35240-7586ede4-f4ed-44d1-a876-8fd511fea710"
+                        },
+                        {
+                          "id": "e990e38c-84c6-4044-9bdd-435d3dd4f964",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "flutter-symbols",
+                                ":flutter-symbol-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "flutter-symbol-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:09.000Z",
+                          "updatedAt": "2026-06-05T15:15:09.000Z",
+                          "uid": "35240-e990e38c-84c6-4044-9bdd-435d3dd4f964"
+                        },
+                        {
+                          "id": "ebac1160-ac88-4749-b7f5-0b56962fbfbd",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "flutter-symbols",
+                                ":flutter-symbol-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "flutter-symbol-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:09.000Z",
+                          "updatedAt": "2026-06-05T15:15:09.000Z",
+                          "uid": "35240-ebac1160-ac88-4749-b7f5-0b56962fbfbd"
+                        },
+                        {
+                          "id": "c984e4c8-b470-4fc7-b70c-81a3fa2f648b",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "flutter-symbols",
+                                ":flutter-symbol-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "flutter-symbol-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:09.000Z",
+                          "updatedAt": "2026-06-05T15:15:09.000Z",
+                          "uid": "35240-c984e4c8-b470-4fc7-b70c-81a3fa2f648b"
+                        },
+                        {
+                          "id": "7f8be2cc-0fff-461a-b130-e21e61afcd9f",
+                          "name": "Too many requests",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols/:flutter-symbol-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "flutter-symbols",
+                                ":flutter-symbol-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "flutter-symbol-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:15:09.000Z",
+                          "updatedAt": "2026-06-05T15:15:09.000Z",
+                          "uid": "35240-7f8be2cc-0fff-461a-b130-e21e61afcd9f"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:15:09.000Z",
+                      "updatedAt": "2026-06-05T15:15:09.000Z",
+                      "uid": "35240-1ae1c5f1-3164-459a-821b-386db6871d06"
+                    }
+                  ],
+                  "id": "8151aa07-fa1b-4acb-9afd-2a9266ad72f3",
+                  "createdAt": "2026-06-05T15:15:09.000Z",
+                  "updatedAt": "2026-06-05T15:15:09.000Z",
+                  "uid": "35240-8151aa07-fa1b-4acb-9afd-2a9266ad72f3"
+                },
+                {
+                  "name": "List Flutter Symbols for an Application",
+                  "id": "c914deed-a8f4-4905-a535-92eaa267d417",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols?count=100&offset=<integer>&orderby=updatedAt desc,name desc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":application-identifier",
+                        "flutter-symbols"
+                      ],
+                      "query": [
+                        {
+                          "description": "Limits the number of items in the response",
+                          "key": "count",
+                          "value": "100"
+                        },
+                        {
+                          "description": "Number of items to skip before returning results",
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Order items by property values",
+                          "key": "orderby",
+                          "value": "updatedAt desc,name desc"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "6fe43182-76fa-4f73-a9fe-f2e5169ef778",
+                          "key": "application-identifier",
+                          "value": "<string>",
+                          "description": "(Required) Application identifier"
+                        }
+                      ]
+                    },
+                    "description": "Returns a list of Flutter symbols for the specified application"
+                  },
+                  "response": [
+                    {
+                      "id": "f46feb5f-0618-4048-a6c7-8e641ef7e921",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols?count=100&offset=<integer>&orderby=updatedAt desc,name desc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "flutter-symbols"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Order items by property values",
+                              "key": "orderby",
+                              "value": "updatedAt desc,name desc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"identifier\": \"<string>\",\n    \"applicationIdentifier\": \"<string>\",\n    \"name\": \"<string>\",\n    \"version\": \"<string>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\"\n  },\n  {\n    \"identifier\": \"<string>\",\n    \"applicationIdentifier\": \"<string>\",\n    \"name\": \"<string>\",\n    \"version\": \"<string>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-06-05T15:15:09.000Z",
+                      "updatedAt": "2026-06-05T15:15:09.000Z",
+                      "uid": "35240-f46feb5f-0618-4048-a6c7-8e641ef7e921"
+                    },
+                    {
+                      "id": "ec943898-e3d2-4c95-a145-9f929665a05e",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols?count=100&offset=<integer>&orderby=updatedAt desc,name desc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "flutter-symbols"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Order items by property values",
+                              "key": "orderby",
+                              "value": "updatedAt desc,name desc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:15:09.000Z",
+                      "updatedAt": "2026-06-05T15:15:09.000Z",
+                      "uid": "35240-ec943898-e3d2-4c95-a145-9f929665a05e"
+                    },
+                    {
+                      "id": "41f92075-0106-4c08-aee8-c85364d6681c",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols?count=100&offset=<integer>&orderby=updatedAt desc,name desc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "flutter-symbols"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Order items by property values",
+                              "key": "orderby",
+                              "value": "updatedAt desc,name desc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:15:09.000Z",
+                      "updatedAt": "2026-06-05T15:15:09.000Z",
+                      "uid": "35240-41f92075-0106-4c08-aee8-c85364d6681c"
+                    },
+                    {
+                      "id": "84c3d35f-0611-45b2-b30e-4d0eea08764d",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols?count=100&offset=<integer>&orderby=updatedAt desc,name desc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "flutter-symbols"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Order items by property values",
+                              "key": "orderby",
+                              "value": "updatedAt desc,name desc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:15:09.000Z",
+                      "updatedAt": "2026-06-05T15:15:09.000Z",
+                      "uid": "35240-84c3d35f-0611-45b2-b30e-4d0eea08764d"
+                    },
+                    {
+                      "id": "997918d9-223d-4050-8b7b-ddb1db57f9af",
+                      "name": "Too many requests",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols?count=100&offset=<integer>&orderby=updatedAt desc,name desc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "flutter-symbols"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Order items by property values",
+                              "key": "orderby",
+                              "value": "updatedAt desc,name desc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:15:09.000Z",
+                      "updatedAt": "2026-06-05T15:15:09.000Z",
+                      "uid": "35240-997918d9-223d-4050-8b7b-ddb1db57f9af"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:15:09.000Z",
+                  "updatedAt": "2026-06-05T15:15:09.000Z",
+                  "uid": "35240-c914deed-a8f4-4905-a535-92eaa267d417"
+                },
+                {
+                  "name": "Upload a Flutter Symbol",
+                  "id": "45c32527-7da2-4e71-8ad5-93ab831bede3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "file",
+                          "type": "file",
+                          "value": null
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "version",
+                          "value": "<string>",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":application-identifier",
+                        "flutter-symbols"
+                      ],
+                      "variable": [
+                        {
+                          "id": "689f5f71-9ee8-4614-90b2-ec61c70e2f38",
+                          "key": "application-identifier",
+                          "value": "<string>",
+                          "description": "(Required) Application identifier"
+                        }
+                      ]
+                    },
+                    "description": "Uploads a Flutter symbol to the specified application"
+                  },
+                  "response": [
+                    {
+                      "id": "badefa8d-fa54-4a47-aa4f-40724ce32c14",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "version",
+                              "value": "<string>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "flutter-symbols"
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"identifier\": \"<string>\",\n  \"applicationIdentifier\": \"<string>\",\n  \"name\": \"<string>\",\n  \"version\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-06-05T15:15:09.000Z",
+                      "updatedAt": "2026-06-05T15:15:09.000Z",
+                      "uid": "35240-badefa8d-fa54-4a47-aa4f-40724ce32c14"
+                    },
+                    {
+                      "id": "368b8150-fb63-45ae-aa3f-84b5b906abc0",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "version",
+                              "value": "<string>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "flutter-symbols"
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:15:09.000Z",
+                      "updatedAt": "2026-06-05T15:15:09.000Z",
+                      "uid": "35240-368b8150-fb63-45ae-aa3f-84b5b906abc0"
+                    },
+                    {
+                      "id": "77cb92c6-5fe4-423d-9fb0-8b2c9129d604",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "version",
+                              "value": "<string>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "flutter-symbols"
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:15:09.000Z",
+                      "updatedAt": "2026-06-05T15:15:09.000Z",
+                      "uid": "35240-77cb92c6-5fe4-423d-9fb0-8b2c9129d604"
+                    },
+                    {
+                      "id": "cb8ce528-8f61-440c-952b-b234fe3065b5",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "version",
+                              "value": "<string>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "flutter-symbols"
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:15:09.000Z",
+                      "updatedAt": "2026-06-05T15:15:09.000Z",
+                      "uid": "35240-cb8ce528-8f61-440c-952b-b234fe3065b5"
+                    },
+                    {
+                      "id": "3ffa744a-b039-47b3-a42a-43ce6be36ba7",
+                      "name": "Validation problem details",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "version",
+                              "value": "<string>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "flutter-symbols"
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"errors\": {\n    \"in_306\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:15:09.000Z",
+                      "updatedAt": "2026-06-05T15:15:09.000Z",
+                      "uid": "35240-3ffa744a-b039-47b3-a42a-43ce6be36ba7"
+                    },
+                    {
+                      "id": "48100a7a-61ad-4e9f-aad7-97df070f299f",
+                      "name": "Too Many Requests",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "file",
+                              "type": "file"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "version",
+                              "value": "<string>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/flutter-symbols",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "flutter-symbols"
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:15:09.000Z",
+                      "updatedAt": "2026-06-05T15:15:09.000Z",
+                      "uid": "35240-48100a7a-61ad-4e9f-aad7-97df070f299f"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:15:09.000Z",
+                  "updatedAt": "2026-06-05T15:15:09.000Z",
+                  "uid": "35240-45c32527-7da2-4e71-8ad5-93ab831bede3"
+                }
+              ],
+              "id": "e07b0816-1c28-4c66-87ea-9047d6e58578",
+              "createdAt": "2026-06-05T15:15:09.000Z",
+              "updatedAt": "2026-06-05T15:15:09.000Z",
+              "uid": "35240-e07b0816-1c28-4c66-87ea-9047d6e58578"
+            }
+          ],
+          "id": "a82cc00a-0ce6-44ad-a98a-d5df0731f2ac",
+          "createdAt": "2026-06-05T15:15:09.000Z",
+          "updatedAt": "2026-06-05T15:15:09.000Z",
+          "uid": "35240-a82cc00a-0ce6-44ad-a98a-d5df0731f2ac"
+        }
+      ],
+      "id": "abcdaf58-d5c4-476b-856a-fc348d8cf37c",
+      "createdAt": "2026-06-05T15:15:09.000Z",
+      "updatedAt": "2026-06-05T15:15:09.000Z",
+      "uid": "35240-abcdaf58-d5c4-476b-856a-fc348d8cf37c"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.raygun.com/v3"
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "info": {
+    "_postman_id": "d6a9b16b-b4d2-482a-b38c-b2c04dded33b",
+    "name": "Raygun Plans API",
+    "description": "This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.\n\nContact Support:\n Name: Raygun Support\n Email: support@raygun.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:15:12.000Z",
+    "updatedAt": "2026-06-05T15:15:12.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d6a9b16b-b4d2-482a-b38c-b2c04dded33b"
+  },
+  "item": [
+    {
+      "name": "plans",
+      "item": [
+        {
+          "name": "List Plans",
+          "id": "edf214a6-1ca3-4551-ba25-90be51243cda",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plans",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plans"
+              ]
+            },
+            "description": "Returns a list of plans that this token can access"
+          },
+          "response": [
+            {
+              "id": "5467d06c-9794-4ba5-95ae-7694cd793bf5",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/plans",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plans"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"identifier\": \"<string>\"\n  },\n  {\n    \"identifier\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-06-05T15:15:13.000Z",
+              "updatedAt": "2026-06-05T15:15:13.000Z",
+              "uid": "35240-5467d06c-9794-4ba5-95ae-7694cd793bf5"
+            },
+            {
+              "id": "5caaf8bf-3e81-4c69-9c61-e4549e2333a4",
+              "name": "Problem Details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/plans",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plans"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The id associated with this request",
+                    "type": "text/plain"
+                  },
+                  "key": "X-Raygun-RequestId",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:15:13.000Z",
+              "updatedAt": "2026-06-05T15:15:13.000Z",
+              "uid": "35240-5caaf8bf-3e81-4c69-9c61-e4549e2333a4"
+            },
+            {
+              "id": "6a3cd1d6-185d-4e96-ac32-1a8a9b110aab",
+              "name": "Problem Details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/plans",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plans"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The id associated with this request",
+                    "type": "text/plain"
+                  },
+                  "key": "X-Raygun-RequestId",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:15:13.000Z",
+              "updatedAt": "2026-06-05T15:15:13.000Z",
+              "uid": "35240-6a3cd1d6-185d-4e96-ac32-1a8a9b110aab"
+            },
+            {
+              "id": "5f116e4a-0273-4110-bc87-b5e7a26765b6",
+              "name": "Too many requests",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/plans",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plans"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:15:13.000Z",
+              "updatedAt": "2026-06-05T15:15:13.000Z",
+              "uid": "35240-5f116e4a-0273-4110-bc87-b5e7a26765b6"
+            }
+          ],
+          "createdAt": "2026-06-05T15:15:13.000Z",
+          "updatedAt": "2026-06-05T15:15:13.000Z",
+          "uid": "35240-edf214a6-1ca3-4551-ba25-90be51243cda"
+        }
+      ],
+      "id": "e75536b9-6b70-4cf4-a0ec-e93c770f95c6",
+      "createdAt": "2026-06-05T15:15:13.000Z",
+      "updatedAt": "2026-06-05T15:15:13.000Z",
+      "uid": "35240-e75536b9-6b70-4cf4-a0ec-e93c770f95c6"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.raygun.com/v3"
+    }
+  ]
+}

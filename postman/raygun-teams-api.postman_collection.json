@@ -1,0 +1,657 @@
+{
+  "info": {
+    "_postman_id": "810acb5b-6887-4070-ac6c-255b928ff284",
+    "name": "Raygun Teams API",
+    "description": "This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.\n\nContact Support:\n Name: Raygun Support\n Email: support@raygun.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:15:10.000Z",
+    "updatedAt": "2026-06-05T15:15:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-810acb5b-6887-4070-ac6c-255b928ff284"
+  },
+  "item": [
+    {
+      "name": "teams",
+      "item": [
+        {
+          "name": "{team-identifier}",
+          "item": [
+            {
+              "name": "Get Team by Identifier",
+              "id": "afff6117-d54d-4897-b19b-b6e02920b9bc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams/:team-identifier",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams",
+                    ":team-identifier"
+                  ],
+                  "variable": [
+                    {
+                      "id": "d5bf0d7b-5ad1-4e72-8b75-03986ba24972",
+                      "key": "team-identifier"
+                    }
+                  ]
+                },
+                "description": "Returns a team with the given identifier"
+              },
+              "response": [
+                {
+                  "id": "8c2a60ad-784b-4d79-9cb6-ac35cab8a175",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:team-identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":team-identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "team-identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"identifier\": \"<string>\",\n  \"name\": \"<string>\",\n  \"planIdentifier\": \"<string>\",\n  \"isSystemManaged\": \"<boolean>\"\n}",
+                  "createdAt": "2026-06-05T15:15:10.000Z",
+                  "updatedAt": "2026-06-05T15:15:10.000Z",
+                  "uid": "35240-8c2a60ad-784b-4d79-9cb6-ac35cab8a175"
+                },
+                {
+                  "id": "df519949-9322-48e1-882f-f7cd905efac3",
+                  "name": "Problem Details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:team-identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":team-identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "team-identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id associated with this request",
+                        "type": "text/plain"
+                      },
+                      "key": "X-Raygun-RequestId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:15:10.000Z",
+                  "updatedAt": "2026-06-05T15:15:10.000Z",
+                  "uid": "35240-df519949-9322-48e1-882f-f7cd905efac3"
+                },
+                {
+                  "id": "0706a2fb-9f93-4b0d-a599-bce34ff702ad",
+                  "name": "Problem Details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:team-identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":team-identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "team-identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id associated with this request",
+                        "type": "text/plain"
+                      },
+                      "key": "X-Raygun-RequestId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:15:10.000Z",
+                  "updatedAt": "2026-06-05T15:15:10.000Z",
+                  "uid": "35240-0706a2fb-9f93-4b0d-a599-bce34ff702ad"
+                },
+                {
+                  "id": "845fda22-e3f9-44c0-abb8-cc8a02a5995b",
+                  "name": "Problem Details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:team-identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":team-identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "team-identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id associated with this request",
+                        "type": "text/plain"
+                      },
+                      "key": "X-Raygun-RequestId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:15:10.000Z",
+                  "updatedAt": "2026-06-05T15:15:10.000Z",
+                  "uid": "35240-845fda22-e3f9-44c0-abb8-cc8a02a5995b"
+                },
+                {
+                  "id": "3476418e-eb6b-4356-9fbd-db294a7ace7a",
+                  "name": "Too Many Requests",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:team-identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":team-identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "team-identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:15:10.000Z",
+                  "updatedAt": "2026-06-05T15:15:10.000Z",
+                  "uid": "35240-3476418e-eb6b-4356-9fbd-db294a7ace7a"
+                }
+              ],
+              "createdAt": "2026-06-05T15:15:10.000Z",
+              "updatedAt": "2026-06-05T15:15:10.000Z",
+              "uid": "35240-afff6117-d54d-4897-b19b-b6e02920b9bc"
+            }
+          ],
+          "id": "eae7b5dd-9919-4c55-bcb0-8e840b714510",
+          "createdAt": "2026-06-05T15:15:10.000Z",
+          "updatedAt": "2026-06-05T15:15:10.000Z",
+          "uid": "35240-eae7b5dd-9919-4c55-bcb0-8e840b714510"
+        },
+        {
+          "name": "List Teams",
+          "id": "0a50f27a-f9a8-4f4d-ae6d-bbe7af0d85ce",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/teams?count=100&offset=<integer>&orderby=name,name desc",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "teams"
+              ],
+              "query": [
+                {
+                  "description": "Limits the number of items in the response",
+                  "key": "count",
+                  "value": "100"
+                },
+                {
+                  "description": "Number of items to skip before returning results",
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Order items by property values",
+                  "key": "orderby",
+                  "value": "name,name desc"
+                }
+              ]
+            },
+            "description": "Returns the teams for a plan"
+          },
+          "response": [
+            {
+              "id": "da662799-5452-49ee-b37e-d46bb007a8c4",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams?count=100&offset=<integer>&orderby=name,name desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ],
+                  "query": [
+                    {
+                      "description": "Limits the number of items in the response",
+                      "key": "count",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Number of items to skip before returning results",
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Order items by property values",
+                      "key": "orderby",
+                      "value": "name,name desc"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"identifier\": \"<string>\",\n    \"name\": \"<string>\",\n    \"planIdentifier\": \"<string>\",\n    \"isSystemManaged\": \"<boolean>\"\n  },\n  {\n    \"identifier\": \"<string>\",\n    \"name\": \"<string>\",\n    \"planIdentifier\": \"<string>\",\n    \"isSystemManaged\": \"<boolean>\"\n  }\n]",
+              "createdAt": "2026-06-05T15:15:10.000Z",
+              "updatedAt": "2026-06-05T15:15:10.000Z",
+              "uid": "35240-da662799-5452-49ee-b37e-d46bb007a8c4"
+            },
+            {
+              "id": "52def69d-59d7-4359-9d75-dd00213d31cd",
+              "name": "Problem Details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams?count=100&offset=<integer>&orderby=name,name desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ],
+                  "query": [
+                    {
+                      "description": "Limits the number of items in the response",
+                      "key": "count",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Number of items to skip before returning results",
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Order items by property values",
+                      "key": "orderby",
+                      "value": "name,name desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The id associated with this request",
+                    "type": "text/plain"
+                  },
+                  "key": "X-Raygun-RequestId",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:15:10.000Z",
+              "updatedAt": "2026-06-05T15:15:10.000Z",
+              "uid": "35240-52def69d-59d7-4359-9d75-dd00213d31cd"
+            },
+            {
+              "id": "67599d83-2352-4204-947b-822f701d60f9",
+              "name": "Problem Details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams?count=100&offset=<integer>&orderby=name,name desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ],
+                  "query": [
+                    {
+                      "description": "Limits the number of items in the response",
+                      "key": "count",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Number of items to skip before returning results",
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Order items by property values",
+                      "key": "orderby",
+                      "value": "name,name desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The id associated with this request",
+                    "type": "text/plain"
+                  },
+                  "key": "X-Raygun-RequestId",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:15:10.000Z",
+              "updatedAt": "2026-06-05T15:15:10.000Z",
+              "uid": "35240-67599d83-2352-4204-947b-822f701d60f9"
+            },
+            {
+              "id": "edcb4e54-5a77-49e9-88c5-39ca46e2c859",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams?count=100&offset=<integer>&orderby=name,name desc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ],
+                  "query": [
+                    {
+                      "description": "Limits the number of items in the response",
+                      "key": "count",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Number of items to skip before returning results",
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Order items by property values",
+                      "key": "orderby",
+                      "value": "name,name desc"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:15:10.000Z",
+              "updatedAt": "2026-06-05T15:15:10.000Z",
+              "uid": "35240-edcb4e54-5a77-49e9-88c5-39ca46e2c859"
+            }
+          ],
+          "createdAt": "2026-06-05T15:15:10.000Z",
+          "updatedAt": "2026-06-05T15:15:10.000Z",
+          "uid": "35240-0a50f27a-f9a8-4f4d-ae6d-bbe7af0d85ce"
+        }
+      ],
+      "id": "c9b3cb9b-0496-4629-8629-5a7e5ea53af7",
+      "createdAt": "2026-06-05T15:15:10.000Z",
+      "updatedAt": "2026-06-05T15:15:10.000Z",
+      "uid": "35240-c9b3cb9b-0496-4629-8629-5a7e5ea53af7"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.raygun.com/v3"
+    }
+  ]
+}

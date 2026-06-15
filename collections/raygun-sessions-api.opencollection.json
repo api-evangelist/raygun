@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Raygun Sessions API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "sessions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Sessions for an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/sessions",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "filter",
+                "value": "xhr.uri eq https://example.com",
+                "type": "query",
+                "description": "Filter items by an expression. Currently only supports filtering by `xhr.uri`. Note: This parameter cannot be used with `orderby`"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values. Note: This parameter cannot be used with `filter`"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of sessions for the specified application"
+        },
+        {
+          "info": {
+            "name": "Get Session by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/sessions/:session-identifier",
+            "params": [
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Include additional information for the session"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a single session by identifier"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

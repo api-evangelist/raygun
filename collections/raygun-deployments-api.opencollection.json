@@ -1,0 +1,258 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Raygun Deployments API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "deployments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Deployments for an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of deployments for the specified application"
+        },
+        {
+          "info": {
+            "name": "Create Deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a deployment for the specified application"
+        },
+        {
+          "info": {
+            "name": "Get the Latest Deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/latest",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the latest deployment"
+        },
+        {
+          "info": {
+            "name": "Get Deployment by Identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/:deployment-identifier",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a single deployment by identifier"
+        },
+        {
+          "info": {
+            "name": "Update Deployment Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/:deployment-identifier",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update the details of a deployment"
+        },
+        {
+          "info": {
+            "name": "Delete Deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/:deployment-identifier",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a deployment"
+        },
+        {
+          "info": {
+            "name": "List Error Groups From the Latest Deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/latest/error-groups",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "filter",
+                "value": "state eq regressed",
+                "type": "query",
+                "description": "Filter items by an expression. Currently supports filtering by the virtual property `state`, which can be `new`, `stillOccurring`, or `regressed`"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of error groups from the latest deployment"
+        },
+        {
+          "info": {
+            "name": "List Error Groups From a Deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/:deployment-identifier/error-groups",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of items in the response"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip before returning results"
+              },
+              {
+                "name": "filter",
+                "value": "state eq regressed",
+                "type": "query",
+                "description": "Filter items by an expression. Currently supports filtering by the virtual property `state`, which can be `new`, `stillOccurring`, or `regressed`"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Order items by property values"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a list of error groups from the specified deployment"
+        },
+        {
+          "info": {
+            "name": "Create Deployment With Api Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/api-key/:api-key/deployments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a deployment for an application with the specified api key"
+        },
+        {
+          "info": {
+            "name": "Reprocess Deployment Commits",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/:deployment-identifier/reprocess-commits",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Reprocess commits for a deployment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

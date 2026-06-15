@@ -1,0 +1,894 @@
+{
+  "info": {
+    "_postman_id": "0e6d146c-4ad0-4a00-abcf-cb107216a354",
+    "name": "Raygun Sessions API",
+    "description": "This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.\n\nContact Support:\n Name: Raygun Support\n Email: support@raygun.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:15:00.000Z",
+    "updatedAt": "2026-06-05T15:15:00.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0e6d146c-4ad0-4a00-abcf-cb107216a354"
+  },
+  "item": [
+    {
+      "name": "applications",
+      "item": [
+        {
+          "name": "{application-identifier}",
+          "item": [
+            {
+              "name": "sessions",
+              "item": [
+                {
+                  "name": "{session-identifier}",
+                  "item": [
+                    {
+                      "name": "Get Session by Identifier",
+                      "id": "885e1c7a-4a19-42ef-aa99-84cfbd468141",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/sessions/:session-identifier?include=pageViews,pageViews",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "sessions",
+                            ":session-identifier"
+                          ],
+                          "query": [
+                            {
+                              "description": "Include additional information for the session",
+                              "key": "include",
+                              "value": "pageViews,pageViews"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "8510b0f6-c7c3-4c69-aa73-cce340a52b16",
+                              "key": "application-identifier"
+                            },
+                            {
+                              "id": "99a91f5a-a116-4a9f-8b64-472f79a80c9a",
+                              "key": "session-identifier"
+                            }
+                          ]
+                        },
+                        "description": "Returns a single session by identifier"
+                      },
+                      "response": [
+                        {
+                          "id": "b00d4f9c-f233-44be-b97b-8e1988ab1b92",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/sessions/:session-identifier?include=pageViews,pageViews",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "sessions",
+                                ":session-identifier"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Include additional information for the session",
+                                  "key": "include",
+                                  "value": "pageViews,pageViews"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "session-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"identifier\": \"<string>\",\n  \"applicationIdentifier\": \"<string>\",\n  \"customerIdentifier\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"startedAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"endedAt\": \"<dateTime>\",\n  \"ipAddress\": {\n    \"format\": \"ipv4\"\n  },\n  \"countryCode\": \"DZ\",\n  \"platformName\": \"<string>\",\n  \"operatingSystemName\": \"<string>\",\n  \"operatingSystemVersion\": \"<string>\",\n  \"browserName\": \"<string>\",\n  \"browserVersion\": \"<string>\",\n  \"viewportWidth\": \"<integer>\",\n  \"viewportHeight\": \"<integer>\",\n  \"deploymentVersion\": \"<string>\",\n  \"applicationUrl\": \"<uri>\",\n  \"pageViews\": [\n    {\n      \"pageIdentifier\": \"<string>\",\n      \"viewedAt\": \"<dateTime>\",\n      \"applicationUrl\": \"<uri>\"\n    },\n    {\n      \"pageIdentifier\": \"<string>\",\n      \"viewedAt\": \"<dateTime>\",\n      \"applicationUrl\": \"<uri>\"\n    }\n  ],\n  \"errors\": [\n    {\n      \"errorGroupIdentifier\": \"<string>\",\n      \"occurredAt\": \"<dateTime>\",\n      \"applicationUrl\": \"<uri>\"\n    },\n    {\n      \"errorGroupIdentifier\": \"<string>\",\n      \"occurredAt\": \"<dateTime>\",\n      \"applicationUrl\": \"<uri>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-06-05T15:15:00.000Z",
+                          "updatedAt": "2026-06-05T15:15:00.000Z",
+                          "uid": "35240-b00d4f9c-f233-44be-b97b-8e1988ab1b92"
+                        },
+                        {
+                          "id": "1e7cb700-07d0-49ac-b782-da7aed4b1195",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/sessions/:session-identifier?include=pageViews,pageViews",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "sessions",
+                                ":session-identifier"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Include additional information for the session",
+                                  "key": "include",
+                                  "value": "pageViews,pageViews"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "session-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:00.000Z",
+                          "updatedAt": "2026-06-05T15:15:00.000Z",
+                          "uid": "35240-1e7cb700-07d0-49ac-b782-da7aed4b1195"
+                        },
+                        {
+                          "id": "b5a607e9-5d13-495e-9189-8a8e8f3eab93",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/sessions/:session-identifier?include=pageViews,pageViews",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "sessions",
+                                ":session-identifier"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Include additional information for the session",
+                                  "key": "include",
+                                  "value": "pageViews,pageViews"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "session-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:00.000Z",
+                          "updatedAt": "2026-06-05T15:15:00.000Z",
+                          "uid": "35240-b5a607e9-5d13-495e-9189-8a8e8f3eab93"
+                        },
+                        {
+                          "id": "2514d3d1-cdda-4064-a959-bca445441d56",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/sessions/:session-identifier?include=pageViews,pageViews",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "sessions",
+                                ":session-identifier"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Include additional information for the session",
+                                  "key": "include",
+                                  "value": "pageViews,pageViews"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "session-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:00.000Z",
+                          "updatedAt": "2026-06-05T15:15:00.000Z",
+                          "uid": "35240-2514d3d1-cdda-4064-a959-bca445441d56"
+                        },
+                        {
+                          "id": "48f944ec-3572-4e9b-999f-24fa70140931",
+                          "name": "Too Many Requests",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/sessions/:session-identifier?include=pageViews,pageViews",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "sessions",
+                                ":session-identifier"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Include additional information for the session",
+                                  "key": "include",
+                                  "value": "pageViews,pageViews"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "session-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:15:00.000Z",
+                          "updatedAt": "2026-06-05T15:15:00.000Z",
+                          "uid": "35240-48f944ec-3572-4e9b-999f-24fa70140931"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:15:00.000Z",
+                      "updatedAt": "2026-06-05T15:15:00.000Z",
+                      "uid": "35240-885e1c7a-4a19-42ef-aa99-84cfbd468141"
+                    }
+                  ],
+                  "id": "50714dee-b3e0-450a-bba0-c9d7c5bad298",
+                  "createdAt": "2026-06-05T15:15:00.000Z",
+                  "updatedAt": "2026-06-05T15:15:00.000Z",
+                  "uid": "35240-50714dee-b3e0-450a-bba0-c9d7c5bad298"
+                },
+                {
+                  "name": "List Sessions for an Application",
+                  "id": "15db7050-e425-49c1-8046-1e2b593661ec",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:application-identifier/sessions?count=100&offset=<integer>&filter=xhr.uri eq N%23o8%uCk=@&orderby=browserVersion desc&orderby=browserName desc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":application-identifier",
+                        "sessions"
+                      ],
+                      "query": [
+                        {
+                          "description": "Limits the number of items in the response",
+                          "key": "count",
+                          "value": "100"
+                        },
+                        {
+                          "description": "Number of items to skip before returning results",
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Filter items by an expression. Currently only supports filtering by `xhr.uri`. Note: This parameter cannot be used with `orderby`",
+                          "key": "filter",
+                          "value": "xhr.uri eq N#o8%uCk=@"
+                        },
+                        {
+                          "description": "Order items by property values. Note: This parameter cannot be used with `filter`",
+                          "key": "orderby",
+                          "value": "browserVersion desc"
+                        },
+                        {
+                          "description": "Order items by property values. Note: This parameter cannot be used with `filter`",
+                          "key": "orderby",
+                          "value": "browserName desc"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "3f140eff-f12c-4dec-b93b-67968b189ed4",
+                          "key": "application-identifier"
+                        }
+                      ]
+                    },
+                    "description": "Returns a list of sessions for the specified application"
+                  },
+                  "response": [
+                    {
+                      "id": "3e10dc0b-6bc3-4478-acb0-c74b6570bf12",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/sessions?count=100&offset=<integer>&filter=xhr.uri eq N%23o8%uCk=@&orderby=browserName desc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "sessions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Filter items by an expression. Currently only supports filtering by `xhr.uri`. Note: This parameter cannot be used with `orderby`",
+                              "key": "filter",
+                              "value": "xhr.uri eq N#o8%uCk=@"
+                            },
+                            {
+                              "description": "Order items by property values. Note: This parameter cannot be used with `filter`",
+                              "key": "orderby",
+                              "value": "browserName desc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"identifier\": \"<string>\",\n    \"applicationIdentifier\": \"<string>\",\n    \"customerIdentifier\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"startedAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"endedAt\": \"<dateTime>\",\n    \"ipAddress\": {\n      \"format\": \"ipv4\"\n    },\n    \"countryCode\": \"PG\",\n    \"platformName\": \"<string>\",\n    \"operatingSystemName\": \"<string>\",\n    \"operatingSystemVersion\": \"<string>\",\n    \"browserName\": \"<string>\",\n    \"browserVersion\": \"<string>\",\n    \"viewportWidth\": \"<integer>\",\n    \"viewportHeight\": \"<integer>\",\n    \"deploymentVersion\": \"<string>\",\n    \"applicationUrl\": \"<uri>\"\n  },\n  {\n    \"identifier\": \"<string>\",\n    \"applicationIdentifier\": \"<string>\",\n    \"customerIdentifier\": \"<string>\",\n    \"isActive\": \"<boolean>\",\n    \"startedAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"endedAt\": \"<dateTime>\",\n    \"ipAddress\": {\n      \"format\": \"ipv4\"\n    },\n    \"countryCode\": \"UX\",\n    \"platformName\": \"<string>\",\n    \"operatingSystemName\": \"<string>\",\n    \"operatingSystemVersion\": \"<string>\",\n    \"browserName\": \"<string>\",\n    \"browserVersion\": \"<string>\",\n    \"viewportWidth\": \"<integer>\",\n    \"viewportHeight\": \"<integer>\",\n    \"deploymentVersion\": \"<string>\",\n    \"applicationUrl\": \"<uri>\"\n  }\n]",
+                      "createdAt": "2026-06-05T15:15:00.000Z",
+                      "updatedAt": "2026-06-05T15:15:00.000Z",
+                      "uid": "35240-3e10dc0b-6bc3-4478-acb0-c74b6570bf12"
+                    },
+                    {
+                      "id": "5f064f32-c559-4768-aa07-a342cd600638",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/sessions?count=100&offset=<integer>&filter=xhr.uri eq N%23o8%uCk=@&orderby=browserName desc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "sessions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Filter items by an expression. Currently only supports filtering by `xhr.uri`. Note: This parameter cannot be used with `orderby`",
+                              "key": "filter",
+                              "value": "xhr.uri eq N#o8%uCk=@"
+                            },
+                            {
+                              "description": "Order items by property values. Note: This parameter cannot be used with `filter`",
+                              "key": "orderby",
+                              "value": "browserName desc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:15:00.000Z",
+                      "updatedAt": "2026-06-05T15:15:00.000Z",
+                      "uid": "35240-5f064f32-c559-4768-aa07-a342cd600638"
+                    },
+                    {
+                      "id": "2d241e8f-8aa6-4742-b36e-5f2b11ad6715",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/sessions?count=100&offset=<integer>&filter=xhr.uri eq N%23o8%uCk=@&orderby=browserName desc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "sessions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Filter items by an expression. Currently only supports filtering by `xhr.uri`. Note: This parameter cannot be used with `orderby`",
+                              "key": "filter",
+                              "value": "xhr.uri eq N#o8%uCk=@"
+                            },
+                            {
+                              "description": "Order items by property values. Note: This parameter cannot be used with `filter`",
+                              "key": "orderby",
+                              "value": "browserName desc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:15:00.000Z",
+                      "updatedAt": "2026-06-05T15:15:00.000Z",
+                      "uid": "35240-2d241e8f-8aa6-4742-b36e-5f2b11ad6715"
+                    },
+                    {
+                      "id": "ad32cdeb-2bb9-4749-aaa3-a0c233840370",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/sessions?count=100&offset=<integer>&filter=xhr.uri eq N%23o8%uCk=@&orderby=browserName desc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "sessions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Filter items by an expression. Currently only supports filtering by `xhr.uri`. Note: This parameter cannot be used with `orderby`",
+                              "key": "filter",
+                              "value": "xhr.uri eq N#o8%uCk=@"
+                            },
+                            {
+                              "description": "Order items by property values. Note: This parameter cannot be used with `filter`",
+                              "key": "orderby",
+                              "value": "browserName desc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:15:00.000Z",
+                      "updatedAt": "2026-06-05T15:15:00.000Z",
+                      "uid": "35240-ad32cdeb-2bb9-4749-aaa3-a0c233840370"
+                    },
+                    {
+                      "id": "646546fe-6bcb-4724-be4a-1de2a64a27ef",
+                      "name": "Too Many Requests",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/sessions?count=100&offset=<integer>&filter=xhr.uri eq N%23o8%uCk=@&orderby=browserName desc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "sessions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Filter items by an expression. Currently only supports filtering by `xhr.uri`. Note: This parameter cannot be used with `orderby`",
+                              "key": "filter",
+                              "value": "xhr.uri eq N#o8%uCk=@"
+                            },
+                            {
+                              "description": "Order items by property values. Note: This parameter cannot be used with `filter`",
+                              "key": "orderby",
+                              "value": "browserName desc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:15:00.000Z",
+                      "updatedAt": "2026-06-05T15:15:00.000Z",
+                      "uid": "35240-646546fe-6bcb-4724-be4a-1de2a64a27ef"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:15:00.000Z",
+                  "updatedAt": "2026-06-05T15:15:00.000Z",
+                  "uid": "35240-15db7050-e425-49c1-8046-1e2b593661ec"
+                }
+              ],
+              "id": "71f2afb2-4070-4571-8a7e-a523ea748a97",
+              "createdAt": "2026-06-05T15:15:00.000Z",
+              "updatedAt": "2026-06-05T15:15:00.000Z",
+              "uid": "35240-71f2afb2-4070-4571-8a7e-a523ea748a97"
+            }
+          ],
+          "id": "2ef5a814-ca4c-4e13-951a-0c2bbbdb5828",
+          "createdAt": "2026-06-05T15:15:00.000Z",
+          "updatedAt": "2026-06-05T15:15:00.000Z",
+          "uid": "35240-2ef5a814-ca4c-4e13-951a-0c2bbbdb5828"
+        }
+      ],
+      "id": "b74b8502-6a86-4dee-bbd3-d50c6e0cf2e7",
+      "createdAt": "2026-06-05T15:15:00.000Z",
+      "updatedAt": "2026-06-05T15:15:00.000Z",
+      "uid": "35240-b74b8502-6a86-4dee-bbd3-d50c6e0cf2e7"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.raygun.com/v3"
+    }
+  ]
+}

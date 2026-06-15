@@ -1,0 +1,1519 @@
+{
+  "info": {
+    "_postman_id": "5b9b0c09-0d41-491f-97c9-e9d924dec356",
+    "name": "Raygun Invitations API",
+    "description": "This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.\n\nContact Support:\n Name: Raygun Support\n Email: support@raygun.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:15:11.000Z",
+    "updatedAt": "2026-06-05T15:15:11.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5b9b0c09-0d41-491f-97c9-e9d924dec356"
+  },
+  "item": [
+    {
+      "name": "invitations",
+      "item": [
+        {
+          "name": "{invitation-identifier}",
+          "item": [
+            {
+              "name": "revoke",
+              "item": [
+                {
+                  "name": "Revoke Invitation",
+                  "id": "8920d516-58a8-498f-bff2-0dd8ba9cdc8e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invitations/:invitation-identifier/revoke",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invitations",
+                        ":invitation-identifier",
+                        "revoke"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ea4ed1a0-6c17-4815-b782-d6b0b9d3ba08",
+                          "key": "invitation-identifier"
+                        }
+                      ]
+                    },
+                    "description": "Revoke a sent invitation"
+                  },
+                  "response": [
+                    {
+                      "id": "90e2a7b8-d8f8-4f6f-a5c6-80a30a11ae04",
+                      "name": "No Content",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/invitations/:invitation-identifier/revoke",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "invitations",
+                            ":invitation-identifier",
+                            "revoke"
+                          ],
+                          "variable": [
+                            {
+                              "key": "invitation-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:15:11.000Z",
+                      "updatedAt": "2026-06-05T15:15:11.000Z",
+                      "uid": "35240-90e2a7b8-d8f8-4f6f-a5c6-80a30a11ae04"
+                    },
+                    {
+                      "id": "4af848cc-fe80-4fc5-ac3a-4eddd23c4d73",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/invitations/:invitation-identifier/revoke",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "invitations",
+                            ":invitation-identifier",
+                            "revoke"
+                          ],
+                          "variable": [
+                            {
+                              "key": "invitation-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:15:11.000Z",
+                      "updatedAt": "2026-06-05T15:15:11.000Z",
+                      "uid": "35240-4af848cc-fe80-4fc5-ac3a-4eddd23c4d73"
+                    },
+                    {
+                      "id": "5fec4a44-cc9e-4845-a1d6-272fdf014b30",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/invitations/:invitation-identifier/revoke",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "invitations",
+                            ":invitation-identifier",
+                            "revoke"
+                          ],
+                          "variable": [
+                            {
+                              "key": "invitation-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:15:11.000Z",
+                      "updatedAt": "2026-06-05T15:15:11.000Z",
+                      "uid": "35240-5fec4a44-cc9e-4845-a1d6-272fdf014b30"
+                    },
+                    {
+                      "id": "778a9733-28ea-4308-947b-cf101abf3850",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/invitations/:invitation-identifier/revoke",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "invitations",
+                            ":invitation-identifier",
+                            "revoke"
+                          ],
+                          "variable": [
+                            {
+                              "key": "invitation-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:15:11.000Z",
+                      "updatedAt": "2026-06-05T15:15:11.000Z",
+                      "uid": "35240-778a9733-28ea-4308-947b-cf101abf3850"
+                    },
+                    {
+                      "id": "0b10e9a1-c5f9-446d-837a-ff527ef45215",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/invitations/:invitation-identifier/revoke",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "invitations",
+                            ":invitation-identifier",
+                            "revoke"
+                          ],
+                          "variable": [
+                            {
+                              "key": "invitation-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:15:11.000Z",
+                      "updatedAt": "2026-06-05T15:15:11.000Z",
+                      "uid": "35240-0b10e9a1-c5f9-446d-837a-ff527ef45215"
+                    },
+                    {
+                      "id": "911b14c2-3880-46dc-adff-38bf2fc30508",
+                      "name": "Too Many Requests",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/invitations/:invitation-identifier/revoke",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "invitations",
+                            ":invitation-identifier",
+                            "revoke"
+                          ],
+                          "variable": [
+                            {
+                              "key": "invitation-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:15:11.000Z",
+                      "updatedAt": "2026-06-05T15:15:11.000Z",
+                      "uid": "35240-911b14c2-3880-46dc-adff-38bf2fc30508"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:15:11.000Z",
+                  "updatedAt": "2026-06-05T15:15:11.000Z",
+                  "uid": "35240-8920d516-58a8-498f-bff2-0dd8ba9cdc8e"
+                }
+              ],
+              "id": "a5e12a87-f5d8-4ef2-ba0c-82613e8b131f",
+              "createdAt": "2026-06-05T15:15:11.000Z",
+              "updatedAt": "2026-06-05T15:15:11.000Z",
+              "uid": "35240-a5e12a87-f5d8-4ef2-ba0c-82613e8b131f"
+            },
+            {
+              "name": "Get Invitation by Identifier",
+              "id": "d5ee9caa-de2c-4a48-aa1d-309863131ea8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invitations/:invitation-identifier",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invitations",
+                    ":invitation-identifier"
+                  ],
+                  "variable": [
+                    {
+                      "id": "bfc06c9f-ac14-41e9-bd45-1dd658b070da",
+                      "key": "invitation-identifier"
+                    }
+                  ]
+                },
+                "description": "Get an invitation by identifier"
+              },
+              "response": [
+                {
+                  "id": "a9052604-eb2d-40ae-910d-62421a0eac62",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invitations/:invitation-identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invitations",
+                        ":invitation-identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "invitation-identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"identifier\": \"<string>\",\n  \"emailAddress\": \"<email>\",\n  \"status\": \"accepted\",\n  \"createdAt\": \"<dateTime>\",\n  \"createdByUserIdentifier\": \"<string>\",\n  \"teamIdentifier\": \"<string>\",\n  \"acceptedByUserIdentifier\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:15:11.000Z",
+                  "updatedAt": "2026-06-05T15:15:11.000Z",
+                  "uid": "35240-a9052604-eb2d-40ae-910d-62421a0eac62"
+                },
+                {
+                  "id": "84034436-8fb9-4a57-8e52-2716002947d4",
+                  "name": "Problem Details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invitations/:invitation-identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invitations",
+                        ":invitation-identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "invitation-identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id associated with this request",
+                        "type": "text/plain"
+                      },
+                      "key": "X-Raygun-RequestId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:15:11.000Z",
+                  "updatedAt": "2026-06-05T15:15:11.000Z",
+                  "uid": "35240-84034436-8fb9-4a57-8e52-2716002947d4"
+                },
+                {
+                  "id": "4cc95cd9-f0f8-4240-b691-df74a8b2afb1",
+                  "name": "Problem Details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invitations/:invitation-identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invitations",
+                        ":invitation-identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "invitation-identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id associated with this request",
+                        "type": "text/plain"
+                      },
+                      "key": "X-Raygun-RequestId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:15:11.000Z",
+                  "updatedAt": "2026-06-05T15:15:11.000Z",
+                  "uid": "35240-4cc95cd9-f0f8-4240-b691-df74a8b2afb1"
+                },
+                {
+                  "id": "e000667e-6600-4f6f-bdc3-c0934b3c7075",
+                  "name": "Problem Details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invitations/:invitation-identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invitations",
+                        ":invitation-identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "invitation-identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id associated with this request",
+                        "type": "text/plain"
+                      },
+                      "key": "X-Raygun-RequestId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:15:11.000Z",
+                  "updatedAt": "2026-06-05T15:15:11.000Z",
+                  "uid": "35240-e000667e-6600-4f6f-bdc3-c0934b3c7075"
+                },
+                {
+                  "id": "2b1de680-b298-4177-b8bd-d5a1de61f292",
+                  "name": "Too Many Requests",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invitations/:invitation-identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invitations",
+                        ":invitation-identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "invitation-identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:15:11.000Z",
+                  "updatedAt": "2026-06-05T15:15:11.000Z",
+                  "uid": "35240-2b1de680-b298-4177-b8bd-d5a1de61f292"
+                }
+              ],
+              "createdAt": "2026-06-05T15:15:11.000Z",
+              "updatedAt": "2026-06-05T15:15:11.000Z",
+              "uid": "35240-d5ee9caa-de2c-4a48-aa1d-309863131ea8"
+            }
+          ],
+          "id": "19b30fe8-4704-442c-a3df-5d59df7f9711",
+          "createdAt": "2026-06-05T15:15:11.000Z",
+          "updatedAt": "2026-06-05T15:15:11.000Z",
+          "uid": "35240-19b30fe8-4704-442c-a3df-5d59df7f9711"
+        },
+        {
+          "name": "List Invitations",
+          "id": "d2fa2c5e-01e1-46c4-853b-da4687d089cf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/invitations?count=100&offset=<integer>&orderby=emailAddress,emailAddress",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invitations"
+              ],
+              "query": [
+                {
+                  "description": "Limits the number of items in the response",
+                  "key": "count",
+                  "value": "100"
+                },
+                {
+                  "description": "Number of items to skip before returning results",
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Order items by property values",
+                  "key": "orderby",
+                  "value": "emailAddress,emailAddress"
+                }
+              ]
+            },
+            "description": "Returns a list invitations that the token and token owner has access to"
+          },
+          "response": [
+            {
+              "id": "d0e48642-052d-458d-8d8f-c1127daf9b3a",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invitations?count=100&offset=<integer>&orderby=emailAddress,emailAddress",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invitations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Limits the number of items in the response",
+                      "key": "count",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Number of items to skip before returning results",
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Order items by property values",
+                      "key": "orderby",
+                      "value": "emailAddress,emailAddress"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"identifier\": \"<string>\",\n    \"emailAddress\": \"<email>\",\n    \"status\": \"revoked\",\n    \"createdAt\": \"<dateTime>\",\n    \"createdByUserIdentifier\": \"<string>\",\n    \"teamIdentifier\": \"<string>\",\n    \"acceptedByUserIdentifier\": \"<string>\"\n  },\n  {\n    \"identifier\": \"<string>\",\n    \"emailAddress\": \"<email>\",\n    \"status\": \"sent\",\n    \"createdAt\": \"<dateTime>\",\n    \"createdByUserIdentifier\": \"<string>\",\n    \"teamIdentifier\": \"<string>\",\n    \"acceptedByUserIdentifier\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-06-05T15:15:11.000Z",
+              "updatedAt": "2026-06-05T15:15:11.000Z",
+              "uid": "35240-d0e48642-052d-458d-8d8f-c1127daf9b3a"
+            },
+            {
+              "id": "da17a690-9574-4e26-9102-8d575dad0526",
+              "name": "Problem Details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invitations?count=100&offset=<integer>&orderby=emailAddress,emailAddress",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invitations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Limits the number of items in the response",
+                      "key": "count",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Number of items to skip before returning results",
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Order items by property values",
+                      "key": "orderby",
+                      "value": "emailAddress,emailAddress"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The id associated with this request",
+                    "type": "text/plain"
+                  },
+                  "key": "X-Raygun-RequestId",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:15:11.000Z",
+              "updatedAt": "2026-06-05T15:15:11.000Z",
+              "uid": "35240-da17a690-9574-4e26-9102-8d575dad0526"
+            },
+            {
+              "id": "8b39f232-62ea-470a-a261-45e71d8dca33",
+              "name": "Problem Details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invitations?count=100&offset=<integer>&orderby=emailAddress,emailAddress",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invitations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Limits the number of items in the response",
+                      "key": "count",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Number of items to skip before returning results",
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Order items by property values",
+                      "key": "orderby",
+                      "value": "emailAddress,emailAddress"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The id associated with this request",
+                    "type": "text/plain"
+                  },
+                  "key": "X-Raygun-RequestId",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:15:11.000Z",
+              "updatedAt": "2026-06-05T15:15:11.000Z",
+              "uid": "35240-8b39f232-62ea-470a-a261-45e71d8dca33"
+            },
+            {
+              "id": "958635d5-e03d-4a32-9305-b1c639226164",
+              "name": "Too many requests",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invitations?count=100&offset=<integer>&orderby=emailAddress,emailAddress",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invitations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Limits the number of items in the response",
+                      "key": "count",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Number of items to skip before returning results",
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Order items by property values",
+                      "key": "orderby",
+                      "value": "emailAddress,emailAddress"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:15:11.000Z",
+              "updatedAt": "2026-06-05T15:15:11.000Z",
+              "uid": "35240-958635d5-e03d-4a32-9305-b1c639226164"
+            }
+          ],
+          "createdAt": "2026-06-05T15:15:11.000Z",
+          "updatedAt": "2026-06-05T15:15:11.000Z",
+          "uid": "35240-d2fa2c5e-01e1-46c4-853b-da4687d089cf"
+        },
+        {
+          "name": "Send an Invitation",
+          "id": "ed347ed1-11f5-4541-aad7-9409c1e45576",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"emailAddress\": \"<email>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/invitations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invitations"
+              ]
+            },
+            "description": "Send an invitation to a user"
+          },
+          "response": [
+            {
+              "id": "1eb3d524-c9ea-493e-b50b-ac70a1ee1af5",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emailAddress\": \"<email>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invitations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invitations"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The URI where you can find the newly created invitation",
+                    "type": "text/plain"
+                  },
+                  "key": "Location",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"identifier\": \"<string>\",\n  \"emailAddress\": \"<email>\",\n  \"status\": \"accepted\",\n  \"createdAt\": \"<dateTime>\",\n  \"createdByUserIdentifier\": \"<string>\",\n  \"teamIdentifier\": \"<string>\",\n  \"acceptedByUserIdentifier\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:15:11.000Z",
+              "updatedAt": "2026-06-05T15:15:11.000Z",
+              "uid": "35240-1eb3d524-c9ea-493e-b50b-ac70a1ee1af5"
+            },
+            {
+              "id": "9816a17b-1b52-4e73-b661-ada8ef82c8be",
+              "name": "Problem Details",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emailAddress\": \"<email>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invitations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invitations"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The id associated with this request",
+                    "type": "text/plain"
+                  },
+                  "key": "X-Raygun-RequestId",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:15:11.000Z",
+              "updatedAt": "2026-06-05T15:15:11.000Z",
+              "uid": "35240-9816a17b-1b52-4e73-b661-ada8ef82c8be"
+            },
+            {
+              "id": "34172e88-9317-4746-9bb8-eeabd7414c9c",
+              "name": "Problem Details",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emailAddress\": \"<email>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invitations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invitations"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The id associated with this request",
+                    "type": "text/plain"
+                  },
+                  "key": "X-Raygun-RequestId",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:15:11.000Z",
+              "updatedAt": "2026-06-05T15:15:11.000Z",
+              "uid": "35240-34172e88-9317-4746-9bb8-eeabd7414c9c"
+            },
+            {
+              "id": "88f75c2b-346a-4a73-98e0-89c30017abdf",
+              "name": "Problem Details",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emailAddress\": \"<email>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invitations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invitations"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The id associated with this request",
+                    "type": "text/plain"
+                  },
+                  "key": "X-Raygun-RequestId",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:15:11.000Z",
+              "updatedAt": "2026-06-05T15:15:11.000Z",
+              "uid": "35240-88f75c2b-346a-4a73-98e0-89c30017abdf"
+            },
+            {
+              "id": "d0460be9-045e-441b-b24b-2c4e3fe03942",
+              "name": "Problem Details",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emailAddress\": \"<email>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invitations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invitations"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The id associated with this request",
+                    "type": "text/plain"
+                  },
+                  "key": "X-Raygun-RequestId",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:15:11.000Z",
+              "updatedAt": "2026-06-05T15:15:11.000Z",
+              "uid": "35240-d0460be9-045e-441b-b24b-2c4e3fe03942"
+            },
+            {
+              "id": "23826a73-6fb3-458a-815f-dd7f5866d0d1",
+              "name": "Validation problem details",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emailAddress\": \"<email>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invitations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invitations"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The id associated with this request",
+                    "type": "text/plain"
+                  },
+                  "key": "X-Raygun-RequestId",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"errors\": {\n    \"officia22\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"detail\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:15:11.000Z",
+              "updatedAt": "2026-06-05T15:15:11.000Z",
+              "uid": "35240-23826a73-6fb3-458a-815f-dd7f5866d0d1"
+            },
+            {
+              "id": "da3336e2-4367-4686-bd91-4fc9b47b161c",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emailAddress\": \"<email>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invitations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invitations"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:15:11.000Z",
+              "updatedAt": "2026-06-05T15:15:11.000Z",
+              "uid": "35240-da3336e2-4367-4686-bd91-4fc9b47b161c"
+            }
+          ],
+          "createdAt": "2026-06-05T15:15:11.000Z",
+          "updatedAt": "2026-06-05T15:15:11.000Z",
+          "uid": "35240-ed347ed1-11f5-4541-aad7-9409c1e45576"
+        }
+      ],
+      "id": "d5f46387-3525-41cf-8be3-cd638b8b4de3",
+      "createdAt": "2026-06-05T15:15:11.000Z",
+      "updatedAt": "2026-06-05T15:15:11.000Z",
+      "uid": "35240-d5f46387-3525-41cf-8be3-cd638b8b4de3"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.raygun.com/v3"
+    }
+  ]
+}

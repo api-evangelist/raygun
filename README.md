@@ -1,112 +1,455 @@
-# Raygun
+# Raygun (raygun)
 
-Raygun is an application monitoring platform that combines **Crash Reporting**, **Real User Monitoring (RUM)**, and **Application Performance Monitoring (APM)** into a single observability product for web, mobile, and server applications. This repository is an API Evangelist profile of the Raygun developer surface — based on the publicly published OpenAPI 3.0 specification at [api.raygun.io](https://api.raygun.io/v3/swagger/index.html) plus the per-product documentation, ingestion endpoints, and the MindscapeHQ GitHub organization.
+Raygun is an application monitoring platform that combines Crash Reporting, Real User Monitoring (RUM), and Application Performance Monitoring (APM) into a single observability product for web, mobile, and server applications. The Raygun Public API (v3) is a documented OpenAPI 3.0 surface at api.raygun.com/v3 covering applications, error groups, error instances, deployments, source maps, sessions, pages, customers, metrics, Flutter symbols, teams, invitations, and plans — authenticated with a Personal Access Token. A separate ingestion endpoint at api.raygun.com/entries accepts crash payloads from a broad fleet of native SDKs (JavaScript, .NET, Node, Python, Ruby, PHP, Android, Flutter, React Native, MAUI, Blazor) plus the Raygun CLI. Pricing is tiered (Basic, Team, Business, Enterprise) per product with on-demand per-event overages, 14-day free trial, and 180-day error retention.
 
-- **Provider portal:** https://raygun.com
-- **API specifications (Swagger):** https://api.raygun.io/v3/swagger/index.html
-- **Public v3 base URL:** `https://api.raygun.com/v3`
-- **Crash ingestion endpoint:** `POST https://api.raygun.com/entries`
-- **GitHub org:** https://github.com/MindscapeHQ
-- **Status page:** https://status.raygun.com
-- **Changelog:** https://raygun.com/changelog
-- **Pricing:** https://raygun.com/pricing
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/raygun/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/raygun/refs/heads/main/apis.yml)
+
+## Scope
+
+- **Position:** Consuming
+- **Access:** 3rd-Party
+
+## Tags
+
+- Observability
+- Crash Reporting
+- Real User Monitoring
+- Application Performance Monitoring
+- Error Tracking
+- Errors
+- Monitoring
+- DevOps
+- Source Maps
+- Deployments
+
+## Timestamps
+
+- **Created:** 2026-05-25T00:00:00.000Z
+- **Modified:** 2026-05-30
 
 ## APIs
 
-This profile catalogs **14 APIs** across the Raygun surface.
+### Raygun Applications API
 
-### Public v3 API (Personal Access Token, bearer)
+List, retrieve, and regenerate API keys for applications under your Raygun organization. Applications are the root resource — each owns its own error groups, deployments, source maps, sessions, pages, customers, and Flutter symbols.
 
-| API | Operations | OpenAPI |
-|---|---|---|
-| Raygun Applications API | 4 | [openapi/raygun-applications-api-openapi.yml](openapi/raygun-applications-api-openapi.yml) |
-| Raygun Errors API | 12 | [openapi/raygun-errors-api-openapi.yml](openapi/raygun-errors-api-openapi.yml) |
-| Raygun Deployments API | 10 | [openapi/raygun-deployments-api-openapi.yml](openapi/raygun-deployments-api-openapi.yml) |
-| Raygun Source Maps API | 6 | [openapi/raygun-source-maps-api-openapi.yml](openapi/raygun-source-maps-api-openapi.yml) |
-| Raygun Sessions API | 2 | [openapi/raygun-sessions-api-openapi.yml](openapi/raygun-sessions-api-openapi.yml) |
-| Raygun Pages API | 2 | [openapi/raygun-pages-api-openapi.yml](openapi/raygun-pages-api-openapi.yml) |
-| Raygun Customers API | 2 | [openapi/raygun-customers-api-openapi.yml](openapi/raygun-customers-api-openapi.yml) |
-| Raygun Metrics API | 3 | [openapi/raygun-metrics-api-openapi.yml](openapi/raygun-metrics-api-openapi.yml) |
-| Raygun Flutter Symbols API | 5 | [openapi/raygun-flutter-symbols-api-openapi.yml](openapi/raygun-flutter-symbols-api-openapi.yml) |
-| Raygun Teams API | 2 | [openapi/raygun-teams-api-openapi.yml](openapi/raygun-teams-api-openapi.yml) |
-| Raygun Invitations API | 4 | [openapi/raygun-invitations-api-openapi.yml](openapi/raygun-invitations-api-openapi.yml) |
-| Raygun Plans API | 1 | [openapi/raygun-plans-api-openapi.yml](openapi/raygun-plans-api-openapi.yml) |
+- **Human URL:** [https://api.raygun.io/v3/swagger/index.html](https://api.raygun.io/v3/swagger/index.html)
 
-A consolidated copy of the full Raygun OpenAPI 3.0 specification (all 53 operations across 12 tags) is at [openapi/raygun-public-api-openapi.yml](openapi/raygun-public-api-openapi.yml).
+#### Tags
 
-### Ingestion and legacy APIs
+- Observability
+- Applications
 
-| API | Auth | Endpoint |
-|---|---|---|
-| Raygun Crash Reporting Ingestion API | `X-ApiKey` | `POST https://api.raygun.com/entries` |
-| Raygun Pulse RUM API (Legacy) | `X-SessionKey` (15-min TTL) | `GET https://api.raygun.com/api/v1/pulse/*` |
+#### Properties
 
-## Naftiko Capabilities
+- [Documentation](https://api.raygun.io/v3/swagger/index.html)
+- [OpenAPI](openapi/raygun-applications-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/raygun-applications-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-applications-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [JSON-LD](json-ld/raygun-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
 
-Per-tag Naftiko capabilities are in [capabilities/](capabilities/). Each defines a `consumes` block bound to the Raygun v3 endpoint with bearer-token auth, a REST `exposes` adapter prefixed with `/v3`, and an MCP adapter with one tool per operation.
+### Raygun Errors API
 
-- `applications-applications.yaml` (4 ops)
-- `errors-errors.yaml` (12 ops)
-- `deployments-deployments.yaml` (10 ops)
-- `source-maps-source-maps.yaml` (6 ops)
-- `sessions-sessions.yaml` (2 ops)
-- `pages-pages.yaml` (2 ops)
-- `customers-customers.yaml` (2 ops)
-- `metrics-metrics.yaml` (3 ops)
-- `flutter-symbols-flutter-symbols.yaml` (5 ops)
-- `teams-teams.yaml` (2 ops)
-- `invitations-invitations.yaml` (4 ops)
-- `plans-plans.yaml` (1 op)
+Triage error groups and instances — list, get, resolve, activate, ignore, permanently ignore, and comment on grouped errors. Drill into individual error instances with full stack-trace, environment, request, and breadcrumb context.
 
-## Commercial Surface
+- **Human URL:** [https://api.raygun.io/v3/swagger/index.html](https://api.raygun.io/v3/swagger/index.html)
 
-| Artifact | Purpose |
-|---|---|
-| [plans/raygun-plans-pricing.yml](plans/raygun-plans-pricing.yml) | API Commons Plans 0.1 — tiered plans for Crash Reporting, RUM, APM plus on-demand overages |
-| [rate-limits/raygun-rate-limits.yml](rate-limits/raygun-rate-limits.yml) | API Commons Rate Limits 0.1 — v3 token limits, ingestion 128 KB payload cap, Pulse 50/day quota |
-| [finops/raygun-finops.yml](finops/raygun-finops.yml) | FOCUS 1.3 / FinOps Framework alignment — events as the primary meter |
+#### Tags
 
-## Schemas, Linked Data, and Examples
+- Observability
+- Crash Reporting
+- Errors
+- Error Groups
 
-- [json-schema/raygun-error-group-schema.json](json-schema/raygun-error-group-schema.json) — Error group plus the inbound crash-reporting payload schema (occurredOn + details).
-- [json-schema/raygun-deployment-schema.json](json-schema/raygun-deployment-schema.json) — Deployment resource and SCM linkage fields.
-- [json-ld/raygun-context.jsonld](json-ld/raygun-context.jsonld) — JSON-LD context mapping Raygun's core entities (Application, ErrorGroup, ErrorInstance, Deployment, SourceMap, Session, Page, Customer, Team, Plan, Invitation, FlutterSymbol) onto schema.org.
-- [examples/raygun-crash-report-example.json](examples/raygun-crash-report-example.json) — Sample POST /entries payload with stack trace, breadcrumbs, environment, and user data.
-- [examples/raygun-error-group-example.json](examples/raygun-error-group-example.json) — Sample error-group response.
-- [examples/raygun-create-deployment-example.json](examples/raygun-create-deployment-example.json) — Sample deployment-create payload with SCM linkage.
+#### Properties
 
-## Governance
+- [Documentation](https://api.raygun.io/v3/swagger/index.html)
+- [OpenAPI](openapi/raygun-errors-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/raygun-errors-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-errors-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [JSON Schema](json-schema/raygun-error-group-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [Example](examples/raygun-error-group-example.json)
+- [Example](examples/raygun-crash-report-example.json)
 
-- [rules/raygun-rules.yml](rules/raygun-rules.yml) — Spectral ruleset enforcing Raygun conventions (kebab-case paths and operationIds, Title Case summaries, bearer auth, problem-details 4xx responses, 429 documentation).
-- [vocabulary/raygun-vocabulary.yml](vocabulary/raygun-vocabulary.yml) — Raygun operational vocabulary covering applications, error groups, deployments, source maps, sessions, customers, plans, AI Error Resolution, spike protection, and inbound filters.
+### Raygun Deployments API
 
-## SDKs and Tooling (MindscapeHQ)
+Record release markers and correlate them with error groups. Supports SCM integration (GitHub, GitLab, Bitbucket, Azure DevOps), commit reprocessing, latest-deploy lookup, and the api-key shortcut variant for CI pipelines.
 
-| Repository | Language |
-|---|---|
-| [raygun4js](https://github.com/MindscapeHQ/raygun4js) | JavaScript |
-| [raygun4net](https://github.com/MindscapeHQ/raygun4net) | C# / .NET |
-| [raygun4node](https://github.com/MindscapeHQ/raygun4node) | Node.js / TypeScript |
-| [raygun4python](https://github.com/MindscapeHQ/raygun4python) | Python |
-| [raygun4ruby](https://github.com/MindscapeHQ/raygun4ruby) | Ruby |
-| [raygun4php](https://github.com/MindscapeHQ/raygun4php) | PHP |
-| [raygun4android](https://github.com/MindscapeHQ/raygun4android) | Kotlin / Android |
-| [raygun4flutter](https://github.com/MindscapeHQ/raygun4flutter) | Dart / Flutter |
-| [raygun4reactnative](https://github.com/MindscapeHQ/raygun4reactnative) | TypeScript / React Native |
-| [raygun4maui](https://github.com/MindscapeHQ/raygun4maui) | .NET MAUI |
-| [raygun4blazor](https://github.com/MindscapeHQ/raygun4blazor) | .NET Blazor |
-| [raygun-cli](https://github.com/MindscapeHQ/raygun-cli) | Dart CLI |
-| [raygun4node-aws-lambda](https://github.com/MindscapeHQ/raygun4node-aws-lambda) | AWS Lambda wrapper |
-| [ember-cli-raygun](https://github.com/MindscapeHQ/ember-cli-raygun) | Ember add-on |
+- **Human URL:** [https://api.raygun.io/v3/swagger/index.html](https://api.raygun.io/v3/swagger/index.html)
 
-## Authentication Reference
+#### Tags
 
-| Surface | Header | Token |
-|---|---|---|
-| Public v3 API | `Authorization: Bearer <token>` | Personal Access Token |
-| Crash ingestion (`/entries`) | `X-ApiKey: <key>` | Per-application API key |
-| Pulse RUM (legacy) | `X-SessionKey: <key>` + `X-ApiKey: <key>` | Session key issued via OAuth-style Client ID/Secret exchange (15 min TTL) |
+- Observability
+- Deployments
+- Release Tracking
 
-## Tier
+#### Properties
 
-**Tier-1** — Raygun publishes a real OpenAPI 3.0.3 specification (130 KB, 53 operations) at `https://api.raygun.io/v3/raygun-openapi-spec.json` with full schema definitions, parameter contracts, and a documented bearer-token security scheme.
+- [Documentation](https://api.raygun.io/v3/swagger/index.html)
+- [OpenAPI](openapi/raygun-deployments-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/raygun-deployments-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-deployments-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [JSON Schema](json-schema/raygun-deployment-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [Example](examples/raygun-create-deployment-example.json)
+
+### Raygun Source Maps API
+
+Upload, list, retrieve, update, and delete JavaScript source maps for symbolicating minified front-end stack traces in Crash Reporting and RUM error data.
+
+- **Human URL:** [https://api.raygun.io/v3/swagger/index.html](https://api.raygun.io/v3/swagger/index.html)
+
+#### Tags
+
+- Observability
+- Source Maps
+- JavaScript
+
+#### Properties
+
+- [Documentation](https://api.raygun.io/v3/swagger/index.html)
+- [OpenAPI](openapi/raygun-source-maps-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/raygun-source-maps-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-source-maps-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### Raygun Sessions API
+
+List and retrieve Real User Monitoring sessions captured for an application. Each session contains page views, custom timings, and the errors a user experienced during that browsing period.
+
+- **Human URL:** [https://api.raygun.io/v3/swagger/index.html](https://api.raygun.io/v3/swagger/index.html)
+
+#### Tags
+
+- Observability
+- Real User Monitoring
+- Sessions
+
+#### Properties
+
+- [Documentation](https://api.raygun.io/v3/swagger/index.html)
+- [OpenAPI](openapi/raygun-sessions-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/raygun-sessions-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-sessions-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### Raygun Pages API
+
+List and retrieve monitored pages for an application — the per-URL aggregation surface for RUM timing, Core Web Vitals, and page-level error rates.
+
+- **Human URL:** [https://api.raygun.io/v3/swagger/index.html](https://api.raygun.io/v3/swagger/index.html)
+
+#### Tags
+
+- Observability
+- Real User Monitoring
+- Pages
+- Core Web Vitals
+
+#### Properties
+
+- [Documentation](https://api.raygun.io/v3/swagger/index.html)
+- [OpenAPI](openapi/raygun-pages-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/raygun-pages-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-pages-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### Raygun Customers API
+
+List and retrieve customer (end-user) records associated with sessions and error instances. Supports both identified and anonymous user records.
+
+- **Human URL:** [https://api.raygun.io/v3/swagger/index.html](https://api.raygun.io/v3/swagger/index.html)
+
+#### Tags
+
+- Observability
+- Real User Monitoring
+- Customers
+- Users
+
+#### Properties
+
+- [Documentation](https://api.raygun.io/v3/swagger/index.html)
+- [OpenAPI](openapi/raygun-customers-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/raygun-customers-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-customers-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### Raygun Metrics API
+
+Query time-series and histogram metrics for page performance and error rates with flexible bucket, range, and filter parameters. Powers custom dashboards and external observability exports.
+
+- **Human URL:** [https://api.raygun.io/v3/swagger/index.html](https://api.raygun.io/v3/swagger/index.html)
+
+#### Tags
+
+- Observability
+- Metrics
+- Real User Monitoring
+- Time Series
+
+#### Properties
+
+- [Documentation](https://api.raygun.io/v3/swagger/index.html)
+- [OpenAPI](openapi/raygun-metrics-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/raygun-metrics-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-metrics-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### Raygun Flutter Symbols API
+
+Upload and manage Flutter debug-symbol artifacts so Raygun can symbolicate native crashes from Flutter mobile applications across iOS and Android builds.
+
+- **Human URL:** [https://api.raygun.io/v3/swagger/index.html](https://api.raygun.io/v3/swagger/index.html)
+
+#### Tags
+
+- Observability
+- Crash Reporting
+- Flutter
+- Mobile
+- Symbols
+
+#### Properties
+
+- [Documentation](https://api.raygun.io/v3/swagger/index.html)
+- [OpenAPI](openapi/raygun-flutter-symbols-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/raygun-flutter-symbols-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-flutter-symbols-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### Raygun Teams API
+
+List and retrieve teams in your Raygun organization. Teams group members and grant shared access to a curated set of applications.
+
+- **Human URL:** [https://api.raygun.io/v3/swagger/index.html](https://api.raygun.io/v3/swagger/index.html)
+
+#### Tags
+
+- Observability
+- Administration
+- Teams
+
+#### Properties
+
+- [Documentation](https://api.raygun.io/v3/swagger/index.html)
+- [OpenAPI](openapi/raygun-teams-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/raygun-teams-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-teams-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### Raygun Invitations API
+
+Send, list, retrieve, and revoke organization-member invitations. Used to programmatically onboard and offboard users from your Raygun account.
+
+- **Human URL:** [https://api.raygun.io/v3/swagger/index.html](https://api.raygun.io/v3/swagger/index.html)
+
+#### Tags
+
+- Observability
+- Administration
+- Invitations
+
+#### Properties
+
+- [Documentation](https://api.raygun.io/v3/swagger/index.html)
+- [OpenAPI](openapi/raygun-invitations-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/raygun-invitations-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-invitations-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### Raygun Plans API
+
+List the available Raygun subscription plans so dashboards and automations can inspect entitlement levels and current allotments per product.
+
+- **Human URL:** [https://api.raygun.io/v3/swagger/index.html](https://api.raygun.io/v3/swagger/index.html)
+
+#### Tags
+
+- Observability
+- Administration
+- Plans
+- Billing
+
+#### Properties
+
+- [Documentation](https://api.raygun.io/v3/swagger/index.html)
+- [OpenAPI](openapi/raygun-plans-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/raygun-plans-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-plans-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### Raygun Crash Reporting Ingestion API
+
+POST /entries ingestion endpoint at api.raygun.com used by all language SDKs and providers to submit crash payloads. X-ApiKey authenticated; 128 KB payload ceiling; 202 on accept, 400/403/413/429 on error.
+
+- **Human URL:** [https://raygun.com/documentation/product-guides/crash-reporting/api/](https://raygun.com/documentation/product-guides/crash-reporting/api/)
+
+#### Tags
+
+- Observability
+- Crash Reporting
+- Ingestion
+
+#### Properties
+
+- [Documentation](https://raygun.com/documentation/product-guides/crash-reporting/api/)
+- [JSON Schema](json-schema/raygun-error-group-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [Example](examples/raygun-crash-report-example.json)
+- [Postman Collection](collections/raygun-applications-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-applications-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-customers-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-customers-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-deployments-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-deployments-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-errors-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-errors-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-flutter-symbols-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-flutter-symbols-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-invitations-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-invitations-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-metrics-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-metrics-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-pages-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-pages-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-plans-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-plans-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-public-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-public-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-sessions-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-sessions-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-source-maps-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-source-maps-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-teams-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-teams-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### Raygun Outbound Webhooks
+
+Outbound webhook surface that POSTs JSON events to a customer-configured HTTPS endpoint when error notifications fire (NewErrorOccurred, ErrorReoccurred for regression detection, and the 1/5/10/30/60-minute follow-up cadence) and when error-group activity occurs (StatusChanged, AssignedToUser, CommentAdded). The same event vocabulary drives the managed Slack and Microsoft Teams integrations. Requires Team plan or higher.
+
+- **Human URL:** [https://raygun.com/documentation/product-guides/crash-reporting/integrations/webhooks/](https://raygun.com/documentation/product-guides/crash-reporting/integrations/webhooks/)
+
+#### Tags
+
+- Observability
+- Crash Reporting
+- Webhooks
+- Event-Driven
+- Regression Detection
+- Slack
+- Microsoft Teams
+
+#### Properties
+
+- [Documentation](https://raygun.com/documentation/product-guides/crash-reporting/integrations/webhooks/)
+- [Documentation](https://raygun.com/documentation/product-guides/crash-reporting/integrations/slack/)
+- [Documentation](https://raygun.com/documentation/product-guides/integrations/microsoft-teams-plan-integration/)
+- [AsyncAPI](openapi/raygun-webhooks-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
+- [Postman Collection](collections/raygun-applications-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-applications-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-customers-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-customers-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-deployments-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-deployments-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-errors-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-errors-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-flutter-symbols-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-flutter-symbols-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-invitations-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-invitations-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-metrics-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-metrics-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-pages-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-pages-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-plans-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-plans-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-public-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-public-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-sessions-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-sessions-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-source-maps-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-source-maps-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-teams-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-teams-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### Raygun Pulse RUM API (Legacy)
+
+Legacy enterprise-only Real User Monitoring read API at api.raygun.com/api/v1/pulse. Uses a Client ID/Secret-issued X-SessionKey with 15-minute TTL. Default rate limit 50 calls/day/application. Most new workloads use the v3 Sessions/Pages/Metrics APIs instead.
+
+- **Human URL:** [https://raygun.com/documentation/product-guides/real-user-monitoring/api/](https://raygun.com/documentation/product-guides/real-user-monitoring/api/)
+
+#### Tags
+
+- Observability
+- Real User Monitoring
+- Pulse
+- Legacy
+
+#### Properties
+
+- [Documentation](https://raygun.com/documentation/product-guides/real-user-monitoring/api/)
+- [Postman Collection](collections/raygun-applications-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-applications-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-customers-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-customers-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-deployments-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-deployments-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-errors-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-errors-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-flutter-symbols-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-flutter-symbols-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-invitations-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-invitations-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-metrics-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-metrics-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-pages-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-pages-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-plans-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-plans-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-public-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-public-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-sessions-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-sessions-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-source-maps-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-source-maps-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/raygun-teams-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/raygun-teams-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+## Common Properties
+
+- [Arazzo Workflows](arazzo/) — [Arazzo Specification](https://spec.openapis.org/arazzo/latest.html)
+- [Portal](https://raygun.com)
+- [Documentation](https://raygun.com/documentation/)
+- [Documentation](https://raygun.com/documentation/product-guides/public-api/)
+- [Documentation](https://api.raygun.io/v3/swagger/index.html)
+- [OpenAPI](https://api.raygun.io/v3/raygun-openapi-spec.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Documentation](https://raygun.com/documentation/product-guides/crash-reporting/api/)
+- [Documentation](https://raygun.com/documentation/product-guides/real-user-monitoring/api/)
+- [Status Page](https://status.raygun.com)
+- [Changelog](https://raygun.com/changelog)
+- [Blog](https://raygun.com/blog/)
+- [Getting Started](https://raygun.com/documentation/)
+- [Pricing](https://raygun.com/pricing)
+- [Sign Up](https://app.raygun.com/signup)
+- [Support](https://raygun.com/contact)
+- [Terms of Service](https://raygun.com/terms)
+- [Privacy Policy](https://raygun.com/privacy)
+- [Security](https://raygun.com/platform/security-and-compliance)
+- [GitHub Organization](https://github.com/MindscapeHQ)
+- [SDK](https://github.com/MindscapeHQ/raygun4js)
+- [SDK](https://github.com/MindscapeHQ/raygun4net)
+- [SDK](https://github.com/MindscapeHQ/raygun4node)
+- [SDK](https://github.com/MindscapeHQ/raygun4python)
+- [SDK](https://github.com/MindscapeHQ/raygun4ruby)
+- [SDK](https://github.com/MindscapeHQ/raygun4php)
+- [SDK](https://github.com/MindscapeHQ/raygun4android)
+- [SDK](https://github.com/MindscapeHQ/raygun4flutter)
+- [SDK](https://github.com/MindscapeHQ/raygun4reactnative)
+- [SDK](https://github.com/MindscapeHQ/raygun4maui)
+- [SDK](https://github.com/MindscapeHQ/raygun4blazor)
+- [Tool](https://github.com/MindscapeHQ/raygun-cli)
+- [Tool](https://github.com/MindscapeHQ/raygun4node-aws-lambda)
+- [Plugin](https://github.com/MindscapeHQ/ember-cli-raygun)
+- [Integrations](undefined)
+- [Plans](plans/raygun-plans-pricing.yml)
+- [Rate Limits](rate-limits/raygun-rate-limits.yml)
+- [Fin Ops](finops/raygun-finops.yml)
+- [Vocabulary](vocabulary/raygun-vocabulary.yml)
+- [Spectral Rules](rules/raygun-rules.yml)
+- [Features](undefined)
+
+## Maintainers
+
+**FN:** Kin Lane
+**Email:** info@apievangelist.com
+**URL:** https://apievangelist.com

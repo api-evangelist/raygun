@@ -1,462 +1,453 @@
 aid: raygun
 url: https://raw.githubusercontent.com/api-evangelist/raygun/refs/heads/main/apis.yml
 apis:
-- aid: raygun:raygun-applications-api
-  name: Raygun Applications API
-  tags:
-  - Observability
-  - Applications
-  humanURL: https://api.raygun.io/v3/swagger/index.html
-  properties:
-  - url: https://api.raygun.io/v3/swagger/index.html
-    type: Documentation
-  - url: openapi/raygun-applications-api-openapi.yml
-    type: OpenAPI
-  - url: json-ld/raygun-context.jsonld
-    type: JSONLD
-  - type: NaftikoCapability
-    url: capabilities/applications-applications.yaml
-  description: List, retrieve, and regenerate API keys for applications under your Raygun organization. Applications
-    are the root resource — each owns its own error groups, deployments, source maps, sessions, pages, customers,
-    and Flutter symbols.
-- aid: raygun:raygun-errors-api
-  name: Raygun Errors API
-  tags:
-  - Observability
-  - Crash Reporting
-  - Errors
-  - Error Groups
-  humanURL: https://api.raygun.io/v3/swagger/index.html
-  properties:
-  - url: https://api.raygun.io/v3/swagger/index.html
-    type: Documentation
-  - url: openapi/raygun-errors-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/raygun-error-group-schema.json
-    type: JSONSchema
-  - url: examples/raygun-error-group-example.json
-    type: Example
-  - url: examples/raygun-crash-report-example.json
-    type: Example
-  - type: NaftikoCapability
-    url: capabilities/errors-errors.yaml
-  description: Triage error groups and instances — list, get, resolve, activate, ignore, permanently ignore, and
-    comment on grouped errors. Drill into individual error instances with full stack-trace, environment, request,
-    and breadcrumb context.
-- aid: raygun:raygun-deployments-api
-  name: Raygun Deployments API
-  tags:
-  - Observability
-  - Deployments
-  - Release Tracking
-  humanURL: https://api.raygun.io/v3/swagger/index.html
-  properties:
-  - url: https://api.raygun.io/v3/swagger/index.html
-    type: Documentation
-  - url: openapi/raygun-deployments-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/raygun-deployment-schema.json
-    type: JSONSchema
-  - url: examples/raygun-create-deployment-example.json
-    type: Example
-  - type: NaftikoCapability
-    url: capabilities/deployments-deployments.yaml
-  description: Record release markers and correlate them with error groups. Supports SCM integration (GitHub,
-    GitLab, Bitbucket, Azure DevOps), commit reprocessing, latest-deploy lookup, and the api-key shortcut variant
-    for CI pipelines.
-- aid: raygun:raygun-source-maps-api
-  name: Raygun Source Maps API
-  tags:
-  - Observability
-  - Source Maps
-  - JavaScript
-  humanURL: https://api.raygun.io/v3/swagger/index.html
-  properties:
-  - url: https://api.raygun.io/v3/swagger/index.html
-    type: Documentation
-  - url: openapi/raygun-source-maps-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/source-maps-source-maps.yaml
-  description: Upload, list, retrieve, update, and delete JavaScript source maps for symbolicating minified
-    front-end stack traces in Crash Reporting and RUM error data.
-- aid: raygun:raygun-sessions-api
-  name: Raygun Sessions API
-  tags:
-  - Observability
-  - Real User Monitoring
-  - Sessions
-  humanURL: https://api.raygun.io/v3/swagger/index.html
-  properties:
-  - url: https://api.raygun.io/v3/swagger/index.html
-    type: Documentation
-  - url: openapi/raygun-sessions-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/sessions-sessions.yaml
-  description: List and retrieve Real User Monitoring sessions captured for an application. Each session contains
-    page views, custom timings, and the errors a user experienced during that browsing period.
-- aid: raygun:raygun-pages-api
-  name: Raygun Pages API
-  tags:
-  - Observability
-  - Real User Monitoring
-  - Pages
-  - Core Web Vitals
-  humanURL: https://api.raygun.io/v3/swagger/index.html
-  properties:
-  - url: https://api.raygun.io/v3/swagger/index.html
-    type: Documentation
-  - url: openapi/raygun-pages-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/pages-pages.yaml
-  description: List and retrieve monitored pages for an application — the per-URL aggregation surface for RUM
-    timing, Core Web Vitals, and page-level error rates.
-- aid: raygun:raygun-customers-api
-  name: Raygun Customers API
-  tags:
-  - Observability
-  - Real User Monitoring
-  - Customers
-  - Users
-  humanURL: https://api.raygun.io/v3/swagger/index.html
-  properties:
-  - url: https://api.raygun.io/v3/swagger/index.html
-    type: Documentation
-  - url: openapi/raygun-customers-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/customers-customers.yaml
-  description: List and retrieve customer (end-user) records associated with sessions and error instances. Supports
-    both identified and anonymous user records.
-- aid: raygun:raygun-metrics-api
-  name: Raygun Metrics API
-  tags:
-  - Observability
-  - Metrics
-  - Real User Monitoring
-  - Time Series
-  humanURL: https://api.raygun.io/v3/swagger/index.html
-  properties:
-  - url: https://api.raygun.io/v3/swagger/index.html
-    type: Documentation
-  - url: openapi/raygun-metrics-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/metrics-metrics.yaml
-  description: Query time-series and histogram metrics for page performance and error rates with flexible bucket,
-    range, and filter parameters. Powers custom dashboards and external observability exports.
-- aid: raygun:raygun-flutter-symbols-api
-  name: Raygun Flutter Symbols API
-  tags:
-  - Observability
-  - Crash Reporting
-  - Flutter
-  - Mobile
-  - Symbols
-  humanURL: https://api.raygun.io/v3/swagger/index.html
-  properties:
-  - url: https://api.raygun.io/v3/swagger/index.html
-    type: Documentation
-  - url: openapi/raygun-flutter-symbols-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/flutter-symbols-flutter-symbols.yaml
-  description: Upload and manage Flutter debug-symbol artifacts so Raygun can symbolicate native crashes from
-    Flutter mobile applications across iOS and Android builds.
-- aid: raygun:raygun-teams-api
-  name: Raygun Teams API
-  tags:
-  - Observability
-  - Administration
-  - Teams
-  humanURL: https://api.raygun.io/v3/swagger/index.html
-  properties:
-  - url: https://api.raygun.io/v3/swagger/index.html
-    type: Documentation
-  - url: openapi/raygun-teams-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/teams-teams.yaml
-  description: List and retrieve teams in your Raygun organization. Teams group members and grant shared access
-    to a curated set of applications.
-- aid: raygun:raygun-invitations-api
-  name: Raygun Invitations API
-  tags:
-  - Observability
-  - Administration
-  - Invitations
-  humanURL: https://api.raygun.io/v3/swagger/index.html
-  properties:
-  - url: https://api.raygun.io/v3/swagger/index.html
-    type: Documentation
-  - url: openapi/raygun-invitations-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/invitations-invitations.yaml
-  description: Send, list, retrieve, and revoke organization-member invitations. Used to programmatically onboard
-    and offboard users from your Raygun account.
-- aid: raygun:raygun-plans-api
-  name: Raygun Plans API
-  tags:
-  - Observability
-  - Administration
-  - Plans
-  - Billing
-  humanURL: https://api.raygun.io/v3/swagger/index.html
-  properties:
-  - url: https://api.raygun.io/v3/swagger/index.html
-    type: Documentation
-  - url: openapi/raygun-plans-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/plans-plans.yaml
-  description: List the available Raygun subscription plans so dashboards and automations can inspect entitlement
-    levels and current allotments per product.
-- aid: raygun:raygun-crash-reporting-ingestion-api
-  name: Raygun Crash Reporting Ingestion API
-  tags:
-  - Observability
-  - Crash Reporting
-  - Ingestion
-  humanURL: https://raygun.com/documentation/product-guides/crash-reporting/api/
-  properties:
-  - url: https://raygun.com/documentation/product-guides/crash-reporting/api/
-    type: Documentation
-  - url: json-schema/raygun-error-group-schema.json
-    type: JSONSchema
-  - url: examples/raygun-crash-report-example.json
-    type: Example
-  description: 'POST /entries ingestion endpoint at api.raygun.com used by all language SDKs and providers to
-    submit crash payloads. X-ApiKey authenticated; 128 KB payload ceiling; 202 on accept, 400/403/413/429 on
-    error.'
-- aid: raygun:raygun-webhooks-api
-  name: Raygun Outbound Webhooks
-  tags:
-  - Observability
-  - Crash Reporting
-  - Webhooks
-  - Event-Driven
-  - Regression Detection
-  - Slack
-  - Microsoft Teams
-  humanURL: https://raygun.com/documentation/product-guides/crash-reporting/integrations/webhooks/
-  properties:
-  - url: https://raygun.com/documentation/product-guides/crash-reporting/integrations/webhooks/
-    type: Documentation
-  - url: https://raygun.com/documentation/product-guides/crash-reporting/integrations/slack/
-    type: Documentation
-    name: Slack Integration
-  - url: https://raygun.com/documentation/product-guides/integrations/microsoft-teams-plan-integration/
-    type: Documentation
-    name: Microsoft Teams Integration
-  - url: openapi/raygun-webhooks-asyncapi.yml
-    type: AsyncAPI
-  description: Outbound webhook surface that POSTs JSON events to a customer-configured HTTPS endpoint when
-    error notifications fire (NewErrorOccurred, ErrorReoccurred for regression detection, and the 1/5/10/30/60-minute
-    follow-up cadence) and when error-group activity occurs (StatusChanged, AssignedToUser, CommentAdded). The
-    same event vocabulary drives the managed Slack and Microsoft Teams integrations. Requires Team plan or higher.
-- aid: raygun:raygun-pulse-rum-api
-  name: Raygun Pulse RUM API (Legacy)
-  tags:
-  - Observability
-  - Real User Monitoring
-  - Pulse
-  - Legacy
-  humanURL: https://raygun.com/documentation/product-guides/real-user-monitoring/api/
-  properties:
-  - url: https://raygun.com/documentation/product-guides/real-user-monitoring/api/
-    type: Documentation
-  description: Legacy enterprise-only Real User Monitoring read API at api.raygun.com/api/v1/pulse. Uses a
-    Client ID/Secret-issued X-SessionKey with 15-minute TTL. Default rate limit 50 calls/day/application. Most
-    new workloads use the v3 Sessions/Pages/Metrics APIs instead.
+  - aid: raygun:raygun-applications-api
+    name: Raygun Applications API
+    tags:
+      - Observability
+      - Applications
+    humanURL: https://api.raygun.io/v3/swagger/index.html
+    properties:
+      - url: https://api.raygun.io/v3/swagger/index.html
+        type: Documentation
+      - url: openapi/raygun-applications-api-openapi.yml
+        type: OpenAPI
+      - url: json-ld/raygun-context.jsonld
+        type: JSONLD
+    description: >-
+      List, retrieve, and regenerate API keys for applications under your Raygun organization. Applications are the root
+      resource — each owns its own error groups, deployments, source maps, sessions, pages, customers, and Flutter
+      symbols.
+  - aid: raygun:raygun-errors-api
+    name: Raygun Errors API
+    tags:
+      - Observability
+      - Crash Reporting
+      - Errors
+      - Error Groups
+    humanURL: https://api.raygun.io/v3/swagger/index.html
+    properties:
+      - url: https://api.raygun.io/v3/swagger/index.html
+        type: Documentation
+      - url: openapi/raygun-errors-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/raygun-error-group-schema.json
+        type: JSONSchema
+      - url: examples/raygun-error-group-example.json
+        type: Example
+      - url: examples/raygun-crash-report-example.json
+        type: Example
+    description: >-
+      Triage error groups and instances — list, get, resolve, activate, ignore, permanently ignore, and comment on
+      grouped errors. Drill into individual error instances with full stack-trace, environment, request, and breadcrumb
+      context.
+  - aid: raygun:raygun-deployments-api
+    name: Raygun Deployments API
+    tags:
+      - Observability
+      - Deployments
+      - Release Tracking
+    humanURL: https://api.raygun.io/v3/swagger/index.html
+    properties:
+      - url: https://api.raygun.io/v3/swagger/index.html
+        type: Documentation
+      - url: openapi/raygun-deployments-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/raygun-deployment-schema.json
+        type: JSONSchema
+      - url: examples/raygun-create-deployment-example.json
+        type: Example
+    description: >-
+      Record release markers and correlate them with error groups. Supports SCM integration (GitHub, GitLab, Bitbucket,
+      Azure DevOps), commit reprocessing, latest-deploy lookup, and the api-key shortcut variant for CI pipelines.
+  - aid: raygun:raygun-source-maps-api
+    name: Raygun Source Maps API
+    tags:
+      - Observability
+      - Source Maps
+      - JavaScript
+    humanURL: https://api.raygun.io/v3/swagger/index.html
+    properties:
+      - url: https://api.raygun.io/v3/swagger/index.html
+        type: Documentation
+      - url: openapi/raygun-source-maps-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Upload, list, retrieve, update, and delete JavaScript source maps for symbolicating minified front-end stack
+      traces in Crash Reporting and RUM error data.
+  - aid: raygun:raygun-sessions-api
+    name: Raygun Sessions API
+    tags:
+      - Observability
+      - Real User Monitoring
+      - Sessions
+    humanURL: https://api.raygun.io/v3/swagger/index.html
+    properties:
+      - url: https://api.raygun.io/v3/swagger/index.html
+        type: Documentation
+      - url: openapi/raygun-sessions-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      List and retrieve Real User Monitoring sessions captured for an application. Each session contains page views,
+      custom timings, and the errors a user experienced during that browsing period.
+  - aid: raygun:raygun-pages-api
+    name: Raygun Pages API
+    tags:
+      - Observability
+      - Real User Monitoring
+      - Pages
+      - Core Web Vitals
+    humanURL: https://api.raygun.io/v3/swagger/index.html
+    properties:
+      - url: https://api.raygun.io/v3/swagger/index.html
+        type: Documentation
+      - url: openapi/raygun-pages-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      List and retrieve monitored pages for an application — the per-URL aggregation surface for RUM timing, Core Web
+      Vitals, and page-level error rates.
+  - aid: raygun:raygun-customers-api
+    name: Raygun Customers API
+    tags:
+      - Observability
+      - Real User Monitoring
+      - Customers
+      - Users
+    humanURL: https://api.raygun.io/v3/swagger/index.html
+    properties:
+      - url: https://api.raygun.io/v3/swagger/index.html
+        type: Documentation
+      - url: openapi/raygun-customers-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      List and retrieve customer (end-user) records associated with sessions and error instances. Supports both
+      identified and anonymous user records.
+  - aid: raygun:raygun-metrics-api
+    name: Raygun Metrics API
+    tags:
+      - Observability
+      - Metrics
+      - Real User Monitoring
+      - Time Series
+    humanURL: https://api.raygun.io/v3/swagger/index.html
+    properties:
+      - url: https://api.raygun.io/v3/swagger/index.html
+        type: Documentation
+      - url: openapi/raygun-metrics-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Query time-series and histogram metrics for page performance and error rates with flexible bucket, range, and
+      filter parameters. Powers custom dashboards and external observability exports.
+  - aid: raygun:raygun-flutter-symbols-api
+    name: Raygun Flutter Symbols API
+    tags:
+      - Observability
+      - Crash Reporting
+      - Flutter
+      - Mobile
+      - Symbols
+    humanURL: https://api.raygun.io/v3/swagger/index.html
+    properties:
+      - url: https://api.raygun.io/v3/swagger/index.html
+        type: Documentation
+      - url: openapi/raygun-flutter-symbols-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Upload and manage Flutter debug-symbol artifacts so Raygun can symbolicate native crashes from Flutter mobile
+      applications across iOS and Android builds.
+  - aid: raygun:raygun-teams-api
+    name: Raygun Teams API
+    tags:
+      - Observability
+      - Administration
+      - Teams
+    humanURL: https://api.raygun.io/v3/swagger/index.html
+    properties:
+      - url: https://api.raygun.io/v3/swagger/index.html
+        type: Documentation
+      - url: openapi/raygun-teams-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      List and retrieve teams in your Raygun organization. Teams group members and grant shared access to a curated set
+      of applications.
+  - aid: raygun:raygun-invitations-api
+    name: Raygun Invitations API
+    tags:
+      - Observability
+      - Administration
+      - Invitations
+    humanURL: https://api.raygun.io/v3/swagger/index.html
+    properties:
+      - url: https://api.raygun.io/v3/swagger/index.html
+        type: Documentation
+      - url: openapi/raygun-invitations-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Send, list, retrieve, and revoke organization-member invitations. Used to programmatically onboard and offboard
+      users from your Raygun account.
+  - aid: raygun:raygun-plans-api
+    name: Raygun Plans API
+    tags:
+      - Observability
+      - Administration
+      - Plans
+      - Billing
+    humanURL: https://api.raygun.io/v3/swagger/index.html
+    properties:
+      - url: https://api.raygun.io/v3/swagger/index.html
+        type: Documentation
+      - url: openapi/raygun-plans-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      List the available Raygun subscription plans so dashboards and automations can inspect entitlement levels and
+      current allotments per product.
+  - aid: raygun:raygun-crash-reporting-ingestion-api
+    name: Raygun Crash Reporting Ingestion API
+    tags:
+      - Observability
+      - Crash Reporting
+      - Ingestion
+    humanURL: https://raygun.com/documentation/product-guides/crash-reporting/api/
+    properties:
+      - url: https://raygun.com/documentation/product-guides/crash-reporting/api/
+        type: Documentation
+      - url: json-schema/raygun-error-group-schema.json
+        type: JSONSchema
+      - url: examples/raygun-crash-report-example.json
+        type: Example
+    description: >-
+      POST /entries ingestion endpoint at api.raygun.com used by all language SDKs and providers to submit crash
+      payloads. X-ApiKey authenticated; 128 KB payload ceiling; 202 on accept, 400/403/413/429 on error.
+  - aid: raygun:raygun-webhooks-api
+    name: Raygun Outbound Webhooks
+    tags:
+      - Observability
+      - Crash Reporting
+      - Webhooks
+      - Event-Driven
+      - Regression Detection
+      - Slack
+      - Microsoft Teams
+    humanURL: https://raygun.com/documentation/product-guides/crash-reporting/integrations/webhooks/
+    properties:
+      - url: https://raygun.com/documentation/product-guides/crash-reporting/integrations/webhooks/
+        type: Documentation
+      - url: https://raygun.com/documentation/product-guides/crash-reporting/integrations/slack/
+        type: Documentation
+        name: Slack Integration
+      - url: https://raygun.com/documentation/product-guides/integrations/microsoft-teams-plan-integration/
+        type: Documentation
+        name: Microsoft Teams Integration
+      - url: openapi/raygun-webhooks-asyncapi.yml
+        type: AsyncAPI
+    description: >-
+      Outbound webhook surface that POSTs JSON events to a customer-configured HTTPS endpoint when error notifications
+      fire (NewErrorOccurred, ErrorReoccurred for regression detection, and the 1/5/10/30/60-minute follow-up cadence)
+      and when error-group activity occurs (StatusChanged, AssignedToUser, CommentAdded). The same event vocabulary
+      drives the managed Slack and Microsoft Teams integrations. Requires Team plan or higher.
+  - aid: raygun:raygun-pulse-rum-api
+    name: Raygun Pulse RUM API (Legacy)
+    tags:
+      - Observability
+      - Real User Monitoring
+      - Pulse
+      - Legacy
+    humanURL: https://raygun.com/documentation/product-guides/real-user-monitoring/api/
+    properties:
+      - url: https://raygun.com/documentation/product-guides/real-user-monitoring/api/
+        type: Documentation
+    description: >-
+      Legacy enterprise-only Real User Monitoring read API at api.raygun.com/api/v1/pulse. Uses a Client
+      ID/Secret-issued X-SessionKey with 15-minute TTL. Default rate limit 50 calls/day/application. Most new workloads
+      use the v3 Sessions/Pages/Metrics APIs instead.
 name: Raygun
 tags:
-- Observability
-- Crash Reporting
-- Real User Monitoring
-- Application Performance Monitoring
-- Error Tracking
-- Errors
-- Monitoring
-- DevOps
-- Source Maps
-- Deployments
+  - Observability
+  - Crash Reporting
+  - Real User Monitoring
+  - Application Performance Monitoring
+  - Error Tracking
+  - Errors
+  - Monitoring
+  - DevOps
+  - Source Maps
+  - Deployments
 kind: contract
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
-- type: ArazzoWorkflows
-  url: arazzo/
-  workflows:
-  - url: arazzo/raygun-create-and-verify-deployment-workflow.yml
-    name: Raygun Create and Verify Deployment
-    summary: Record a deployment for an application and confirm it was created.
-  - url: arazzo/raygun-inspect-application-page-workflow.yml
-    name: Raygun Inspect Application Page
-    summary: List the monitored pages for an application and read one in detail.
-  - url: arazzo/raygun-inspect-latest-deployment-errors-workflow.yml
-    name: Raygun Inspect Latest Deployment Errors
-    summary: Read the latest deployment and drill into an error group it introduced.
-  - url: arazzo/raygun-lookup-customer-workflow.yml
-    name: Raygun Look Up Affected Customer
-    summary: Resolve an application and look up a single affected customer by identifier.
-  - url: arazzo/raygun-publish-source-map-workflow.yml
-    name: Raygun Publish and Verify Source Map
-    summary: Upload a source map for an application and confirm it is registered.
-  - url: arazzo/raygun-resolve-error-group-workflow.yml
-    name: Raygun Resolve Error Group
-    summary: Find an active error group in an application and mark it as resolved.
-  - url: arazzo/raygun-triage-error-group-comment-workflow.yml
-    name: Raygun Triage Error Group and Add Comment
-    summary: Inspect an error group and its latest occurrence, then record a triage comment.
-- type: Portal
-  url: https://raygun.com
-- type: Documentation
-  url: https://raygun.com/documentation/
-- type: Documentation
-  url: https://raygun.com/documentation/product-guides/public-api/
-  name: Public API Guide
-- type: Documentation
-  url: https://api.raygun.io/v3/swagger/index.html
-  name: API Specifications (Swagger)
-- type: OpenAPI
-  url: https://api.raygun.io/v3/raygun-openapi-spec.json
-  name: Raygun OpenAPI 3.0 Spec
-- type: Documentation
-  url: https://raygun.com/documentation/product-guides/crash-reporting/api/
-  name: Crash Reporting Ingestion API
-- type: Documentation
-  url: https://raygun.com/documentation/product-guides/real-user-monitoring/api/
-  name: RUM Pulse API
-- type: StatusPage
-  url: https://status.raygun.com
-- type: ChangeLog
-  url: https://raygun.com/changelog
-- type: Blog
-  url: https://raygun.com/blog/
-- type: GettingStarted
-  url: https://raygun.com/documentation/
-- type: Pricing
-  url: https://raygun.com/pricing
-- type: SignUp
-  url: https://app.raygun.com/signup
-- type: Support
-  url: https://raygun.com/contact
-- type: TermsOfService
-  url: https://raygun.com/terms
-- type: PrivacyPolicy
-  url: https://raygun.com/privacy
-- type: Security
-  url: https://raygun.com/platform/security-and-compliance
-- type: GitHubOrganization
-  url: https://github.com/MindscapeHQ
-- type: SDK
-  url: https://github.com/MindscapeHQ/raygun4js
-  name: raygun4js (JavaScript)
-- type: SDK
-  url: https://github.com/MindscapeHQ/raygun4net
-  name: raygun4net (.NET)
-- type: SDK
-  url: https://github.com/MindscapeHQ/raygun4node
-  name: raygun4node (Node.js / TypeScript)
-- type: SDK
-  url: https://github.com/MindscapeHQ/raygun4python
-  name: raygun4python
-- type: SDK
-  url: https://github.com/MindscapeHQ/raygun4ruby
-  name: raygun4ruby
-- type: SDK
-  url: https://github.com/MindscapeHQ/raygun4php
-  name: raygun4php
-- type: SDK
-  url: https://github.com/MindscapeHQ/raygun4android
-  name: raygun4android (Kotlin)
-- type: SDK
-  url: https://github.com/MindscapeHQ/raygun4flutter
-  name: raygun4flutter (Dart)
-- type: SDK
-  url: https://github.com/MindscapeHQ/raygun4reactnative
-  name: raygun4reactnative
-- type: SDK
-  url: https://github.com/MindscapeHQ/raygun4maui
-  name: raygun4maui
-- type: SDK
-  url: https://github.com/MindscapeHQ/raygun4blazor
-  name: raygun4blazor
-- type: Tool
-  url: https://github.com/MindscapeHQ/raygun-cli
-  name: Raygun CLI
-- type: Tool
-  url: https://github.com/MindscapeHQ/raygun4node-aws-lambda
-  name: raygun4node AWS Lambda
-- type: Plugin
-  url: https://github.com/MindscapeHQ/ember-cli-raygun
-  name: ember-cli-raygun
-- type: Integrations
-  data:
-  - Slack
-  - GitHub
-  - GitHub Enterprise
-  - Bitbucket
-  - Bitbucket Server
-  - GitLab
-  - Azure DevOps
-  - Jira
-- type: Plans
-  url: plans/raygun-plans-pricing.yml
-- type: RateLimits
-  url: rate-limits/raygun-rate-limits.yml
-- type: FinOps
-  url: finops/raygun-finops.yml
-- type: Vocabulary
-  url: vocabulary/raygun-vocabulary.yml
-- type: SpectralRules
-  url: rules/raygun-rules.yml
-- type: Features
-  data:
-  - Crash Reporting — error detection, deduplication into error groups, full stack-trace and breadcrumb context
-  - Real User Monitoring (RUM) — Core Web Vitals, sessions, pages, custom timings, customer drill-down
-  - Application Performance Monitoring (APM) — Apdex, sampling, flamechart diagnostics, trace search
-  - AI Error Resolution — LLM-powered analysis of stack traces with suggested fixes
-  - Deployment Tracking — release markers correlated with new/regressed error groups
-  - Source Maps and Flutter Symbols — symbolication of minified JS and Flutter mobile stack traces
-  - Spike Protection — runaway-event guardrail to prevent surprise overages
-  - Inbound Filters — drop unwanted events before they count toward quota (Team plan and above)
-  - Custom Dashboards and Custom Reports across all three products
-  - SAML SSO, role-based permissions, and team-scoped application access (Business plan and above)
-  - On-demand overage pricing — $0.001/error, $0.002/session, $0.002/trace
-  - 180-day error retention, 60-day session retention (custom for Enterprise)
-  - Native SDKs for JavaScript, .NET, Node.js, Python, Ruby, PHP, Android, iOS, Flutter, React Native, MAUI, Blazor
-  - Raygun CLI for deploys and source-map uploads from CI
-  - Integrations with Slack, GitHub, Bitbucket, GitLab, Azure DevOps, and Jira
-  - HIPAA, GDPR, CCPA, and PCI compliant
-  - Public OpenAPI 3.0 specification covering 53 operations across 12 resource tags
-  - Personal Access Token bearer auth for the v3 API; X-ApiKey for ingestion
-  sources:
-  - https://raygun.com
-  - https://raygun.com/pricing
-  - https://api.raygun.io/v3/swagger/index.html
-  - https://raygun.com/documentation/product-guides/public-api/
-  - https://raygun.com/documentation/product-guides/crash-reporting/api/
-  - https://github.com/MindscapeHQ
-  updated: '2026-05-25'
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/raygun/overview
+  - type: ArazzoWorkflows
+    url: arazzo/
+    workflows:
+      - url: arazzo/raygun-create-and-verify-deployment-workflow.yml
+        name: Raygun Create and Verify Deployment
+        summary: Record a deployment for an application and confirm it was created.
+      - url: arazzo/raygun-inspect-application-page-workflow.yml
+        name: Raygun Inspect Application Page
+        summary: List the monitored pages for an application and read one in detail.
+      - url: arazzo/raygun-inspect-latest-deployment-errors-workflow.yml
+        name: Raygun Inspect Latest Deployment Errors
+        summary: Read the latest deployment and drill into an error group it introduced.
+      - url: arazzo/raygun-lookup-customer-workflow.yml
+        name: Raygun Look Up Affected Customer
+        summary: Resolve an application and look up a single affected customer by identifier.
+      - url: arazzo/raygun-publish-source-map-workflow.yml
+        name: Raygun Publish and Verify Source Map
+        summary: Upload a source map for an application and confirm it is registered.
+      - url: arazzo/raygun-resolve-error-group-workflow.yml
+        name: Raygun Resolve Error Group
+        summary: Find an active error group in an application and mark it as resolved.
+      - url: arazzo/raygun-triage-error-group-comment-workflow.yml
+        name: Raygun Triage Error Group and Add Comment
+        summary: Inspect an error group and its latest occurrence, then record a triage comment.
+  - type: Portal
+    url: https://raygun.com
+  - type: Documentation
+    url: https://raygun.com/documentation/
+  - type: Documentation
+    url: https://raygun.com/documentation/product-guides/public-api/
+    name: Public API Guide
+  - type: Documentation
+    url: https://api.raygun.io/v3/swagger/index.html
+    name: API Specifications (Swagger)
+  - type: OpenAPI
+    url: https://api.raygun.io/v3/raygun-openapi-spec.json
+    name: Raygun OpenAPI 3.0 Spec
+  - type: Documentation
+    url: https://raygun.com/documentation/product-guides/crash-reporting/api/
+    name: Crash Reporting Ingestion API
+  - type: Documentation
+    url: https://raygun.com/documentation/product-guides/real-user-monitoring/api/
+    name: RUM Pulse API
+  - type: StatusPage
+    url: https://status.raygun.com
+  - type: ChangeLog
+    url: https://raygun.com/changelog
+  - type: Blog
+    url: https://raygun.com/blog/
+  - type: GettingStarted
+    url: https://raygun.com/documentation/
+  - type: Pricing
+    url: https://raygun.com/pricing
+  - type: SignUp
+    url: https://app.raygun.com/signup
+  - type: Support
+    url: https://raygun.com/contact
+  - type: TermsOfService
+    url: https://raygun.com/terms
+  - type: PrivacyPolicy
+    url: https://raygun.com/privacy
+  - type: Security
+    url: https://raygun.com/platform/security-and-compliance
+  - type: GitHubOrganization
+    url: https://github.com/MindscapeHQ
+  - type: SDK
+    url: https://github.com/MindscapeHQ/raygun4js
+    name: raygun4js (JavaScript)
+  - type: SDK
+    url: https://github.com/MindscapeHQ/raygun4net
+    name: raygun4net (.NET)
+  - type: SDK
+    url: https://github.com/MindscapeHQ/raygun4node
+    name: raygun4node (Node.js / TypeScript)
+  - type: SDK
+    url: https://github.com/MindscapeHQ/raygun4python
+    name: raygun4python
+  - type: SDK
+    url: https://github.com/MindscapeHQ/raygun4ruby
+    name: raygun4ruby
+  - type: SDK
+    url: https://github.com/MindscapeHQ/raygun4php
+    name: raygun4php
+  - type: SDK
+    url: https://github.com/MindscapeHQ/raygun4android
+    name: raygun4android (Kotlin)
+  - type: SDK
+    url: https://github.com/MindscapeHQ/raygun4flutter
+    name: raygun4flutter (Dart)
+  - type: SDK
+    url: https://github.com/MindscapeHQ/raygun4reactnative
+    name: raygun4reactnative
+  - type: SDK
+    url: https://github.com/MindscapeHQ/raygun4maui
+    name: raygun4maui
+  - type: SDK
+    url: https://github.com/MindscapeHQ/raygun4blazor
+    name: raygun4blazor
+  - type: Tool
+    url: https://github.com/MindscapeHQ/raygun-cli
+    name: Raygun CLI
+  - type: Tool
+    url: https://github.com/MindscapeHQ/raygun4node-aws-lambda
+    name: raygun4node AWS Lambda
+  - type: Plugin
+    url: https://github.com/MindscapeHQ/ember-cli-raygun
+    name: ember-cli-raygun
+  - type: Integrations
+    data:
+      - Slack
+      - GitHub
+      - GitHub Enterprise
+      - Bitbucket
+      - Bitbucket Server
+      - GitLab
+      - Azure DevOps
+      - Jira
+  - type: Plans
+    url: plans/raygun-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/raygun-rate-limits.yml
+  - type: FinOps
+    url: finops/raygun-finops.yml
+  - type: Vocabulary
+    url: vocabulary/raygun-vocabulary.yml
+  - type: SpectralRules
+    url: rules/raygun-rules.yml
+  - type: Features
+    data:
+      - Crash Reporting — error detection, deduplication into error groups, full stack-trace and breadcrumb context
+      - Real User Monitoring (RUM) — Core Web Vitals, sessions, pages, custom timings, customer drill-down
+      - Application Performance Monitoring (APM) — Apdex, sampling, flamechart diagnostics, trace search
+      - AI Error Resolution — LLM-powered analysis of stack traces with suggested fixes
+      - Deployment Tracking — release markers correlated with new/regressed error groups
+      - Source Maps and Flutter Symbols — symbolication of minified JS and Flutter mobile stack traces
+      - Spike Protection — runaway-event guardrail to prevent surprise overages
+      - Inbound Filters — drop unwanted events before they count toward quota (Team plan and above)
+      - Custom Dashboards and Custom Reports across all three products
+      - SAML SSO, role-based permissions, and team-scoped application access (Business plan and above)
+      - On-demand overage pricing — $0.001/error, $0.002/session, $0.002/trace
+      - 180-day error retention, 60-day session retention (custom for Enterprise)
+      - Native SDKs for JavaScript, .NET, Node.js, Python, Ruby, PHP, Android, iOS, Flutter, React Native, MAUI, Blazor
+      - Raygun CLI for deploys and source-map uploads from CI
+      - Integrations with Slack, GitHub, Bitbucket, GitLab, Azure DevOps, and Jira
+      - HIPAA, GDPR, CCPA, and PCI compliant
+      - Public OpenAPI 3.0 specification covering 53 operations across 12 resource tags
+      - Personal Access Token bearer auth for the v3 API; X-ApiKey for ingestion
+    sources:
+      - https://raygun.com
+      - https://raygun.com/pricing
+      - https://api.raygun.io/v3/swagger/index.html
+      - https://raygun.com/documentation/product-guides/public-api/
+      - https://raygun.com/documentation/product-guides/crash-reporting/api/
+      - https://github.com/MindscapeHQ
+    updated: '2026-05-25'
 created: '2026-05-25T00:00:00.000Z'
 modified: '2026-05-30'
 position: Consuming
-description: Raygun is an application monitoring platform that combines Crash Reporting, Real User Monitoring
-  (RUM), and Application Performance Monitoring (APM) into a single observability product for web, mobile, and
-  server applications. The Raygun Public API (v3) is a documented OpenAPI 3.0 surface at api.raygun.com/v3
-  covering applications, error groups, error instances, deployments, source maps, sessions, pages, customers,
-  metrics, Flutter symbols, teams, invitations, and plans — authenticated with a Personal Access Token. A
-  separate ingestion endpoint at api.raygun.com/entries accepts crash payloads from a broad fleet of native
-  SDKs (JavaScript, .NET, Node, Python, Ruby, PHP, Android, Flutter, React Native, MAUI, Blazor) plus the
-  Raygun CLI. Pricing is tiered (Basic, Team, Business, Enterprise) per product with on-demand per-event
-  overages, 14-day free trial, and 180-day error retention.
+description: >-
+  Raygun is an application monitoring platform that combines Crash Reporting, Real User Monitoring (RUM), and
+  Application Performance Monitoring (APM) into a single observability product for web, mobile, and server applications.
+  The Raygun Public API (v3) is a documented OpenAPI 3.0 surface at api.raygun.com/v3 covering applications, error
+  groups, error instances, deployments, source maps, sessions, pages, customers, metrics, Flutter symbols, teams,
+  invitations, and plans — authenticated with a Personal Access Token. A separate ingestion endpoint at
+  api.raygun.com/entries accepts crash payloads from a broad fleet of native SDKs (JavaScript, .NET, Node, Python, Ruby,
+  PHP, Android, Flutter, React Native, MAUI, Blazor) plus the Raygun CLI. Pricing is tiered (Basic, Team, Business,
+  Enterprise) per product with on-demand per-event overages, 14-day free trial, and 180-day error retention.
 maintainers:
-- FN: Kin Lane
-  email: info@apievangelist.com
-  X: apievangelist
-  url: https://apievangelist.com
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    X: apievangelist
+    url: https://apievangelist.com
 specificationVersion: '0.16'

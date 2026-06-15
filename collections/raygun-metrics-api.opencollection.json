@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Raygun Metrics API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Time-series Page Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/metrics/:application-identifier/pages/time-series",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns aggregated time-series metrics data for pages"
+        },
+        {
+          "info": {
+            "name": "Histogram Page Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/metrics/:application-identifier/pages/histogram",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns pre-bucketed histogram metrics data for pages"
+        },
+        {
+          "info": {
+            "name": "Time-series Error Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.raygun.com/v3/metrics/:application-identifier/errors/time-series",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns aggregated time-series metrics data for errors"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

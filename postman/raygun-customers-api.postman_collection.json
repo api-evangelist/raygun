@@ -1,0 +1,822 @@
+{
+  "info": {
+    "_postman_id": "d132733d-3a1d-46d3-a197-74ad69326e52",
+    "name": "Raygun Customers API",
+    "description": "This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.\n\nContact Support:\n Name: Raygun Support\n Email: support@raygun.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:15:04.000Z",
+    "updatedAt": "2026-06-05T15:15:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d132733d-3a1d-46d3-a197-74ad69326e52"
+  },
+  "item": [
+    {
+      "name": "applications",
+      "item": [
+        {
+          "name": "{application-identifier}",
+          "item": [
+            {
+              "name": "customers",
+              "item": [
+                {
+                  "name": "{customer-identifier}",
+                  "item": [
+                    {
+                      "name": "Get Customer by Identifier",
+                      "id": "0b0e68fc-57bd-49e2-9256-a81ff9a315df",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/customers/:customer-identifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "customers",
+                            ":customer-identifier"
+                          ],
+                          "variable": [
+                            {
+                              "id": "5aa4c852-2885-4fba-a178-753ba754e799",
+                              "key": "application-identifier"
+                            },
+                            {
+                              "id": "9edd56ad-3734-419a-9251-ac0ef0c4fe23",
+                              "key": "customer-identifier"
+                            }
+                          ]
+                        },
+                        "description": "Returns a single customer by identifier"
+                      },
+                      "response": [
+                        {
+                          "id": "2c1f67d5-ba1d-460a-b611-966c8d64bdd5",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/customers/:customer-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "customers",
+                                ":customer-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "customer-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"identifier\": \"<string>\",\n  \"applicationIdentifier\": \"<string>\",\n  \"externalIdentifier\": \"<string>\",\n  \"emailAddress\": \"<email>\",\n  \"firstName\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"isAnonymous\": \"<boolean>\",\n  \"firstSeenAt\": \"<dateTime>\",\n  \"lastSeenAt\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-06-05T15:15:05.000Z",
+                          "updatedAt": "2026-06-05T15:15:05.000Z",
+                          "uid": "35240-2c1f67d5-ba1d-460a-b611-966c8d64bdd5"
+                        },
+                        {
+                          "id": "b05e3854-13cf-45b0-a9cc-e1768dd3dc1b",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/customers/:customer-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "customers",
+                                ":customer-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "customer-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:05.000Z",
+                          "updatedAt": "2026-06-05T15:15:05.000Z",
+                          "uid": "35240-b05e3854-13cf-45b0-a9cc-e1768dd3dc1b"
+                        },
+                        {
+                          "id": "b4e25580-bae6-4352-a8aa-885f6155ab56",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/customers/:customer-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "customers",
+                                ":customer-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "customer-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:05.000Z",
+                          "updatedAt": "2026-06-05T15:15:05.000Z",
+                          "uid": "35240-b4e25580-bae6-4352-a8aa-885f6155ab56"
+                        },
+                        {
+                          "id": "f94adde9-9db1-45c7-b6a4-183c91422fca",
+                          "name": "Problem Details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/customers/:customer-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "customers",
+                                ":customer-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "customer-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The id associated with this request",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Raygun-RequestId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:15:05.000Z",
+                          "updatedAt": "2026-06-05T15:15:05.000Z",
+                          "uid": "35240-f94adde9-9db1-45c7-b6a4-183c91422fca"
+                        },
+                        {
+                          "id": "d63b758d-5acf-40a7-86f5-a90f6d1dcfc8",
+                          "name": "Too Many Requests",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/applications/:application-identifier/customers/:customer-identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "applications",
+                                ":application-identifier",
+                                "customers",
+                                ":customer-identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "application-identifier"
+                                },
+                                {
+                                  "key": "customer-identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:15:05.000Z",
+                          "updatedAt": "2026-06-05T15:15:05.000Z",
+                          "uid": "35240-d63b758d-5acf-40a7-86f5-a90f6d1dcfc8"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:15:05.000Z",
+                      "updatedAt": "2026-06-05T15:15:05.000Z",
+                      "uid": "35240-0b0e68fc-57bd-49e2-9256-a81ff9a315df"
+                    }
+                  ],
+                  "id": "050dc56c-ee0d-44ab-ad3a-5b18d44c828c",
+                  "createdAt": "2026-06-05T15:15:05.000Z",
+                  "updatedAt": "2026-06-05T15:15:05.000Z",
+                  "uid": "35240-050dc56c-ee0d-44ab-ad3a-5b18d44c828c"
+                },
+                {
+                  "name": "List Customers for an Application",
+                  "id": "1053bffc-aeb4-43fc-847d-8bf43fd9b6a9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:application-identifier/customers?count=100&offset=<integer>&orderby=isAnonymous&orderby=isAnonymous",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":application-identifier",
+                        "customers"
+                      ],
+                      "query": [
+                        {
+                          "description": "Limits the number of items in the response",
+                          "key": "count",
+                          "value": "100"
+                        },
+                        {
+                          "description": "Number of items to skip before returning results",
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Order items by property values",
+                          "key": "orderby",
+                          "value": "isAnonymous"
+                        },
+                        {
+                          "description": "Order items by property values",
+                          "key": "orderby",
+                          "value": "isAnonymous"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "2b404b52-ead2-48a4-84d5-bae8d0cccf22",
+                          "key": "application-identifier"
+                        }
+                      ]
+                    },
+                    "description": "Returns a list of customers for the specified application"
+                  },
+                  "response": [
+                    {
+                      "id": "2b55fd21-fea2-4821-908f-a83706b57100",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/customers?count=100&offset=<integer>&orderby=isAnonymous",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "customers"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Order items by property values",
+                              "key": "orderby",
+                              "value": "isAnonymous"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"identifier\": \"<string>\",\n    \"applicationIdentifier\": \"<string>\",\n    \"externalIdentifier\": \"<string>\",\n    \"emailAddress\": \"<email>\",\n    \"firstName\": \"<string>\",\n    \"fullName\": \"<string>\",\n    \"isAnonymous\": \"<boolean>\",\n    \"firstSeenAt\": \"<dateTime>\",\n    \"lastSeenAt\": \"<dateTime>\"\n  },\n  {\n    \"identifier\": \"<string>\",\n    \"applicationIdentifier\": \"<string>\",\n    \"externalIdentifier\": \"<string>\",\n    \"emailAddress\": \"<email>\",\n    \"firstName\": \"<string>\",\n    \"fullName\": \"<string>\",\n    \"isAnonymous\": \"<boolean>\",\n    \"firstSeenAt\": \"<dateTime>\",\n    \"lastSeenAt\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-06-05T15:15:05.000Z",
+                      "updatedAt": "2026-06-05T15:15:05.000Z",
+                      "uid": "35240-2b55fd21-fea2-4821-908f-a83706b57100"
+                    },
+                    {
+                      "id": "5b01c435-712e-4b2a-a76d-b4a89a352d72",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/customers?count=100&offset=<integer>&orderby=isAnonymous",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "customers"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Order items by property values",
+                              "key": "orderby",
+                              "value": "isAnonymous"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:15:05.000Z",
+                      "updatedAt": "2026-06-05T15:15:05.000Z",
+                      "uid": "35240-5b01c435-712e-4b2a-a76d-b4a89a352d72"
+                    },
+                    {
+                      "id": "2bdfa2fe-1dbb-4c41-be37-61facdb118b1",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/customers?count=100&offset=<integer>&orderby=isAnonymous",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "customers"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Order items by property values",
+                              "key": "orderby",
+                              "value": "isAnonymous"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:15:05.000Z",
+                      "updatedAt": "2026-06-05T15:15:05.000Z",
+                      "uid": "35240-2bdfa2fe-1dbb-4c41-be37-61facdb118b1"
+                    },
+                    {
+                      "id": "0f0298ff-1e21-4934-a0c2-8e46c8930bd8",
+                      "name": "Problem Details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/customers?count=100&offset=<integer>&orderby=isAnonymous",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "customers"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Order items by property values",
+                              "key": "orderby",
+                              "value": "isAnonymous"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The id associated with this request",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Raygun-RequestId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"detail\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:15:05.000Z",
+                      "updatedAt": "2026-06-05T15:15:05.000Z",
+                      "uid": "35240-0f0298ff-1e21-4934-a0c2-8e46c8930bd8"
+                    },
+                    {
+                      "id": "05e7a250-56d4-4553-8c40-4ec1c0e34681",
+                      "name": "Too Many Requests",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/applications/:application-identifier/customers?count=100&offset=<integer>&orderby=isAnonymous",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "applications",
+                            ":application-identifier",
+                            "customers"
+                          ],
+                          "query": [
+                            {
+                              "description": "Limits the number of items in the response",
+                              "key": "count",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Number of items to skip before returning results",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Order items by property values",
+                              "key": "orderby",
+                              "value": "isAnonymous"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "application-identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:15:05.000Z",
+                      "updatedAt": "2026-06-05T15:15:05.000Z",
+                      "uid": "35240-05e7a250-56d4-4553-8c40-4ec1c0e34681"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:15:05.000Z",
+                  "updatedAt": "2026-06-05T15:15:05.000Z",
+                  "uid": "35240-1053bffc-aeb4-43fc-847d-8bf43fd9b6a9"
+                }
+              ],
+              "id": "58ec5c38-308f-4b59-96f8-d02321f62552",
+              "createdAt": "2026-06-05T15:15:05.000Z",
+              "updatedAt": "2026-06-05T15:15:05.000Z",
+              "uid": "35240-58ec5c38-308f-4b59-96f8-d02321f62552"
+            }
+          ],
+          "id": "72c18638-96f9-424a-82d7-a985a807c486",
+          "createdAt": "2026-06-05T15:15:05.000Z",
+          "updatedAt": "2026-06-05T15:15:05.000Z",
+          "uid": "35240-72c18638-96f9-424a-82d7-a985a807c486"
+        }
+      ],
+      "id": "ba451cfb-7789-495f-8ef2-c9aa9429e09f",
+      "createdAt": "2026-06-05T15:15:05.000Z",
+      "updatedAt": "2026-06-05T15:15:05.000Z",
+      "uid": "35240-ba451cfb-7789-495f-8ef2-c9aa9429e09f"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.raygun.com/v3"
+    }
+  ]
+}
