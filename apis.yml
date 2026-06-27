@@ -34,9 +34,9 @@ apis:
       - url: json-schema/raygun-error-group-schema.json
         type: JSONSchema
       - url: examples/raygun-error-group-example.json
-        type: Example
+        type: Examples
       - url: examples/raygun-crash-report-example.json
-        type: Example
+        type: Examples
     description: >-
       Triage error groups and instances — list, get, resolve, activate, ignore, permanently ignore, and comment on
       grouped errors. Drill into individual error instances with full stack-trace, environment, request, and breadcrumb
@@ -56,7 +56,7 @@ apis:
       - url: json-schema/raygun-deployment-schema.json
         type: JSONSchema
       - url: examples/raygun-create-deployment-example.json
-        type: Example
+        type: Examples
     description: >-
       Record release markers and correlate them with error groups. Supports SCM integration (GitHub, GitLab, Bitbucket,
       Azure DevOps), commit reprocessing, latest-deploy lookup, and the api-key shortcut variant for CI pipelines.
@@ -214,7 +214,7 @@ apis:
       - url: json-schema/raygun-error-group-schema.json
         type: JSONSchema
       - url: examples/raygun-crash-report-example.json
-        type: Example
+        type: Examples
     description: >-
       POST /entries ingestion endpoint at api.raygun.com used by all language SDKs and providers to submit crash
       payloads. X-ApiKey authenticated; 128 KB payload ceiling; 202 on accept, 400/403/413/429 on error.
@@ -278,30 +278,27 @@ access: 3rd-Party
 common:
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/raygun/overview
-  - type: ArazzoWorkflows
-    url: arazzo/
-    workflows:
-      - url: arazzo/raygun-create-and-verify-deployment-workflow.yml
-        name: Raygun Create and Verify Deployment
-        summary: Record a deployment for an application and confirm it was created.
-      - url: arazzo/raygun-inspect-application-page-workflow.yml
-        name: Raygun Inspect Application Page
-        summary: List the monitored pages for an application and read one in detail.
-      - url: arazzo/raygun-inspect-latest-deployment-errors-workflow.yml
-        name: Raygun Inspect Latest Deployment Errors
-        summary: Read the latest deployment and drill into an error group it introduced.
-      - url: arazzo/raygun-lookup-customer-workflow.yml
-        name: Raygun Look Up Affected Customer
-        summary: Resolve an application and look up a single affected customer by identifier.
-      - url: arazzo/raygun-publish-source-map-workflow.yml
-        name: Raygun Publish and Verify Source Map
-        summary: Upload a source map for an application and confirm it is registered.
-      - url: arazzo/raygun-resolve-error-group-workflow.yml
-        name: Raygun Resolve Error Group
-        summary: Find an active error group in an application and mark it as resolved.
-      - url: arazzo/raygun-triage-error-group-comment-workflow.yml
-        name: Raygun Triage Error Group and Add Comment
-        summary: Inspect an error group and its latest occurrence, then record a triage comment.
+  - type: Arazzo
+    url: arazzo/raygun-create-and-verify-deployment-workflow.yml
+    name: Raygun Create and Verify Deployment
+  - type: Arazzo
+    url: arazzo/raygun-inspect-application-page-workflow.yml
+    name: Raygun Inspect Application Page
+  - type: Arazzo
+    url: arazzo/raygun-inspect-latest-deployment-errors-workflow.yml
+    name: Raygun Inspect Latest Deployment Errors
+  - type: Arazzo
+    url: arazzo/raygun-lookup-customer-workflow.yml
+    name: Raygun Look Up Affected Customer
+  - type: Arazzo
+    url: arazzo/raygun-publish-source-map-workflow.yml
+    name: Raygun Publish and Verify Source Map
+  - type: Arazzo
+    url: arazzo/raygun-resolve-error-group-workflow.yml
+    name: Raygun Resolve Error Group
+  - type: Arazzo
+    url: arazzo/raygun-triage-error-group-comment-workflow.yml
+    name: Raygun Triage Error Group and Add Comment
   - type: Portal
     url: https://raygun.com
   - type: Documentation
@@ -331,7 +328,7 @@ common:
     url: https://raygun.com/documentation/
   - type: Pricing
     url: https://raygun.com/pricing
-  - type: SignUp
+  - type: Signup
     url: https://app.raygun.com/signup
   - type: Support
     url: https://raygun.com/contact
@@ -343,43 +340,43 @@ common:
     url: https://raygun.com/platform/security-and-compliance
   - type: GitHubOrganization
     url: https://github.com/MindscapeHQ
-  - type: SDK
+  - type: SDKs
     url: https://github.com/MindscapeHQ/raygun4js
     name: raygun4js (JavaScript)
-  - type: SDK
+  - type: SDKs
     url: https://github.com/MindscapeHQ/raygun4net
     name: raygun4net (.NET)
-  - type: SDK
+  - type: SDKs
     url: https://github.com/MindscapeHQ/raygun4node
     name: raygun4node (Node.js / TypeScript)
-  - type: SDK
+  - type: SDKs
     url: https://github.com/MindscapeHQ/raygun4python
     name: raygun4python
-  - type: SDK
+  - type: SDKs
     url: https://github.com/MindscapeHQ/raygun4ruby
     name: raygun4ruby
-  - type: SDK
+  - type: SDKs
     url: https://github.com/MindscapeHQ/raygun4php
     name: raygun4php
-  - type: SDK
+  - type: SDKs
     url: https://github.com/MindscapeHQ/raygun4android
     name: raygun4android (Kotlin)
-  - type: SDK
+  - type: SDKs
     url: https://github.com/MindscapeHQ/raygun4flutter
     name: raygun4flutter (Dart)
-  - type: SDK
+  - type: SDKs
     url: https://github.com/MindscapeHQ/raygun4reactnative
     name: raygun4reactnative
-  - type: SDK
+  - type: SDKs
     url: https://github.com/MindscapeHQ/raygun4maui
     name: raygun4maui
-  - type: SDK
+  - type: SDKs
     url: https://github.com/MindscapeHQ/raygun4blazor
     name: raygun4blazor
-  - type: Tool
+  - type: Tools
     url: https://github.com/MindscapeHQ/raygun-cli
     name: Raygun CLI
-  - type: Tool
+  - type: Tools
     url: https://github.com/MindscapeHQ/raygun4node-aws-lambda
     name: raygun4node AWS Lambda
   - type: Plugin
