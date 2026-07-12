@@ -1,0 +1,30 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/raygun-applications-api-openapi.yml, openapi/raygun-customers-api-openapi.yml,
+  openapi/raygun-deployments-api-openapi.yml, openapi/raygun-errors-api-openapi.yml, openapi/raygun-flutter-symbols-api-openapi.yml,
+  openapi/raygun-invitations-api-openapi.yml, openapi/raygun-metrics-api-openapi.yml, openapi/raygun-pages-api-openapi.yml,
+  openapi/raygun-plans-api-openapi.yml, openapi/raygun-public-api-openapi.yml, openapi/raygun-sessions-api-openapi.yml,
+  openapi/raygun-source-maps-api-openapi.yml ...
+summary:
+  types:
+  - http
+schemes:
+- name: personal_access_token
+  type: http
+  scheme: bearer
+  description: 'Personal Access Token authorization using the Bearer scheme. Example: `Authorization:
+    Bearer {token}`'
+  sources:
+  - openapi/raygun-applications-api-openapi.yml
+  - openapi/raygun-customers-api-openapi.yml
+  - openapi/raygun-deployments-api-openapi.yml
+  - openapi/raygun-errors-api-openapi.yml
+  - openapi/raygun-flutter-symbols-api-openapi.yml
+  - openapi/raygun-invitations-api-openapi.yml
+  - openapi/raygun-metrics-api-openapi.yml
+  - openapi/raygun-pages-api-openapi.yml
+  - openapi/raygun-plans-api-openapi.yml
+  - openapi/raygun-public-api-openapi.yml
+  - openapi/raygun-sessions-api-openapi.yml
+  - openapi/raygun-source-maps-api-openapi.yml
+  - openapi/raygun-teams-api-openapi.yml
