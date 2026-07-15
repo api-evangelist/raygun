@@ -1,0 +1,1554 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/raygun-applications-api-openapi.yml, openapi/raygun-customers-api-openapi.yml,
+  openapi/raygun-deployments-api-openapi.yml, openapi/raygun-errors-api-openapi.yml, openapi/raygun-flutter-symbols-api-openapi.yml,
+  openapi/raygun-invitations-api-openapi.yml, openapi/raygun-metrics-api-openapi.yml, openapi/raygun-pages-api-openapi.yml,
+  openapi/raygun-plans-api-openapi.yml, openapi/raygun-public-api-openapi.yml, openapi/raygun-sessions-api-openapi.yml,
+  openapi/raygun-source-maps-api-openapi.yml, openapi/raygun-teams-api-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 104
+  by_action_class:
+    connected: 60
+    acting: 44
+  by_consequence:
+    read: 60
+    write: 30
+    physical: 12
+    safety-critical: 2
+  human_in_the_loop_required: 2
+operations:
+- path: /applications
+  method: get
+  operationId: list-applications
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - applications:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}
+  method: get
+  operationId: get-application-by-identifier
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - applications:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/api-key/{api-key}
+  method: get
+  operationId: get-application-by-apikey
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - applications:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/regenerate-api-key
+  method: post
+  operationId: regenerate-application-api-key
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - applications:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/customers
+  method: get
+  operationId: list-customers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - customers:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/customers/{customer-identifier}
+  method: get
+  operationId: get-customer-by-identifier
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - customers:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/deployments
+  method: get
+  operationId: list-deployments
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - deployments:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/deployments
+  method: post
+  operationId: create-deployment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - deployments:write
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/deployments/latest
+  method: get
+  operationId: get-latest-deployment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - deployments:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/deployments/{deployment-identifier}
+  method: get
+  operationId: get-deployment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - deployments:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/deployments/{deployment-identifier}
+  method: delete
+  operationId: delete-deployment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - deployments:write
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/deployments/{deployment-identifier}
+  method: patch
+  operationId: update-deployment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - deployments:write
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/deployments/latest/error-groups
+  method: get
+  operationId: list-error-groups-from-latest-deployment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.errors:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/deployments/{deployment-identifier}/error-groups
+  method: get
+  operationId: list-error-groups-from-deployment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.errors:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/api-key/{api-key}/deployments
+  method: post
+  operationId: create-deployment-api-key
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - deployments:write
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/deployments/{deployment-identifier}/reprocess-commits
+  method: post
+  operationId: reprocess-deployment-commits
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - deployments:write
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/error-groups
+  method: get
+  operationId: list-error-groups
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.errors:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/deployments/latest/error-groups
+  method: get
+  operationId: list-error-groups-from-latest-deployment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.errors:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/deployments/{deployment-identifier}/error-groups
+  method: get
+  operationId: list-error-groups-from-deployment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.errors:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/error-groups/{error-group-identifier}
+  method: get
+  operationId: get-error-group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.errors:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/error-groups/{error-group-identifier}/resolve
+  method: post
+  operationId: error-group-resolve
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.errors:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/error-groups/{error-group-identifier}/activate
+  method: post
+  operationId: error-group-activate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.errors:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/error-groups/{error-group-identifier}/ignore
+  method: post
+  operationId: error-group-ignore
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.errors:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/error-groups/{error-group-identifier}/permanently-ignore
+  method: post
+  operationId: error-group-permanently-ignore
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.errors:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/error-groups/{error-group-identifier}/comment
+  method: post
+  operationId: error-group-create-comment
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.errors:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/error-groups/{error-group-identifier}/instances
+  method: get
+  operationId: list-error-instances-by-error-group-id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.errors:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/error-groups/{error-group-identifier}/instance/latest
+  method: get
+  operationId: get-latest-error-instance-by-error-group-id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.errors:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/error-groups/{error-group-identifier}/instance/{error-instance-identifier}
+  method: get
+  operationId: get-error-instance-by-id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.errors:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/flutter-symbols
+  method: get
+  operationId: list-flutter-symbols
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.flutter-symbols:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/flutter-symbols
+  method: post
+  operationId: upload-flutter-symbol
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.flutter-symbols:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/flutter-symbols/{flutter-symbol-identifier}
+  method: get
+  operationId: get-flutter-symbol
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.flutter-symbols:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/flutter-symbols/{flutter-symbol-identifier}
+  method: delete
+  operationId: delete-flutter-symbol
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.flutter-symbols:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/flutter-symbols/{flutter-symbol-identifier}/content
+  method: get
+  operationId: get-flutter-symbol-content
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.flutter-symbols:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /invitations
+  method: get
+  operationId: list-invitations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - invitations:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /invitations
+  method: post
+  operationId: send-invitation
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - invitations:write
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /invitations/{invitation-identifier}
+  method: get
+  operationId: get-invitation-by-identifier
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - invitations:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /invitations/{invitation-identifier}/revoke
+  method: post
+  operationId: revoke-invitation
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    scope:
+    - invitations:write
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /metrics/{application-identifier}/pages/time-series
+  method: post
+  operationId: metrics-pages-time-series
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - metrics:pages
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /metrics/{application-identifier}/pages/histogram
+  method: post
+  operationId: metrics-pages-histogram
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - metrics:pages
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /metrics/{application-identifier}/errors/time-series
+  method: post
+  operationId: metrics-errors-time-series
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - metrics:errors
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/pages
+  method: get
+  operationId: list-pages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - rum.pages:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/pages/{page-identifier}
+  method: get
+  operationId: get-page
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - rum.pages:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /plans
+  method: get
+  operationId: list-plans
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications
+  method: get
+  operationId: list-applications
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - applications:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}
+  method: get
+  operationId: get-application-by-identifier
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - applications:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/deployments
+  method: get
+  operationId: list-deployments
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - deployments:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/deployments
+  method: post
+  operationId: create-deployment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - deployments:write
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/deployments/latest
+  method: get
+  operationId: get-latest-deployment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - deployments:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/source-maps/{source-map-identifier}
+  method: patch
+  operationId: source-map-uri
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.source-maps:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/source-maps/{source-map-identifier}
+  method: delete
+  operationId: delete-source-map
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.source-maps:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/source-maps/{source-map-identifier}
+  method: get
+  operationId: source-map
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.source-maps:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/source-maps
+  method: get
+  operationId: list-source-maps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.source-maps:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/source-maps
+  method: put
+  operationId: upload-source-map
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.source-maps:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/source-maps
+  method: delete
+  operationId: delete-all-source-maps
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.source-maps:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/deployments/{deployment-identifier}
+  method: get
+  operationId: get-deployment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - deployments:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/deployments/{deployment-identifier}
+  method: delete
+  operationId: delete-deployment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - deployments:write
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/deployments/{deployment-identifier}
+  method: patch
+  operationId: update-deployment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - deployments:write
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/error-groups
+  method: get
+  operationId: list-error-groups
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.errors:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/deployments/latest/error-groups
+  method: get
+  operationId: list-error-groups-from-latest-deployment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.errors:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/deployments/{deployment-identifier}/error-groups
+  method: get
+  operationId: list-error-groups-from-deployment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.errors:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/error-groups/{error-group-identifier}
+  method: get
+  operationId: get-error-group
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.errors:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/error-groups/{error-group-identifier}/resolve
+  method: post
+  operationId: error-group-resolve
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.errors:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/error-groups/{error-group-identifier}/activate
+  method: post
+  operationId: error-group-activate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.errors:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/error-groups/{error-group-identifier}/ignore
+  method: post
+  operationId: error-group-ignore
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.errors:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/error-groups/{error-group-identifier}/permanently-ignore
+  method: post
+  operationId: error-group-permanently-ignore
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.errors:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/error-groups/{error-group-identifier}/comment
+  method: post
+  operationId: error-group-create-comment
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.errors:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/error-groups/{error-group-identifier}/instances
+  method: get
+  operationId: list-error-instances-by-error-group-id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.errors:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/error-groups/{error-group-identifier}/instance/latest
+  method: get
+  operationId: get-latest-error-instance-by-error-group-id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.errors:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/error-groups/{error-group-identifier}/instance/{error-instance-identifier}
+  method: get
+  operationId: get-error-instance-by-id
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.errors:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/api-key/{api-key}
+  method: get
+  operationId: get-application-by-apikey
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - applications:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/api-key/{api-key}/deployments
+  method: post
+  operationId: create-deployment-api-key
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - deployments:write
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/regenerate-api-key
+  method: post
+  operationId: regenerate-application-api-key
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - applications:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /invitations
+  method: get
+  operationId: list-invitations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - invitations:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /invitations
+  method: post
+  operationId: send-invitation
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - invitations:write
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /invitations/{invitation-identifier}
+  method: get
+  operationId: get-invitation-by-identifier
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - invitations:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /invitations/{invitation-identifier}/revoke
+  method: post
+  operationId: revoke-invitation
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    scope:
+    - invitations:write
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /applications/{application-identifier}/deployments/{deployment-identifier}/reprocess-commits
+  method: post
+  operationId: reprocess-deployment-commits
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - deployments:write
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /plans
+  method: get
+  operationId: list-plans
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /teams
+  method: get
+  operationId: list-teams
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - teams:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /teams/{team-identifier}
+  method: get
+  operationId: get-team-by-identifier
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - teams:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/pages
+  method: get
+  operationId: list-pages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - rum.pages:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/pages/{page-identifier}
+  method: get
+  operationId: get-page
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - rum.pages:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/customers
+  method: get
+  operationId: list-customers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - customers:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/customers/{customer-identifier}
+  method: get
+  operationId: get-customer-by-identifier
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - customers:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/sessions
+  method: get
+  operationId: list-sessions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - rum.sessions:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/sessions/{session-identifier}
+  method: get
+  operationId: get-session-by-identifier
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - rum.sessions:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /metrics/{application-identifier}/pages/time-series
+  method: post
+  operationId: metrics-pages-time-series
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - metrics:pages
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /metrics/{application-identifier}/pages/histogram
+  method: post
+  operationId: metrics-pages-histogram
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - metrics:pages
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /metrics/{application-identifier}/errors/time-series
+  method: post
+  operationId: metrics-errors-time-series
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - metrics:errors
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/flutter-symbols
+  method: get
+  operationId: list-flutter-symbols
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.flutter-symbols:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/flutter-symbols
+  method: post
+  operationId: upload-flutter-symbol
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.flutter-symbols:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/flutter-symbols/{flutter-symbol-identifier}
+  method: get
+  operationId: get-flutter-symbol
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.flutter-symbols:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/flutter-symbols/{flutter-symbol-identifier}
+  method: delete
+  operationId: delete-flutter-symbol
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.flutter-symbols:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/flutter-symbols/{flutter-symbol-identifier}/content
+  method: get
+  operationId: get-flutter-symbol-content
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.flutter-symbols:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/sessions
+  method: get
+  operationId: list-sessions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - rum.sessions:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/sessions/{session-identifier}
+  method: get
+  operationId: get-session-by-identifier
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - rum.sessions:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/source-maps/{source-map-identifier}
+  method: patch
+  operationId: source-map-uri
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.source-maps:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/source-maps/{source-map-identifier}
+  method: delete
+  operationId: delete-source-map
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.source-maps:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/source-maps/{source-map-identifier}
+  method: get
+  operationId: source-map
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.source-maps:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/source-maps
+  method: get
+  operationId: list-source-maps
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - cr.source-maps:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /applications/{application-identifier}/source-maps
+  method: put
+  operationId: upload-source-map
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.source-maps:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /applications/{application-identifier}/source-maps
+  method: delete
+  operationId: delete-all-source-maps
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - cr.source-maps:write
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /teams
+  method: get
+  operationId: list-teams
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - teams:read
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /teams/{team-identifier}
+  method: get
+  operationId: get-team-by-identifier
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - teams:read
+    token:
+      max-ttl: 3600
+    audit: none
