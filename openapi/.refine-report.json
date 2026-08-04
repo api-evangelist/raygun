@@ -1,0 +1,36 @@
+{
+  "provider": "raygun",
+  "sources": [
+    "raygun-applications-api-openapi.yml",
+    "raygun-customers-api-openapi.yml",
+    "raygun-deployments-api-openapi.yml",
+    "raygun-errors-api-openapi.yml",
+    "raygun-flutter-symbols-api-openapi.yml",
+    "raygun-invitations-api-openapi.yml",
+    "raygun-metrics-api-openapi.yml",
+    "raygun-pages-api-openapi.yml",
+    "raygun-plans-api-openapi.yml",
+    "raygun-sessions-api-openapi.yml",
+    "raygun-source-maps-api-openapi.yml",
+    "raygun-teams-api-openapi.yml"
+  ],
+  "outputs": [
+    "raygun-applications-api-openapi.yml",
+    "raygun-customers-api-openapi.yml",
+    "raygun-deployments-api-openapi.yml",
+    "raygun-errors-api-openapi.yml",
+    "raygun-flutter-symbols-api-openapi.yml",
+    "raygun-invitations-api-openapi.yml",
+    "raygun-metrics-api-openapi.yml",
+    "raygun-pages-api-openapi.yml",
+    "raygun-plans-api-openapi.yml",
+    "raygun-sessions-api-openapi.yml",
+    "raygun-source-maps-api-openapi.yml",
+    "raygun-teams-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
