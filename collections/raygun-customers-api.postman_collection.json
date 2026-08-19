@@ -1,17 +1,7 @@
 {
   "item": [
     {
-      "id": "ebda56fa-cd6f-4a0d-b63b-1b9a6b6b6c51",
-      "name": "applications",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "ac4b2edd-d4c1-4420-9ad6-ea6c72f6d7e1",
+      "id": "6e996703-d20f-41f7-9b07-dfb9261ef339",
       "name": "customers",
       "description": {
         "content": "",
@@ -19,7 +9,7 @@
       },
       "item": [
         {
-          "id": "9e221f45-a75f-467d-8a52-895979321abc",
+          "id": "dee853c9-fe25-4ec2-8f83-75ee0ac9d592",
           "name": "List Customers for an Application",
           "request": {
             "name": "List Customers for an Application",
@@ -62,7 +52,15 @@
                   "description": "Order items by property values"
                 }
               ],
-              "variable": []
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "application-identifier",
+                  "description": "(Required) Application identifier"
+                }
+              ]
             },
             "header": [
               {
@@ -83,7 +81,7 @@
           },
           "response": [
             {
-              "id": "9464c8f2-5dfb-46ba-8f32-07cbb7219713",
+              "id": "cefe62b7-0d99-478f-8873-7ad7404a5442",
               "name": "OK",
               "originalRequest": {
                 "url": {
@@ -109,7 +107,15 @@
                       "value": "<string>"
                     }
                   ],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -136,12 +142,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"applicationIdentifier\": \"string\",\n    \"externalIdentifier\": \"string\",\n    \"emailAddress\": \"u6F7@PtJfXfU.qah\",\n    \"firstName\": \"string\",\n    \"fullName\": \"string\",\n    \"isAnonymous\": false,\n    \"firstSeenAt\": \"2009-09-01T04:11:51.119Z\",\n    \"lastSeenAt\": \"1992-08-08T11:07:44.603Z\"\n  },\n  {\n    \"identifier\": \"string\",\n    \"applicationIdentifier\": \"string\",\n    \"externalIdentifier\": \"string\",\n    \"emailAddress\": \"kgDRHIZe1@HccTWqwilDvcWnmdtLmFQpVtSvOrlNe.if\",\n    \"firstName\": \"string\",\n    \"fullName\": \"string\",\n    \"isAnonymous\": false,\n    \"firstSeenAt\": \"1979-12-27T07:18:26.841Z\",\n    \"lastSeenAt\": \"1971-05-14T17:11:03.220Z\"\n  }\n]",
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"applicationIdentifier\": \"string\",\n    \"externalIdentifier\": \"string\",\n    \"emailAddress\": \"BXpVd1C@roRnhclEAihVpkRVjyzJzKZbY.rooa\",\n    \"firstName\": \"string\",\n    \"fullName\": \"string\",\n    \"isAnonymous\": true,\n    \"firstSeenAt\": \"1997-03-04T01:32:47.911Z\",\n    \"lastSeenAt\": \"2014-09-13T05:04:11.718Z\"\n  },\n  {\n    \"identifier\": \"string\",\n    \"applicationIdentifier\": \"string\",\n    \"externalIdentifier\": \"string\",\n    \"emailAddress\": \"84QK-HyJZQIOW@KMDLTk.pguv\",\n    \"firstName\": \"string\",\n    \"fullName\": \"string\",\n    \"isAnonymous\": true,\n    \"firstSeenAt\": \"1999-02-09T16:08:44.991Z\",\n    \"lastSeenAt\": \"1996-10-11T01:01:15.315Z\"\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "c4b608f9-89c8-4ad4-8db8-6f78a485fce5",
+              "id": "71609d36-58da-4cbf-ac85-a04108c4b7f4",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -167,7 +173,15 @@
                       "value": "<string>"
                     }
                   ],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -200,12 +214,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7723,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 4717,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "3fded472-68d4-42ff-b3e1-14c4ed82500f",
+              "id": "0dcd968b-ab13-425c-9cfb-098a11d9c700",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -231,7 +245,15 @@
                       "value": "<string>"
                     }
                   ],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -264,12 +286,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7723,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 4717,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "f1dddb46-3072-4ee4-83a2-2a1c0c0fe1c6",
+              "id": "c52a72f9-0317-4e25-90bb-ed5c76794369",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -295,7 +317,15 @@
                       "value": "<string>"
                     }
                   ],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -328,12 +358,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7723,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 4717,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "7ff60581-e953-4c1f-b830-8bfffc7715ca",
+              "id": "5188f770-ff85-496f-a19c-3cc49d7c6e77",
               "name": "Too Many Requests",
               "originalRequest": {
                 "url": {
@@ -359,7 +389,15 @@
                       "value": "<string>"
                     }
                   ],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -393,7 +431,7 @@
           }
         },
         {
-          "id": "0dccd180-93a5-47d4-927e-e9dc7c1cf74f",
+          "id": "83d33151-e264-4e30-9c98-a4346725f61e",
           "name": "Get Customer by Identifier",
           "request": {
             "name": "Get Customer by Identifier",
@@ -412,7 +450,22 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "application-identifier",
+                  "description": "(Required) Application identifier"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customer-identifier",
+                  "description": "(Required) Customer identifier"
+                }
+              ]
             },
             "header": [
               {
@@ -433,7 +486,7 @@
           },
           "response": [
             {
-              "id": "02628833-b955-4d21-9d60-1e9d413beee6",
+              "id": "fde9249f-0ee0-419d-9f11-8f16ddc570bf",
               "name": "OK",
               "originalRequest": {
                 "url": {
@@ -447,7 +500,22 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer-identifier",
+                      "description": "(Required) Customer identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -474,12 +542,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"identifier\": \"string\",\n  \"applicationIdentifier\": \"string\",\n  \"externalIdentifier\": \"string\",\n  \"emailAddress\": \"Akl4tqEsqy@AOjqDrdVC.oig\",\n  \"firstName\": \"string\",\n  \"fullName\": \"string\",\n  \"isAnonymous\": false,\n  \"firstSeenAt\": \"2004-05-20T16:44:40.741Z\",\n  \"lastSeenAt\": \"1979-08-15T16:51:34.755Z\"\n}",
+              "body": "{\n  \"identifier\": \"string\",\n  \"applicationIdentifier\": \"string\",\n  \"externalIdentifier\": \"string\",\n  \"emailAddress\": \"X2HKBQG0LjJ@VGSh.um\",\n  \"firstName\": \"string\",\n  \"fullName\": \"string\",\n  \"isAnonymous\": true,\n  \"firstSeenAt\": \"2024-07-23T10:36:54.426Z\",\n  \"lastSeenAt\": \"1977-07-31T13:49:56.521Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "c34743c2-018b-4025-ae61-0792f6027583",
+              "id": "48c643f1-899e-4c9a-ae65-4598d3611f3c",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -493,7 +561,22 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer-identifier",
+                      "description": "(Required) Customer identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -526,12 +609,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7723,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 4717,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "4af63f46-b0c3-443d-a958-67a84432b96b",
+              "id": "28fe27d3-897c-4a0d-82fb-b4d3a861d161",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -545,7 +628,22 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer-identifier",
+                      "description": "(Required) Customer identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -578,12 +676,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7723,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 4717,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "a27f8e8d-6d49-4f69-8d3e-fa79969ffde3",
+              "id": "9df55c88-95b9-458a-b070-63f563d40085",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -597,7 +695,22 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer-identifier",
+                      "description": "(Required) Customer identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -630,12 +743,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7723,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 4717,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "3b136cc2-9a63-4d10-bbf5-4e997ee6070b",
+              "id": "8591e625-cd7e-4f16-9c71-82170eacca04",
               "name": "Too Many Requests",
               "originalRequest": {
                 "url": {
@@ -649,7 +762,22 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer-identifier",
+                      "description": "(Required) Customer identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -684,106 +812,6 @@
         }
       ],
       "event": []
-    },
-    {
-      "id": "885a9e60-9d5b-412f-a58c-d9cf6dca44c2",
-      "name": "deployments",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "ac36d2f5-259f-4058-9e9b-942cbfed0624",
-      "name": "errors",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "6db684c7-828a-480d-8dcd-b8af765c4b2d",
-      "name": "invitations",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "2c97af62-9cc9-4c7d-875d-4032a56d424d",
-      "name": "metrics",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "98823b08-2bb6-4578-9b7a-c25c278e6ebf",
-      "name": "pages",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "74476216-66c5-4eba-b4df-4c9ed7c87e0b",
-      "name": "plans",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "f07b968f-b12d-4981-b4ee-7ccbcbb04006",
-      "name": "sessions",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "9ae6f367-a01d-4b2f-903d-f3337d44d4b9",
-      "name": "source-maps",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "dcaa4829-e3a6-435d-a6c5-501eedd72f56",
-      "name": "teams",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "7f35baf4-e1c4-4677-a3b6-4b378f50e4f3",
-      "name": "flutter-symbols",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
     }
   ],
   "event": [],
@@ -804,8 +832,8 @@
     ]
   },
   "info": {
-    "_postman_id": "d9440e1a-2840-4cb0-ad36-b986315c501c",
-    "name": "Raygun Customers API",
+    "_postman_id": "28ab61fd-3c74-4ce4-928b-a071e27c9ba1",
+    "name": "Raygun applications customers API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.\n\nContact Support:\n Name: Raygun Support\n Email: support@raygun.com",

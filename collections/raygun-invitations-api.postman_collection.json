@@ -1,47 +1,7 @@
 {
   "item": [
     {
-      "id": "d5ddbc77-bc72-4fbf-89dd-d73a32a779de",
-      "name": "applications",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "7b7de2cc-4fac-4dc1-b1e7-a941fa472b85",
-      "name": "customers",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "c96e4e72-92a2-4016-8368-0dc03ecc3b70",
-      "name": "deployments",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "89301443-ec74-478e-a9ef-05879bda79da",
-      "name": "errors",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "a5135952-9f30-4388-aeed-cd3b8bbc9b6b",
+      "id": "b7153696-42a3-4ca8-a327-04d2fb428598",
       "name": "invitations",
       "description": {
         "content": "",
@@ -49,7 +9,7 @@
       },
       "item": [
         {
-          "id": "5c721946-2882-411d-9d4a-8a43096faad3",
+          "id": "c069ffe0-4a81-4afd-9adb-ad1b37ae4a17",
           "name": "List Invitations",
           "request": {
             "name": "List Invitations",
@@ -105,7 +65,7 @@
           },
           "response": [
             {
-              "id": "0585c2ff-95fc-4905-9ef6-c35bc45e35f2",
+              "id": "6cc578bf-e186-47c3-9480-4c9df70cf2aa",
               "name": "OK",
               "originalRequest": {
                 "url": {
@@ -156,12 +116,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"emailAddress\": \"MCkHCVMuzjm9@dpNYfnhDVuqgJQArMcueBE.igbr\",\n    \"status\": \"accepted\",\n    \"createdAt\": \"2019-02-16T12:13:09.638Z\",\n    \"createdByUserIdentifier\": \"string\",\n    \"teamIdentifier\": \"string\",\n    \"acceptedByUserIdentifier\": \"string\"\n  },\n  {\n    \"identifier\": \"string\",\n    \"emailAddress\": \"RAD5-I@IqsEAdqoVMRHE.wu\",\n    \"status\": \"accepted\",\n    \"createdAt\": \"1969-06-07T13:18:27.683Z\",\n    \"createdByUserIdentifier\": \"string\",\n    \"teamIdentifier\": \"string\",\n    \"acceptedByUserIdentifier\": \"string\"\n  }\n]",
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"emailAddress\": \"kLc-C61HejJ0R@QRzONyDsNqSFfiAkvWlTDOTXP.ustt\",\n    \"status\": \"accepted\",\n    \"createdAt\": \"1984-08-28T01:37:40.549Z\",\n    \"createdByUserIdentifier\": \"string\",\n    \"teamIdentifier\": \"string\",\n    \"acceptedByUserIdentifier\": \"string\"\n  },\n  {\n    \"identifier\": \"string\",\n    \"emailAddress\": \"iHZY@yaGNnPs.usli\",\n    \"status\": \"revoked\",\n    \"createdAt\": \"1977-01-15T12:33:27.212Z\",\n    \"createdByUserIdentifier\": \"string\",\n    \"teamIdentifier\": \"string\",\n    \"acceptedByUserIdentifier\": \"string\"\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "4caccd91-1702-4ea8-ac1e-a0e2b3c94f5e",
+              "id": "a9fe37ab-cc52-4c41-ad6d-aff2105fca07",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -218,12 +178,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 525,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 3550,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "51c34f3f-d0c2-4c38-b73e-11ff174a70d4",
+              "id": "3f985043-b2be-429d-8769-fada80b44064",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -280,12 +240,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 525,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 3550,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "66c42655-4bea-4b18-b30a-5556f494c9e1",
+              "id": "212a71f1-c266-4703-a55d-743180db6e83",
               "name": "Too many requests",
               "originalRequest": {
                 "url": {
@@ -343,7 +303,7 @@
           }
         },
         {
-          "id": "ef493114-a9ed-40aa-a509-ef579888f6ae",
+          "id": "6ec82ebb-f8e5-4e40-9f23-ec85557f255b",
           "name": "Send an Invitation",
           "request": {
             "name": "Send an Invitation",
@@ -393,7 +353,7 @@
           },
           "response": [
             {
-              "id": "b79948fd-45cb-4c53-9870-3b30695122cb",
+              "id": "e10c674f-2f10-4109-b010-ad511945f38b",
               "name": "Created",
               "originalRequest": {
                 "url": {
@@ -437,12 +397,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"identifier\": \"string\",\n  \"emailAddress\": \"NiDQYK@WHkYfLEOpbJwZlgCpHnezyBuwxPQSR.kg\",\n  \"status\": \"accepted\",\n  \"createdAt\": \"1954-08-30T22:39:13.629Z\",\n  \"createdByUserIdentifier\": \"string\",\n  \"teamIdentifier\": \"string\",\n  \"acceptedByUserIdentifier\": \"string\"\n}",
+              "body": "{\n  \"identifier\": \"string\",\n  \"emailAddress\": \"3Qu@BCppnZFrasFCG.pi\",\n  \"status\": \"revoked\",\n  \"createdAt\": \"1953-05-04T05:15:53.082Z\",\n  \"createdByUserIdentifier\": \"string\",\n  \"teamIdentifier\": \"string\",\n  \"acceptedByUserIdentifier\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "2f4d0ff5-cbe0-4084-8b76-62c1fd89147c",
+              "id": "051ee545-e95c-4b6a-8f7b-0747f53d4b99",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -486,12 +446,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 525,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 3550,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "99ef2133-49c2-4234-8e30-045826010284",
+              "id": "5b6d2ec0-fd71-46eb-afe8-c89b41978a46",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -535,12 +495,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 525,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 3550,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "fdcd9be1-2019-45db-862e-f9cb1a9ec83e",
+              "id": "3d82cf80-665d-4530-b3d9-8e5d8d341d4b",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -584,12 +544,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 525,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 3550,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "feefd3ac-ee29-41b5-a7ba-f6c4941d5ce7",
+              "id": "1e2b535a-6c62-4b3c-acbb-81a939dc6dbf",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -633,12 +593,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 525,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 3550,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "8c554957-6b08-4fc9-be66-5eab91da39fd",
+              "id": "ae7aa7f6-16cf-4316-a916-1a8d748b7317",
               "name": "Validation problem details",
               "originalRequest": {
                 "url": {
@@ -682,12 +642,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7065,\n  \"traceId\": \"string\",\n  \"errors\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9902,\n  \"traceId\": \"string\",\n  \"errors\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "4ee34f46-0091-4cd4-8610-bf5bb8fd304c",
+              "id": "31cc1bba-7ae5-458f-ae23-c69a732f010d",
               "name": "Too Many Requests",
               "originalRequest": {
                 "url": {
@@ -732,7 +692,7 @@
           }
         },
         {
-          "id": "8cd6c3b9-5bad-41c6-9cad-0010f7746e28",
+          "id": "8ca03908-d303-411a-bc93-26aef928c177",
           "name": "Get Invitation by Identifier",
           "request": {
             "name": "Get Invitation by Identifier",
@@ -749,7 +709,15 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "invitation-identifier",
+                  "description": "(Required) Invitation identifier"
+                }
+              ]
             },
             "header": [
               {
@@ -770,7 +738,7 @@
           },
           "response": [
             {
-              "id": "cc1d0f96-93e5-49c4-9dfb-152fdd864a34",
+              "id": "46e41eef-e594-46bd-93a0-d1bdae73a025",
               "name": "OK",
               "originalRequest": {
                 "url": {
@@ -782,7 +750,15 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invitation-identifier",
+                      "description": "(Required) Invitation identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -809,12 +785,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"identifier\": \"string\",\n  \"emailAddress\": \"NiDQYK@WHkYfLEOpbJwZlgCpHnezyBuwxPQSR.kg\",\n  \"status\": \"accepted\",\n  \"createdAt\": \"1954-08-30T22:39:13.629Z\",\n  \"createdByUserIdentifier\": \"string\",\n  \"teamIdentifier\": \"string\",\n  \"acceptedByUserIdentifier\": \"string\"\n}",
+              "body": "{\n  \"identifier\": \"string\",\n  \"emailAddress\": \"3Qu@BCppnZFrasFCG.pi\",\n  \"status\": \"revoked\",\n  \"createdAt\": \"1953-05-04T05:15:53.082Z\",\n  \"createdByUserIdentifier\": \"string\",\n  \"teamIdentifier\": \"string\",\n  \"acceptedByUserIdentifier\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "a7429d52-29ae-4696-9b08-2f02ac1ddc49",
+              "id": "3119607e-58a3-497a-b461-900ebe8bfa53",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -826,7 +802,15 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invitation-identifier",
+                      "description": "(Required) Invitation identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -859,12 +843,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 525,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 3550,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "105399f7-dbeb-4e28-94d4-b084b4a341a7",
+              "id": "8b2fb8a5-9084-4073-8e53-905f5465e878",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -876,7 +860,15 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invitation-identifier",
+                      "description": "(Required) Invitation identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -909,12 +901,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 525,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 3550,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "84cf7dab-a383-4d7b-be46-241cb15bed12",
+              "id": "bcdc2e5a-2779-4820-bb7d-bc64808764a5",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -926,7 +918,15 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invitation-identifier",
+                      "description": "(Required) Invitation identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -959,12 +959,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 525,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 3550,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "53b0f69c-db08-4231-b848-c92369b31584",
+              "id": "a0e32c70-f4c4-4ed6-88ca-6893bc5abe96",
               "name": "Too Many Requests",
               "originalRequest": {
                 "url": {
@@ -976,7 +976,15 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invitation-identifier",
+                      "description": "(Required) Invitation identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -1010,7 +1018,7 @@
           }
         },
         {
-          "id": "d13f77ac-bca5-409e-b0ff-ce635fc9a2d0",
+          "id": "f5468302-5b5e-4c4f-aa62-c0d4897a5969",
           "name": "Revoke Invitation",
           "request": {
             "name": "Revoke Invitation",
@@ -1028,7 +1036,15 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "invitation-identifier",
+                  "description": "(Required) Invitation identifier"
+                }
+              ]
             },
             "header": [
               {
@@ -1049,7 +1065,7 @@
           },
           "response": [
             {
-              "id": "4d5822c1-68f9-455f-aefe-29b254845b24",
+              "id": "bac28e9a-cdae-4258-9b54-28b0dc4a6ddd",
               "name": "No Content",
               "originalRequest": {
                 "url": {
@@ -1062,7 +1078,15 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invitation-identifier",
+                      "description": "(Required) Invitation identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -1090,7 +1114,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "2dc308aa-edeb-4cb2-9dfa-5ca4ca19ce3a",
+              "id": "f27205eb-619a-4fbf-8f52-0e6782ae8fd9",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -1103,7 +1127,15 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invitation-identifier",
+                      "description": "(Required) Invitation identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -1136,12 +1168,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 525,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 3550,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "9d31d20a-4b07-4d6d-bb8f-287d3aa73a05",
+              "id": "39e32558-fc6e-46dd-81c6-7f108ca0e317",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -1154,7 +1186,15 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invitation-identifier",
+                      "description": "(Required) Invitation identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -1187,12 +1227,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 525,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 3550,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "d2622893-4316-497a-8098-8cd5717f265a",
+              "id": "4ac22dde-65b6-4f1a-9a80-097da02bf6ca",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -1205,7 +1245,15 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invitation-identifier",
+                      "description": "(Required) Invitation identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -1238,12 +1286,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 525,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 3550,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "78366358-27ec-475c-a435-dc11542b97cb",
+              "id": "36ceee90-7227-403f-8d89-58371da948d1",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -1256,7 +1304,15 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invitation-identifier",
+                      "description": "(Required) Invitation identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -1289,12 +1345,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 525,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 3550,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "682fd207-8c8d-459c-8234-581ac95ac789",
+              "id": "12144137-c05f-4b20-8e38-f9a47bcdc63d",
               "name": "Too Many Requests",
               "originalRequest": {
                 "url": {
@@ -1307,7 +1363,15 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invitation-identifier",
+                      "description": "(Required) Invitation identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -1342,76 +1406,6 @@
         }
       ],
       "event": []
-    },
-    {
-      "id": "4a837f6b-3d78-4326-8573-b114bc5c099e",
-      "name": "metrics",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "30d6a98c-311f-4526-8fc6-d243cb640b9a",
-      "name": "pages",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "3002ee62-3d42-42b7-aae5-64571650088a",
-      "name": "plans",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "c2fef2d3-3f1f-496a-be61-f3748645fe65",
-      "name": "sessions",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "a5e21daa-11dd-4b9c-813f-6d19ee618708",
-      "name": "source-maps",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "0cfa40be-2d04-4625-8851-aef9baa4dd75",
-      "name": "teams",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "5cd89c18-dd2e-4315-ab3c-dad1967e0cca",
-      "name": "flutter-symbols",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
     }
   ],
   "event": [],
@@ -1432,8 +1426,8 @@
     ]
   },
   "info": {
-    "_postman_id": "8920892a-266e-4efd-87fb-f7a475eeefaf",
-    "name": "Raygun Invitations API",
+    "_postman_id": "2cba36c1-c897-4ffc-9be5-7e6359b95fb3",
+    "name": "Raygun applications invitations API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.\n\nContact Support:\n Name: Raygun Support\n Email: support@raygun.com",

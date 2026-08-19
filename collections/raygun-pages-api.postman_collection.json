@@ -1,67 +1,7 @@
 {
   "item": [
     {
-      "id": "1723ed1f-4384-491f-9770-404013303486",
-      "name": "applications",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "c4a5c038-a79d-41f9-baf7-00d7d294e98b",
-      "name": "customers",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "9444c607-208c-411f-9805-6e86c18e93d1",
-      "name": "deployments",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "922c5fc3-5f8b-4b2e-9771-05a3d402fd88",
-      "name": "errors",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "cb8608d9-0f7b-4f65-8e11-f89043ba0b21",
-      "name": "invitations",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "9e24e9d7-0fba-4299-b879-5d78e2daed8e",
-      "name": "metrics",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "314ab867-303c-49f6-a924-a56106adb679",
+      "id": "588d43f1-5aac-4b1a-9c9c-15e12e0a6b67",
       "name": "pages",
       "description": {
         "content": "",
@@ -69,7 +9,7 @@
       },
       "item": [
         {
-          "id": "39391b1c-1b1c-48bb-b291-026157f3a9f9",
+          "id": "eaa5dc23-62d1-4585-876f-8e3c6d375865",
           "name": "List Pages for an Application",
           "request": {
             "name": "List Pages for an Application",
@@ -106,7 +46,15 @@
                   "description": "Order items by property values"
                 }
               ],
-              "variable": []
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "application-identifier",
+                  "description": "(Required) Application identifier"
+                }
+              ]
             },
             "header": [
               {
@@ -127,7 +75,7 @@
           },
           "response": [
             {
-              "id": "86a7fd95-69d8-4c30-b033-d6cd74149831",
+              "id": "714f7dd8-ae32-4e2e-9743-9e5ce18407d4",
               "name": "OK",
               "originalRequest": {
                 "url": {
@@ -153,7 +101,15 @@
                       "value": "<string>"
                     }
                   ],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -180,12 +136,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"applicationIdentifier\": \"string\",\n    \"uri\": \"http://JcMhHxSyE.xrBPSuYNRvo0R+dNFh\",\n    \"type\": \"string\",\n    \"lastSeenAt\": \"1989-08-07T12:06:35.784Z\"\n  },\n  {\n    \"identifier\": \"string\",\n    \"applicationIdentifier\": \"string\",\n    \"uri\": \"http://UxJKjl.eibptlahzCzMpP1j50ytaiXICYA4qEFA06FJxxhgEiUiAsQEJNJCookgV1KP4STisw9HqvfA75mBI\",\n    \"type\": \"string\",\n    \"lastSeenAt\": \"2022-03-13T22:04:40.568Z\"\n  }\n]",
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"applicationIdentifier\": \"string\",\n    \"uri\": \"https://NDQNAWKcacepCEDSBdWKOjkrefFhM.emphE,G1SDLzNm+kZUCN6nPOHY1WEE4m1g.YaYtcNHveYCfCc4ru2F6DQEd\",\n    \"type\": \"string\",\n    \"lastSeenAt\": \"1973-02-05T02:26:28.653Z\"\n  },\n  {\n    \"identifier\": \"string\",\n    \"applicationIdentifier\": \"string\",\n    \"uri\": \"http://TwACOoW.odWDKlm.vP,W8KNCkSGBw1tHDWzKdQfes8IYZUteEe8BNnCyR8mGrhHQuFaCy328Z4\",\n    \"type\": \"string\",\n    \"lastSeenAt\": \"1988-03-28T20:48:54.311Z\"\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "c6a55e6c-9c62-41c0-a98d-e718be5928a0",
+              "id": "527e65c6-abd6-45c1-a6b9-f291f5fb7f0e",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -211,7 +167,15 @@
                       "value": "<string>"
                     }
                   ],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -244,12 +208,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7645,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5107,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "686f5245-5680-46fa-b3f7-54f0055c1343",
+              "id": "e2911ea6-bae7-4d64-b087-0cecfac1b322",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -275,7 +239,15 @@
                       "value": "<string>"
                     }
                   ],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -308,12 +280,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7645,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5107,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "b0f208c6-e5ae-44b0-b437-839aa7d01864",
+              "id": "6749a244-992a-4157-99d2-bfc66c572159",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -339,7 +311,15 @@
                       "value": "<string>"
                     }
                   ],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -372,12 +352,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7645,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5107,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "55b84076-b8f2-47f6-8d9f-67f95dd8084d",
+              "id": "97f73525-5010-4dac-9ace-55f89f052de1",
               "name": "Too many requests",
               "originalRequest": {
                 "url": {
@@ -403,7 +383,15 @@
                       "value": "<string>"
                     }
                   ],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -437,7 +425,7 @@
           }
         },
         {
-          "id": "2ecc411c-b2ac-4d59-8ea2-ad8e82942845",
+          "id": "b3c6bd4a-2136-4951-ba2b-77df6ddc671b",
           "name": "Get Page by Identifier",
           "request": {
             "name": "Get Page by Identifier",
@@ -456,7 +444,22 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "application-identifier",
+                  "description": "(Required) Application identifier"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "page-identifier",
+                  "description": "(Required) Page identifier"
+                }
+              ]
             },
             "header": [
               {
@@ -477,7 +480,7 @@
           },
           "response": [
             {
-              "id": "63a9bcac-d0a3-435b-ade5-65df223e1bf7",
+              "id": "c13908c7-23ff-49e7-a877-40434c7dd9ed",
               "name": "OK",
               "originalRequest": {
                 "url": {
@@ -491,7 +494,22 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "page-identifier",
+                      "description": "(Required) Page identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -518,12 +536,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"identifier\": \"string\",\n  \"applicationIdentifier\": \"string\",\n  \"uri\": \"https://HnZEZOXUIReCyMRyNpmUAqB.psLuM-uSFCloXnwx8k7yAgTHzqy,FpOS8Bm5nftqeq5p\",\n  \"type\": \"string\",\n  \"lastSeenAt\": \"1968-11-19T20:34:26.120Z\"\n}",
+              "body": "{\n  \"identifier\": \"string\",\n  \"applicationIdentifier\": \"string\",\n  \"uri\": \"https://JZnBZVrjNg.zljiV-ac18VgeuGFBlKtr6ZUJ0BhBz2i71S8wYA7XV.\",\n  \"type\": \"string\",\n  \"lastSeenAt\": \"2013-01-06T05:39:07.557Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "624efc04-291a-41fe-9725-ee53df7e7693",
+              "id": "3b172b7d-e677-48db-8de0-29a0af669d28",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -537,7 +555,22 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "page-identifier",
+                      "description": "(Required) Page identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -570,12 +603,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7645,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5107,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "26b54bbc-ce12-4602-9c3f-99701bf4e3fb",
+              "id": "b1004469-7a20-4e79-92d5-650951a13e5a",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -589,7 +622,22 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "page-identifier",
+                      "description": "(Required) Page identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -622,12 +670,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7645,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5107,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "0c153e51-d5e5-4829-81b1-5375497acfb4",
+              "id": "ae33d049-2a84-426a-b683-5bbf483ab94a",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -641,7 +689,22 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "page-identifier",
+                      "description": "(Required) Page identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -674,12 +737,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7645,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5107,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "2b591e5c-b784-4a03-95ce-f948cbe7deb2",
+              "id": "2f9fabf3-4423-45af-910f-44b359625cdf",
               "name": "Too many requests",
               "originalRequest": {
                 "url": {
@@ -693,7 +756,22 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-identifier",
+                      "description": "(Required) Application identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "page-identifier",
+                      "description": "(Required) Page identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -728,56 +806,6 @@
         }
       ],
       "event": []
-    },
-    {
-      "id": "97cdde18-8a9b-4776-93b0-52d4d01ca14e",
-      "name": "plans",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "ebb9ceb8-142d-45ab-9c62-37533f871303",
-      "name": "sessions",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "aa7a8319-adfa-448d-bb68-235e0c32b335",
-      "name": "source-maps",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "cec29e7e-cda0-4ec9-8201-02eec42e54ab",
-      "name": "teams",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "b3ede6e1-1c1f-4edb-8d80-fb366ed589a7",
-      "name": "flutter-symbols",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
     }
   ],
   "event": [],
@@ -798,8 +826,8 @@
     ]
   },
   "info": {
-    "_postman_id": "614d269d-b05e-4cfa-b2d3-254ee0719f31",
-    "name": "Raygun Pages API",
+    "_postman_id": "9462aa9c-c985-4a00-b9b2-95a7dd937106",
+    "name": "Raygun applications pages API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.\n\nContact Support:\n Name: Raygun Support\n Email: support@raygun.com",

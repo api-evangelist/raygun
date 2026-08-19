@@ -1,117 +1,7 @@
 {
   "item": [
     {
-      "id": "281cc307-7d8c-4e41-b0b2-720f49ccf4ab",
-      "name": "applications",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "18edb9d8-9d54-4893-a312-6b9a48a3b018",
-      "name": "customers",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "b117e2c7-715b-4677-9d69-dcbb66085a77",
-      "name": "deployments",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "78cf00c9-f42c-447f-95f3-22675c903306",
-      "name": "errors",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "a82e5e5b-e3d3-448e-921c-98ea71a33c60",
-      "name": "invitations",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "c8960069-f533-41f8-95ca-e018069b787c",
-      "name": "metrics",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "2708ab5a-35cf-4e29-89ff-4a7f38bddc0a",
-      "name": "pages",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "eaa58b98-f1bb-4313-b87b-30df3d8d92ad",
-      "name": "plans",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "ee015a0a-55c1-47c9-9a09-69f80e800e1a",
-      "name": "sessions",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "3acf67de-ed8b-4ed5-85f3-3bad8fb06961",
-      "name": "source-maps",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "681f1a6c-f593-46cc-a723-1241155d118a",
-      "name": "teams",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "e5b609ee-8c71-4fd6-8030-942547a2601e",
+      "id": "6103b97d-296b-43de-aa58-7706aa7b290a",
       "name": "flutter-symbols",
       "description": {
         "content": "",
@@ -119,7 +9,7 @@
       },
       "item": [
         {
-          "id": "90d1fc22-3501-4689-a1c9-79774f6b92e0",
+          "id": "1926a21b-0794-4ccc-b28e-8b984ae1d58b",
           "name": "List Flutter Symbols for an Application",
           "request": {
             "name": "List Flutter Symbols for an Application",
@@ -185,7 +75,7 @@
           },
           "response": [
             {
-              "id": "45e54398-3f14-4e36-b0dd-ac22ca1ce5df",
+              "id": "73495842-7ab5-4cc2-a94b-992efa2a2987",
               "name": "OK",
               "originalRequest": {
                 "url": {
@@ -246,12 +136,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"applicationIdentifier\": \"string\",\n    \"name\": \"string\",\n    \"version\": \"string\",\n    \"updatedAt\": \"1998-06-16T19:58:30.018Z\",\n    \"createdAt\": \"1965-02-01T20:27:37.653Z\"\n  },\n  {\n    \"identifier\": \"string\",\n    \"applicationIdentifier\": \"string\",\n    \"name\": \"string\",\n    \"version\": \"string\",\n    \"updatedAt\": \"1983-04-16T06:35:57.331Z\",\n    \"createdAt\": \"1949-04-21T13:54:41.494Z\"\n  }\n]",
+              "body": "[\n  {\n    \"identifier\": \"string\",\n    \"applicationIdentifier\": \"string\",\n    \"name\": \"string\",\n    \"version\": \"string\",\n    \"updatedAt\": \"1957-08-18T05:43:13.473Z\",\n    \"createdAt\": \"1958-08-28T20:42:57.290Z\"\n  },\n  {\n    \"identifier\": \"string\",\n    \"applicationIdentifier\": \"string\",\n    \"name\": \"string\",\n    \"version\": \"string\",\n    \"updatedAt\": \"1965-12-04T06:28:11.685Z\",\n    \"createdAt\": \"2019-04-08T20:53:25.071Z\"\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "4a6db631-fab6-4360-aa25-9fda0ad49614",
+              "id": "3f32e00c-0600-4261-82d2-1a44f99f108a",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -318,12 +208,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8317,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9330,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "f9d68429-cc6e-4651-bd2e-8ac1474a4f3d",
+              "id": "a2bb8e1e-0363-48c8-a05e-01d2de2eac49",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -390,12 +280,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8317,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9330,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "4e518fd9-6ea8-4c0d-9451-fbb9f4a8f765",
+              "id": "93f2c414-09e1-45b0-8c26-6c4c44315242",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -462,12 +352,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8317,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9330,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "08e1ade5-85a1-4778-b1f2-ab9654fa99ea",
+              "id": "1416e0f0-a9a0-4537-8ff0-3330df9d3526",
               "name": "Too many requests",
               "originalRequest": {
                 "url": {
@@ -535,7 +425,7 @@
           }
         },
         {
-          "id": "1bf9d5e0-830b-4783-9736-3ec4c243de8b",
+          "id": "49dd9fe8-e5f7-4a28-b065-6f82d990cf3f",
           "name": "Upload a Flutter Symbol",
           "request": {
             "name": "Upload a Flutter Symbol",
@@ -602,7 +492,7 @@
           },
           "response": [
             {
-              "id": "23fbbe86-c04d-4d30-92f1-7572ec635380",
+              "id": "c29470f5-8d86-49aa-b257-6886ec5deed2",
               "name": "OK",
               "originalRequest": {
                 "url": {
@@ -650,12 +540,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"identifier\": \"string\",\n  \"applicationIdentifier\": \"string\",\n  \"name\": \"string\",\n  \"version\": \"string\",\n  \"updatedAt\": \"2005-04-09T07:59:35.544Z\",\n  \"createdAt\": \"1976-03-28T13:06:01.649Z\"\n}",
+              "body": "{\n  \"identifier\": \"string\",\n  \"applicationIdentifier\": \"string\",\n  \"name\": \"string\",\n  \"version\": \"string\",\n  \"updatedAt\": \"2004-11-30T20:56:22.710Z\",\n  \"createdAt\": \"1993-10-10T21:45:47.777Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "807573d0-6398-4b81-bd1a-c4c9a914927b",
+              "id": "717f472b-f93b-4805-990b-642eaad6eb6f",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -709,12 +599,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8317,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9330,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "6c5039ce-65c6-4c02-a43c-f55753e35417",
+              "id": "6fed860f-8f11-4bf5-b889-b6b6effc9050",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -768,12 +658,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8317,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9330,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "a80b5fac-e673-4ee9-b39e-4f05c37aa02b",
+              "id": "4b39e5a4-cd35-4314-a997-134273d58de7",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -827,12 +717,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8317,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9330,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "1d162d38-c52e-4a17-94c1-11657e1825ab",
+              "id": "b5e628fe-d6fa-4249-8c37-2eae92641946",
               "name": "Validation problem details",
               "originalRequest": {
                 "url": {
@@ -886,12 +776,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8231,\n  \"traceId\": \"string\",\n  \"errors\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 4306,\n  \"traceId\": \"string\",\n  \"errors\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_3\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "f9746b3e-cf3c-4692-a511-5ce0279ea888",
+              "id": "466d543b-f07d-4fba-85fa-e8ff9a75afc8",
               "name": "Too Many Requests",
               "originalRequest": {
                 "url": {
@@ -946,7 +836,7 @@
           }
         },
         {
-          "id": "836aa3ae-1f07-4e3f-a924-d13b47fa1a77",
+          "id": "94288d9e-6772-4b45-beac-7f15f8f15460",
           "name": "Get Flutter Symbol by Identifier",
           "request": {
             "name": "Get Flutter Symbol by Identifier",
@@ -1001,7 +891,7 @@
           },
           "response": [
             {
-              "id": "11446bc4-9b1a-4d34-97a0-f667478908b9",
+              "id": "3e4a788b-b5b7-4b53-8d83-866583bf6fa4",
               "name": "OK",
               "originalRequest": {
                 "url": {
@@ -1057,12 +947,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"identifier\": \"string\",\n  \"applicationIdentifier\": \"string\",\n  \"name\": \"string\",\n  \"version\": \"string\",\n  \"updatedAt\": \"2005-04-09T07:59:35.544Z\",\n  \"createdAt\": \"1976-03-28T13:06:01.649Z\"\n}",
+              "body": "{\n  \"identifier\": \"string\",\n  \"applicationIdentifier\": \"string\",\n  \"name\": \"string\",\n  \"version\": \"string\",\n  \"updatedAt\": \"2004-11-30T20:56:22.710Z\",\n  \"createdAt\": \"1993-10-10T21:45:47.777Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "1f8cbb64-c660-4615-94c9-029274503801",
+              "id": "da0cd4de-a2fd-403f-8b82-bae1898e1d7b",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -1124,12 +1014,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8317,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9330,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "a0b92da8-b5e4-4d52-aed7-e199a071ab94",
+              "id": "00c80414-b621-44ba-92f2-f10e7b95104f",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -1191,12 +1081,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8317,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9330,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "68a0bc4c-40d1-43e2-8820-def858722e31",
+              "id": "3831844e-6943-45fe-86df-843789e58c6d",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -1258,7 +1148,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8317,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9330,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -1269,7 +1159,7 @@
           }
         },
         {
-          "id": "380bf4c3-c2c3-4a26-bbae-8fca6c4f4a8d",
+          "id": "8765896e-7728-4f45-89c1-1a2c706d35c2",
           "name": "Delete Flutter Symbol by Identifier",
           "request": {
             "name": "Delete Flutter Symbol by Identifier",
@@ -1324,7 +1214,7 @@
           },
           "response": [
             {
-              "id": "54a22e34-46f8-41ab-9ddc-e7b0284c8bd7",
+              "id": "102364d2-e751-42b4-a106-50d949460342",
               "name": "No Content",
               "originalRequest": {
                 "url": {
@@ -1381,7 +1271,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "2dcbf5f9-b788-41dc-8d24-f715c809cd31",
+              "id": "f433dfdd-7bc4-42a8-84b4-fe1d829c4d74",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -1443,12 +1333,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8317,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9330,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "fbda730c-90c1-4be8-bfdc-7fece2e20f1f",
+              "id": "a72ebb22-f779-4983-845a-b624a1ecea00",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -1510,12 +1400,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8317,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9330,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "a321bd32-d2fb-4348-a178-d029b8ba262e",
+              "id": "aa0eb351-8593-47df-9021-ad989819190e",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -1577,12 +1467,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8317,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9330,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "8c8028da-3ae5-4523-8e1c-60e74d6a1f1f",
+              "id": "28897641-1bdb-4a39-ade1-4da7f0abfb04",
               "name": "Too many requests",
               "originalRequest": {
                 "url": {
@@ -1645,7 +1535,7 @@
           }
         },
         {
-          "id": "23d497bb-0e80-464a-a7de-488c5408b03b",
+          "id": "3a7a6716-aa85-4d92-8444-cf4948e62ad3",
           "name": "Get Flutter Symbol Content by Identifier",
           "request": {
             "name": "Get Flutter Symbol Content by Identifier",
@@ -1701,7 +1591,7 @@
           },
           "response": [
             {
-              "id": "5025c268-904f-4599-9239-a5377db514c2",
+              "id": "41dc51d8-ace7-4701-8c0b-41693dd5422c",
               "name": "OK",
               "originalRequest": {
                 "url": {
@@ -1763,7 +1653,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "ba990b68-c23b-426e-a739-4c9f5fa725b7",
+              "id": "b30d7fa8-afdb-4571-bda2-5f9914938f72",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -1826,12 +1716,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8317,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9330,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "3eec9008-849f-44bb-8711-3a109c69c7c9",
+              "id": "2473e00c-83a9-42df-ab9f-6500bd85dd8b",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -1894,12 +1784,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8317,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9330,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "c8764c7d-359c-4903-a12a-343fdae5cf39",
+              "id": "8b87f5d1-1a73-4678-a5f7-189b86573ef0",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -1962,12 +1852,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8317,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 9330,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "403f670f-9a28-4a62-b508-143aae7f06c8",
+              "id": "8bf08bce-e3b7-411a-987d-07736ae00296",
               "name": "Too many requests",
               "originalRequest": {
                 "url": {
@@ -2052,8 +1942,8 @@
     ]
   },
   "info": {
-    "_postman_id": "972b3927-5f5a-4085-9158-6beebfa2c4c8",
-    "name": "Raygun Flutter Symbols API",
+    "_postman_id": "66b0726c-367f-45d6-9ae7-bb48c31d9bee",
+    "name": "Raygun applications flutter-symbols API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.\n\nContact Support:\n Name: Raygun Support\n Email: support@raygun.com",

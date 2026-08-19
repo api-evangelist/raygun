@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Raygun Applications API",
+    "name": "Raygun applications API",
     "version": "3.0"
   },
   "request": {
@@ -60,6 +60,14 @@
           "http": {
             "method": "GET",
             "url": "https://api.raygun.com/v3/applications/:application-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
             "auth": {
               "type": "bearer",
               "token": "{{bearerToken}}"
@@ -75,6 +83,14 @@
           "http": {
             "method": "GET",
             "url": "https://api.raygun.com/v3/applications/api-key/:api-key",
+            "params": [
+              {
+                "name": "api-key",
+                "value": "",
+                "type": "path",
+                "description": "Application api key"
+              }
+            ],
             "auth": {
               "type": "bearer",
               "token": "{{bearerToken}}"
@@ -90,6 +106,14 @@
           "http": {
             "method": "POST",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/regenerate-api-key",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
             "auth": {
               "type": "bearer",
               "token": "{{bearerToken}}"

@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Raygun Metrics API",
+    "name": "Raygun applications metrics API",
     "version": "3.0"
   },
   "request": {
@@ -25,6 +25,14 @@
           "http": {
             "method": "POST",
             "url": "https://api.raygun.com/v3/metrics/:application-identifier/pages/time-series",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
             "body": {
               "type": "json",
               "data": "{}"
@@ -44,6 +52,14 @@
           "http": {
             "method": "POST",
             "url": "https://api.raygun.com/v3/metrics/:application-identifier/pages/histogram",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
             "body": {
               "type": "json",
               "data": "{}"
@@ -63,6 +79,14 @@
           "http": {
             "method": "POST",
             "url": "https://api.raygun.com/v3/metrics/:application-identifier/errors/time-series",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
             "body": {
               "type": "json",
               "data": "{}"

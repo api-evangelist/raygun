@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Raygun Invitations API",
+    "name": "Raygun applications invitations API",
     "version": "3.0"
   },
   "request": {
@@ -79,6 +79,14 @@
           "http": {
             "method": "GET",
             "url": "https://api.raygun.com/v3/invitations/:invitation-identifier",
+            "params": [
+              {
+                "name": "invitation-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Invitation identifier"
+              }
+            ],
             "auth": {
               "type": "bearer",
               "token": "{{bearerToken}}"
@@ -94,6 +102,14 @@
           "http": {
             "method": "POST",
             "url": "https://api.raygun.com/v3/invitations/:invitation-identifier/revoke",
+            "params": [
+              {
+                "name": "invitation-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Invitation identifier"
+              }
+            ],
             "auth": {
               "type": "bearer",
               "token": "{{bearerToken}}"

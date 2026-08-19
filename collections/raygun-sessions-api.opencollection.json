@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Raygun Sessions API",
+    "name": "Raygun applications sessions API",
     "version": "3.0"
   },
   "request": {
@@ -26,6 +26,12 @@
             "method": "GET",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/sessions",
             "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
               {
                 "name": "count",
                 "value": "",
@@ -67,6 +73,18 @@
             "method": "GET",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/sessions/:session-identifier",
             "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "session-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Session identifier"
+              },
               {
                 "name": "include",
                 "value": "",

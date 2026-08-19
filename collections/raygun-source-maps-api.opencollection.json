@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Raygun Source Maps API",
+    "name": "Raygun applications source-maps API",
     "version": "3.0"
   },
   "request": {
@@ -25,6 +25,20 @@
           "http": {
             "method": "GET",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/source-maps/:source-map-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "source-map-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Source map identifier"
+              }
+            ],
             "auth": {
               "type": "bearer",
               "token": "{{bearerToken}}"
@@ -40,6 +54,20 @@
           "http": {
             "method": "PATCH",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/source-maps/:source-map-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "source-map-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Source map identifier"
+              }
+            ],
             "body": {
               "type": "json",
               "data": "{}"
@@ -59,6 +87,20 @@
           "http": {
             "method": "DELETE",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/source-maps/:source-map-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "source-map-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Source map identifier"
+              }
+            ],
             "auth": {
               "type": "bearer",
               "token": "{{bearerToken}}"
@@ -75,6 +117,12 @@
             "method": "GET",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/source-maps",
             "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
               {
                 "name": "count",
                 "value": "",
@@ -109,6 +157,14 @@
           "http": {
             "method": "PUT",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/source-maps",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
             "body": {
               "type": "multipart-form",
               "data": [
@@ -139,6 +195,14 @@
           "http": {
             "method": "DELETE",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/source-maps",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
             "auth": {
               "type": "bearer",
               "token": "{{bearerToken}}"

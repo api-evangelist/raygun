@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Raygun Plans API",
+    "name": "Raygun applications plans API",
     "version": "3.0"
   },
   "request": {

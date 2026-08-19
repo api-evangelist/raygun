@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Raygun Deployments API",
+    "name": "Raygun applications deployments API",
     "version": "3.0"
   },
   "request": {
@@ -26,6 +26,12 @@
             "method": "GET",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments",
             "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
               {
                 "name": "count",
                 "value": "",
@@ -60,6 +66,14 @@
           "http": {
             "method": "POST",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
             "body": {
               "type": "json",
               "data": "{}"
@@ -79,6 +93,14 @@
           "http": {
             "method": "GET",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/latest",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              }
+            ],
             "auth": {
               "type": "bearer",
               "token": "{{bearerToken}}"
@@ -94,6 +116,20 @@
           "http": {
             "method": "GET",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/:deployment-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "deployment-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Deployment identifier"
+              }
+            ],
             "auth": {
               "type": "bearer",
               "token": "{{bearerToken}}"
@@ -109,6 +145,20 @@
           "http": {
             "method": "PATCH",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/:deployment-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "deployment-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Deployment identifier"
+              }
+            ],
             "body": {
               "type": "json",
               "data": "{}"
@@ -128,6 +178,20 @@
           "http": {
             "method": "DELETE",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/:deployment-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "deployment-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Deployment identifier"
+              }
+            ],
             "auth": {
               "type": "bearer",
               "token": "{{bearerToken}}"
@@ -144,6 +208,12 @@
             "method": "GET",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/latest/error-groups",
             "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
               {
                 "name": "count",
                 "value": "",
@@ -186,6 +256,18 @@
             "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/:deployment-identifier/error-groups",
             "params": [
               {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "deployment-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Deployment identifier"
+              },
+              {
                 "name": "count",
                 "value": "",
                 "type": "query",
@@ -225,6 +307,14 @@
           "http": {
             "method": "POST",
             "url": "https://api.raygun.com/v3/applications/api-key/:api-key/deployments",
+            "params": [
+              {
+                "name": "api-key",
+                "value": "",
+                "type": "path",
+                "description": "Application api key"
+              }
+            ],
             "body": {
               "type": "json",
               "data": "{}"
@@ -244,6 +334,20 @@
           "http": {
             "method": "POST",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/deployments/:deployment-identifier/reprocess-commits",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "deployment-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Deployment identifier"
+              }
+            ],
             "auth": {
               "type": "bearer",
               "token": "{{bearerToken}}"

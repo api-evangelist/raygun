@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Raygun Customers API",
+    "name": "Raygun applications customers API",
     "version": "3.0"
   },
   "request": {
@@ -26,6 +26,12 @@
             "method": "GET",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/customers",
             "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
               {
                 "name": "count",
                 "value": "",
@@ -60,6 +66,20 @@
           "http": {
             "method": "GET",
             "url": "https://api.raygun.com/v3/applications/:application-identifier/customers/:customer-identifier",
+            "params": [
+              {
+                "name": "application-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application identifier"
+              },
+              {
+                "name": "customer-identifier",
+                "value": "",
+                "type": "path",
+                "description": "Customer identifier"
+              }
+            ],
             "auth": {
               "type": "bearer",
               "token": "{{bearerToken}}"

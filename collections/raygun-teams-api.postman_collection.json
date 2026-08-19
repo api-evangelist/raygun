@@ -1,107 +1,7 @@
 {
   "item": [
     {
-      "id": "bea7c0ec-1516-44ba-b727-f403a5ba05a7",
-      "name": "applications",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "a75c9eac-3d23-4215-80bd-985acae14f68",
-      "name": "customers",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "6af36013-05d5-40ad-ac65-7ba85587bb3a",
-      "name": "deployments",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "5dac630c-c09b-4750-92ef-ebc63d5babb8",
-      "name": "errors",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "893433e6-9a63-4ce5-907f-c7bb8dd1b9f8",
-      "name": "invitations",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "a12d8585-d210-4abd-adc7-2f3b6187e06e",
-      "name": "metrics",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "46dce74d-6aa6-495f-9456-0e8ebbb55f36",
-      "name": "pages",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "4908acb3-dd36-46a7-b2a5-4ba1eb45606d",
-      "name": "plans",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "69c635bc-7aa0-4a83-962d-2b16ec11c06d",
-      "name": "sessions",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "90547298-2a52-4ba0-acec-8a545d16054f",
-      "name": "source-maps",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
-    },
-    {
-      "id": "8a618e99-1cba-4703-aca0-3b31e476af6e",
+      "id": "45232839-2a5e-41b7-99b2-1cbd7e948c2d",
       "name": "teams",
       "description": {
         "content": "",
@@ -109,7 +9,7 @@
       },
       "item": [
         {
-          "id": "6ae41431-6af6-47b4-ae40-0181dbc85b18",
+          "id": "04dbba9b-93e1-4c24-848a-60910db627e3",
           "name": "List Teams",
           "request": {
             "name": "List Teams",
@@ -165,7 +65,7 @@
           },
           "response": [
             {
-              "id": "33eb4b9d-7757-448e-9946-b968bc714602",
+              "id": "9b5d1ac8-b522-43b1-a591-75ff8605b826",
               "name": "OK",
               "originalRequest": {
                 "url": {
@@ -221,7 +121,7 @@
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "e3c7399f-c819-40e4-b818-8957195a9a58",
+              "id": "6980a8d5-d000-4925-8c04-7f90cb45b400",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -278,12 +178,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 1460,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7307,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "cedc3365-a429-4766-b178-ce872e3d9ccb",
+              "id": "23ff1232-2c46-4859-8978-a0c11af55816",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -340,12 +240,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 1460,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7307,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "25da47b0-721f-4d99-b581-635c6714767f",
+              "id": "48aa1e8e-c80c-4a7b-9e98-d15764aad1e1",
               "name": "Too Many Requests",
               "originalRequest": {
                 "url": {
@@ -403,7 +303,7 @@
           }
         },
         {
-          "id": "3bca522d-b571-48b7-85a6-3157d2f4f1dd",
+          "id": "5ba6ed8a-ec61-4e0b-9433-97d453c9c5ed",
           "name": "Get Team by Identifier",
           "request": {
             "name": "Get Team by Identifier",
@@ -420,7 +320,15 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team-identifier",
+                  "description": "(Required) Team identifier"
+                }
+              ]
             },
             "header": [
               {
@@ -441,7 +349,7 @@
           },
           "response": [
             {
-              "id": "5e21e807-cb22-41d7-9b0f-ba88fe9fa1f7",
+              "id": "eb4cf33f-2917-4811-9108-4bbee248ed9f",
               "name": "OK",
               "originalRequest": {
                 "url": {
@@ -453,7 +361,15 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team-identifier",
+                      "description": "(Required) Team identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -480,12 +396,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"identifier\": \"string\",\n  \"name\": \"string\",\n  \"planIdentifier\": \"string\",\n  \"isSystemManaged\": true\n}",
+              "body": "{\n  \"identifier\": \"string\",\n  \"name\": \"string\",\n  \"planIdentifier\": \"string\",\n  \"isSystemManaged\": false\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "fcaf1c20-1407-4681-9111-e7b466c08292",
+              "id": "9d1cc51f-e419-4e1b-a336-80fe76e89a74",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -497,7 +413,15 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team-identifier",
+                      "description": "(Required) Team identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -530,12 +454,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 1460,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7307,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "105b0c0f-e23e-4388-8631-62a79483fb1e",
+              "id": "12916ee6-830a-484f-bf16-e9458a779559",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -547,7 +471,15 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team-identifier",
+                      "description": "(Required) Team identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -580,12 +512,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 1460,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7307,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "ee18d05c-5a38-477e-ba14-c59d1de4aadd",
+              "id": "b13c9f2c-a7cd-484b-a518-cd84fe216e31",
               "name": "Problem Details",
               "originalRequest": {
                 "url": {
@@ -597,7 +529,15 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team-identifier",
+                      "description": "(Required) Team identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -630,12 +570,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 1460,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 7307,\n  \"traceId\": \"string\",\n  \"detail\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "79c61962-079a-4e14-839a-f18d97407489",
+              "id": "3f3fe383-ddab-4c0c-b294-de406a203b4d",
               "name": "Too Many Requests",
               "originalRequest": {
                 "url": {
@@ -647,7 +587,15 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": []
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team-identifier",
+                      "description": "(Required) Team identifier"
+                    }
+                  ]
                 },
                 "header": [
                   {
@@ -682,16 +630,6 @@
         }
       ],
       "event": []
-    },
-    {
-      "id": "e7d2d3db-c0fb-4b61-a89d-08a90d490ab1",
-      "name": "flutter-symbols",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [],
-      "event": []
     }
   ],
   "event": [],
@@ -712,8 +650,8 @@
     ]
   },
   "info": {
-    "_postman_id": "6b264056-8420-4cf7-8f7f-7ab40620e964",
-    "name": "Raygun Teams API",
+    "_postman_id": "cdbb2f86-16b5-4f21-9f86-b747421d6deb",
+    "name": "Raygun applications teams API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.\n\nContact Support:\n Name: Raygun Support\n Email: support@raygun.com",
