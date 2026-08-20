@@ -5,6 +5,9 @@ apis:
     name: Raygun Applications API
     tags:
       - Observability
+      - Application
+    tags_raw:
+      - Observability
       - Applications
     humanURL: https://api.raygun.io/v3/swagger/index.html
     properties:
@@ -44,6 +47,10 @@ apis:
   - aid: raygun:raygun-deployments-api
     name: Raygun Deployments API
     tags:
+      - Observability
+      - Deployment
+      - Release Tracking
+    tags_raw:
       - Observability
       - Deployments
       - Release Tracking
@@ -112,6 +119,11 @@ apis:
       - Observability
       - Real User Monitoring
       - Customers
+      - User
+    tags_raw:
+      - Observability
+      - Real User Monitoring
+      - Customers
       - Users
     humanURL: https://api.raygun.io/v3/swagger/index.html
     properties:
@@ -158,6 +170,10 @@ apis:
   - aid: raygun:raygun-teams-api
     name: Raygun Teams API
     tags:
+      - Observability
+      - Administration
+      - Team
+    tags_raw:
       - Observability
       - Administration
       - Teams
@@ -223,6 +239,14 @@ apis:
     tags:
       - Observability
       - Crash Reporting
+      - Webhook
+      - Event-Driven
+      - Regression Detection
+      - Slack
+      - Microsoft Teams
+    tags_raw:
+      - Observability
+      - Crash Reporting
       - Webhooks
       - Event-Driven
       - Regression Detection
@@ -262,6 +286,17 @@ apis:
       use the v3 Sessions/Pages/Metrics APIs instead.
 name: Raygun
 tags:
+  - Observability
+  - Crash Reporting
+  - Real User Monitoring
+  - Application Performance Monitoring
+  - Error Tracking
+  - Errors
+  - Monitoring
+  - DevOps
+  - Source Maps
+  - Deployment
+tags_raw:
   - Observability
   - Crash Reporting
   - Real User Monitoring
