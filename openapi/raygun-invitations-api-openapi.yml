@@ -1,8 +1,10 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Raygun applications invitations API
+  title: Raygun Invitations API
   version: '3.0'
-  description: This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.
+  description: 'This is a visual representation of the Raygun API V3 specification.
+
+    To find out more details and how to get started, you can head over to the documentation.'
   contact:
     name: Raygun Support
     email: support@raygun.com
@@ -12,7 +14,7 @@ servers:
 security:
 - personal_access_token: []
 tags:
-- name: invitations
+- name: Invitations
 paths:
   /invitations:
     parameters: []
@@ -39,7 +41,7 @@ paths:
       - personal_access_token:
         - invitations:read
       tags:
-      - invitations
+      - Invitations
       parameters:
       - $ref: '#/components/parameters/count'
       - $ref: '#/components/parameters/offset'
@@ -86,7 +88,7 @@ paths:
           description: Too Many Requests
       description: Send an invitation to a user
       tags:
-      - invitations
+      - Invitations
       security:
       - personal_access_token:
         - invitations:write
@@ -115,7 +117,7 @@ paths:
         '429':
           description: Too Many Requests
       tags:
-      - invitations
+      - Invitations
       description: Get an invitation by identifier
       security:
       - personal_access_token:
@@ -140,13 +142,40 @@ paths:
         '429':
           description: Too Many Requests
       tags:
-      - invitations
+      - Invitations
       description: Revoke a sent invitation
       security:
       - personal_access_token:
         - invitations:write
 components:
   responses:
+    problem-details:
+      description: Problem Details
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              title:
+                type: string
+              detail:
+                type: string
+              status:
+                type: integer
+              traceId:
+                type: string
+            required:
+            - type
+            - title
+            - status
+            - traceId
+      headers:
+        X-Raygun-RequestId:
+          schema:
+            type: string
+          description: The id associated with this request
     validation-problem-details:
       description: Validation problem details
       content:
@@ -181,33 +210,18 @@ components:
           schema:
             type: string
           description: The id associated with this request
-    problem-details:
-      description: Problem Details
+  requestBodies:
+    send-invitation:
       content:
         application/json:
           schema:
             type: object
             properties:
-              type:
+              emailAddress:
                 type: string
-              title:
-                type: string
-              detail:
-                type: string
-              status:
-                type: integer
-              traceId:
-                type: string
+                format: email
             required:
-            - type
-            - title
-            - status
-            - traceId
-      headers:
-        X-Raygun-RequestId:
-          schema:
-            type: string
-          description: The id associated with this request
+            - emailAddress
   parameters:
     count:
       name: count
@@ -234,18 +248,6 @@ components:
       schema:
         type: string
       description: Invitation identifier
-  requestBodies:
-    send-invitation:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              emailAddress:
-                type: string
-                format: email
-            required:
-            - emailAddress
   schemas:
     invitation:
       type: object

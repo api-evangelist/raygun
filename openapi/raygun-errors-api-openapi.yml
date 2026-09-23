@@ -1,8 +1,10 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Raygun applications errors API
+  title: Raygun Errors API
   version: '3.0'
-  description: This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.
+  description: 'This is a visual representation of the Raygun API V3 specification.
+
+    To find out more details and how to get started, you can head over to the documentation.'
   contact:
     name: Raygun Support
     email: support@raygun.com
@@ -12,8 +14,58 @@ servers:
 security:
 - personal_access_token: []
 tags:
-- name: errors
+- name: Errors
 paths:
+  /applications/{application-identifier}/error-groups:
+    parameters:
+    - $ref: '#/components/parameters/application-identifier'
+    get:
+      summary: List Error Groups for an Application
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/error-group'
+        '401':
+          $ref: '#/components/responses/problem-details'
+        '403':
+          $ref: '#/components/responses/problem-details'
+        '404':
+          $ref: '#/components/responses/problem-details'
+        '429':
+          description: Too many requests
+      operationId: list-error-groups
+      description: Returns a list of error groups for the specified application
+      security:
+      - personal_access_token:
+        - cr.errors:read
+      parameters:
+      - $ref: '#/components/parameters/count'
+      - $ref: '#/components/parameters/offset'
+      - in: query
+        name: orderby
+        description: Order items by property values
+        explode: false
+        schema:
+          type: array
+          uniqueItems: true
+          items:
+            type: string
+            enum:
+            - message
+            - message desc
+            - status
+            - status desc
+            - lastOccurredAt
+            - lastOccurredAt desc
+            - createdAt
+            - createdAt desc
+      tags:
+      - Errors
   /applications/{application-identifier}/deployments/latest/error-groups:
     parameters:
     - $ref: '#/components/parameters/application-identifier'
@@ -70,7 +122,7 @@ paths:
             - createdAt
             - createdAt desc
       tags:
-      - errors
+      - Errors
   /applications/{application-identifier}/deployments/{deployment-identifier}/error-groups:
     parameters:
     - $ref: '#/components/parameters/application-identifier'
@@ -128,57 +180,7 @@ paths:
             - createdAt
             - createdAt desc
       tags:
-      - errors
-  /applications/{application-identifier}/error-groups:
-    parameters:
-    - $ref: '#/components/parameters/application-identifier'
-    get:
-      summary: List Error Groups for an Application
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/error-group'
-        '401':
-          $ref: '#/components/responses/problem-details'
-        '403':
-          $ref: '#/components/responses/problem-details'
-        '404':
-          $ref: '#/components/responses/problem-details'
-        '429':
-          description: Too many requests
-      operationId: list-error-groups
-      description: Returns a list of error groups for the specified application
-      security:
-      - personal_access_token:
-        - cr.errors:read
-      parameters:
-      - $ref: '#/components/parameters/count'
-      - $ref: '#/components/parameters/offset'
-      - in: query
-        name: orderby
-        description: Order items by property values
-        explode: false
-        schema:
-          type: array
-          uniqueItems: true
-          items:
-            type: string
-            enum:
-            - message
-            - message desc
-            - status
-            - status desc
-            - lastOccurredAt
-            - lastOccurredAt desc
-            - createdAt
-            - createdAt desc
-      tags:
-      - errors
+      - Errors
   /applications/{application-identifier}/error-groups/{error-group-identifier}:
     parameters:
     - $ref: '#/components/parameters/application-identifier'
@@ -206,7 +208,7 @@ paths:
       - personal_access_token:
         - cr.errors:read
       tags:
-      - errors
+      - Errors
   /applications/{application-identifier}/error-groups/{error-group-identifier}/resolve:
     parameters:
     - $ref: '#/components/parameters/application-identifier'
@@ -238,7 +240,7 @@ paths:
       - personal_access_token:
         - cr.errors:write
       tags:
-      - errors
+      - Errors
       requestBody:
         $ref: '#/components/requestBodies/error-group-resolve'
   /applications/{application-identifier}/error-groups/{error-group-identifier}/activate:
@@ -272,7 +274,7 @@ paths:
       - personal_access_token:
         - cr.errors:write
       tags:
-      - errors
+      - Errors
   /applications/{application-identifier}/error-groups/{error-group-identifier}/ignore:
     parameters:
     - $ref: '#/components/parameters/application-identifier'
@@ -304,7 +306,7 @@ paths:
       - personal_access_token:
         - cr.errors:write
       tags:
-      - errors
+      - Errors
   /applications/{application-identifier}/error-groups/{error-group-identifier}/permanently-ignore:
     parameters:
     - $ref: '#/components/parameters/application-identifier'
@@ -336,7 +338,7 @@ paths:
       - personal_access_token:
         - cr.errors:write
       tags:
-      - errors
+      - Errors
       requestBody:
         $ref: '#/components/requestBodies/error-group-permanently-ignore'
   /applications/{application-identifier}/error-groups/{error-group-identifier}/comment:
@@ -368,7 +370,7 @@ paths:
       - personal_access_token:
         - cr.errors:write
       tags:
-      - errors
+      - Errors
       requestBody:
         $ref: '#/components/requestBodies/create-comment'
   /applications/{application-identifier}/error-groups/{error-group-identifier}/instances:
@@ -417,7 +419,7 @@ paths:
             - identifier
             - identifier desc
       tags:
-      - errors
+      - Errors
   /applications/{application-identifier}/error-groups/{error-group-identifier}/instance/latest:
     parameters:
     - $ref: '#/components/parameters/application-identifier'
@@ -445,7 +447,7 @@ paths:
       - personal_access_token:
         - cr.errors:read
       tags:
-      - errors
+      - Errors
   /applications/{application-identifier}/error-groups/{error-group-identifier}/instance/{error-instance-identifier}:
     parameters:
     - $ref: '#/components/parameters/application-identifier'
@@ -474,22 +476,22 @@ paths:
       - personal_access_token:
         - cr.errors:read
       tags:
-      - errors
+      - Errors
 components:
   schemas:
-    error-instance-summary:
+    client-detail:
       type: object
       properties:
-        identifier:
+        name:
           type: string
-          description: Identifier of the error instance
-        occurredOn:
+          description: Name of the client SDK
+        version:
           type: string
-          format: date-time
-          description: When this error instance occurred
-      required:
-      - identifier
-      - occurredOn
+          description: Version of the client SDK
+        clientUrl:
+          type: string
+          format: uri
+          description: URL of the client SDK
     request-detail:
       type: object
       properties:
@@ -524,6 +526,114 @@ components:
         hostName:
           type: string
           description: Host header value
+    stack-frame-detail:
+      type: object
+      properties:
+        lineNumber:
+          type: integer
+          description: Line number in the source file
+        columnNumber:
+          type: integer
+          description: Column number in the source file
+        className:
+          type: string
+          description: Class name containing the method
+        fileName:
+          type: string
+          description: File name of the source code
+        methodName:
+          type: string
+          description: Method name
+        raw:
+          type: string
+          description: Raw stack frame string
+    environment-detail:
+      type: object
+      properties:
+        processorCount:
+          type: integer
+          description: Processor count
+        osVersion:
+          type: string
+          description: Operating system version
+        windowBoundsWidth:
+          type: string
+          description: Window bounds width if applicable
+        windowBoundsHeight:
+          type: string
+          description: Window bounds height if applicable
+        browser:
+          type: string
+          description: Browser name if this is a web application
+        browserVersion:
+          type: string
+          description: Browser version
+        colorDepth:
+          type: integer
+          description: Color depth of the display
+        resolutionWidth:
+          type: integer
+          description: Screen resolution width
+        resolutionHeight:
+          type: integer
+          description: Screen resolution height
+        currentCulture:
+          type: string
+          description: Current culture
+        totalPhysicalMemory:
+          type: integer
+          format: int64
+          description: Total physical memory
+        availablePhysicalMemory:
+          type: integer
+          format: int64
+          description: Available physical memory
+        totalVirtualMemory:
+          type: integer
+          format: int64
+          description: Total virtual memory
+        availableVirtualMemory:
+          type: integer
+          format: int64
+          description: Available virtual memory
+        diskSpaceFree:
+          type: string
+          description: Disk space information
+        architecture:
+          type: string
+          description: Architecture (x86, x64, etc.)
+    error-instance-summary:
+      type: object
+      properties:
+        identifier:
+          type: string
+          description: Identifier of the error instance
+        occurredOn:
+          type: string
+          format: date-time
+          description: When this error instance occurred
+      required:
+      - identifier
+      - occurredOn
+    comment:
+      title: comment
+      type: object
+      properties:
+        applicationIdentifier:
+          type: string
+        errorGroupIdentifier:
+          type: string
+        comment:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+      required:
+      - identifier
+      - applicationIdentifier
+      - errorGroupIdentifier
+      - comment
+      - createdAt
     error-instance:
       type: object
       properties:
@@ -586,40 +696,6 @@ components:
       - occurredOn
       - error
       - applicationUrl
-    stack-frame-detail:
-      type: object
-      properties:
-        lineNumber:
-          type: integer
-          description: Line number in the source file
-        columnNumber:
-          type: integer
-          description: Column number in the source file
-        className:
-          type: string
-          description: Class name containing the method
-        fileName:
-          type: string
-          description: File name of the source code
-        methodName:
-          type: string
-          description: Method name
-        raw:
-          type: string
-          description: Raw stack frame string
-    client-detail:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the client SDK
-        version:
-          type: string
-          description: Version of the client SDK
-        clientUrl:
-          type: string
-          format: uri
-          description: URL of the client SDK
     breadcrumb-detail:
       type: object
       properties:
@@ -665,61 +741,6 @@ components:
           items:
             $ref: '#/components/schemas/stack-frame-detail'
           description: Stack trace frames
-    environment-detail:
-      type: object
-      properties:
-        processorCount:
-          type: integer
-          description: Processor count
-        osVersion:
-          type: string
-          description: Operating system version
-        windowBoundsWidth:
-          type: string
-          description: Window bounds width if applicable
-        windowBoundsHeight:
-          type: string
-          description: Window bounds height if applicable
-        browser:
-          type: string
-          description: Browser name if this is a web application
-        browserVersion:
-          type: string
-          description: Browser version
-        colorDepth:
-          type: integer
-          description: Color depth of the display
-        resolutionWidth:
-          type: integer
-          description: Screen resolution width
-        resolutionHeight:
-          type: integer
-          description: Screen resolution height
-        currentCulture:
-          type: string
-          description: Current culture
-        totalPhysicalMemory:
-          type: integer
-          format: int64
-          description: Total physical memory
-        availablePhysicalMemory:
-          type: integer
-          format: int64
-          description: Available physical memory
-        totalVirtualMemory:
-          type: integer
-          format: int64
-          description: Total virtual memory
-        availableVirtualMemory:
-          type: integer
-          format: int64
-          description: Available virtual memory
-        diskSpaceFree:
-          type: string
-          description: Disk space information
-        architecture:
-          type: string
-          description: Architecture (x86, x64, etc.)
     user-detail:
       type: object
       properties:
@@ -743,25 +764,6 @@ components:
           type: string
           format: uuid
           description: UUID for this user
-    comment:
-      title: comment
-      type: object
-      properties:
-        applicationIdentifier:
-          type: string
-        errorGroupIdentifier:
-          type: string
-        comment:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-      required:
-      - identifier
-      - applicationIdentifier
-      - errorGroupIdentifier
-      - comment
-      - createdAt
     error-group:
       type: object
       properties:
@@ -804,6 +806,53 @@ components:
       - status
       - lastOccurredAt
       - createdAt
+  parameters:
+    application-identifier:
+      name: application-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Application identifier
+    error-instance-identifier:
+      name: error-instance-identifier
+      in: path
+      schema:
+        type: string
+      required: true
+      description: Error instance identifier (accepts both Base36 and numeric formats)
+    count:
+      name: count
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+        maximum: 500
+      description: Limits the number of items in the response
+    error-group-identifier:
+      name: error-group-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Error group identifier
+    deployment-identifier:
+      name: deployment-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Deployment identifier
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 2147483647
+      description: Number of items to skip before returning results
   responses:
     problem-details:
       description: Problem Details
@@ -867,16 +916,6 @@ components:
             type: string
           description: The id associated with this request
   requestBodies:
-    create-comment:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              comment:
-                type: string
-                description: The comment to add to the error group
-      required: true
     error-group-resolve:
       content:
         application/json:
@@ -905,53 +944,16 @@ components:
             required:
             - discardNewOccurrences
       required: true
-  parameters:
-    deployment-identifier:
-      name: deployment-identifier
-      in: path
+    create-comment:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              comment:
+                type: string
+                description: The comment to add to the error group
       required: true
-      schema:
-        type: string
-      description: Deployment identifier
-    error-group-identifier:
-      name: error-group-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Error group identifier
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 2147483647
-      description: Number of items to skip before returning results
-    error-instance-identifier:
-      name: error-instance-identifier
-      in: path
-      schema:
-        type: string
-      required: true
-      description: Error instance identifier (accepts both Base36 and numeric formats)
-    application-identifier:
-      name: application-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Application identifier
-    count:
-      name: count
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 100
-        maximum: 500
-      description: Limits the number of items in the response
   securitySchemes:
     personal_access_token:
       type: http

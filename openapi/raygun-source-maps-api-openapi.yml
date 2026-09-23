@@ -1,8 +1,10 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Raygun applications source-maps API
+  title: Raygun Source Maps API
   version: '3.0'
-  description: This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.
+  description: 'This is a visual representation of the Raygun API V3 specification.
+
+    To find out more details and how to get started, you can head over to the documentation.'
   contact:
     name: Raygun Support
     email: support@raygun.com
@@ -12,7 +14,7 @@ servers:
 security:
 - personal_access_token: []
 tags:
-- name: source-maps
+- name: Source Maps
 paths:
   /applications/{application-identifier}/source-maps/{source-map-identifier}:
     parameters:
@@ -48,7 +50,7 @@ paths:
         $ref: '#/components/requestBodies/update-source-map'
       parameters: []
       tags:
-      - source-maps
+      - Source Maps
     delete:
       summary: Deletes a Sourcemap by Identifier
       responses:
@@ -68,7 +70,7 @@ paths:
         - cr.source-maps:write
       parameters: []
       tags:
-      - source-maps
+      - Source Maps
       description: Delete a source map
     get:
       summary: Get Source Map by Identifier
@@ -94,7 +96,7 @@ paths:
         - cr.source-maps:read
       parameters: []
       tags:
-      - source-maps
+      - Source Maps
   /applications/{application-identifier}/source-maps:
     parameters:
     - $ref: '#/components/parameters/application-identifier'
@@ -148,7 +150,7 @@ paths:
             - updatedAt
             - updatedAt desc
       tags:
-      - source-maps
+      - Source Maps
     put:
       summary: Upload a Source Map
       operationId: upload-source-map
@@ -178,7 +180,7 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/upload-source-map'
       tags:
-      - source-maps
+      - Source Maps
     delete:
       summary: Deletes All Source Maps for an Application
       responses:
@@ -198,10 +200,37 @@ paths:
         - cr.source-maps:write
       parameters: []
       tags:
-      - source-maps
+      - Source Maps
       description: Deletes all source maps
 components:
   responses:
+    problem-details:
+      description: Problem Details
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              title:
+                type: string
+              detail:
+                type: string
+              status:
+                type: integer
+              traceId:
+                type: string
+            required:
+            - type
+            - title
+            - status
+            - traceId
+      headers:
+        X-Raygun-RequestId:
+          schema:
+            type: string
+          description: The id associated with this request
     validation-problem-details:
       description: Validation problem details
       content:
@@ -236,95 +265,6 @@ components:
           schema:
             type: string
           description: The id associated with this request
-    problem-details:
-      description: Problem Details
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              type:
-                type: string
-              title:
-                type: string
-              detail:
-                type: string
-              status:
-                type: integer
-              traceId:
-                type: string
-            required:
-            - type
-            - title
-            - status
-            - traceId
-      headers:
-        X-Raygun-RequestId:
-          schema:
-            type: string
-          description: The id associated with this request
-  requestBodies:
-    upload-source-map:
-      content:
-        multipart/form-data:
-          schema:
-            type: object
-            properties:
-              file:
-                type: string
-                format: binary
-              uri:
-                type: string
-                format: uri
-            required:
-            - file
-            - uri
-      required: true
-    update-source-map:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              uri:
-                type: string
-                format: uri
-            required:
-            - uri
-      required: true
-  parameters:
-    count:
-      name: count
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 100
-        maximum: 500
-      description: Limits the number of items in the response
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 2147483647
-      description: Number of items to skip before returning results
-    application-identifier:
-      name: application-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Application identifier
-    source-map-identifier:
-      name: source-map-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Source map identifier
   schemas:
     source-map:
       title: source-map
@@ -352,6 +292,68 @@ components:
           format: date-time
         isMapFile:
           type: boolean
+  parameters:
+    source-map-identifier:
+      name: source-map-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Source map identifier
+    count:
+      name: count
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+        maximum: 500
+      description: Limits the number of items in the response
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 2147483647
+      description: Number of items to skip before returning results
+    application-identifier:
+      name: application-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Application identifier
+  requestBodies:
+    update-source-map:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              uri:
+                type: string
+                format: uri
+            required:
+            - uri
+      required: true
+    upload-source-map:
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              file:
+                type: string
+                format: binary
+              uri:
+                type: string
+                format: uri
+            required:
+            - file
+            - uri
+      required: true
   securitySchemes:
     personal_access_token:
       type: http

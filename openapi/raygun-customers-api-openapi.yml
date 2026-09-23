@@ -1,8 +1,10 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Raygun applications customers API
+  title: Raygun Customers API
   version: '3.0'
-  description: This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.
+  description: 'This is a visual representation of the Raygun API V3 specification.
+
+    To find out more details and how to get started, you can head over to the documentation.'
   contact:
     name: Raygun Support
     email: support@raygun.com
@@ -12,7 +14,7 @@ servers:
 security:
 - personal_access_token: []
 tags:
-- name: customers
+- name: Customers
 paths:
   /applications/{application-identifier}/customers:
     parameters:
@@ -60,7 +62,7 @@ paths:
             - lastSeenAt
             - lastSeenAt desc
       tags:
-      - customers
+      - Customers
   /applications/{application-identifier}/customers/{customer-identifier}:
     parameters:
     - $ref: '#/components/parameters/application-identifier'
@@ -68,7 +70,7 @@ paths:
     get:
       summary: Get Customer by Identifier
       tags:
-      - customers
+      - Customers
       responses:
         '200':
           description: OK
@@ -90,33 +92,6 @@ paths:
       - personal_access_token:
         - customers:read
 components:
-  schemas:
-    customer:
-      title: customer
-      type: object
-      properties:
-        identifier:
-          type: string
-        applicationIdentifier:
-          type: string
-        externalIdentifier:
-          type: string
-          description: Unique value that identifies the customer in your system.
-        emailAddress:
-          type: string
-          format: email
-        firstName:
-          type: string
-        fullName:
-          type: string
-        isAnonymous:
-          type: boolean
-        firstSeenAt:
-          type: string
-          format: date-time
-        lastSeenAt:
-          type: string
-          format: date-time
   responses:
     problem-details:
       description: Problem Details
@@ -164,13 +139,6 @@ components:
         minimum: 0
         maximum: 2147483647
       description: Number of items to skip before returning results
-    application-identifier:
-      name: application-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Application identifier
     customer-identifier:
       name: customer-identifier
       in: path
@@ -178,6 +146,40 @@ components:
         type: string
       required: true
       description: Customer identifier
+    application-identifier:
+      name: application-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Application identifier
+  schemas:
+    customer:
+      title: customer
+      type: object
+      properties:
+        identifier:
+          type: string
+        applicationIdentifier:
+          type: string
+        externalIdentifier:
+          type: string
+          description: Unique value that identifies the customer in your system.
+        emailAddress:
+          type: string
+          format: email
+        firstName:
+          type: string
+        fullName:
+          type: string
+        isAnonymous:
+          type: boolean
+        firstSeenAt:
+          type: string
+          format: date-time
+        lastSeenAt:
+          type: string
+          format: date-time
   securitySchemes:
     personal_access_token:
       type: http

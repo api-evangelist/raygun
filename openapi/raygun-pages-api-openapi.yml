@@ -1,8 +1,10 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Raygun applications pages API
+  title: Raygun Pages API
   version: '3.0'
-  description: This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.
+  description: 'This is a visual representation of the Raygun API V3 specification.
+
+    To find out more details and how to get started, you can head over to the documentation.'
   contact:
     name: Raygun Support
     email: support@raygun.com
@@ -12,7 +14,7 @@ servers:
 security:
 - personal_access_token: []
 tags:
-- name: pages
+- name: Pages
 paths:
   /applications/{application-identifier}/pages:
     parameters:
@@ -25,7 +27,7 @@ paths:
       - personal_access_token:
         - rum.pages:read
       tags:
-      - pages
+      - Pages
       responses:
         '200':
           description: OK
@@ -76,7 +78,7 @@ paths:
       - personal_access_token:
         - rum.pages:read
       tags:
-      - pages
+      - Pages
       responses:
         '200':
           description: OK
@@ -95,38 +97,6 @@ paths:
         '429':
           description: Too many requests
 components:
-  schemas:
-    web-page:
-      title: web-page
-      type: object
-      properties:
-        identifier:
-          type: string
-        applicationIdentifier:
-          type: string
-        uri:
-          type: string
-          format: uri
-        type:
-          type: string
-        lastSeenAt:
-          type: string
-          format: date-time
-    mobile-page:
-      title: mobile-page
-      type: object
-      properties:
-        identifier:
-          type: string
-        applicationIdentifier:
-          type: string
-        name:
-          type: string
-        type:
-          type: string
-        lastSeenAt:
-          type: string
-          format: date-time
   responses:
     problem-details:
       description: Problem Details
@@ -155,6 +125,38 @@ components:
           schema:
             type: string
           description: The id associated with this request
+  schemas:
+    mobile-page:
+      title: mobile-page
+      type: object
+      properties:
+        identifier:
+          type: string
+        applicationIdentifier:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        lastSeenAt:
+          type: string
+          format: date-time
+    web-page:
+      title: web-page
+      type: object
+      properties:
+        identifier:
+          type: string
+        applicationIdentifier:
+          type: string
+        uri:
+          type: string
+          format: uri
+        type:
+          type: string
+        lastSeenAt:
+          type: string
+          format: date-time
   parameters:
     count:
       name: count
@@ -174,13 +176,6 @@ components:
         minimum: 0
         maximum: 2147483647
       description: Number of items to skip before returning results
-    application-identifier:
-      name: application-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Application identifier
     page-identifier:
       name: page-identifier
       in: path
@@ -188,6 +183,13 @@ components:
       schema:
         type: string
       description: Page identifier
+    application-identifier:
+      name: application-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Application identifier
   securitySchemes:
     personal_access_token:
       type: http

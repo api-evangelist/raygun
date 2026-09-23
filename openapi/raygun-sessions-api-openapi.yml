@@ -1,8 +1,10 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Raygun applications sessions API
+  title: Raygun Sessions API
   version: '3.0'
-  description: This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.
+  description: 'This is a visual representation of the Raygun API V3 specification.
+
+    To find out more details and how to get started, you can head over to the documentation.'
   contact:
     name: Raygun Support
     email: support@raygun.com
@@ -12,7 +14,7 @@ servers:
 security:
 - personal_access_token: []
 tags:
-- name: sessions
+- name: Sessions
 paths:
   /applications/{application-identifier}/sessions:
     parameters:
@@ -87,7 +89,7 @@ paths:
             - deploymentVersion
             - deploymentVersion desc
       tags:
-      - sessions
+      - Sessions
   /applications/{application-identifier}/sessions/{session-identifier}:
     parameters:
     - $ref: '#/components/parameters/application-identifier'
@@ -95,7 +97,7 @@ paths:
     get:
       summary: Get Session by Identifier
       tags:
-      - sessions
+      - Sessions
       responses:
         '200':
           description: OK
@@ -177,6 +179,13 @@ components:
             type: string
           description: The id associated with this request
   parameters:
+    session-identifier:
+      name: session-identifier
+      in: path
+      schema:
+        type: string
+      required: true
+      description: Session identifier
     count:
       name: count
       in: query
@@ -202,31 +211,7 @@ components:
       schema:
         type: string
       description: Application identifier
-    session-identifier:
-      name: session-identifier
-      in: path
-      schema:
-        type: string
-      required: true
-      description: Session identifier
   schemas:
-    sessionPageView:
-      title: page-view
-      type: object
-      properties:
-        pageIdentifier:
-          type: string
-        viewedAt:
-          type: string
-          format: date-time
-        applicationUrl:
-          type: string
-          format: uri
-          description: URL to view the session page view in Raygun
-      required:
-      - pageIdentifier
-      - viewedAt
-      - applicationUrl
     sessionError:
       title: session-error
       type: object
@@ -263,39 +248,44 @@ components:
           type: string
           format: date-time
         endedAt:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         ipAddress:
           type: string
           oneOf:
           - format: ipv4
           - format: ipv6
         countryCode:
-          type: string
+          type:
+          - string
+          - 'null'
           pattern: ^[A-Z]{2}$
           example: US
           description: ISO 3166-1 alpha-2 country code
-          nullable: true
         platformName:
           type: string
         operatingSystemName:
           type: string
         operatingSystemVersion:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         browserName:
           type: string
         browserVersion:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         viewportWidth:
           type: integer
         viewportHeight:
           type: integer
         deploymentVersion:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         applicationUrl:
           type: string
           format: uri
@@ -318,6 +308,23 @@ components:
       - viewportWidth
       - viewportHeight
       - deploymentVersion
+      - applicationUrl
+    sessionPageView:
+      title: page-view
+      type: object
+      properties:
+        pageIdentifier:
+          type: string
+        viewedAt:
+          type: string
+          format: date-time
+        applicationUrl:
+          type: string
+          format: uri
+          description: URL to view the session page view in Raygun
+      required:
+      - pageIdentifier
+      - viewedAt
       - applicationUrl
   securitySchemes:
     personal_access_token:

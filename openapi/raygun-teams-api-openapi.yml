@@ -1,8 +1,10 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Raygun applications teams API
+  title: Raygun Teams API
   version: '3.0'
-  description: This is a visual representation of the Raygun API V3 specification.<br> To find out more details and how to get started, you can head over to the <a href='https://raygun.com/documentation/product-guides/public-api/' target='_blank'>documentation</a>.
+  description: 'This is a visual representation of the Raygun API V3 specification.
+
+    To find out more details and how to get started, you can head over to the documentation.'
   contact:
     name: Raygun Support
     email: support@raygun.com
@@ -12,13 +14,13 @@ servers:
 security:
 - personal_access_token: []
 tags:
-- name: teams
+- name: Teams
 paths:
   /teams:
     get:
       summary: List Teams
       tags:
-      - teams
+      - Teams
       responses:
         '200':
           description: OK
@@ -60,7 +62,7 @@ paths:
     get:
       summary: Get Team by Identifier
       tags:
-      - teams
+      - Teams
       responses:
         '200':
           description: OK

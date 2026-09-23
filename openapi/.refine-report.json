@@ -1,18 +1,7 @@
 {
   "provider": "raygun",
   "sources": [
-    "raygun-applications-api-openapi.yml",
-    "raygun-customers-api-openapi.yml",
-    "raygun-deployments-api-openapi.yml",
-    "raygun-errors-api-openapi.yml",
-    "raygun-flutter-symbols-api-openapi.yml",
-    "raygun-invitations-api-openapi.yml",
-    "raygun-metrics-api-openapi.yml",
-    "raygun-pages-api-openapi.yml",
-    "raygun-plans-api-openapi.yml",
-    "raygun-sessions-api-openapi.yml",
-    "raygun-source-maps-api-openapi.yml",
-    "raygun-teams-api-openapi.yml"
+    "_original/raygun-public-api-openapi.yml"
   ],
   "outputs": [
     "raygun-applications-api-openapi.yml",
@@ -31,6 +20,23 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "raygun-public-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "raygun-applications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "raygun-customers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "raygun-deployments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "raygun-errors-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "raygun-flutter-symbols-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "raygun-invitations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "raygun-metrics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "raygun-pages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "raygun-plans-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "raygun-sessions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "raygun-source-maps-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "raygun-teams-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
