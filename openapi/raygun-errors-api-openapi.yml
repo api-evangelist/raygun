@@ -492,61 +492,29 @@ components:
           type: string
           format: uri
           description: URL of the client SDK
-    request-detail:
+    user-detail:
       type: object
       properties:
-        url:
+        identifier:
           type: string
-          format: uri
-          description: HTTP URL that was being requested
-        httpMethod:
+          description: User identifier
+        isAnonymous:
+          type: boolean
+          description: Whether the user is anonymous
+        email:
           type: string
-          description: HTTP method (GET, POST, etc.)
-        headers:
-          type: object
-          additionalProperties:
-            type: string
-          description: Request headers
-        queryString:
-          type: object
-          additionalProperties:
-            type: string
-          description: Query string parameters
-        form:
-          type: object
-          additionalProperties:
-            type: string
-          description: Form data if applicable
-        rawData:
+          format: email
+          description: User's email address
+        fullName:
           type: string
-          description: Raw request data
-        ipAddress:
+          description: User's full name
+        firstName:
           type: string
-          description: IP address of the client
-        hostName:
+          description: User's first name
+        uuid:
           type: string
-          description: Host header value
-    stack-frame-detail:
-      type: object
-      properties:
-        lineNumber:
-          type: integer
-          description: Line number in the source file
-        columnNumber:
-          type: integer
-          description: Column number in the source file
-        className:
-          type: string
-          description: Class name containing the method
-        fileName:
-          type: string
-          description: File name of the source code
-        methodName:
-          type: string
-          description: Method name
-        raw:
-          type: string
-          description: Raw stack frame string
+          format: uuid
+          description: UUID for this user
     environment-detail:
       type: object
       properties:
@@ -602,38 +570,27 @@ components:
         architecture:
           type: string
           description: Architecture (x86, x64, etc.)
-    error-instance-summary:
+    stack-frame-detail:
       type: object
       properties:
-        identifier:
+        lineNumber:
+          type: integer
+          description: Line number in the source file
+        columnNumber:
+          type: integer
+          description: Column number in the source file
+        className:
           type: string
-          description: Identifier of the error instance
-        occurredOn:
+          description: Class name containing the method
+        fileName:
           type: string
-          format: date-time
-          description: When this error instance occurred
-      required:
-      - identifier
-      - occurredOn
-    comment:
-      title: comment
-      type: object
-      properties:
-        applicationIdentifier:
+          description: File name of the source code
+        methodName:
           type: string
-        errorGroupIdentifier:
+          description: Method name
+        raw:
           type: string
-        comment:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-      required:
-      - identifier
-      - applicationIdentifier
-      - errorGroupIdentifier
-      - comment
-      - createdAt
+          description: Raw stack frame string
     error-instance:
       type: object
       properties:
@@ -696,6 +653,19 @@ components:
       - occurredOn
       - error
       - applicationUrl
+    error-instance-summary:
+      type: object
+      properties:
+        identifier:
+          type: string
+          description: Identifier of the error instance
+        occurredOn:
+          type: string
+          format: date-time
+          description: When this error instance occurred
+      required:
+      - identifier
+      - occurredOn
     breadcrumb-detail:
       type: object
       properties:
@@ -741,29 +711,25 @@ components:
           items:
             $ref: '#/components/schemas/stack-frame-detail'
           description: Stack trace frames
-    user-detail:
+    comment:
+      title: comment
       type: object
       properties:
-        identifier:
+        applicationIdentifier:
           type: string
-          description: User identifier
-        isAnonymous:
-          type: boolean
-          description: Whether the user is anonymous
-        email:
+        errorGroupIdentifier:
           type: string
-          format: email
-          description: User's email address
-        fullName:
+        comment:
           type: string
-          description: User's full name
-        firstName:
+        createdAt:
           type: string
-          description: User's first name
-        uuid:
-          type: string
-          format: uuid
-          description: UUID for this user
+          format: date-time
+      required:
+      - identifier
+      - applicationIdentifier
+      - errorGroupIdentifier
+      - comment
+      - createdAt
     error-group:
       type: object
       properties:
@@ -806,7 +772,104 @@ components:
       - status
       - lastOccurredAt
       - createdAt
+    request-detail:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          description: HTTP URL that was being requested
+        httpMethod:
+          type: string
+          description: HTTP method (GET, POST, etc.)
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+          description: Request headers
+        queryString:
+          type: object
+          additionalProperties:
+            type: string
+          description: Query string parameters
+        form:
+          type: object
+          additionalProperties:
+            type: string
+          description: Form data if applicable
+        rawData:
+          type: string
+          description: Raw request data
+        ipAddress:
+          type: string
+          description: IP address of the client
+        hostName:
+          type: string
+          description: Host header value
+  requestBodies:
+    error-group-resolve:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              version:
+                type: string
+                description: The version that this error was resolved in
+              discardFromPreviousVersions:
+                default: true
+                type: boolean
+                description: When true, occurrences from previous versions will be discarded.
+            required:
+            - version
+            - discardFromPreviousVersions
+    create-comment:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              comment:
+                type: string
+                description: The comment to add to the error group
+      required: true
+    error-group-permanently-ignore:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              discardNewOccurrences:
+                type: boolean
+                description: When true, new occurrences of this error will not be stored or count towards your error quota
+            required:
+            - discardNewOccurrences
+      required: true
   parameters:
+    error-group-identifier:
+      name: error-group-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Error group identifier
+    count:
+      name: count
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+        maximum: 500
+      description: Limits the number of items in the response
+    deployment-identifier:
+      name: deployment-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Deployment identifier
     application-identifier:
       name: application-identifier
       in: path
@@ -821,30 +884,6 @@ components:
         type: string
       required: true
       description: Error instance identifier (accepts both Base36 and numeric formats)
-    count:
-      name: count
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 100
-        maximum: 500
-      description: Limits the number of items in the response
-    error-group-identifier:
-      name: error-group-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Error group identifier
-    deployment-identifier:
-      name: deployment-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Deployment identifier
     offset:
       name: offset
       in: query
@@ -915,45 +954,6 @@ components:
           schema:
             type: string
           description: The id associated with this request
-  requestBodies:
-    error-group-resolve:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              version:
-                type: string
-                description: The version that this error was resolved in
-              discardFromPreviousVersions:
-                default: true
-                type: boolean
-                description: When true, occurrences from previous versions will be discarded.
-            required:
-            - version
-            - discardFromPreviousVersions
-    error-group-permanently-ignore:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              discardNewOccurrences:
-                type: boolean
-                description: When true, new occurrences of this error will not be stored or count towards your error quota
-            required:
-            - discardNewOccurrences
-      required: true
-    create-comment:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              comment:
-                type: string
-                description: The comment to add to the error group
-      required: true
   securitySchemes:
     personal_access_token:
       type: http

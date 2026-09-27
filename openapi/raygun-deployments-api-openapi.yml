@@ -388,69 +388,82 @@ paths:
       tags:
       - Deployments
 components:
-  responses:
-    problem-details:
-      description: Problem Details
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              type:
-                type: string
-              title:
-                type: string
-              detail:
-                type: string
-              status:
-                type: integer
-              traceId:
-                type: string
-            required:
-            - type
-            - title
-            - status
-            - traceId
-      headers:
-        X-Raygun-RequestId:
-          schema:
-            type: string
-          description: The id associated with this request
-    validation-problem-details:
-      description: Validation problem details
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              type:
-                type: string
-              title:
-                type: string
-              detail:
-                type: string
-              status:
-                type: integer
-              traceId:
-                type: string
-              errors:
-                type: object
-                additionalProperties:
-                  type: array
-                  items:
-                    type: string
-            required:
-            - type
-            - title
-            - status
-            - traceId
-            - errors
-      headers:
-        X-Raygun-RequestId:
-          schema:
-            type: string
-          description: The id associated with this request
+  parameters:
+    count:
+      name: count
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+        maximum: 500
+      description: Limits the number of items in the response
+    api-key:
+      name: api-key
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Application api key
+    application-identifier:
+      name: application-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Application identifier
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 2147483647
+      description: Number of items to skip before returning results
+    deployment-identifier:
+      name: deployment-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Deployment identifier
   requestBodies:
+    update-deployment:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              version:
+                type: string
+                minLength: 1
+                maxLength: 128
+              ownerName:
+                type: string
+                minLength: 0
+                maxLength: 128
+              emailAddress:
+                type: string
+                minLength: 0
+                maxLength: 128
+                format: email
+              comment:
+                type: string
+              scmIdentifier:
+                type: string
+                minLength: 0
+                maxLength: 256
+              scmType:
+                type: string
+                enum:
+                - gitHub
+                - gitLab
+                - azureDevOps
+                - bitbucket
+              deployedAt:
+                type: string
+                format: date-time
     create-deployment:
       content:
         application/json:
@@ -496,118 +509,69 @@ components:
                 format: date-time
             required:
             - version
-    update-deployment:
+  responses:
+    validation-problem-details:
+      description: Validation problem details
       content:
         application/json:
           schema:
             type: object
             properties:
-              version:
+              type:
                 type: string
-                minLength: 1
-                maxLength: 128
-              ownerName:
+              title:
                 type: string
-                minLength: 0
-                maxLength: 128
-              emailAddress:
+              detail:
                 type: string
-                minLength: 0
-                maxLength: 128
-                format: email
-              comment:
+              status:
+                type: integer
+              traceId:
                 type: string
-              scmIdentifier:
+              errors:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    type: string
+            required:
+            - type
+            - title
+            - status
+            - traceId
+            - errors
+      headers:
+        X-Raygun-RequestId:
+          schema:
+            type: string
+          description: The id associated with this request
+    problem-details:
+      description: Problem Details
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
                 type: string
-                minLength: 0
-                maxLength: 256
-              scmType:
+              title:
                 type: string
-                enum:
-                - gitHub
-                - gitLab
-                - azureDevOps
-                - bitbucket
-              deployedAt:
+              detail:
                 type: string
-                format: date-time
-  parameters:
-    deployment-identifier:
-      name: deployment-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Deployment identifier
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 2147483647
-      description: Number of items to skip before returning results
-    count:
-      name: count
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 100
-        maximum: 500
-      description: Limits the number of items in the response
-    application-identifier:
-      name: application-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Application identifier
-    api-key:
-      name: api-key
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Application api key
+              status:
+                type: integer
+              traceId:
+                type: string
+            required:
+            - type
+            - title
+            - status
+            - traceId
+      headers:
+        X-Raygun-RequestId:
+          schema:
+            type: string
+          description: The id associated with this request
   schemas:
-    deployment:
-      type: object
-      properties:
-        identifier:
-          type: string
-        applicationIdentifier:
-          type: string
-        version:
-          type: string
-        emailAddress:
-          type: string
-          format: email
-        ownerName:
-          type: string
-        comment:
-          type: string
-        scmIdentifier:
-          type: string
-        scmType:
-          type: string
-          enum:
-          - gitHub
-          - bitbucket
-          - gitLab
-          - azureDevOps
-        deployedAt:
-          type: string
-          format: date-time
-        applicationUrl:
-          type: string
-          format: uri
-          readOnly: true
-      required:
-      - identifier
-      - applicationIdentifier
-      - version
     error-group:
       type: object
       properties:
@@ -650,6 +614,42 @@ components:
       - status
       - lastOccurredAt
       - createdAt
+    deployment:
+      type: object
+      properties:
+        identifier:
+          type: string
+        applicationIdentifier:
+          type: string
+        version:
+          type: string
+        emailAddress:
+          type: string
+          format: email
+        ownerName:
+          type: string
+        comment:
+          type: string
+        scmIdentifier:
+          type: string
+        scmType:
+          type: string
+          enum:
+          - gitHub
+          - bitbucket
+          - gitLab
+          - azureDevOps
+        deployedAt:
+          type: string
+          format: date-time
+        applicationUrl:
+          type: string
+          format: uri
+          readOnly: true
+      required:
+      - identifier
+      - applicationIdentifier
+      - version
   securitySchemes:
     personal_access_token:
       type: http

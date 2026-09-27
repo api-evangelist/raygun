@@ -148,34 +148,33 @@ paths:
       - personal_access_token:
         - invitations:write
 components:
+  parameters:
+    count:
+      name: count
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+        maximum: 500
+      description: Limits the number of items in the response
+    invitation-identifier:
+      name: invitation-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Invitation identifier
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 2147483647
+      description: Number of items to skip before returning results
   responses:
-    problem-details:
-      description: Problem Details
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              type:
-                type: string
-              title:
-                type: string
-              detail:
-                type: string
-              status:
-                type: integer
-              traceId:
-                type: string
-            required:
-            - type
-            - title
-            - status
-            - traceId
-      headers:
-        X-Raygun-RequestId:
-          schema:
-            type: string
-          description: The id associated with this request
     validation-problem-details:
       description: Validation problem details
       content:
@@ -210,6 +209,33 @@ components:
           schema:
             type: string
           description: The id associated with this request
+    problem-details:
+      description: Problem Details
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              title:
+                type: string
+              detail:
+                type: string
+              status:
+                type: integer
+              traceId:
+                type: string
+            required:
+            - type
+            - title
+            - status
+            - traceId
+      headers:
+        X-Raygun-RequestId:
+          schema:
+            type: string
+          description: The id associated with this request
   requestBodies:
     send-invitation:
       content:
@@ -222,32 +248,6 @@ components:
                 format: email
             required:
             - emailAddress
-  parameters:
-    count:
-      name: count
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 100
-        maximum: 500
-      description: Limits the number of items in the response
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 2147483647
-      description: Number of items to skip before returning results
-    invitation-identifier:
-      name: invitation-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Invitation identifier
   schemas:
     invitation:
       type: object
