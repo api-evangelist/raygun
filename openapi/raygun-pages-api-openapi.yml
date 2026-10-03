@@ -98,6 +98,20 @@ paths:
           description: Too many requests
 components:
   parameters:
+    page-identifier:
+      name: page-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Page identifier
+    application-identifier:
+      name: application-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Application identifier
     count:
       name: count
       in: query
@@ -108,13 +122,6 @@ components:
         default: 100
         maximum: 500
       description: Limits the number of items in the response
-    application-identifier:
-      name: application-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Application identifier
     offset:
       name: offset
       in: query
@@ -123,13 +130,6 @@ components:
         minimum: 0
         maximum: 2147483647
       description: Number of items to skip before returning results
-    page-identifier:
-      name: page-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Page identifier
   schemas:
     mobile-page:
       title: mobile-page

@@ -204,6 +204,20 @@ paths:
       description: Deletes all source maps
 components:
   parameters:
+    source-map-identifier:
+      name: source-map-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Source map identifier
+    application-identifier:
+      name: application-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Application identifier
     count:
       name: count
       in: query
@@ -214,13 +228,6 @@ components:
         default: 100
         maximum: 500
       description: Limits the number of items in the response
-    application-identifier:
-      name: application-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Application identifier
     offset:
       name: offset
       in: query
@@ -229,40 +236,6 @@ components:
         minimum: 0
         maximum: 2147483647
       description: Number of items to skip before returning results
-    source-map-identifier:
-      name: source-map-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Source map identifier
-  schemas:
-    source-map:
-      title: source-map
-      type: object
-      properties:
-        identifier:
-          type: string
-        applicationIdentifier:
-          type: string
-        uri:
-          type: string
-          format: uri
-        fileName:
-          type: string
-        fileSizeBytes:
-          type: number
-        uploadedAt:
-          type: string
-          format: date-time
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        isMapFile:
-          type: boolean
   requestBodies:
     upload-source-map:
       content:
@@ -354,6 +327,33 @@ components:
           schema:
             type: string
           description: The id associated with this request
+  schemas:
+    source-map:
+      title: source-map
+      type: object
+      properties:
+        identifier:
+          type: string
+        applicationIdentifier:
+          type: string
+        uri:
+          type: string
+          format: uri
+        fileName:
+          type: string
+        fileSizeBytes:
+          type: number
+        uploadedAt:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        isMapFile:
+          type: boolean
   securitySchemes:
     personal_access_token:
       type: http

@@ -174,58 +174,22 @@ paths:
       - $ref: '#/components/parameters/application-identifier'
       - $ref: '#/components/parameters/flutter-symbol-identifier'
 components:
-  schemas:
-    flutter-symbol:
-      title: flutter-symbol
-      type: object
-      properties:
-        identifier:
-          type: string
-        applicationIdentifier:
-          type: string
-        name:
-          type: string
-        version:
-          type: string
-        updatedAt:
-          type: string
-          format: date-time
-        createdAt:
-          type: string
-          format: date-time
-  parameters:
-    count:
-      name: count
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 100
-        maximum: 500
-      description: Limits the number of items in the response
-    application-identifier:
-      name: application-identifier
-      in: path
+  requestBodies:
+    upload-flutter-symbol:
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              file:
+                type: string
+                format: binary
+              version:
+                type: string
+            required:
+            - file
+            - version
       required: true
-      schema:
-        type: string
-      description: Application identifier
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 2147483647
-      description: Number of items to skip before returning results
-    flutter-symbol-identifier:
-      name: flutter-symbol-identifier
-      in: path
-      schema:
-        type: string
-      required: true
-      description: Flutter symbol identifier
   responses:
     validation-problem-details:
       description: Validation problem details
@@ -288,22 +252,58 @@ components:
           schema:
             type: string
           description: The id associated with this request
-  requestBodies:
-    upload-flutter-symbol:
-      content:
-        multipart/form-data:
-          schema:
-            type: object
-            properties:
-              file:
-                type: string
-                format: binary
-              version:
-                type: string
-            required:
-            - file
-            - version
+  parameters:
+    application-identifier:
+      name: application-identifier
+      in: path
       required: true
+      schema:
+        type: string
+      description: Application identifier
+    count:
+      name: count
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+        maximum: 500
+      description: Limits the number of items in the response
+    flutter-symbol-identifier:
+      name: flutter-symbol-identifier
+      in: path
+      schema:
+        type: string
+      required: true
+      description: Flutter symbol identifier
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 2147483647
+      description: Number of items to skip before returning results
+  schemas:
+    flutter-symbol:
+      title: flutter-symbol
+      type: object
+      properties:
+        identifier:
+          type: string
+        applicationIdentifier:
+          type: string
+        name:
+          type: string
+        version:
+          type: string
+        updatedAt:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
   securitySchemes:
     personal_access_token:
       type: http

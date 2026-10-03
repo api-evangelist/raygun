@@ -148,32 +148,36 @@ paths:
       - personal_access_token:
         - invitations:write
 components:
-  parameters:
-    count:
-      name: count
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 100
-        maximum: 500
-      description: Limits the number of items in the response
-    invitation-identifier:
-      name: invitation-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Invitation identifier
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 2147483647
-      description: Number of items to skip before returning results
+  schemas:
+    invitation:
+      type: object
+      properties:
+        identifier:
+          type: string
+        teamIdentifier:
+          type: string
+        emailAddress:
+          type: string
+          format: email
+        status:
+          type: string
+          enum:
+          - sent
+          - accepted
+          - revoked
+        createdAt:
+          type: string
+          format: date-time
+        createdByUserIdentifier:
+          type: string
+        acceptedByUserIdentifier:
+          type: string
+      required:
+      - identifier
+      - emailAddress
+      - status
+      - createdAt
+      - createdByUserIdentifier
   responses:
     validation-problem-details:
       description: Validation problem details
@@ -236,6 +240,32 @@ components:
           schema:
             type: string
           description: The id associated with this request
+  parameters:
+    count:
+      name: count
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+        maximum: 500
+      description: Limits the number of items in the response
+    invitation-identifier:
+      name: invitation-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Invitation identifier
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 2147483647
+      description: Number of items to skip before returning results
   requestBodies:
     send-invitation:
       content:
@@ -248,36 +278,6 @@ components:
                 format: email
             required:
             - emailAddress
-  schemas:
-    invitation:
-      type: object
-      properties:
-        identifier:
-          type: string
-        teamIdentifier:
-          type: string
-        emailAddress:
-          type: string
-          format: email
-        status:
-          type: string
-          enum:
-          - sent
-          - accepted
-          - revoked
-        createdAt:
-          type: string
-          format: date-time
-        createdByUserIdentifier:
-          type: string
-        acceptedByUserIdentifier:
-          type: string
-      required:
-      - identifier
-      - emailAddress
-      - status
-      - createdAt
-      - createdByUserIdentifier
   securitySchemes:
     personal_access_token:
       type: http

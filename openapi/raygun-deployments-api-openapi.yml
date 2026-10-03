@@ -388,17 +388,86 @@ paths:
       tags:
       - Deployments
 components:
+  schemas:
+    error-group:
+      type: object
+      properties:
+        identifier:
+          type: string
+        applicationIdentifier:
+          type: string
+        message:
+          type: string
+        status:
+          type: string
+          enum:
+          - active
+          - resolved
+          - ignored
+          - permanentlyIgnored
+        lastOccurredAt:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        resolvedIn:
+          type: object
+          properties:
+            version:
+              type: string
+            discardFromPreviousVersions:
+              type: boolean
+        discardNewOccurrences:
+          type: boolean
+          description: True if the error is permanently ignored and has been set to discard any new occurrences.
+        applicationUrl:
+          type: string
+          format: uri
+          description: URL to view the error group in Raygun.
+      required:
+      - identifier
+      - applicationIdentifier
+      - message
+      - status
+      - lastOccurredAt
+      - createdAt
+    deployment:
+      type: object
+      properties:
+        identifier:
+          type: string
+        applicationIdentifier:
+          type: string
+        version:
+          type: string
+        emailAddress:
+          type: string
+          format: email
+        ownerName:
+          type: string
+        comment:
+          type: string
+        scmIdentifier:
+          type: string
+        scmType:
+          type: string
+          enum:
+          - gitHub
+          - bitbucket
+          - gitLab
+          - azureDevOps
+        deployedAt:
+          type: string
+          format: date-time
+        applicationUrl:
+          type: string
+          format: uri
+          readOnly: true
+      required:
+      - identifier
+      - applicationIdentifier
+      - version
   parameters:
-    count:
-      name: count
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 100
-        maximum: 500
-      description: Limits the number of items in the response
     api-key:
       name: api-key
       in: path
@@ -413,6 +482,23 @@ components:
       schema:
         type: string
       description: Application identifier
+    count:
+      name: count
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+        maximum: 500
+      description: Limits the number of items in the response
+    deployment-identifier:
+      name: deployment-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Deployment identifier
     offset:
       name: offset
       in: query
@@ -421,13 +507,68 @@ components:
         minimum: 0
         maximum: 2147483647
       description: Number of items to skip before returning results
-    deployment-identifier:
-      name: deployment-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Deployment identifier
+  responses:
+    validation-problem-details:
+      description: Validation problem details
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              title:
+                type: string
+              detail:
+                type: string
+              status:
+                type: integer
+              traceId:
+                type: string
+              errors:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    type: string
+            required:
+            - type
+            - title
+            - status
+            - traceId
+            - errors
+      headers:
+        X-Raygun-RequestId:
+          schema:
+            type: string
+          description: The id associated with this request
+    problem-details:
+      description: Problem Details
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              title:
+                type: string
+              detail:
+                type: string
+              status:
+                type: integer
+              traceId:
+                type: string
+            required:
+            - type
+            - title
+            - status
+            - traceId
+      headers:
+        X-Raygun-RequestId:
+          schema:
+            type: string
+          description: The id associated with this request
   requestBodies:
     update-deployment:
       content:
@@ -509,147 +650,6 @@ components:
                 format: date-time
             required:
             - version
-  responses:
-    validation-problem-details:
-      description: Validation problem details
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              type:
-                type: string
-              title:
-                type: string
-              detail:
-                type: string
-              status:
-                type: integer
-              traceId:
-                type: string
-              errors:
-                type: object
-                additionalProperties:
-                  type: array
-                  items:
-                    type: string
-            required:
-            - type
-            - title
-            - status
-            - traceId
-            - errors
-      headers:
-        X-Raygun-RequestId:
-          schema:
-            type: string
-          description: The id associated with this request
-    problem-details:
-      description: Problem Details
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              type:
-                type: string
-              title:
-                type: string
-              detail:
-                type: string
-              status:
-                type: integer
-              traceId:
-                type: string
-            required:
-            - type
-            - title
-            - status
-            - traceId
-      headers:
-        X-Raygun-RequestId:
-          schema:
-            type: string
-          description: The id associated with this request
-  schemas:
-    error-group:
-      type: object
-      properties:
-        identifier:
-          type: string
-        applicationIdentifier:
-          type: string
-        message:
-          type: string
-        status:
-          type: string
-          enum:
-          - active
-          - resolved
-          - ignored
-          - permanentlyIgnored
-        lastOccurredAt:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-        resolvedIn:
-          type: object
-          properties:
-            version:
-              type: string
-            discardFromPreviousVersions:
-              type: boolean
-        discardNewOccurrences:
-          type: boolean
-          description: True if the error is permanently ignored and has been set to discard any new occurrences.
-        applicationUrl:
-          type: string
-          format: uri
-          description: URL to view the error group in Raygun.
-      required:
-      - identifier
-      - applicationIdentifier
-      - message
-      - status
-      - lastOccurredAt
-      - createdAt
-    deployment:
-      type: object
-      properties:
-        identifier:
-          type: string
-        applicationIdentifier:
-          type: string
-        version:
-          type: string
-        emailAddress:
-          type: string
-          format: email
-        ownerName:
-          type: string
-        comment:
-          type: string
-        scmIdentifier:
-          type: string
-        scmType:
-          type: string
-          enum:
-          - gitHub
-          - bitbucket
-          - gitLab
-          - azureDevOps
-        deployedAt:
-          type: string
-          format: date-time
-        applicationUrl:
-          type: string
-          format: uri
-          readOnly: true
-      required:
-      - identifier
-      - applicationIdentifier
-      - version
   securitySchemes:
     personal_access_token:
       type: http

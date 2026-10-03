@@ -151,23 +151,6 @@ paths:
         explode: false
 components:
   schemas:
-    sessionError:
-      title: session-error
-      type: object
-      properties:
-        errorGroupIdentifier:
-          type: string
-        occurredAt:
-          type: string
-          format: date-time
-        applicationUrl:
-          type: string
-          format: uri
-          description: URL to view the error instance in Raygun
-      required:
-      - errorGroupIdentifier
-      - occurredAt
-      - applicationUrl
     session:
       title: session
       type: object
@@ -248,6 +231,23 @@ components:
       - viewportHeight
       - deploymentVersion
       - applicationUrl
+    sessionError:
+      title: session-error
+      type: object
+      properties:
+        errorGroupIdentifier:
+          type: string
+        occurredAt:
+          type: string
+          format: date-time
+        applicationUrl:
+          type: string
+          format: uri
+          description: URL to view the error instance in Raygun
+      required:
+      - errorGroupIdentifier
+      - occurredAt
+      - applicationUrl
     sessionPageView:
       title: page-view
       type: object
@@ -266,6 +266,13 @@ components:
       - viewedAt
       - applicationUrl
   parameters:
+    application-identifier:
+      name: application-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Application identifier
     count:
       name: count
       in: query
@@ -276,13 +283,13 @@ components:
         default: 100
         maximum: 500
       description: Limits the number of items in the response
-    application-identifier:
-      name: application-identifier
+    session-identifier:
+      name: session-identifier
       in: path
-      required: true
       schema:
         type: string
-      description: Application identifier
+      required: true
+      description: Session identifier
     offset:
       name: offset
       in: query
@@ -291,13 +298,6 @@ components:
         minimum: 0
         maximum: 2147483647
       description: Number of items to skip before returning results
-    session-identifier:
-      name: session-identifier
-      in: path
-      schema:
-        type: string
-      required: true
-      description: Session identifier
   responses:
     problem-details:
       description: Problem Details

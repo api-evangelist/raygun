@@ -93,6 +93,20 @@ paths:
         - customers:read
 components:
   parameters:
+    customer-identifier:
+      name: customer-identifier
+      in: path
+      schema:
+        type: string
+      required: true
+      description: Customer identifier
+    application-identifier:
+      name: application-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Application identifier
     count:
       name: count
       in: query
@@ -103,13 +117,6 @@ components:
         default: 100
         maximum: 500
       description: Limits the number of items in the response
-    application-identifier:
-      name: application-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Application identifier
     offset:
       name: offset
       in: query
@@ -118,13 +125,6 @@ components:
         minimum: 0
         maximum: 2147483647
       description: Number of items to skip before returning results
-    customer-identifier:
-      name: customer-identifier
-      in: path
-      schema:
-        type: string
-      required: true
-      description: Customer identifier
   schemas:
     customer:
       title: customer
