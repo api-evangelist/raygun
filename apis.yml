@@ -337,6 +337,9 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/raygun.png
 access: 3rd-Party
 common:
+  - type: CapabilityMap
+    url: capabilities/raygun-capability-edges.yml
+    name: Raygun Business Capability Map
   - type: Website
     url: https://www.raygun.com/
   - type: AgenticAccess
