@@ -203,69 +203,34 @@ paths:
       - Source Maps
       description: Deletes all source maps
 components:
-  parameters:
-    source-map-identifier:
-      name: source-map-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Source map identifier
-    application-identifier:
-      name: application-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Application identifier
-    count:
-      name: count
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 100
-        maximum: 500
-      description: Limits the number of items in the response
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 2147483647
-      description: Number of items to skip before returning results
-  requestBodies:
-    upload-source-map:
-      content:
-        multipart/form-data:
-          schema:
-            type: object
-            properties:
-              file:
-                type: string
-                format: binary
-              uri:
-                type: string
-                format: uri
-            required:
-            - file
-            - uri
-      required: true
-    update-source-map:
+  responses:
+    problem-details:
+      description: Problem Details
       content:
         application/json:
           schema:
             type: object
             properties:
-              uri:
+              type:
                 type: string
-                format: uri
+              title:
+                type: string
+              detail:
+                type: string
+              status:
+                type: integer
+              traceId:
+                type: string
             required:
-            - uri
-      required: true
-  responses:
+            - type
+            - title
+            - status
+            - traceId
+      headers:
+        X-Raygun-RequestId:
+          schema:
+            type: string
+          description: The id associated with this request
     validation-problem-details:
       description: Validation problem details
       content:
@@ -300,33 +265,68 @@ components:
           schema:
             type: string
           description: The id associated with this request
-    problem-details:
-      description: Problem Details
+  parameters:
+    source-map-identifier:
+      name: source-map-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Source map identifier
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 2147483647
+      description: Number of items to skip before returning results
+    count:
+      name: count
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+        maximum: 500
+      description: Limits the number of items in the response
+    application-identifier:
+      name: application-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Application identifier
+  requestBodies:
+    update-source-map:
       content:
         application/json:
           schema:
             type: object
             properties:
-              type:
+              uri:
                 type: string
-              title:
-                type: string
-              detail:
-                type: string
-              status:
-                type: integer
-              traceId:
-                type: string
+                format: uri
             required:
-            - type
-            - title
-            - status
-            - traceId
-      headers:
-        X-Raygun-RequestId:
+            - uri
+      required: true
+    upload-source-map:
+      content:
+        multipart/form-data:
           schema:
-            type: string
-          description: The id associated with this request
+            type: object
+            properties:
+              file:
+                type: string
+                format: binary
+              uri:
+                type: string
+                format: uri
+            required:
+            - file
+            - uri
+      required: true
   schemas:
     source-map:
       title: source-map

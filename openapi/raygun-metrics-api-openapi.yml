@@ -245,6 +245,57 @@ paths:
       - Metrics
 components:
   responses:
+    problem-details:
+      description: Problem Details
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              title:
+                type: string
+              detail:
+                type: string
+              status:
+                type: integer
+              traceId:
+                type: string
+            required:
+            - type
+            - title
+            - status
+            - traceId
+      headers:
+        X-Raygun-RequestId:
+          schema:
+            type: string
+          description: The id associated with this request
+    metrics-time-series:
+      description: Time-series metrics
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                aggregation:
+                  type: string
+                metric:
+                  type: string
+                series:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      time:
+                        type: string
+                        format: date-time
+                      value:
+                        type: number
+                        format: double
     validation-problem-details:
       description: Validation problem details
       content:
@@ -279,30 +330,6 @@ components:
           schema:
             type: string
           description: The id associated with this request
-    metrics-time-series:
-      description: Time-series metrics
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              type: object
-              properties:
-                aggregation:
-                  type: string
-                metric:
-                  type: string
-                series:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      time:
-                        type: string
-                        format: date-time
-                      value:
-                        type: number
-                        format: double
     metrics-histogram:
       description: Histogram metrics
       content:
@@ -358,33 +385,6 @@ components:
                 - key: 80.5
                   range: 80.5 - 120.5
                   count: 300
-    problem-details:
-      description: Problem Details
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              type:
-                type: string
-              title:
-                type: string
-              detail:
-                type: string
-              status:
-                type: integer
-              traceId:
-                type: string
-            required:
-            - type
-            - title
-            - status
-            - traceId
-      headers:
-        X-Raygun-RequestId:
-          schema:
-            type: string
-          description: The id associated with this request
   parameters:
     application-identifier:
       name: application-identifier

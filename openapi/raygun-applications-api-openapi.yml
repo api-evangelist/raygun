@@ -140,6 +140,34 @@ paths:
       - personal_access_token:
         - applications:write
 components:
+  responses:
+    problem-details:
+      description: Problem Details
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              title:
+                type: string
+              detail:
+                type: string
+              status:
+                type: integer
+              traceId:
+                type: string
+            required:
+            - type
+            - title
+            - status
+            - traceId
+      headers:
+        X-Raygun-RequestId:
+          schema:
+            type: string
+          description: The id associated with this request
   parameters:
     api-key:
       name: api-key
@@ -148,13 +176,14 @@ components:
       schema:
         type: string
       description: Application api key
-    application-identifier:
-      name: application-identifier
-      in: path
-      required: true
+    offset:
+      name: offset
+      in: query
       schema:
-        type: string
-      description: Application identifier
+        type: integer
+        minimum: 0
+        maximum: 2147483647
+      description: Number of items to skip before returning results
     count:
       name: count
       in: query
@@ -165,14 +194,13 @@ components:
         default: 100
         maximum: 500
       description: Limits the number of items in the response
-    offset:
-      name: offset
-      in: query
+    application-identifier:
+      name: application-identifier
+      in: path
+      required: true
       schema:
-        type: integer
-        minimum: 0
-        maximum: 2147483647
-      description: Number of items to skip before returning results
+        type: string
+      description: Application identifier
   schemas:
     application:
       type: object
@@ -206,34 +234,6 @@ components:
       - hasSentCrashData
       - hasSentApmData
       - hasSentRumData
-  responses:
-    problem-details:
-      description: Problem Details
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              type:
-                type: string
-              title:
-                type: string
-              detail:
-                type: string
-              status:
-                type: integer
-              traceId:
-                type: string
-            required:
-            - type
-            - title
-            - status
-            - traceId
-      headers:
-        X-Raygun-RequestId:
-          schema:
-            type: string
-          description: The id associated with this request
   securitySchemes:
     personal_access_token:
       type: http

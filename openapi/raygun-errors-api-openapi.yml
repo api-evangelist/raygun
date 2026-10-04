@@ -478,101 +478,51 @@ paths:
       tags:
       - Errors
 components:
-  requestBodies:
-    error-group-resolve:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              version:
-                type: string
-                description: The version that this error was resolved in
-              discardFromPreviousVersions:
-                default: true
-                type: boolean
-                description: When true, occurrences from previous versions will be discarded.
-            required:
-            - version
-            - discardFromPreviousVersions
-    create-comment:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              comment:
-                type: string
-                description: The comment to add to the error group
-      required: true
-    error-group-permanently-ignore:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              discardNewOccurrences:
-                type: boolean
-                description: When true, new occurrences of this error will not be stored or count towards your error quota
-            required:
-            - discardNewOccurrences
-      required: true
   schemas:
-    environment-detail:
+    breadcrumb-detail:
       type: object
       properties:
-        processorCount:
-          type: integer
-          description: Processor count
-        osVersion:
+        message:
           type: string
-          description: Operating system version
-        windowBoundsWidth:
+          description: Message describing the breadcrumb
+        category:
           type: string
-          description: Window bounds width if applicable
-        windowBoundsHeight:
+          description: Category of the breadcrumb
+        level:
           type: string
-          description: Window bounds height if applicable
-        browser:
+          description: Level of the breadcrumb (info, warning, error, etc.)
+        timestamp:
           type: string
-          description: Browser name if this is a web application
-        browserVersion:
+          format: date-time
+          description: When this breadcrumb was recorded
+        type:
           type: string
-          description: Browser version
-        colorDepth:
+          description: Type of breadcrumb
+        customData:
+          type: object
+          additionalProperties: true
+          description: Custom data associated with the breadcrumb
+    stack-frame-detail:
+      type: object
+      properties:
+        lineNumber:
           type: integer
-          description: Color depth of the display
-        resolutionWidth:
+          description: Line number in the source file
+        columnNumber:
           type: integer
-          description: Screen resolution width
-        resolutionHeight:
-          type: integer
-          description: Screen resolution height
-        currentCulture:
+          description: Column number in the source file
+        className:
           type: string
-          description: Current culture
-        totalPhysicalMemory:
-          type: integer
-          format: int64
-          description: Total physical memory
-        availablePhysicalMemory:
-          type: integer
-          format: int64
-          description: Available physical memory
-        totalVirtualMemory:
-          type: integer
-          format: int64
-          description: Total virtual memory
-        availableVirtualMemory:
-          type: integer
-          format: int64
-          description: Available virtual memory
-        diskSpaceFree:
+          description: Class name containing the method
+        fileName:
           type: string
-          description: Disk space information
-        architecture:
+          description: File name of the source code
+        methodName:
           type: string
-          description: Architecture (x86, x64, etc.)
+          description: Method name
+        raw:
+          type: string
+          description: Raw stack frame string
     user-detail:
       type: object
       properties:
@@ -596,19 +546,102 @@ components:
           type: string
           format: uuid
           description: UUID for this user
-    error-instance-summary:
+    client-detail:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the client SDK
+        version:
+          type: string
+          description: Version of the client SDK
+        clientUrl:
+          type: string
+          format: uri
+          description: URL of the client SDK
+    comment:
+      title: comment
+      type: object
+      properties:
+        applicationIdentifier:
+          type: string
+        errorGroupIdentifier:
+          type: string
+        comment:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+      required:
+      - identifier
+      - applicationIdentifier
+      - errorGroupIdentifier
+      - comment
+      - createdAt
+    error-detail:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The error message
+        className:
+          type: string
+          description: The exception class name
+        innerError:
+          $ref: '#/components/schemas/error-detail'
+          description: Inner exception details
+        innerErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/error-detail'
+          description: Multiple inner exceptions (for AggregateException scenarios)
+        stackTrace:
+          type: array
+          items:
+            $ref: '#/components/schemas/stack-frame-detail'
+          description: Stack trace frames
+    error-group:
       type: object
       properties:
         identifier:
           type: string
-          description: Identifier of the error instance
-        occurredOn:
+        applicationIdentifier:
+          type: string
+        message:
+          type: string
+        status:
+          type: string
+          enum:
+          - active
+          - resolved
+          - ignored
+          - permanentlyIgnored
+        lastOccurredAt:
+          type: string
+        createdAt:
           type: string
           format: date-time
-          description: When this error instance occurred
+        resolvedIn:
+          type: object
+          properties:
+            version:
+              type: string
+            discardFromPreviousVersions:
+              type: boolean
+        discardNewOccurrences:
+          type: boolean
+          description: True if the error is permanently ignored and has been set to discard any new occurrences.
+        applicationUrl:
+          type: string
+          format: uri
+          description: URL to view the error group in Raygun.
       required:
       - identifier
-      - occurredOn
+      - applicationIdentifier
+      - message
+      - status
+      - lastOccurredAt
+      - createdAt
     error-instance:
       type: object
       properties:
@@ -671,49 +704,74 @@ components:
       - occurredOn
       - error
       - applicationUrl
-    error-detail:
+    error-instance-summary:
       type: object
       properties:
-        message:
+        identifier:
           type: string
-          description: The error message
-        className:
+          description: Identifier of the error instance
+        occurredOn:
           type: string
-          description: The exception class name
-        innerError:
-          $ref: '#/components/schemas/error-detail'
-          description: Inner exception details
-        innerErrors:
-          type: array
-          items:
-            $ref: '#/components/schemas/error-detail'
-          description: Multiple inner exceptions (for AggregateException scenarios)
-        stackTrace:
-          type: array
-          items:
-            $ref: '#/components/schemas/stack-frame-detail'
-          description: Stack trace frames
-    stack-frame-detail:
+          format: date-time
+          description: When this error instance occurred
+      required:
+      - identifier
+      - occurredOn
+    environment-detail:
       type: object
       properties:
-        lineNumber:
+        processorCount:
           type: integer
-          description: Line number in the source file
-        columnNumber:
+          description: Processor count
+        osVersion:
+          type: string
+          description: Operating system version
+        windowBoundsWidth:
+          type: string
+          description: Window bounds width if applicable
+        windowBoundsHeight:
+          type: string
+          description: Window bounds height if applicable
+        browser:
+          type: string
+          description: Browser name if this is a web application
+        browserVersion:
+          type: string
+          description: Browser version
+        colorDepth:
           type: integer
-          description: Column number in the source file
-        className:
+          description: Color depth of the display
+        resolutionWidth:
+          type: integer
+          description: Screen resolution width
+        resolutionHeight:
+          type: integer
+          description: Screen resolution height
+        currentCulture:
           type: string
-          description: Class name containing the method
-        fileName:
+          description: Current culture
+        totalPhysicalMemory:
+          type: integer
+          format: int64
+          description: Total physical memory
+        availablePhysicalMemory:
+          type: integer
+          format: int64
+          description: Available physical memory
+        totalVirtualMemory:
+          type: integer
+          format: int64
+          description: Total virtual memory
+        availableVirtualMemory:
+          type: integer
+          format: int64
+          description: Available virtual memory
+        diskSpaceFree:
           type: string
-          description: File name of the source code
-        methodName:
+          description: Disk space information
+        architecture:
           type: string
-          description: Method name
-        raw:
-          type: string
-          description: Raw stack frame string
+          description: Architecture (x86, x64, etc.)
     request-detail:
       type: object
       properties:
@@ -748,133 +806,7 @@ components:
         hostName:
           type: string
           description: Host header value
-    client-detail:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the client SDK
-        version:
-          type: string
-          description: Version of the client SDK
-        clientUrl:
-          type: string
-          format: uri
-          description: URL of the client SDK
-    breadcrumb-detail:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Message describing the breadcrumb
-        category:
-          type: string
-          description: Category of the breadcrumb
-        level:
-          type: string
-          description: Level of the breadcrumb (info, warning, error, etc.)
-        timestamp:
-          type: string
-          format: date-time
-          description: When this breadcrumb was recorded
-        type:
-          type: string
-          description: Type of breadcrumb
-        customData:
-          type: object
-          additionalProperties: true
-          description: Custom data associated with the breadcrumb
-    comment:
-      title: comment
-      type: object
-      properties:
-        applicationIdentifier:
-          type: string
-        errorGroupIdentifier:
-          type: string
-        comment:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-      required:
-      - identifier
-      - applicationIdentifier
-      - errorGroupIdentifier
-      - comment
-      - createdAt
-    error-group:
-      type: object
-      properties:
-        identifier:
-          type: string
-        applicationIdentifier:
-          type: string
-        message:
-          type: string
-        status:
-          type: string
-          enum:
-          - active
-          - resolved
-          - ignored
-          - permanentlyIgnored
-        lastOccurredAt:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-        resolvedIn:
-          type: object
-          properties:
-            version:
-              type: string
-            discardFromPreviousVersions:
-              type: boolean
-        discardNewOccurrences:
-          type: boolean
-          description: True if the error is permanently ignored and has been set to discard any new occurrences.
-        applicationUrl:
-          type: string
-          format: uri
-          description: URL to view the error group in Raygun.
-      required:
-      - identifier
-      - applicationIdentifier
-      - message
-      - status
-      - lastOccurredAt
-      - createdAt
   parameters:
-    application-identifier:
-      name: application-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Application identifier
-    deployment-identifier:
-      name: deployment-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Deployment identifier
-    error-instance-identifier:
-      name: error-instance-identifier
-      in: path
-      schema:
-        type: string
-      required: true
-      description: Error instance identifier (accepts both Base36 and numeric formats)
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 2147483647
-      description: Number of items to skip before returning results
     error-group-identifier:
       name: error-group-identifier
       in: path
@@ -892,6 +824,74 @@ components:
         default: 100
         maximum: 500
       description: Limits the number of items in the response
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 2147483647
+      description: Number of items to skip before returning results
+    error-instance-identifier:
+      name: error-instance-identifier
+      in: path
+      schema:
+        type: string
+      required: true
+      description: Error instance identifier (accepts both Base36 and numeric formats)
+    deployment-identifier:
+      name: deployment-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Deployment identifier
+    application-identifier:
+      name: application-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Application identifier
+  requestBodies:
+    error-group-resolve:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              version:
+                type: string
+                description: The version that this error was resolved in
+              discardFromPreviousVersions:
+                default: true
+                type: boolean
+                description: When true, occurrences from previous versions will be discarded.
+            required:
+            - version
+            - discardFromPreviousVersions
+    create-comment:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              comment:
+                type: string
+                description: The comment to add to the error group
+      required: true
+    error-group-permanently-ignore:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              discardNewOccurrences:
+                type: boolean
+                description: When true, new occurrences of this error will not be stored or count towards your error quota
+            required:
+            - discardNewOccurrences
+      required: true
   responses:
     problem-details:
       description: Problem Details

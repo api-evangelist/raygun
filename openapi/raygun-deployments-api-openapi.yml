@@ -388,6 +388,149 @@ paths:
       tags:
       - Deployments
 components:
+  responses:
+    problem-details:
+      description: Problem Details
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              title:
+                type: string
+              detail:
+                type: string
+              status:
+                type: integer
+              traceId:
+                type: string
+            required:
+            - type
+            - title
+            - status
+            - traceId
+      headers:
+        X-Raygun-RequestId:
+          schema:
+            type: string
+          description: The id associated with this request
+    validation-problem-details:
+      description: Validation problem details
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              title:
+                type: string
+              detail:
+                type: string
+              status:
+                type: integer
+              traceId:
+                type: string
+              errors:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    type: string
+            required:
+            - type
+            - title
+            - status
+            - traceId
+            - errors
+      headers:
+        X-Raygun-RequestId:
+          schema:
+            type: string
+          description: The id associated with this request
+  requestBodies:
+    update-deployment:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              version:
+                type: string
+                minLength: 1
+                maxLength: 128
+              ownerName:
+                type: string
+                minLength: 0
+                maxLength: 128
+              emailAddress:
+                type: string
+                minLength: 0
+                maxLength: 128
+                format: email
+              comment:
+                type: string
+              scmIdentifier:
+                type: string
+                minLength: 0
+                maxLength: 256
+              scmType:
+                type: string
+                enum:
+                - gitHub
+                - gitLab
+                - azureDevOps
+                - bitbucket
+              deployedAt:
+                type: string
+                format: date-time
+    create-deployment:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              version:
+                type: string
+                minLength: 1
+                maxLength: 128
+              ownerName:
+                type: string
+                minLength: 0
+                maxLength: 128
+              emailAddress:
+                type: string
+                minLength: 0
+                maxLength: 128
+                format: email
+              comment:
+                type: string
+              scmIdentifier:
+                type: string
+                minLength: 0
+                maxLength: 256
+              scmType:
+                type: string
+                enum:
+                - gitHub
+                - gitLab
+                - azureDevOps
+                - bitbucket
+              createdAt:
+                type: string
+                format: date-time
+                description: 'Prefer `deployedAt`. This field is for backwards compatibility.
+
+
+                  Specifying both `createdAt` and `deployedAt` will prioritize the use of `deployedAt`'
+                deprecated: true
+              deployedAt:
+                type: string
+                format: date-time
+            required:
+            - version
   schemas:
     error-group:
       type: object
@@ -475,23 +618,6 @@ components:
       schema:
         type: string
       description: Application api key
-    application-identifier:
-      name: application-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Application identifier
-    count:
-      name: count
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 100
-        maximum: 500
-      description: Limits the number of items in the response
     deployment-identifier:
       name: deployment-identifier
       in: path
@@ -507,149 +633,23 @@ components:
         minimum: 0
         maximum: 2147483647
       description: Number of items to skip before returning results
-  responses:
-    validation-problem-details:
-      description: Validation problem details
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              type:
-                type: string
-              title:
-                type: string
-              detail:
-                type: string
-              status:
-                type: integer
-              traceId:
-                type: string
-              errors:
-                type: object
-                additionalProperties:
-                  type: array
-                  items:
-                    type: string
-            required:
-            - type
-            - title
-            - status
-            - traceId
-            - errors
-      headers:
-        X-Raygun-RequestId:
-          schema:
-            type: string
-          description: The id associated with this request
-    problem-details:
-      description: Problem Details
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              type:
-                type: string
-              title:
-                type: string
-              detail:
-                type: string
-              status:
-                type: integer
-              traceId:
-                type: string
-            required:
-            - type
-            - title
-            - status
-            - traceId
-      headers:
-        X-Raygun-RequestId:
-          schema:
-            type: string
-          description: The id associated with this request
-  requestBodies:
-    update-deployment:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              version:
-                type: string
-                minLength: 1
-                maxLength: 128
-              ownerName:
-                type: string
-                minLength: 0
-                maxLength: 128
-              emailAddress:
-                type: string
-                minLength: 0
-                maxLength: 128
-                format: email
-              comment:
-                type: string
-              scmIdentifier:
-                type: string
-                minLength: 0
-                maxLength: 256
-              scmType:
-                type: string
-                enum:
-                - gitHub
-                - gitLab
-                - azureDevOps
-                - bitbucket
-              deployedAt:
-                type: string
-                format: date-time
-    create-deployment:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              version:
-                type: string
-                minLength: 1
-                maxLength: 128
-              ownerName:
-                type: string
-                minLength: 0
-                maxLength: 128
-              emailAddress:
-                type: string
-                minLength: 0
-                maxLength: 128
-                format: email
-              comment:
-                type: string
-              scmIdentifier:
-                type: string
-                minLength: 0
-                maxLength: 256
-              scmType:
-                type: string
-                enum:
-                - gitHub
-                - gitLab
-                - azureDevOps
-                - bitbucket
-              createdAt:
-                type: string
-                format: date-time
-                description: 'Prefer `deployedAt`. This field is for backwards compatibility.
-
-
-                  Specifying both `createdAt` and `deployedAt` will prioritize the use of `deployedAt`'
-                deprecated: true
-              deployedAt:
-                type: string
-                format: date-time
-            required:
-            - version
+    count:
+      name: count
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+        maximum: 500
+      description: Limits the number of items in the response
+    application-identifier:
+      name: application-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Application identifier
   securitySchemes:
     personal_access_token:
       type: http

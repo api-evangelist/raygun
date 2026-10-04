@@ -41,15 +41,6 @@ paths:
       security:
       - personal_access_token: []
 components:
-  schemas:
-    plan:
-      title: plan
-      type: object
-      properties:
-        identifier:
-          type: string
-      required:
-      - identifier
   responses:
     problem-details:
       description: Problem Details
@@ -78,6 +69,15 @@ components:
           schema:
             type: string
           description: The id associated with this request
+  schemas:
+    plan:
+      title: plan
+      type: object
+      properties:
+        identifier:
+          type: string
+      required:
+      - identifier
   securitySchemes:
     personal_access_token:
       type: http

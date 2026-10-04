@@ -84,51 +84,6 @@ paths:
       - personal_access_token:
         - teams:read
 components:
-  schemas:
-    team:
-      title: team
-      type: object
-      properties:
-        identifier:
-          type: string
-        name:
-          type: string
-        planIdentifier:
-          type: string
-        isSystemManaged:
-          type: boolean
-          description: System teams are Owners and Users, and cannot be deleted
-      required:
-      - identifier
-      - name
-      - planIdentifier
-      - isSystemManaged
-  parameters:
-    count:
-      name: count
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 100
-        maximum: 500
-      description: Limits the number of items in the response
-    team-identifier:
-      name: team-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Team identifier
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 2147483647
-      description: Number of items to skip before returning results
   responses:
     problem-details:
       description: Problem Details
@@ -157,6 +112,51 @@ components:
           schema:
             type: string
           description: The id associated with this request
+  parameters:
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 2147483647
+      description: Number of items to skip before returning results
+    count:
+      name: count
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+        maximum: 500
+      description: Limits the number of items in the response
+    team-identifier:
+      name: team-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Team identifier
+  schemas:
+    team:
+      title: team
+      type: object
+      properties:
+        identifier:
+          type: string
+        name:
+          type: string
+        planIdentifier:
+          type: string
+        isSystemManaged:
+          type: boolean
+          description: System teams are Owners and Users, and cannot be deleted
+      required:
+      - identifier
+      - name
+      - planIdentifier
+      - isSystemManaged
   securitySchemes:
     personal_access_token:
       type: http
