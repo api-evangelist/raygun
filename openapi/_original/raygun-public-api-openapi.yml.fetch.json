@@ -1,0 +1,12 @@
+{
+ "url": "https://api.raygun.io/v3/raygun-openapi-spec.json",
+ "requested_url": "https://api.raygun.io/v3/raygun-openapi-spec.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 176444,
+ "sha256": "45caf50be25ef5683b996a367566bef29e207a3bab23fb0fa74f332887b7fdff",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.911), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
