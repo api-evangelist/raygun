@@ -1,3 +1,8 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (dated 2026-05-25 by the file itself), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
+generated: '2026-05-25'
 specification: API Commons Plans
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
@@ -315,3 +320,118 @@ retention:
   enterprise: custom
 discounts:
   - description: Annual billing saves approximately 33% versus monthly.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  - subscription
+  - tiered
+  units:
+  - object
+  plans:
+  - name: Crash Reporting Basic
+    access: other
+    model: tiered
+    model_how: stated
+    units:
+    - other
+    periods:
+    - month
+  - name: Crash Reporting Team
+    access: other
+    model: tiered
+    model_how: stated
+    units:
+    - other
+    periods:
+    - month
+  - name: Crash Reporting Business
+    access: other
+    model: tiered
+    model_how: stated
+    units:
+    - other
+    periods:
+    - month
+  - name: Crash Reporting Enterprise
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Real User Monitoring Basic
+    access: other
+    model: tiered
+    model_how: stated
+    units:
+    - object
+    periods:
+    - month
+  - name: Real User Monitoring Team
+    access: other
+    model: tiered
+    model_how: stated
+    units:
+    - object
+    periods:
+    - month
+  - name: Real User Monitoring Business
+    access: other
+    model: tiered
+    model_how: stated
+    units:
+    - object
+    periods:
+    - month
+  - name: Real User Monitoring Enterprise
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - object
+    periods:
+    - month
+  - name: Application Performance Monitoring Basic
+    access: other
+    model: tiered
+    model_how: stated
+    units:
+    - other
+    periods:
+    - month
+  - name: Application Performance Monitoring Team
+    access: other
+    model: tiered
+    model_how: stated
+    units:
+    - other
+    periods:
+    - month
+  - name: Application Performance Monitoring Business
+    access: other
+    model: tiered
+    model_how: stated
+    units:
+    - other
+    periods:
+    - month
+  - name: Application Performance Monitoring Enterprise
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: On-Demand Overages
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - object
+    - other
+    periods:
+    - per-use
