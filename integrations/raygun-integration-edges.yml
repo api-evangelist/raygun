@@ -4,6 +4,7 @@ checked:
 - https://azuremarketplace.microsoft.com/
 - https://marketplace.atlassian.com/
 - https://registry.modelcontextprotocol.io/v0/servers
+- shopify/integrations/shopify-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -38,6 +39,24 @@ edges:
   publisher_name: Raygun
   detected_by: sweep-devtools.py
   detected: '2026-10-14'
+- partner_name: Shopify (own)
+  partner: shopify
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://apps.shopify.com/raygun-crash-reporting
+  mirror_of: shopify/integrations/shopify-integration-edges.yml
+  apps:
+  - Raygun Crash Reporting
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  publisher_verified:
+  - Built for Shopify
 - partner_name: MCP Registry
   partner: mcp
   partner_match: register
@@ -53,7 +72,7 @@ edges:
     registered_name: io.github.MindscapeHQ/mcp-server-raygun
     register_id: io.github.MindscapeHQ/mcp-server-raygun
     detected_by: sweep-agent-tools.py
-    detected: '2026-10-14'
+    detected: '2026-10-15'
   mcp_registry:
     servers:
     - io.github.MindscapeHQ/mcp-server-raygun
