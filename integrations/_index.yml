@@ -27,6 +27,18 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: raygun-shopify-own
+  label: Shopify (own)
+  partner: shopify
+  partner_name: Shopify (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://apps.shopify.com/raygun-crash-reporting
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
 - slug: raygun-mcp-registry
   label: MCP Registry
   partner: mcp
@@ -43,18 +55,6 @@
     registered_name: io.github.MindscapeHQ/mcp-server-raygun
     register_id: io.github.MindscapeHQ/mcp-server-raygun
     detected_by: sweep-agent-tools.py
-    detected: '2026-10-14'
-  status: not-a-workflow
-  arazzo: null
-- slug: raygun-shopify-own
-  label: Shopify (own)
-  partner: shopify
-  partner_name: Shopify (own)
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://apps.shopify.com/raygun-crash-reporting
-  source: edge
-  relationship: platform-app
+    detected: '2026-10-15'
   status: not-a-workflow
   arazzo: null
