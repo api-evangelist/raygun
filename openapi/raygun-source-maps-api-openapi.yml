@@ -203,6 +203,95 @@ paths:
       - Source Maps
       description: Deletes all source maps
 components:
+  schemas:
+    source-map:
+      title: source-map
+      type: object
+      properties:
+        identifier:
+          type: string
+        applicationIdentifier:
+          type: string
+        uri:
+          type: string
+          format: uri
+        fileName:
+          type: string
+        fileSizeBytes:
+          type: number
+        uploadedAt:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        isMapFile:
+          type: boolean
+  parameters:
+    source-map-identifier:
+      name: source-map-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Source map identifier
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 2147483647
+      description: Number of items to skip before returning results
+    count:
+      name: count
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+        maximum: 500
+      description: Limits the number of items in the response
+    application-identifier:
+      name: application-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Application identifier
+  requestBodies:
+    upload-source-map:
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              file:
+                type: string
+                format: binary
+              uri:
+                type: string
+                format: uri
+            required:
+            - file
+            - uri
+      required: true
+    update-source-map:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              uri:
+                type: string
+                format: uri
+            required:
+            - uri
+      required: true
   responses:
     problem-details:
       description: Problem Details
@@ -265,95 +354,6 @@ components:
           schema:
             type: string
           description: The id associated with this request
-  parameters:
-    source-map-identifier:
-      name: source-map-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Source map identifier
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 2147483647
-      description: Number of items to skip before returning results
-    count:
-      name: count
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 100
-        maximum: 500
-      description: Limits the number of items in the response
-    application-identifier:
-      name: application-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Application identifier
-  requestBodies:
-    update-source-map:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              uri:
-                type: string
-                format: uri
-            required:
-            - uri
-      required: true
-    upload-source-map:
-      content:
-        multipart/form-data:
-          schema:
-            type: object
-            properties:
-              file:
-                type: string
-                format: binary
-              uri:
-                type: string
-                format: uri
-            required:
-            - file
-            - uri
-      required: true
-  schemas:
-    source-map:
-      title: source-map
-      type: object
-      properties:
-        identifier:
-          type: string
-        applicationIdentifier:
-          type: string
-        uri:
-          type: string
-          format: uri
-        fileName:
-          type: string
-        fileSizeBytes:
-          type: number
-        uploadedAt:
-          type: string
-          format: date-time
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        isMapFile:
-          type: boolean
   securitySchemes:
     personal_access_token:
       type: http

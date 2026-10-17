@@ -150,68 +150,24 @@ paths:
         style: form
         explode: false
 components:
-  responses:
-    problem-details:
-      description: Problem Details
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              type:
-                type: string
-              title:
-                type: string
-              detail:
-                type: string
-              status:
-                type: integer
-              traceId:
-                type: string
-            required:
-            - type
-            - title
-            - status
-            - traceId
-      headers:
-        X-Raygun-RequestId:
-          schema:
-            type: string
-          description: The id associated with this request
-  parameters:
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 2147483647
-      description: Number of items to skip before returning results
-    session-identifier:
-      name: session-identifier
-      in: path
-      schema:
-        type: string
-      required: true
-      description: Session identifier
-    count:
-      name: count
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 100
-        maximum: 500
-      description: Limits the number of items in the response
-    application-identifier:
-      name: application-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Application identifier
   schemas:
+    sessionPageView:
+      title: page-view
+      type: object
+      properties:
+        pageIdentifier:
+          type: string
+        viewedAt:
+          type: string
+          format: date-time
+        applicationUrl:
+          type: string
+          format: uri
+          description: URL to view the session page view in Raygun
+      required:
+      - pageIdentifier
+      - viewedAt
+      - applicationUrl
     session:
       title: session
       type: object
@@ -309,23 +265,67 @@ components:
       - errorGroupIdentifier
       - occurredAt
       - applicationUrl
-    sessionPageView:
-      title: page-view
-      type: object
-      properties:
-        pageIdentifier:
-          type: string
-        viewedAt:
-          type: string
-          format: date-time
-        applicationUrl:
-          type: string
-          format: uri
-          description: URL to view the session page view in Raygun
-      required:
-      - pageIdentifier
-      - viewedAt
-      - applicationUrl
+  parameters:
+    count:
+      name: count
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+        maximum: 500
+      description: Limits the number of items in the response
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 2147483647
+      description: Number of items to skip before returning results
+    session-identifier:
+      name: session-identifier
+      in: path
+      schema:
+        type: string
+      required: true
+      description: Session identifier
+    application-identifier:
+      name: application-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Application identifier
+  responses:
+    problem-details:
+      description: Problem Details
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              title:
+                type: string
+              detail:
+                type: string
+              status:
+                type: integer
+              traceId:
+                type: string
+            required:
+            - type
+            - title
+            - status
+            - traceId
+      headers:
+        X-Raygun-RequestId:
+          schema:
+            type: string
+          description: The id associated with this request
   securitySchemes:
     personal_access_token:
       type: http

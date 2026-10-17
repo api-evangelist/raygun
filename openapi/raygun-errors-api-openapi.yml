@@ -478,51 +478,68 @@ paths:
       tags:
       - Errors
 components:
+  requestBodies:
+    create-comment:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              comment:
+                type: string
+                description: The comment to add to the error group
+      required: true
+    error-group-permanently-ignore:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              discardNewOccurrences:
+                type: boolean
+                description: When true, new occurrences of this error will not be stored or count towards your error quota
+            required:
+            - discardNewOccurrences
+      required: true
+    error-group-resolve:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              version:
+                type: string
+                description: The version that this error was resolved in
+              discardFromPreviousVersions:
+                default: true
+                type: boolean
+                description: When true, occurrences from previous versions will be discarded.
+            required:
+            - version
+            - discardFromPreviousVersions
   schemas:
-    breadcrumb-detail:
+    error-detail:
       type: object
       properties:
         message:
           type: string
-          description: Message describing the breadcrumb
-        category:
-          type: string
-          description: Category of the breadcrumb
-        level:
-          type: string
-          description: Level of the breadcrumb (info, warning, error, etc.)
-        timestamp:
-          type: string
-          format: date-time
-          description: When this breadcrumb was recorded
-        type:
-          type: string
-          description: Type of breadcrumb
-        customData:
-          type: object
-          additionalProperties: true
-          description: Custom data associated with the breadcrumb
-    stack-frame-detail:
-      type: object
-      properties:
-        lineNumber:
-          type: integer
-          description: Line number in the source file
-        columnNumber:
-          type: integer
-          description: Column number in the source file
+          description: The error message
         className:
           type: string
-          description: Class name containing the method
-        fileName:
-          type: string
-          description: File name of the source code
-        methodName:
-          type: string
-          description: Method name
-        raw:
-          type: string
-          description: Raw stack frame string
+          description: The exception class name
+        innerError:
+          $ref: '#/components/schemas/error-detail'
+          description: Inner exception details
+        innerErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/error-detail'
+          description: Multiple inner exceptions (for AggregateException scenarios)
+        stackTrace:
+          type: array
+          items:
+            $ref: '#/components/schemas/stack-frame-detail'
+          description: Stack trace frames
     user-detail:
       type: object
       properties:
@@ -546,6 +563,61 @@ components:
           type: string
           format: uuid
           description: UUID for this user
+    stack-frame-detail:
+      type: object
+      properties:
+        lineNumber:
+          type: integer
+          description: Line number in the source file
+        columnNumber:
+          type: integer
+          description: Column number in the source file
+        className:
+          type: string
+          description: Class name containing the method
+        fileName:
+          type: string
+          description: File name of the source code
+        methodName:
+          type: string
+          description: Method name
+        raw:
+          type: string
+          description: Raw stack frame string
+    request-detail:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          description: HTTP URL that was being requested
+        httpMethod:
+          type: string
+          description: HTTP method (GET, POST, etc.)
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+          description: Request headers
+        queryString:
+          type: object
+          additionalProperties:
+            type: string
+          description: Query string parameters
+        form:
+          type: object
+          additionalProperties:
+            type: string
+          description: Form data if applicable
+        rawData:
+          type: string
+          description: Raw request data
+        ipAddress:
+          type: string
+          description: IP address of the client
+        hostName:
+          type: string
+          description: Host header value
     client-detail:
       type: object
       properties:
@@ -559,47 +631,61 @@ components:
           type: string
           format: uri
           description: URL of the client SDK
-    comment:
-      title: comment
+    environment-detail:
       type: object
       properties:
-        applicationIdentifier:
+        processorCount:
+          type: integer
+          description: Processor count
+        osVersion:
           type: string
-        errorGroupIdentifier:
+          description: Operating system version
+        windowBoundsWidth:
           type: string
-        comment:
+          description: Window bounds width if applicable
+        windowBoundsHeight:
           type: string
-        createdAt:
+          description: Window bounds height if applicable
+        browser:
           type: string
-          format: date-time
-      required:
-      - identifier
-      - applicationIdentifier
-      - errorGroupIdentifier
-      - comment
-      - createdAt
-    error-detail:
-      type: object
-      properties:
-        message:
+          description: Browser name if this is a web application
+        browserVersion:
           type: string
-          description: The error message
-        className:
+          description: Browser version
+        colorDepth:
+          type: integer
+          description: Color depth of the display
+        resolutionWidth:
+          type: integer
+          description: Screen resolution width
+        resolutionHeight:
+          type: integer
+          description: Screen resolution height
+        currentCulture:
           type: string
-          description: The exception class name
-        innerError:
-          $ref: '#/components/schemas/error-detail'
-          description: Inner exception details
-        innerErrors:
-          type: array
-          items:
-            $ref: '#/components/schemas/error-detail'
-          description: Multiple inner exceptions (for AggregateException scenarios)
-        stackTrace:
-          type: array
-          items:
-            $ref: '#/components/schemas/stack-frame-detail'
-          description: Stack trace frames
+          description: Current culture
+        totalPhysicalMemory:
+          type: integer
+          format: int64
+          description: Total physical memory
+        availablePhysicalMemory:
+          type: integer
+          format: int64
+          description: Available physical memory
+        totalVirtualMemory:
+          type: integer
+          format: int64
+          description: Total virtual memory
+        availableVirtualMemory:
+          type: integer
+          format: int64
+          description: Available virtual memory
+        diskSpaceFree:
+          type: string
+          description: Disk space information
+        architecture:
+          type: string
+          description: Architecture (x86, x64, etc.)
     error-group:
       type: object
       properties:
@@ -704,6 +790,29 @@ components:
       - occurredOn
       - error
       - applicationUrl
+    breadcrumb-detail:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message describing the breadcrumb
+        category:
+          type: string
+          description: Category of the breadcrumb
+        level:
+          type: string
+          description: Level of the breadcrumb (info, warning, error, etc.)
+        timestamp:
+          type: string
+          format: date-time
+          description: When this breadcrumb was recorded
+        type:
+          type: string
+          description: Type of breadcrumb
+        customData:
+          type: object
+          additionalProperties: true
+          description: Custom data associated with the breadcrumb
     error-instance-summary:
       type: object
       properties:
@@ -717,181 +826,25 @@ components:
       required:
       - identifier
       - occurredOn
-    environment-detail:
+    comment:
+      title: comment
       type: object
       properties:
-        processorCount:
-          type: integer
-          description: Processor count
-        osVersion:
+        applicationIdentifier:
           type: string
-          description: Operating system version
-        windowBoundsWidth:
+        errorGroupIdentifier:
           type: string
-          description: Window bounds width if applicable
-        windowBoundsHeight:
+        comment:
           type: string
-          description: Window bounds height if applicable
-        browser:
+        createdAt:
           type: string
-          description: Browser name if this is a web application
-        browserVersion:
-          type: string
-          description: Browser version
-        colorDepth:
-          type: integer
-          description: Color depth of the display
-        resolutionWidth:
-          type: integer
-          description: Screen resolution width
-        resolutionHeight:
-          type: integer
-          description: Screen resolution height
-        currentCulture:
-          type: string
-          description: Current culture
-        totalPhysicalMemory:
-          type: integer
-          format: int64
-          description: Total physical memory
-        availablePhysicalMemory:
-          type: integer
-          format: int64
-          description: Available physical memory
-        totalVirtualMemory:
-          type: integer
-          format: int64
-          description: Total virtual memory
-        availableVirtualMemory:
-          type: integer
-          format: int64
-          description: Available virtual memory
-        diskSpaceFree:
-          type: string
-          description: Disk space information
-        architecture:
-          type: string
-          description: Architecture (x86, x64, etc.)
-    request-detail:
-      type: object
-      properties:
-        url:
-          type: string
-          format: uri
-          description: HTTP URL that was being requested
-        httpMethod:
-          type: string
-          description: HTTP method (GET, POST, etc.)
-        headers:
-          type: object
-          additionalProperties:
-            type: string
-          description: Request headers
-        queryString:
-          type: object
-          additionalProperties:
-            type: string
-          description: Query string parameters
-        form:
-          type: object
-          additionalProperties:
-            type: string
-          description: Form data if applicable
-        rawData:
-          type: string
-          description: Raw request data
-        ipAddress:
-          type: string
-          description: IP address of the client
-        hostName:
-          type: string
-          description: Host header value
-  parameters:
-    error-group-identifier:
-      name: error-group-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Error group identifier
-    count:
-      name: count
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 100
-        maximum: 500
-      description: Limits the number of items in the response
-    offset:
-      name: offset
-      in: query
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 2147483647
-      description: Number of items to skip before returning results
-    error-instance-identifier:
-      name: error-instance-identifier
-      in: path
-      schema:
-        type: string
-      required: true
-      description: Error instance identifier (accepts both Base36 and numeric formats)
-    deployment-identifier:
-      name: deployment-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Deployment identifier
-    application-identifier:
-      name: application-identifier
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Application identifier
-  requestBodies:
-    error-group-resolve:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              version:
-                type: string
-                description: The version that this error was resolved in
-              discardFromPreviousVersions:
-                default: true
-                type: boolean
-                description: When true, occurrences from previous versions will be discarded.
-            required:
-            - version
-            - discardFromPreviousVersions
-    create-comment:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              comment:
-                type: string
-                description: The comment to add to the error group
-      required: true
-    error-group-permanently-ignore:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              discardNewOccurrences:
-                type: boolean
-                description: When true, new occurrences of this error will not be stored or count towards your error quota
-            required:
-            - discardNewOccurrences
-      required: true
+          format: date-time
+      required:
+      - identifier
+      - applicationIdentifier
+      - errorGroupIdentifier
+      - comment
+      - createdAt
   responses:
     problem-details:
       description: Problem Details
@@ -954,6 +907,53 @@ components:
           schema:
             type: string
           description: The id associated with this request
+  parameters:
+    deployment-identifier:
+      name: deployment-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Deployment identifier
+    count:
+      name: count
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+        maximum: 500
+      description: Limits the number of items in the response
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 2147483647
+      description: Number of items to skip before returning results
+    error-instance-identifier:
+      name: error-instance-identifier
+      in: path
+      schema:
+        type: string
+      required: true
+      description: Error instance identifier (accepts both Base36 and numeric formats)
+    error-group-identifier:
+      name: error-group-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Error group identifier
+    application-identifier:
+      name: application-identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Application identifier
   securitySchemes:
     personal_access_token:
       type: http
