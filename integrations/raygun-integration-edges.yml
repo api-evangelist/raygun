@@ -4,7 +4,9 @@ checked:
 - https://azuremarketplace.microsoft.com/
 - https://marketplace.atlassian.com/
 - https://registry.modelcontextprotocol.io/v0/servers
+- microsoft-teams/integrations/microsoft-teams-integration-edges.yml
 - shopify/integrations/shopify-integration-edges.yml
+- slack/integrations/slack-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -88,5 +90,41 @@ edges:
   - remote-domain
   detected_by: sweep-agent-tools.py
   first_seen: '2026-10-14'
+- partner_name: Microsoft Teams (own)
+  partner: microsoft-teams
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://appsource.microsoft.com/en-us/product/office/WA200005198
+  mirror_of: microsoft-teams/integrations/microsoft-teams-integration-edges.yml
+  apps:
+  - Raygun
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Microsoft Teams app
+  publisher_verified:
+  - Microsoft 365 Certified
+- partner_name: Slack (own)
+  partner: slack
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://slack.com/marketplace/A3E2CU2CC-raygun
+  mirror_of: slack/integrations/slack-integration-edges.yml
+  apps:
+  - Raygun
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Slack app
 source:
 - https://marketplace.atlassian.com/
