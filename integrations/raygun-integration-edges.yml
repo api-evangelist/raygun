@@ -1,5 +1,11 @@
-generated: '2026-10-13'
+generated: '2026-10-20'
 method: searched
+source:
+- https://marketplace.atlassian.com/
+- https://zapier.com/apps/raygun/integrations
+- https://n8n.io/integrations/raygun/
+- https://composio.dev/toolkits/raygun
+- https://monid.ai/tools/raygun
 checked:
 - https://azuremarketplace.microsoft.com/
 - https://marketplace.atlassian.com/
@@ -7,6 +13,11 @@ checked:
 - microsoft-teams/integrations/microsoft-teams-integration-edges.yml
 - shopify/integrations/shopify-integration-edges.yml
 - slack/integrations/slack-integration-edges.yml
+- https://composio.dev/toolkits/raygun
+- https://monid.ai/tools/raygun
+- https://n8n.io/integrations/raygun/
+- https://zapier.com/apps/raygun/integrations
+summary: null
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -59,37 +70,6 @@ edges:
   detected_by: mirror-platform-listings.py
   publisher_verified:
   - Built for Shopify
-- partner_name: MCP Registry
-  partner: mcp
-  partner_match: register
-  type: register
-  channel: standard-directory
-  relationship: standard-participant
-  direction: partner-built
-  evidence: https://registry.modelcontextprotocol.io/v0/servers?search=io.github.MindscapeHQ
-  contract_reference:
-    register: registry.modelcontextprotocol.io
-    spec_file: null
-    role: mcp-server-listing
-    registered_name: io.github.MindscapeHQ/mcp-server-raygun
-    register_id: io.github.MindscapeHQ/mcp-server-raygun
-    detected_by: sweep-agent-tools.py
-    detected: '2026-10-15'
-  mcp_registry:
-    servers:
-    - io.github.MindscapeHQ/mcp-server-raygun
-    hosted_remote: 1
-    local_package: 0
-    transports:
-      streamable-http: 1
-    auth_declared: 0
-    catalog_declared: false
-    namespace_domains:
-    - raygun.com
-  matched_by:
-  - remote-domain
-  detected_by: sweep-agent-tools.py
-  first_seen: '2026-10-14'
 - partner_name: Microsoft Teams (own)
   partner: microsoft-teams
   partner_match: mirror
@@ -126,5 +106,35 @@ edges:
   detected: '2026-10-18'
   detected_by: mirror-platform-listings.py
   category: Slack app
-source:
-- https://marketplace.atlassian.com/
+- partner_name: MCP Registry
+  partner: mcp
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://registry.modelcontextprotocol.io/v0/servers?search=io.github.MindscapeHQ
+  contract_reference:
+    register: registry.modelcontextprotocol.io
+    spec_file: null
+    role: mcp-server-listing
+    registered_name: io.github.MindscapeHQ/mcp-server-raygun
+    register_id: io.github.MindscapeHQ/mcp-server-raygun
+    detected_by: sweep-agent-tools.py
+    detected: '2026-10-19'
+  mcp_registry:
+    servers:
+    - io.github.MindscapeHQ/mcp-server-raygun
+    hosted_remote: 1
+    local_package: 0
+    transports:
+      streamable-http: 1
+    auth_declared: 0
+    catalog_declared: false
+    namespace_domains:
+    - raygun.com
+  matched_by:
+  - remote-domain
+  detected_by: sweep-agent-tools.py
+  first_seen: '2026-10-14'
+templates: []

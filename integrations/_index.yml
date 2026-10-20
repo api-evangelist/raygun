@@ -39,25 +39,6 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
-- slug: raygun-mcp-registry
-  label: MCP Registry
-  partner: mcp
-  partner_name: MCP Registry
-  type: register
-  channel: standard-directory
-  evidence: https://registry.modelcontextprotocol.io/v0/servers?search=io.github.MindscapeHQ
-  source: edge
-  relationship: standard-participant
-  contract_reference:
-    register: registry.modelcontextprotocol.io
-    spec_file: null
-    role: mcp-server-listing
-    registered_name: io.github.MindscapeHQ/mcp-server-raygun
-    register_id: io.github.MindscapeHQ/mcp-server-raygun
-    detected_by: sweep-agent-tools.py
-    detected: '2026-10-15'
-  status: not-a-workflow
-  arazzo: null
 - slug: raygun-microsoft-teams-own
   label: Microsoft Teams (own)
   partner: microsoft-teams
@@ -82,5 +63,24 @@
   evidence: https://slack.com/marketplace/A3E2CU2CC-raygun
   source: edge
   relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: raygun-mcp-registry
+  label: MCP Registry
+  partner: mcp
+  partner_name: MCP Registry
+  type: register
+  channel: standard-directory
+  evidence: https://registry.modelcontextprotocol.io/v0/servers?search=io.github.MindscapeHQ
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: registry.modelcontextprotocol.io
+    spec_file: null
+    role: mcp-server-listing
+    registered_name: io.github.MindscapeHQ/mcp-server-raygun
+    register_id: io.github.MindscapeHQ/mcp-server-raygun
+    detected_by: sweep-agent-tools.py
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
