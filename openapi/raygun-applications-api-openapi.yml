@@ -239,3 +239,9 @@ components:
       type: http
       scheme: bearer
       description: 'Personal Access Token authorization using the Bearer scheme. Example: `Authorization: Bearer {token}`'
+x-provenance:
+  method: harvested
+  publisher: Raygun
+  source: https://api.raygun.io/v3/raygun-openapi-spec.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
